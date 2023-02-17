@@ -52,21 +52,21 @@ function PANEL:Populate(items)
 		self.index.title:SetColor(ix.config.Get("color", color_white))
 
 		self.index.update = self.index.leftPanel:Add("DLabel")
-		self.index.update:SetText("Задержка: " .. item.delay .. " мин.")
+		self.index.update:SetText("Opóźnienie: " .. item.delay .. " min.")
 		self.index.update:Dock(TOP)
 		self.index.update:SetFont("ixToolTipText")
 		self.index.update:DockMargin(10, 5, 0, 0)
 
-		local chance = "Обычный"
+		local chance = "Szansa"
 
 		if (item.chance_type == 1) then
-			chance = "Вещественный"
+			chance = "Popularny"
 		elseif (item.chance_type == 2) then
-			chance = "Линейный"
+			chance = "Liniowy"
 		end
 
 		self.index.type = self.index.leftPanel:Add("DLabel")
-		self.index.type:SetText("Рандом: " .. chance .. " (" .. (item.scale or 1) .. ")")
+		self.index.type:SetText("Losowa: " .. chance .. " (" .. (item.scale or 1) .. ")")
 		self.index.type:Dock(BOTTOM)
 		self.index.type:SetFont("ixToolTipText")
 		self.index.type:DockMargin(10, 5, 0, 0)
@@ -78,7 +78,7 @@ function PANEL:Populate(items)
 
 		self.index.delete = vgui.Create("DButton", self.index)
 		self.index.delete:Dock(RIGHT)
-		self.index.delete:SetText("Удалить")
+		self.index.delete:SetText("Usuń")
 		self.index.delete.DoClick = function()
 			net.Start("ixItemSpawnerSync")
 				net.WriteUInt(index, 12)
@@ -88,7 +88,7 @@ function PANEL:Populate(items)
 
 		self.index.edit = vgui.Create("DButton", self.index)
 		self.index.edit:Dock(RIGHT)
-		self.index.edit:SetText("Изменить")
+		self.index.edit:SetText("Zmień")
 		self.index.edit.DoClick = function()
 			self.editor = vgui.Create("ixItemSpawnerEditor")
 			self.editor:Setup(item, index)
@@ -97,7 +97,7 @@ function PANEL:Populate(items)
 
 		self.index.teleport = vgui.Create("DButton", self.index)
 		self.index.teleport:Dock(RIGHT)
-		self.index.teleport:SetText("Телепорт")
+		self.index.teleport:SetText("Teleport")
 		self.index.teleport.DoClick = function()
 			net.Start("ixItemSpawnerGoto")
 				net.WriteVector(item.position)
@@ -107,7 +107,7 @@ function PANEL:Populate(items)
 
 		self.index.spawn = vgui.Create("DButton", self.index)
 		self.index.spawn:Dock(RIGHT)
-		self.index.spawn:SetText("Создать")
+		self.index.spawn:SetText("Utwórz")
 		self.index.spawn.DoClick = function()
 			net.Start("ixItemSpawnerSpawn")
 				net.WriteTable(item)
