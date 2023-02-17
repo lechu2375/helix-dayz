@@ -66,7 +66,7 @@ function PANEL:Populate(items)
 		end
 
 		self.index.type = self.index.leftPanel:Add("DLabel")
-		self.index.type:SetText("Losowa: " .. chance .. " (" .. (item.scale or 1) .. ")")
+		self.index.type:SetText("Losowość: " .. chance .. " (" .. (item.scale or 1) .. ")")
 		self.index.type:Dock(BOTTOM)
 		self.index.type:SetFont("ixToolTipText")
 		self.index.type:DockMargin(10, 5, 0, 0)
@@ -88,7 +88,7 @@ function PANEL:Populate(items)
 
 		self.index.edit = vgui.Create("DButton", self.index)
 		self.index.edit:Dock(RIGHT)
-		self.index.edit:SetText("Zmień")
+		self.index.edit:SetText("Edytuj")
 		self.index.edit.DoClick = function()
 			self.editor = vgui.Create("ixItemSpawnerEditor")
 			self.editor:Setup(item, index)
