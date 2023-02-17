@@ -1,4 +1,4 @@
-ITEM.name = "Heavy body armor"
+ITEM.name = "Ciężki pancerz"
 ITEM.desc = ""
 ITEM.model = "models/Items/BoxMRounds.mdl"
 
