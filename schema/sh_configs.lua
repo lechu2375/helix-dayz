@@ -24,7 +24,7 @@ end, {
 -- unload plugins
 local noLoad = {
 	saveitems = true,
-	recognition = true,
+	recognition = false,
 	wepselect = true,
 	stamina = true,
 	doors = true,
