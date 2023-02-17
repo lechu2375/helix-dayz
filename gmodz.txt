@@ -2,6 +2,6 @@
 {
 	"base" 			"helix"
 	"title" 		"GmodZ"
-	"author" 		"Hikka"
+	"author" 		"Hikka and Lechu2375"
 	"menusystem"	"1"
 }

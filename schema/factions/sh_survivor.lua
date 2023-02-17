@@ -1,5 +1,5 @@
-FACTION.name = "Survivor"
-FACTION.description = "The civilian faction of the city."
+FACTION.name = "Cywil"
+FACTION.description = "Obcokrajowcy oraz obywatele Czarnorusi, którzy przetrwali."
 FACTION.isDefault = true
 FACTION.color = Color(0, 140, 0)
 
