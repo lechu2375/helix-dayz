@@ -283,6 +283,7 @@ function PLUGIN:ArcCW_PlayerCanAttach(client, weapon, attID, slot, detach)
 			local attItem = client:GetCharacter():GetInventory():HasItem(attID)
 
 			if (!attItem) then
+				client:PrintMessage(HUD_PRINTCONSOLE, "Brakujący item:"..attID)
 				return false
 			end
 
