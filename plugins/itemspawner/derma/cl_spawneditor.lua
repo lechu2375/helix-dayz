@@ -12,7 +12,7 @@ function PANEL:Init()
 end
 
 function PANEL:Setup(item, index)
-	self:SetTitle("Редактирование: "..item.title)
+	self:SetTitle("Edycja: "..item.title)
 
 	self.title = self:Add("DPanel")
 	self.title:Dock(TOP)
@@ -56,7 +56,7 @@ function PANEL:Setup(item, index)
 
 	self.delay.label = self.delay:Add("DLabel")
 	self.delay.label:DockMargin(5, 0, 0, 0)
-	self.delay.label:SetText("Задержка")
+	self.delay.label:SetText("Opóźnienie")
 	self.delay.label:Dock(LEFT)
 	self.delay.label:SetFont("ixSmallFont")
 	self.delay.label:SetContentAlignment(5)
@@ -103,7 +103,7 @@ function PANEL:Setup(item, index)
 	self.chance.label = self.chance:Add("DLabel")
 	self.chance.label:SetWide(80)
 	self.chance.label:DockMargin(5, 0, 0, 0)
-	self.chance.label:SetText("Рандом")
+	self.chance.label:SetText("Losowość")
 	self.chance.label:Dock(LEFT)
 	self.chance.label:SetFont("ixSmallFont")
 
@@ -116,9 +116,9 @@ function PANEL:Setup(item, index)
 		t:SetWide(t:GetWide() + 12)
 	end
 
-	self.chance.box:AddChoice("Вещественный", "weighted")
-	self.chance.box:AddChoice("Линейный", "linear")
-	self.chance.box:AddChoice("Обычный", "default")
+	self.chance.box:AddChoice("Wagowo", "weighted")
+	self.chance.box:AddChoice("Liniowo", "linear")
+	self.chance.box:AddChoice("Normalnie", "default")
 
 	if (item.chance_type) then
 		if (item.chance_type == 1) then
