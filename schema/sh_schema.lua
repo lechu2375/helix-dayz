@@ -1,5 +1,5 @@
 Schema.name = "GmodZ"
-Schema.author = "Hikka"
+Schema.author = "Hikka & Lechu2375"
 Schema.description = ""
 
 -- ix.util.Include("libs/thirdparty/circles.lua", "client")

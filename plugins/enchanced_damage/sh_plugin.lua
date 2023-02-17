@@ -9,14 +9,14 @@ if (CLIENT) then
 		local level = LocalPlayer():GetNetVar("bleeding")
 		if (!level) then return end
 
-		local prefix = L"bleeding_type_mild" -- ЛЕГКОЕ
+		local prefix = L"bleeding_type_mild" -- Lekko
 
 		if (level == 2) then
-			prefix = L"bleeding_type_average" -- СРЕДНЕЕ
+			prefix = L"bleeding_type_average" -- srednio
 		elseif (level == 3) then
-			prefix = L"bleeding_type_serious" -- СЕРЬЁЗНОЕ
+			prefix = L"bleeding_type_serious" -- mocno
 		elseif (level >= 4) then
-			prefix = L"bleeding_type_heavy" -- ТЯЖЕЛОЕ
+			prefix = L"bleeding_type_heavy" -- ciezko
 		end
 
 		prefix = Format("%s %s", prefix, L"bleeding_blood_loss") -- КРОВОТЕЧЕНИЕ
