@@ -17,12 +17,12 @@ function ENT:Draw()
 	ang:RotateAroundAxis(ang:Up(), 90)
 	ang:RotateAroundAxis(ang:Forward(), 90)
 
-	cam.Start3D2D(pos + ang:Up() * 4.8, ang, 0.1)
+	cam.Start3D2D((pos+ ang:Up()*4)-ang:Right()*14, ang, 0.1)
 		self:DoDraw(alpha)
 	cam.End3D2D()
 
 	ang:RotateAroundAxis(ang:Right(), 180)
-	cam.Start3D2D(pos + ang:Up() * 4.8, ang, 0.1)
+	cam.Start3D2D( (pos+ ang:Up()*4)-ang:Right()*14 , ang, 0.1)
 		self:DoDraw(alpha)
 	cam.End3D2D()
 end
@@ -31,7 +31,7 @@ function ENT:DoDraw(alpha)
 	local to_loot = L"to_loot"
 	local here_lies = L"here_lies"
 
-	local steamIcon = ix.steam.GetAvatar(self:GetStoredID())
+	local steamIcon = false //ix.steam.GetAvatar(self:GetStoredID())
 	local ownerNick = self:GetStoredName()
 	local repData = Schema.ranks[self:GetReputation()] or Schema.ranks[0]
 
@@ -45,7 +45,7 @@ function ENT:DoDraw(alpha)
 	draw.DrawText(here_lies, "GraveTitle", 0, pos - 10, white, TEXT_ALIGN_CENTER)
 	draw.DrawText(tostring(ownerNick), "GraveTitleLarge", 0, pos + 30, ColorAlpha(repData[2] or color_white, alpha), TEXT_ALIGN_CENTER) -- reputation
 
-	pos = pos + 85
+	//pos = pos + 85
 
 	if (steamIcon) then
 		surface.SetDrawColor(white)
