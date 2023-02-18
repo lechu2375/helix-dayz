@@ -1,6 +1,6 @@
-ITEM.name = "Weapon repair kit"
+ITEM.name = "Zestaw rusznikarza"
 ITEM.model = "models/gmodz/misc/repair_kit_weapon.mdl"
-ITEM.description = ""
+ITEM.description = "Podstawowe narzędzia pozwalające na konserwację broni"
 
 ITEM.width = 2
 ITEM.height = 1
@@ -15,7 +15,7 @@ ITEM.rarity = { weight = 7 }
 
 if (CLIENT) then
 	function ITEM:ExtendDesc(text)
-		text[1] = Format("Restores %d%% of the durability.", self.raiseDurability)
+		text[1] = Format("Odnawia %d%% wytrzymałości.", self.raiseDurability)
 		return text
 	end
 end
