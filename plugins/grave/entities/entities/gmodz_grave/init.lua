@@ -3,7 +3,7 @@ AddCSLuaFile("shared.lua")
 include("shared.lua")
 
 function ENT:Initialize()
-	self:SetModel("models/props_c17/gravestone004a.mdl")
+	self:SetModel("models/tankbags/large_bags/largebag02.mdl")
 	self:PhysicsInit(6)
 	self:SetMoveType(MOVETYPE_NONE)
 	self:SetSolid(6)
