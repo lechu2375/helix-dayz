@@ -169,15 +169,18 @@ net.Receive("ixMerchantTrade", function(len, client)
 		end
 		client:NotifyLocalized("businessPurchase", L(stockItem.name, client), ix.currency.Get(price))
 
+		itemData.data.quantity = itemData.data.quantity or 1
+
 		if (allStack and stockItem.isStackable and data) then
 			itemData.data.quantity = itemData.data.quantity - data.quantity
 		else
-			if(!itemData.data.quantity) then
-				itemData.data.quantity = 1
-			end
 			itemData.data.quantity = itemData.data.quantity - 1
 		end
+		
+		entity.items[id] = itemData.data.quantity < 1 and nil or itemData
 
+
+		
 		if (itemData.data.quantity < 1) then
 			entity.items[id] = nil
 		else
