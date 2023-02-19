@@ -3,7 +3,6 @@ local playerMeta = FindMetaTable"Player"
 -- Синхронизировать все патроны из инвентаря
 function playerMeta:UpdateInventoryAllAmmo()
 	self:StripAmmo()
-
 	local ammo = {}
 
 	for _, v in pairs(self:GetItems()) do
@@ -73,12 +72,21 @@ function PLUGIN:PostPlayerLoadout(client)
 end
 
 function PLUGIN:PlayerInteractItem(client, action, item)
+
+
 	if (item.ammoAmount and item.ammo and (action == "drop" or action == "take")) then
 		client:UpdateInventoryAmmo(item.ammo)
 	end
+
+
+
 end
 
 function PLUGIN:InventoryItemAdded(oldInv, inventory, item, split)
+
+	if(item:GetName()=="RPG-26") then //xd
+		item:SetData("ammo", 1)
+	end
 	if (!inventory.owner or (oldInv and oldInv.owner == inventory.owner)) then
 		return
 	end
@@ -90,6 +98,9 @@ function PLUGIN:InventoryItemAdded(oldInv, inventory, item, split)
 			client:UpdateInventoryAmmo(item.ammo)
 		end
 	end
+
+
+
 end
 
 function PLUGIN:InventoryItemRemoved(inventory, item)

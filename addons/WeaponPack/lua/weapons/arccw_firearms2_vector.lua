@@ -93,8 +93,8 @@ SWEP.SpeedMult = 0.9
 SWEP.SightedSpeedMult = 0.75
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-2.13, -3.449, 1.52),
-    Ang = Angle(0.5, -0.98, 0),
+    Pos = Vector(-1.88, -2, 2.059),
+    Ang = Angle(0, 0, 0),
     Magnification = 1.1,
     SwitchToSound = {"fas2/weapon_sightraise.wav", "fas2/weapon_sightraise2.wav"}, -- sound that plays when switching to this sight
     SwitchFromSound = {"fas2/weapon_sightlower.wav", "fas2/weapon_sightlower2.wav"},

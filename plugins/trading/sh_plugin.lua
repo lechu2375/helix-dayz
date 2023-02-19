@@ -9,13 +9,13 @@ ix.trade = ix.trade or {}
 ix.util.Include("sv_plugin.lua")
 
 ix.command.Add("offer", {
-	description = "Offer a trade.",
+	description = "Zaoferuj handel.",
 	arguments = ix.type.character,
 	OnRun = function(self, client, target)
 		if (!target) then return end
 
 		if (client.isTrading) then
-			return "You cannot start a new trade when one is already active"
+			return "Nie możesz rozpocząć handlu gdy już z kimś innym handlujesz"
 		end
 
 		local targetPlayer = target:GetPlayer()
@@ -25,22 +25,22 @@ ix.command.Add("offer", {
 		local targetName = targetPlayer:Nick()
 
 		if (targetPlayer.isTrading) then
-			return Format("%s is already trading", targetName)
+			return Format("%s już handluj", targetName)
 		end
 
 		if (client:GetPos():DistToSqr(targetPlayer:GetPos()) > maxTargetDistance) then
-			return Format("%s is too far away, unable to trade.", targetName)
+			return Format("%s jest za daleko.", targetName)
 		end
 
 		if (IsValid(client.tradingWith)) then
-			return Format("You are currently trading with %s!", client.tradingWith:Nick())
+			return Format("Handlujesz z %s!", client.tradingWith:Nick())
 		end
 
 		client.tradeInvites = client.tradeInvites or {}
 
 		if ((client.tradeInvites[targetIndex] or 0) > CurTime()) then
 			local time = math.Round(client.tradeInvites[targetIndex] - CurTime())
-			return Format("Wait %d's before trade inviting %s again!", time, targetName)
+			return Format("Poczekaj %d's przed zaproszeniem %s do handlu ponownie!", time, targetName)
 		end
 
 		client.tradeInvites[targetIndex] = CurTime() + 7
@@ -52,7 +52,7 @@ ix.command.Add("offer", {
 			net.WriteFloat(CurTime() + 30)
 		net.Send(targetPlayer)
 
-		return Format("Trade invite sent to %s!", targetName)
+		return Format("Wysłano zaproszenie do handlu %s!", targetName)
 	end
 })
 
@@ -107,13 +107,13 @@ if (CLIENT) then
 
 			w = (w / 2)
 
-			ix.util.DrawText("You have been invited to trade with", w, 15, Col.Text, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, "TradeArial20")
+			ix.util.DrawText("Zostałeś zaproszony do handlu z", w, 15, Col.Text, TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, "TradeArial20")
 			ix.util.DrawText(this.whoInvite, w, 40, team.GetColor(LocalPlayer():Team()), TEXT_ALIGN_CENTER, TEXT_ALIGN_TOP, "TradeArial25")
 
-			local str = Format("%s to accept", (input.LookupBinding("gm_showhelp") or "None"))
+			local str = Format("%s by akceptować", (input.LookupBinding("gm_showhelp") or "None"))
 			ix.util.DrawText(str, w - 5, 70, Col.Accept, TEXT_ALIGN_RIGHT, TEXT_ALIGN_TOP)
 
-			str = Format("%s to decline", (input.LookupBinding("gm_showteam") or "None"))
+			str = Format("%s by odrzucić", (input.LookupBinding("gm_showteam") or "None"))
 			ix.util.DrawText(str, w + 5, 70, Col.Decline, TEXT_ALIGN_LEFT, TEXT_ALIGN_TOP)
 		end
 
@@ -152,9 +152,9 @@ if (CLIENT) then
 		end
 
 		if (net.ReadBool()) then
-			LocalPlayer():Notify("The trade was cancelled")
+			LocalPlayer():Notify("Wymiana została odrzucona")
 		else
-			LocalPlayer():Notify("Trade with " .. LocalPlayer().tradingWith:Nick() .. " complete!")
+			LocalPlayer():Notify("Handel z " .. LocalPlayer().tradingWith:Nick() .. " zakończony pomyślnie!")
 		end
 
 		LocalPlayer().tradingWith = nil
@@ -294,13 +294,13 @@ if (CLIENT) then
 			menu = DermaMenu()
 
 			if (LocalPlayer().tradingItems[item.id]) then
-				menu:AddOption("Take Item", function()
+				menu:AddOption("Zabierz przedmiot", function()
 					net.Start("ixTradeTakeItem")
 						net.WriteUInt(item:GetID(), 32)
 					net.SendToServer()
 				end):SetImage("icon16/basket_delete.png")
 			else
-				menu:AddOption("Give Item", function()
+				menu:AddOption("Daj przedmiot", function()
 					net.Start("ixTradeSendItem")
 						net.WriteUInt(item:GetID(), 32)
 					net.SendToServer()

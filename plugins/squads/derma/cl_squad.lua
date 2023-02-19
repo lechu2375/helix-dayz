@@ -110,12 +110,12 @@ function PANEL:SetMembers(data, bNotTnitLeftSide)
 			end
 		end
 
-		text_rank = "Members"
+		text_rank = "Członkowie"
 
 		if (rank == 2) then
-			text_rank = "Leader"
+			text_rank = "Lider"
 		elseif (rank == 1) then
-			text_rank = "Officers"
+			text_rank = "Oficerowie"
 		end
 
 		if (!self.categoryPanels[text_rank]) then continue end

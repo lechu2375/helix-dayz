@@ -129,12 +129,12 @@ function PANEL:Init()
 			surface.SetDrawColor(self.cGreen)
 			surface.DrawRect(0, 4, width, height)
 
-			ix.util.DrawText("Ready to trade.", width / 2, 4, color_white, TEXT_ALIGN_CENTER)
+			ix.util.DrawText("Gotowy do wymiany.", width / 2, 4, color_white, TEXT_ALIGN_CENTER)
 		else
 			surface.SetDrawColor(self.cGray)
 			surface.DrawRect(0, 4, width, height)
 
-			ix.util.DrawText("Not ready to trade.", width / 2, 4, color_white, TEXT_ALIGN_CENTER)
+			ix.util.DrawText("Niegotowy do wymiany.", width / 2, 4, color_white, TEXT_ALIGN_CENTER)
 		end
 	end
 
@@ -164,7 +164,7 @@ function PANEL:Init()
 	self.confirmButton:SetText("")
 	self.confirmButton.Reset = function(this)
 		this:SetEnabled(true)
-		this:SetTooltip("Hold this button when ready to trade.")
+		this:SetTooltip("Przytrzymaj ten przycisk by pokazać gotowość do handlu.")
 		this:SetCursor("hand")
 	end
 	self.confirmButton:Reset()
@@ -189,12 +189,12 @@ function PANEL:Init()
 				end
 			end
 
-			ix.util.DrawText("Accept", w / 2, 5, color_white, TEXT_ALIGN_CENTER)
+			ix.util.DrawText("Akceptuj", w / 2, 5, color_white, TEXT_ALIGN_CENTER)
 		else
 			surface.SetDrawColor(self.cGreen)
 			surface.DrawRect(2, 2, w - 4, h - 4)
 
-			ix.util.DrawText("Accepted", w / 2, 5, color_white, TEXT_ALIGN_CENTER)
+			ix.util.DrawText("Akceptowano", w / 2, 5, color_white, TEXT_ALIGN_CENTER)
 		end
 	end
 

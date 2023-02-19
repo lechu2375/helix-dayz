@@ -52,8 +52,8 @@ if (CLIENT) then
 
 				if (squadID and squadID == "NULL") then
 					Derma_StringRequest(
-						"Create a squad", 
-						"Enter squad name",
+						"Stwórz drużynę", 
+						"Wpisz nazwę drużyny",
 						"",
 						function(text)
 							if (text and #text > 0 and #text <= 48) then
@@ -185,7 +185,7 @@ if (CLIENT) then
 end
 
 ix.command.Add("saccept", {
-	description = "Accept an invitation to the squad.",
+	description = "Akceptuj zaproszenie do drużyny.",
 	OnRun = function(self, client)
 		if (!istable(client.squad_invite) or client.squad_invite[1] < CurTime()) then return end
 
