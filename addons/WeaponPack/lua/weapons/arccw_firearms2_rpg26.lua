@@ -149,7 +149,8 @@ SWEP.Animations = {
     },
 }
 
-function SWEP:Reload()
+function SWEP:Reload() //87	=	rpg26_rocket
+
     if(SERVER) then
 
         local owner = self:GetOwner()
