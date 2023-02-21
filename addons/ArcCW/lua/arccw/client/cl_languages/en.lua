@@ -18,6 +18,7 @@ L["arccw.menus.ammo"]                     = "Ammo"
 L["arccw.menus.dev"]                      = "Developer"
 L["arccw.menus.xhair"]                    = "Crosshair"
 L["arccw.menus.bullet"]                   = "Bullet Physics"
+L["arccw.menus.scopes"]                   = "Scopes"
 L["arccw.bullet_help"]                    = "\nEnabling physical bullets in multiplayer may reduce the reliability of hit detection."
 -- ArcCW_Options_Ammo
 L["arccw.cvar.ammo_detonationmode"]       = "Ammo Detonation"
@@ -72,6 +73,7 @@ L["arccw.cvar.embracetradition.desc"]     = "Use the classic bulky customization
 L["arccw.cvar.glare"]                     = "Scope Glare"
 L["arccw.cvar.glare.desc"]                = "Glare visible on your scope lens when aiming."
 L["arccw.cvar.shake"]                     = "Screen Shake"
+L["arccw.cvar.shakevm"]                   = "Viewmodel Shake"
 L["arccw.cvar.shake_info"]                = "Aggressive snap when you shoot a weapon."
 L["arccw.cvar.2d3d"]                      = "Floating Help Text"
 L["arccw.cvar.2d3d_info"]                 = "Text that floats over dropped weapons."
@@ -87,7 +89,14 @@ L["arccw.cvar.font_info"]                 = "Override the font. Leave blank for 
 -- ArcCW_Options_Perf
 L["arccw.performance"]                    = "The options below may change performance."
 L["arccw.cvar.cheapscopes"]               = "Cheap Scopes"
-L["arccw.cvar.cheapscopes.desc"]          = "A cheaper PIP scope implementation that is very low quality but saves a significant amount of performance. \nWill reduce scope quality!"
+L["arccw.cvar.cheapscopes.desc"]          = "A cheaper PIP scope implementation like in modern games. Saves a significant amount of performance on big maps. \nYou can configure it in 'Scopes' tab."
+L["arccw.cvar.cheapscopesv2_ratio"]       = "FOV Boost"
+L["arccw.cvar.cheapscopesv2_ratio.desc"]  = "Cheap Scope field of view boost ratio. 0 is full FOV and full quality scope, 1 is default FOV with low quality scope."
+L["arccw.cvar.cheapscopesv2.desc"]        = "A cheaper PIP scope implementation like in modern games."
+L["arccw.cvar.scopepp"]                   = "Scope chromatic aberration"
+L["arccw.cvar.thermalpp"]                 = "Thermal scope post-processing effects"
+L["arccw.cvar.scopepp_refract"]           = "Scope lense refract effect (experimental)"
+L["arccw.cvar.scopepp_refract_ratio"]     = "Refract ratio"
 --["arccw.cvar.flatscopes"]                = "Flat Scopes"
 --L["arccw.cvar.flatscopes.desc"]           = "For the ultimate performance gain.\nUse a traditional-style scope implementation that's not very impressive, but actually saves performance relative to even being unscoped."
 L["arccw.cvar.muzzleeffects"]             = "Enable World Muzzle Effects"
@@ -103,9 +112,14 @@ L["arccw.cvar.visibility.desc"]           = "Attachments will not render past th
 -- ArcCW_Options_Viewmodel
 L["arccw.cvar.vm_coolsway"]               = "Custom Swaying"
 L["arccw.cvar.vm_coolview"]               = "Custom Camera Movement"
+L["arccw.cvar.drawbarrel"]                = "Draw barrel in RT scopes (experimental)"
+L["arccw.cvar.vm_addads"]                 = "Viewmodel FOV in ADS"
 L["arccw.cvar.vm_right"]                  = "Viewmodel Right"
 L["arccw.cvar.vm_forward"]                = "Viewmodel Forward"
 L["arccw.cvar.vm_up"]                     = "Viewmodel Up"
+L["arccw.cvar.vm_pitch"]                  = "Viewmodel Pitch"
+L["arccw.cvar.vm_yaw"]                    = "Viewmodel Yaw"
+L["arccw.cvar.vm_roll"]                   = "Viewmodel Roll"
 L["arccw.cvar.vm_fov"]                    = "Viewmodel FOV"
 L["arccw.cvar.vm_offsetwarn"]             = "Warning! Viewmodel offset settings may cause clipping or other undesired effects!"
 L["arccw.cvar.vm_sway_sprint"]            = "Sprint Bob" -- This is intentionally flipped
@@ -267,11 +281,21 @@ L["arccw.cvar.mult_defaultammo"]          = "Default Ammo"
 
 -- 2021-01-18
 L["arccw.cvar.dev_showignored"]           = "Load Ignored Atts"
-L["arccw.cvar.dev_showignored.desc"]      = "Disabled by default.\nLoad attachments that have att.Ignore set to true. These attachments may be broken or unimplemented."
+L["arccw.cvar.dev_showignored.desc"]      = "Disabled by default.\nLoad attachments that have att.Ignore set to true. These attachments may be broken or unimplemented.\nThey will be highlighted in light yellow."
+L["arccw.cvar.aimassist"]                 = "Enable Aim Assist"
+L["arccw.cvar.aimassist.desc"]            = "Allow players to snap their view to NPCs and players near their aim."
+L["arccw.cvar.aimassist_cl.desc"]         = "Snap your view to nearby NPCs and players. Only usable if enabled serverside!"
+L["arccw.cvar.aimassist_head"]            = "Aim Assist Seeks Head"
+L["arccw.cvar.aimassist_cone"]            = "Aim Assist Cone"
+L["arccw.cvar.aimassist_distance"]        = "Aim Assist Distance"
+L["arccw.cvar.aimassist_intensity"]       = "Aim Assist Intensity"
 
 -- 2021-01-19
 L["arccw.cvar.adjustsensthreshold"]       = "Adjust Sensitivity Threshold"
 L["arccw.cvar.adjustsensthreshold.desc"]  = "If your total magnification is less than this, your sensitivity will not be adjusted while in sights."
+
+-- 2021-01-20
+L["arccw.cvar.crosshair_aa"]              = "Aim Assist Indicator"
 
 -- 2021-1-25
 L["arccw.menus.ttt_client"]               = "TTT (Client)"
@@ -291,8 +315,8 @@ L["arccw.cvar.mult_crouchrecoil"]         = "Crouched Recoil"
 L["arccw.cvar.dev_debug"]                 = "Debug Menu"
 L["arccw.cvar.dev_debug.desc"]            = "Disabled by default.\nDraws a debug menu over your screen where you can view certain elements blah blah?"
 
-L["arccw.cvar.attinv_sound"]              = "Menu Toggle Sound"
-L["arccw.cvar.attinv_sound.desc"]         = "Sounds for opening and closing the customization menu.\nIf it's really not your thing."
+L["arccw.cvar.attinv_sound"]              = "Customization Menu Sounds"
+L["arccw.cvar.attinv_sound.desc"]         = "Enable or disable sounds for the customization menu."
 
 -- 2021-3-2
 L["arccw.ammohud"]                        = "\nAmmo HUD" -- Obsoletes "3D2D HUD" since they're basically the same now"
@@ -331,3 +355,56 @@ L["arccw.cvar.enable_sway"] = "Enable Sway"
 L["arccw.cvar.enable_sway.desc"] = "Most weapons do not specify a sway value. If you wish to give sway to all weapons, use the 'Add Sway' slider."
 L["arccw.cvar.add_sway"] = "Add Sway"
 L["arccw.cvar.mult_sway"]    = "Multiply Sway"
+
+-- 2021-08-15
+L["arccw.cvar.mult_rpm"] = "Fire Rate"
+L["arccw.cvar.mult_rpm.desc"] = "May be disastrous on performance. May also be a ton of fun."
+
+-- 2021-08-16
+L["arccw.cvar.dev_benchgun"] = "Benchgun"
+L["arccw.cvar.dev_benchgun.desc"] = "Places the viewmodel in a stationary position, usually at world origin."
+L["arccw.cvar.dev_benchgun_custom"] = "Benchgun Custom"
+L["arccw.cvar.dev_benchgun_custom.desc"] = "Custom location to place the viewmodel at. Use getpos and place the result here.\nExample:\nsetpos 61 -397 -63;setang 0 96 0"
+
+-- 2021-08-18
+L["arccw.cvar.crosshair_prong_top"] = "Show Top Prong"
+L["arccw.cvar.crosshair_prong_left"] = "Show Left Prong"
+L["arccw.cvar.crosshair_prong_right"] = "Show Right Prong"
+L["arccw.cvar.crosshair_prong_bottom"] = "Show Bottom Prong"
+L["arccw.cvar.crosshair_tilt"] = "Tilted Crosshair"
+L["arccw.cvar.attinv_giveonspawn"] = "Give Atts. On Spawn"
+
+-- 2021-10-10
+L["arccw.cvar.hud_fcgabbrev"] = "Abbreviate Firemode Names"
+
+-- 2021-10-31
+L["arccw.cvar.reloadincust"] = "Reloading In Customize Menu"
+L["arccw.cvar.reloadincust.desc"] = "May allow players to cheese reload times by swapping magazine attachments.\nWill also disable left hand lowering in the customize menu."
+
+-- 2021-11-11
+L["arccw.cvar.freeaim"] = "Free Aim"
+L["arccw.cvar.freeaim.1"] = "1 - Enabled"
+L["arccw.cvar.freeaim.2"] = "2 - No Dispersion Tweak"
+
+-- 2021-11-24
+L["arccw.cvar.override_lunge_off"] = "Disable Melee Lunging"
+L["arccw.cvar.override_lunge_off.desc"] = "Bashing with a weapon can allow you to dash a short distance if there is a target in front. This option disables that momentum for all weapons."
+
+-- 2021-11-27
+L["arccw.cvar.mult_movespeed"] = "Speed"
+L["arccw.cvar.mult_movespeedads"] = "Speed in ADS"
+L["arccw.cvar.mult_movespeedfire"] = "Speed while firing"
+
+-- 2022-02-14
+L["arccw.cvar.vm_nearwall"] = "Near-wall Movement"
+L["arccw.cvar.nohl2flash"] = "Toggle attachments modes through flashlight bind"
+
+-- 2022-03-24
+L["arccw.cvar.dev_alwaysready"] = "Always Use Ready Animation"
+L["arccw.cvar.dev_alwaysready.desc"] = "Always use the ready animation while drawing when available."
+
+L["arccw.cvar.noinspect"] = "Disable inspect animations"
+
+-- 2022-07-10
+L["arccw.cvar.override_hud_off"] = "Force Disable HUD"
+L["arccw.hud_svwarning"] = "The HUD can be disabled serverside by a server administrator."

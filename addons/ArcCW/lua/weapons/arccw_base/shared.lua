@@ -24,7 +24,7 @@ SWEP.WorldModel = ""
 
 SWEP.MirrorVMWM = nil -- Copy the viewmodel, along with all its attachments, to the worldmodel. Super convenient!
 SWEP.MirrorWorldModel = nil -- Use this to set the mirrored viewmodel to a different model, without any floating speedloaders or cartridges you may have. Needs MirrorVMWM
-
+SWEP.HideViewmodel = nil
 --[[SWEP.WorldModelOffset = {
     pos = Vector(0, 0, 0),
     ang = Angle(0, 0, 0),
@@ -59,6 +59,10 @@ SWEP.DamageType = DMG_BULLET
 SWEP.DamageTypeHandled = false -- set to true to have the base not do anything with damage types
 -- this includes: igniting if type has DMG_BURN; adding DMG_AIRBOAT when hitting helicopter; adding DMG_BULLET to DMG_BUCKSHOT
 
+SWEP.Distance = nil -- Maximum distance of the bullet (does not affect physbullets)
+
+SWEP.Force = nil -- bullet force. set nil to autocalculate
+
 SWEP.ShootEntity = nil -- entity to fire, if any
 SWEP.MuzzleVelocity = 400 -- projectile muzzle velocity in m/s
 SWEP.PhysBulletMuzzleVelocity = nil -- override phys bullet muzzle velocity
@@ -66,10 +70,20 @@ SWEP.PhysBulletDrag = 1
 SWEP.PhysBulletGravity = 1
 SWEP.PhysBulletDontInheritPlayerVelocity = true
 
+SWEP.BodyDamageMults = nil
+-- if a limb is not set the damage multiplier will default to 1
+-- that means gmod's stupid default limb mults will **NOT** apply
+-- {
+--     [HITGROUP_HEAD] = 1.25,
+--     [HITGROUP_CHEST] = 1,
+--     [HITGROUP_LEFTARM] = 0.9,
+--     [HITGROUP_RIGHTARM] = 0.9,
+-- }
+
 SWEP.AlwaysPhysBullet = false
 SWEP.NeverPhysBullet = false
-SWEP.PhysTracerProfile = 0 -- color for phys tracer.
--- there are 8 options:
+SWEP.PhysTracerProfile = 0 -- color for phys tracer. can be a number or a string (see sh_physbullet2.lua)
+-- there are 8 default options:
 -- 0 = normal
 -- 1 = red
 -- 2 = green
@@ -94,6 +108,11 @@ SWEP.ReducedClipSize = 10
 SWEP.ForceDefaultClip = nil
 SWEP.ForceDefaultAmmo = nil
 
+-- The amount of rounds to load in the chamber when the gun is non-empty or empty
+-- Defaults to ChamberSize and 0. Don't change unless you have a good reason
+SWEP.ChamberLoadNonEmpty = nil
+SWEP.ChamberLoadEmpty = nil
+
 SWEP.AmmoPerShot = 1
 SWEP.InfiniteAmmo = false -- weapon can reload for free
 SWEP.BottomlessClip = false -- weapon never has to reload
@@ -113,6 +132,8 @@ SWEP.ReloadInSights_CloseIn = 0.25
 SWEP.ReloadInSights_FOVMult = 0.875
 SWEP.LockSightsInReload = false
 
+SWEP.LockSightsInPriorityAnim = false
+
 SWEP.CanFireUnderwater = false
 
 SWEP.Disposable = false -- when all ammo is expended, the gun will remove itself when holstered
@@ -122,6 +143,8 @@ SWEP.AutoReload = false -- when weapon is drawn, the gun will reload itself.
 SWEP.IsShotgun = false -- weapon receives shotgun ammo types
 
 SWEP.TriggerDelay = false -- Set to true to play the "trigger" animation before firing. Delay time is dependent on animation time.
+SWEP.TriggerCharge = false -- If TriggerDelay is set, holding trigger will charge and releasing it fires. Also allows premature release of trigger.
+SWEP.TriggerPullWhenEmpty = true -- If true, can pull the trigger even if no ammo is left.
 
 SWEP.Recoil = 2
 SWEP.RecoilSide = 1
@@ -144,6 +167,7 @@ SWEP.ShotgunSpreadPatternOverrun = nil
 -- if two then the first two
 -- in case of overrun pellets will start looping, preferably with the second one, so use that for the loopables
 -- precision will still be applied
+SWEP.NoRandSpread = false
 
 SWEP.RecoilDirection = Angle(1, 0, 0)
 SWEP.RecoilDirectionSide = Angle(0, 1, 0)
@@ -155,12 +179,12 @@ SWEP.Firemodes = {
     -- {
     --     Mode = 1,
     --     CustomBars = "---_#!",
---[[ 
+--[[
                 Custom bar setup
         Colored variants        Classic
         'a' Filled              '-' Filled
         'b' Outline             '_' Outline
-        'd' CLR w Outline       '!' Red w Outline        
+        'd' CLR w Outline       '!' Red w Outline
                     '#' Empty
 ]]
     --     PrintName = "PUMP",
@@ -168,6 +192,7 @@ SWEP.Firemodes = {
     --     AutoBurst = false, -- hold fire to continue firing bursts
     --     PostBurstDelay = 0,
     --     ActivateElements = {}
+    --     RestoreAmmo = false -- switching to this firemode will call RestoreAmmo(). intended to be used alongside firemode changing animations
     -- }
 }
 
@@ -176,9 +201,9 @@ SWEP.ShotRecoilTable = nil -- {[1] = 0.25, [2] = 2} etc.
 SWEP.NotForNPCS = false
 SWEP.NPCWeaponType = nil -- string or table, the NPC weapons for this gun to replace
 -- if nil, this will be based on holdtype
-SWEP.NPCWeight = 100 -- relative likeliness for an NPC to have this weapon
+SWEP.NPCWeight = 0 -- relative likeliness for an NPC to have this weapon
 SWEP.TTTWeaponType = nil -- string or table, like NPCWeaponType but specifically for TTT weapons (takes precdence over NPCWeaponType)
-SWEP.TTTWeight = 100 -- like NPCWeight but for TTT gamemode
+SWEP.TTTWeight = 0 -- like NPCWeight but for TTT gamemode
 
 SWEP.AccuracyMOA = 15 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
 SWEP.HipDispersion = 500 -- inaccuracy added by hip firing.
@@ -267,7 +292,7 @@ SWEP.IronSightStruct = {
     Pos = Vector(-8.728, -13.702, 4.014),
     Ang = Angle(-1.397, -0.341, -2.602),
     Midpoint = { -- Where the gun should be at the middle of it's irons
-        Pos = Vector(0, 30, -5),
+        Pos = Vector(0, 15, -4),
         Ang = Angle(0, 0, -45),
     },
     Magnification = 1,
@@ -278,6 +303,13 @@ SWEP.IronSightStruct = {
     ScrollFunc = ArcCW.SCROLL_NONE,
     CrosshairInSights = false,
 }
+
+SWEP.LaserOffsetAngle = nil -- adjusts the offset angle of lasers
+SWEP.LaserIronsAngle = nil -- additional offset when using ironsights only
+
+-- Works identically to AdditionalSights in attachments
+-- KeepBaseIrons and BaseIronsFirst also affect this
+SWEP.ExtraIrons = nil
 
 -- add lasers to your weapon without attachments
 SWEP.Lasers = nil
@@ -294,14 +326,21 @@ SWEP.ProceduralIronFire = false
 SWEP.SightTime = 0.33
 SWEP.SprintTime = 0
 
+-- Override free aim convar and variable
+SWEP.FreeAimAngle = nil -- defaults to HipDispersion / 80. overwrite here
+SWEP.NeverFreeAim = nil
+SWEP.AlwaysFreeAim = nil
+
 -- If Jamming is enabled, a heat meter will gradually build up until it reaches HeatCapacity.
 -- Once that happens, the gun will overheat, playing an animation. If HeatLockout is true, it cannot be fired until heat is 0 again.
 SWEP.Jamming = false
+SWEP.HeatGain = 1 -- heat gained per shot
 SWEP.HeatCapacity = 200 -- rounds that can be fired non-stop before the gun jams, playing the "fix" animation
 SWEP.HeatDissipation = 2 -- rounds' worth of heat lost per second
 SWEP.HeatLockout = false -- overheating means you cannot fire until heat has been fully depleted
 SWEP.HeatDelayTime = 0.5
 SWEP.HeatFix = false -- when the "fix" animation is played, all heat is restored.
+SWEP.HeatOverflow = nil -- if true, heat is allowed to exceed capacity (this only applies when the default overheat handling is overridden)
 
 -- If Malfunction is enabled, the gun has a random chance to be jammed
 -- after the gun is jammed, it won't fire unless reload is pressed, which plays the "unjam" animation
@@ -309,6 +348,7 @@ SWEP.HeatFix = false -- when the "fix" animation is played, all heat is restored
 SWEP.Malfunction = false
 SWEP.MalfunctionJam = true -- After a malfunction happens, the gun will dryfire until reload is pressed. If unset, instead plays animation right after.
 SWEP.MalfunctionTakeRound = true -- When malfunctioning, a bullet is consumed.
+SWEP.MalfunctionPostFire = false -- If set, jam will occur after firing the round successfully.
 SWEP.MalfunctionWait = 0.5 -- The amount of time to wait before playing malfunction animation (or can reload)
 SWEP.MalfunctionMean = nil -- The mean number of shots between malfunctions, will be autocalculated if nil
 SWEP.MalfunctionVariance = 0.25 -- The fraction of mean for variance. e.g. 0.2 means 20% variance
@@ -318,6 +358,7 @@ SWEP.HoldtypeHolstered = "passive"
 SWEP.HoldtypeActive = "shotgun"
 SWEP.HoldtypeSights = "smg"
 SWEP.HoldtypeCustomize = "slam"
+SWEP.HoldtypeSprintShoot = nil
 SWEP.HoldtypeNPC = nil
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
@@ -337,6 +378,9 @@ SWEP.ShieldProps = nil
 
 SWEP.CanBash = true
 SWEP.PrimaryBash = false -- primary attack triggers melee attack
+
+SWEP.Lunge = nil -- Whether to allow the bash/melee to lunge a short distance
+SWEP.LungeLength = 64 -- Maximum distance for lunging
 
 SWEP.MeleeDamage = 25
 SWEP.MeleeRange = 16
@@ -464,10 +508,6 @@ SWEP.RejectAttachments = {
     -- ["optic_docter"] = true -- stop this attachment from being usable on this gun
 }
 
-SWEP.AttachmentOverrides = {
-    -- ["optic_docter"] = {} -- allows you to overwrite atttbl values
-}
-
 SWEP.TTT_DoNotAttachOnBuy = false -- don't give all attachments when bought
 
 SWEP.Attachments = {}
@@ -515,6 +555,7 @@ SWEP.Attachments = {}
 --     ExcludeFlags = {}, -- if the weapon has this flag, hide this slot
 --     RequireFlags = {}, -- if the weapon does not have all these flags, hide this slot
 --     GivesFlags = {} -- give these slots if something is installed here
+--     DefaultFlags = {} -- give these slots UNLESS something is installed here
 --     HideIfBlocked = false, -- If flag requirements are not met, do not show the attachment at all
 -- }
 
@@ -561,7 +602,8 @@ SWEP.Attachments = {}
 -- use SWEP/wep.Hook_SelectInsertAnimation to change the shotgun reload insert animation
 -- use SWEP/wep.Hook_SelectFireAnimation to change the fire animation
 -- use SWEP/wep.Hook_SelectCycleAnimation to change the cycle/pump animation
--- use SWEP/wep.Hook_SelectBashAnimation to change the bash animation
+-- use SWEP/wep.Hook_SelectBashAnim to change the bash animation
+-- use SWEP/wep.Hook_SelectJamAnim to change the jam animation
 
 -- which sequence to derive the sight autosolver from.
 SWEP.AutosolveSourceSeq = "idle"
@@ -630,6 +672,7 @@ SWEP.Animations = {
     --     ProcHolster = false, -- procedural holster weapon, THEN play animation
     --     LastClip1OutTime = 0, -- when should the belt visually replenish on a belt fed
     --     MinProgress = 0, -- how much time in seconds must pass before the animation can be cancelled
+    --     ForceEmpty = false, -- Used by empty shotgun reloads that load rounds to force consider the weapon to still be empty.
     -- }
 }
 
@@ -728,7 +771,8 @@ function SWEP:SetupDataTables()
     self:NetworkVar("Bool", 3, "InUBGL")
     self:NetworkVar("Bool", 4, "InCustomize")
     self:NetworkVar("Bool", 5, "GrenadePrimed")
-    self:NetworkVar("Bool", 6, "MalfunctionJam")
+    self:NetworkVar("Bool", 6, "NWMalfunctionJam")
+    self:NetworkVar("Bool", 7, "UBGLDebounce")
 
     self:NetworkVar("Float", 0, "Heat")
     self:NetworkVar("Float", 1, "WeaponOpDelay")
@@ -737,14 +781,19 @@ function SWEP:SetupDataTables()
     self:NetworkVar("Float", 4, "NextPrimaryFireSlowdown")
     self:NetworkVar("Float", 5, "NextIdle")
     self:NetworkVar("Float", 6, "Holster_Time")
-    self:NetworkVar("Float", 7, "SightDelta")
-    self:NetworkVar("Float", 8, "SprintDelta")
+    self:NetworkVar("Float", 7, "NWSightDelta")
+    self:NetworkVar("Float", 8, "NWSprintDelta")
+    self:NetworkVar("Float", 9, "NWPriorityAnim")
 
     self:NetworkVar("Vector", 0, "BipodPos")
 
     self:NetworkVar("Angle", 0, "BipodAngle")
+    self:NetworkVar("Angle", 1, "FreeAimAngle")
+    self:NetworkVar("Angle", 2, "LastAimAngle")
 
     self:NetworkVar("Entity", 0, "Holster_Entity")
+
+    self:SetNWSightDelta(1)
 end
 
 function SWEP:OnRestore()
@@ -754,6 +803,7 @@ function SWEP:OnRestore()
     self:SetReloadingREAL(0)
     self:SetWeaponOpDelay(0)
     self:SetMagUpIn(0)
+    self:SetNWPriorityAnim(0)
 
     self:KillTimers()
     self:Initialize()
@@ -762,7 +812,7 @@ function SWEP:OnRestore()
 end
 
 
-function SWEP:SetReloading( v )
+function SWEP:SetReloading(v)
     if isbool(v) then
         if v then
             self:SetReloadingREAL(math.huge)
@@ -814,30 +864,35 @@ function SWEP:IsProne()
     end
 end
 
+-- BarrelHitWall is known to cause viewmodel flickering on certain playermodels if called during VM position function (a270cc9)
+local hitwallcache
 function SWEP:BarrelHitWall()
-    if self.BarrelLength > 0 and GetConVar("arccw_override_nearwall"):GetBool() then
-        local offset = self.BarrelOffsetHip
 
-        if vrmod and vrmod.IsPlayerInVR(self:GetOwner()) then
-            return 0 -- Never block barrel in VR
-        end
+    local len = self:GetBuff("BarrelLength")
+    if len == 0 or !GetConVar("arccw_override_nearwall"):GetBool()
+            or (vrmod and vrmod.IsPlayerInVR(self:GetOwner()))
+            or (self:GetOwner():IsPlayer() and self:GetOwner():InVehicle()) then
+        hitwallcache = {0, CurTime()}
+    end
 
-        if self:GetOwner():IsPlayer() and self:GetOwner():InVehicle() then
-            return 0
-        end
+    if !hitwallcache or hitwallcache[2] ~= CurTime() then
+
+        local offset = self:GetBuff("BarrelOffsetHip")
 
         if self:GetState() == ArcCW.STATE_SIGHTS then
-            offset = self.BarrelOffsetSighted
+            offset = LerpVector(self:GetSightDelta(), self:GetBuff("BarrelOffsetSighted"), offset)
         end
 
         local dir = self:GetOwner():EyeAngles()
         local src = self:GetOwner():EyePos()
+        local r, f, u = dir:Right(), dir:Forward(), dir:Up()
 
-        src = src + dir:Right() * offset[1]
-        src = src + dir:Forward() * offset[2]
-        src = src + dir:Up() * offset[3]
-
-        local mask = MASK_SOLID
+        for i = 1, 3 do
+            src[i] = src[i]
+                    + r[i] * offset[1]
+                    + f[i] * offset[2]
+                    + u[i] * offset[3]
+        end
 
         local filter = {self:GetOwner()}
 
@@ -845,19 +900,90 @@ function SWEP:BarrelHitWall()
 
         local tr = util.TraceLine({
             start = src,
-            endpos = src + (dir:Forward() * (self.BarrelLength + self:GetBuff_Add("Add_BarrelLength"))),
+            endpos = src + (f * len),
             filter = filter,
-            mask = mask
+            mask = MASK_SOLID
         })
 
         if tr.Hit and !tr.Entity.ArcCWProjectile then
-            local l = (tr.HitPos - src):Length()
-            l = l
-            return 1 - math.Clamp(l / (self.BarrelLength + self:GetBuff_Add("Add_BarrelLength")), 0, 1)
+            --local l = (tr.HitPos - src):Length()
+            --hitwallcache = {math.Clamp(1 - l / len, 0, 1), CurTime()}
+            hitwallcache = {1 - tr.Fraction, CurTime()}
         else
-            return 0
+            hitwallcache = {0, CurTime()}
         end
-    else
-        return 0
     end
+
+    return hitwallcache[1] or 0
+end
+
+function SWEP:GetBarrelNearWall()
+    return hitwallcache and hitwallcache[1] or 0
+end
+
+SWEP.CL_SightDelta = 1
+function SWEP:SetSightDelta(d)
+    if !game.SinglePlayer() and CLIENT then self.CL_SightDelta = d end
+    self:SetNWSightDelta(d)
+end
+
+function SWEP:GetSightDelta()
+    if !game.SinglePlayer() and CLIENT then return self.CL_SightDelta end
+    return self:GetNWSightDelta()
+end
+
+SWEP.CL_SprintDelta = 0
+function SWEP:SetSprintDelta(d)
+    if !game.SinglePlayer() and CLIENT then self.CL_SprintDelta = d end
+    self:SetNWSprintDelta(d)
+end
+
+function SWEP:GetSprintDelta()
+    if !game.SinglePlayer() and CLIENT then return self.CL_SprintDelta end
+    return self:GetNWSprintDelta()
+end
+
+SWEP.CL_MalfunctionJam = false
+function SWEP:SetMalfunctionJam(d)
+    if !game.SinglePlayer() and CLIENT then self.CL_MalfunctionJam = tobool(d) end
+    self:SetNWMalfunctionJam(d)
+end
+
+function SWEP:GetMalfunctionJam()
+    if !game.SinglePlayer() and CLIENT then return self.CL_MalfunctionJam end
+    return self:GetNWMalfunctionJam()
+end
+
+-- DIRTY OPTIMIZATION TRICK: NeedCycle is reused for grenades!
+function SWEP:SetGrenadeAlt(d)
+    if !self.Throwing then return end
+    self:SetNeedCycle(d)
+end
+
+function SWEP:GetGrenadeAlt()
+    if !self.Throwing then return false end
+    return self:GetNeedCycle()
+end
+
+function SWEP:SetPriorityAnim(v)
+    if isbool(v) then
+        if v then
+            self:SetNWPriorityAnim(math.huge)
+        else
+            self:SetNWPriorityAnim(-math.huge)
+        end
+    elseif isnumber(v) and v > self:GetNWPriorityAnim() then
+        self:SetNWPriorityAnim(v)
+    end
+end
+
+function SWEP:GetPriorityAnim()
+    local decide = self:GetNWPriorityAnim() > CurTime()
+
+    -- Reloading is always a priority animation
+    if !decide then decide = self:GetReloading() end
+
+    self:GetBuff_Hook("Hook_GetPriorityAnim", decide)
+
+    return decide
 end

@@ -1,4 +1,5 @@
 L = {}
+STL = {}
 
 -- not a translate string, but in case a language needs its own font
 L["default_font"] = "Bahnschrift"
@@ -105,7 +106,7 @@ L["stat.sighttime"] = "Handling Time"
 L["stat.sighttime.tooltip"] = "How long does it take to transition from or to sprinting and sights with this weapon."
 L["stat.speedmult"] = "Move Speed"
 L["stat.speedmult.tooltip"] = "The speed at which you move with the gun, in percentage of original speed."
-L["stat.sightspeed"] = "Sighted Strafe Speed"
+L["stat.sightspeed"] = "Speed while Sighted"
 L["stat.sightspeed.tooltip"] = "The additional slowdown applied when you are moving with sights down."
 L["stat.meleedamage"] = "Bash Damage"
 L["stat.meleedamage.tooltip"] = "How much damage the melee bash causes."
@@ -113,8 +114,8 @@ L["stat.meleetime"] = "Bash Time"
 L["stat.meleetime.tooltip"] = "The time it takes to do a melee bash."
 L["stat.shootvol"] = "Firing Volume"
 L["stat.shootvol.tooltip"] = "How loud the weapon is, in decibels. Louder weapons can be heard from further away."
-L["stat.barrellen"] = "Barrel Length"
-L["stat.barrellen.tooltip"] = "The length of the barrel, in Hammer Units. Long barrels will be blocked by walls more easily."
+L["stat.barrellen"] = "Weapon length"
+L["stat.barrellen.tooltip"] = "The length of the weapon, in Hammer units / inches. Long barrels will be blocked by walls more easily."
 L["stat.pen"] = "Penetration"
 L["stat.pen.tooltip"] = "How much material this weapon can penetrate."
 
@@ -134,15 +135,15 @@ L["autostat.recoil"] = "Recoil"
 L["autostat.recoilside"] = "Horizontal recoil"
 L["autostat.firerate"] = "Fire rate"
 L["autostat.precision"] = "Imprecision"
-L["autostat.hipdisp"] = "Hip fire spread"
-L["autostat.sightdisp"] = "Sighted spread"
-L["autostat.movedisp"] = "Moving spread"
-L["autostat.jumpdisp"] = "Jumping spread"
-L["autostat.barrellength"] = "Barrel length"
+L["autostat.hipdisp"] = "Spread in hipfire"
+L["autostat.sightdisp"] = "Spread while sighted"
+L["autostat.movedisp"] = "Spread while moving"
+L["autostat.jumpdisp"] = "Spread while in midair"
+L["autostat.barrellength"] = "Weapon length"
 L["autostat.shootvol"] = "Weapon volume"
 L["autostat.speedmult"] = "Movement speed"
-L["autostat.sightspeed"] = "Sighted strafe speed"
-L["autostat.shootspeed"] = "Shooting movement speed"
+L["autostat.sightspeed"] = "Speed while sighted"
+L["autostat.shootspeed"] = "Speed while shooting"
 L["autostat.reloadtime"] = "Reload time"
 L["autostat.drawtime"] = "Draw time"
 L["autostat.sighttime"] = "Handling"
@@ -203,12 +204,16 @@ L["ttt.ammo"] = "Ammo: " -- Used in TTT2 TargetID
 
 -- Shit that used to be in CS+ why
 L["info.togglesight"] = "Double press +USE to toggle sights"
-L["info.toggleubgl"] = "Double press +ZOOM to toggle underbarrel"
-L["pro.ubgl"] = "Selectable underbarrel launcher"
-L["pro.ubsg"] = "Selectable underbarrel shotgun"
+L["info.toggleubgl"] = "Double press +ZOOM to toggle underbarrel" -- deprecated
+L["pro.ubgl"] = "Selectable underbarrel launcher" -- deprecaated
+L["pro.ubsg"] = "Selectable underbarrel shotgun" -- deprecaated
 L["con.obstruction"] = "May obstruct sights"
 L["autostat.underwater"] = "Shoot underwater"
 L["autostat.sprintshoot"] = "Shoot while sprinting"
+L["con.beam"] = "Visible laser beam"
+L["con.light"] = "Visible flashlight beam"
+L["con.noscope"] = "No point of aim"
+L["pro.invistracers"] = "Invisible tracers"
 
 -- Incompatibility Menu
 L["incompatible.title"] = "ArcCW: INCOMPATIBLE ADDONS"
@@ -318,8 +323,66 @@ L["fcg.pump"] = "Pump-action"
 L["fcg.lever"] = "Lever-action"
 L["fcg.manual"] = "Manual-action"
 L["fcg.break"] = "Break-action"
---L["fcg.sngl"] = "Single" should we? idk
---L["fcg.both"] = "Both"
+L["fcg.sngl"] = "Single"
+L["fcg.both"] = "Both"
+
+--2021-08-11
+L["autostat.clipsize.mod"] = "Magazine capacity" -- used for Add_ClipSize and Mult_ClipSize
+
+--2021-08-22
+L["trivia.recoilscore"] = "Recoil Score (Lower is better)"
+L["fcg.safe.abbrev"] = "SAFE"
+L["fcg.semi.abbrev"] = "SEMI"
+L["fcg.auto.abbrev"] = "AUTO"
+L["fcg.burst.abbrev"] = "%d-BST"
+L["fcg.ubgl.abbrev"] = "UBGL"
+L["fcg.safe2.abbrev"] = "LOW"
+L["fcg.dact.abbrev"] = "DACT"
+L["fcg.sact.abbrev"] = "SACT"
+L["fcg.bolt.abbrev"] = "BOLT"
+L["fcg.pump.abbrev"] = "PUMP"
+L["fcg.lever.abbrev"] = "LEVER"
+L["fcg.manual.abbrev"] = "MANUAL"
+L["fcg.break.abbrev"] = "BREAK"
+L["fcg.sngl.abbrev"] = "SNGL"
+L["fcg.both.abbrev"] = "BOTH"
+
+-- 2021-10-10
+STL["lowered"] = "fcg.safe2"
+STL["double-action"] = "fcg.dact"
+STL["single-action"] = "fcg.sact"
+STL["bolt-action"] = "fcg.bolt"
+STL["pump-action"] = "fcg.pump"
+STL["lever-action"] = "fcg.lever"
+STL["manual-action"] = "fcg.manual"
+STL["break-action"] = "fcg.break"
+--STL["single"] = "fcg.sngl"
+--STL["both"] = "fcg.both"
+
+-- 2021-11-27
+L["ui.hitgroup"] = "Hitgroup"
+L["ui.shotstokill"] = "Shots to kill"
+L["ui.hitgroup.head"] = "Head"
+L["ui.hitgroup.torso"] = "Torso" -- chest+stomach when they're the same
+L["ui.hitgroup.chest"] = "Chest"
+L["ui.hitgroup.stomach"] = "Stomach"
+L["ui.hitgroup.arms"] = "Arms"
+L["ui.hitgroup.legs"] = "Legs"
+L["ui.nonum"] = "You need bullets to kill people, silly." -- num is 0
+
+-- 2022-05-23
+L["fcg.nade"] = "Grenade"
+L["fcg.nade.abbrev"] = "NADE"
+
+-- 2022-08-03
+L["attslot.magazine"] = "Magazine"
+L["attslot.magazine.default"] = "Standard Magazine"
+
+-- 2022-08-17
+L["autostat.ubgl"] = "Selectable underbarrel weapon"
+L["autostat.ubgl2"] = "Press your USE key and RELOAD key together to activate underbarrel weapon"
+L["autostat.ammotypeubgl"] = "Underbarrel weapon uses %s"
+
 
 --[[]
 You can translate the trivia of any arbitrary weapon or attachment by adding the phrase ["desc.class_name"]

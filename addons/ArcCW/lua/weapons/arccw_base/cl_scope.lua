@@ -57,21 +57,20 @@ function SWEP:Scroll(var)
 
 end
 
-SWEP.ViewPunchAngle = Angle(0, 0, 0)
-SWEP.ViewPunchVelocity = Angle(0, 0, 0)
+local ang0 = Angle(0, 0, 0)
+
+SWEP.ViewPunchAngle = Angle(ang0)
+SWEP.ViewPunchVelocity = Angle(ang0)
 
 function SWEP:OurViewPunch(angle)
-    self.ViewPunchVelocity = self.ViewPunchVelocity + angle
-
-    local ang = self.ViewPunchVelocity
-
-    ang[1] = math.Clamp(ang[1], -180, 180)
-    ang[2] = math.Clamp(ang[2], -180, 180)
-    ang[3] = math.Clamp(ang[3], -180, 180)
+    self.ViewPunchVelocity:Add(angle)
+    for i = 1, 3 do self.ViewPunchVelocity[i] = math.Clamp(self.ViewPunchVelocity[i], -180, 180) end
 end
 
 function SWEP:GetOurViewPunchAngles()
-    return (self.ViewPunchAngle * 10) + self:GetOwner():GetViewPunchAngles()
+    local a = self:GetOwner():GetViewPunchAngles()
+    for i = 1, 3 do a[i] = a[i] + self.ViewPunchAngle[i] * 10 end
+    return a
 end
 
 local function lensqr(ang)
@@ -119,8 +118,8 @@ function SWEP:DoOurViewPunch()
         vpv = vpv - (vpa * springforcemagnitude)
 
         --     // don't wrap around
-        --     player->m_Local.m_vecPunchAngle.Init( 
-        --         clamp(player->m_Local.m_vecPunchAngle->x, -89.f, 89.f ), 
+        --     player->m_Local.m_vecPunchAngle.Init(
+        --         clamp(player->m_Local.m_vecPunchAngle->x, -89.f, 89.f ),
         --         clamp(player->m_Local.m_vecPunchAngle->y, -179.f, 179.f ),
         --         clamp(player->m_Local.m_vecPunchAngle->z, -89.f, 89.f ) );
         -- }
@@ -132,17 +131,17 @@ function SWEP:DoOurViewPunch()
         self.ViewPunchAngle = vpa
         self.ViewPunchVelocity = vpv
     else
-        self.ViewPunchAngle = Angle(0, 0, 0)
-        self.ViewPunchVelocity = Angle(0, 0, 0)
+        self.ViewPunchAngle = Angle(ang0)
+        self.ViewPunchVelocity = Angle(ang0)
     end
 end
 
 -- viewbob during reload and firing shake
-SWEP.ProceduralViewOffset = Angle(0, 0, 0)
+SWEP.ProceduralViewOffset = Angle(ang0)
 local procedural_spdlimit = 5
 local oldangtmp
 local mzang_fixed,mzang_fixed_last
-local mzang_velocity = Angle()
+local mzang_velocity = Angle(ang0)
 local progress = 0
 local targint,targbool
 
@@ -154,9 +153,25 @@ function SWEP:CoolView(ply, pos, ang, fov)
     if !IsValid(vm) then return end
     local ftv = FrameTime()
 
-    local att = self:GetBuff_Override("Override_CamAttachment") or self.CamAttachment
+    local gunbone, gbslot = self:GetBuff_Override("LHIK_CamDriver")
+    local lhik_anim_model = gbslot and self.Attachments[gbslot].GodDriver and self.Attachments[gbslot].GodDriver.Model
+    if IsValid(lhik_anim_model) and lhik_anim_model:GetAttachment(gunbone) then
+        local catang = lhik_anim_model:GetAttachment(gunbone).Ang
 
-    if att then
+        catang:Sub( Angle( 0, 90, 90 ) )
+        catang.y = -catang.y
+        local r = catang.r
+        catang.r = -catang.p
+        catang.p = -r
+
+        ang:RotateAroundAxis( ang:Right(),		catang.x )
+        ang:RotateAroundAxis( ang:Up(),			catang.y )
+        ang:RotateAroundAxis( ang:Forward(),	catang.z )
+
+    end
+
+    local att = self:GetBuff_Override("Override_CamAttachment") or self.CamAttachment
+    if att and vm:GetAttachment(att) then
         local attang = vm:GetAttachment(att).Ang
 
         attang = vm:WorldToLocalAngles(attang)
@@ -229,7 +244,7 @@ function SWEP:CalcView(ply, pos, ang, fov)
         self:CoolView(ply, pos, ang, fov)
     end
 
-    if GetConVar("arccw_shake"):GetBool() then
+    if GetConVar("arccw_shake"):GetBool() and !engine.IsRecordingDemo() then
         local de = (0.2 + (self:GetSightDelta()*0.8))
         ang = ang + (AngleRand() * self.RecoilAmount * 0.006 * de)
     end

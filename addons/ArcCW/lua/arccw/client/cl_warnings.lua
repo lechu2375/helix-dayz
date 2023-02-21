@@ -1,12 +1,36 @@
 ArcCW.IncompatibleAddons = {
-    ["847269692"] = "Causes viewmodel flickering, may crash when customization menu opens",
+    -- My Hands 8.1
+    ["847269692"] = "Causes viewmodel flickering, double viewmodel, may crash when customization menu opens",
+
+    -- My Hands 8
+    ["1890577397"] = "Causes viewmodel flickering, double viewmodel, may crash when customization menu opens",
+
+    -- Quick Weapon Menu
     ["306149085"] = "Makes the customize menu mouse unable to appear.",
-    ["541434990"] = "Neurotec is ancient, half the base is missing, and it flat-out doesn't work. Causes all sorts of problems. For the love of god, let go.", -- Neurotec
-    --["1100368137"] = "May cause Lua errors. Use the wOS version instead.", -- Prone Mod
-    ["476997621"] = "Causes issues with arms.", -- Improved Combine NPCs
-    -- ["1308077613"] = "Will make near-walling look exaggerated; known to conflict with cBobbing.", -- View model bump, should be fixed
-    -- ["1429489453"] = "Causes issues with arms." -- bio annihilation extended sninctbur
-    ["1588705429"] = "Causes damage calculation to not work properly.", -- Realistic Bullet Overhaul
+
+    -- Neurotec
+    ["541434990"] = "Neurotec is ancient, half the base is missing, and it flat-out doesn't work. Causes all sorts of problems. For the love of god, let go.",
+
+    -- Improved Combine NPCs
+    ["476997621"] = "Causes issues with arms.",
+
+    -- Realistic Bullet Overhaul
+    ["1588705429"] = "Causes damage calculation to not work properly.",
+
+    -- Quake/Half Life View bobbing
+    ["378401390"] = "Causes most animations to not play properly.",
+
+    -- Thirteen's Physgun Glow
+    ["111249028"] = "Causes LHIK animations to flicker and not work properly.",
+
+    -- Viewmodel Lagger
+    ["1146104662"] = "Misaligns viewmodel in sights.",
+
+    -- Viewmodel Lagger (fixed)
+    ["2566560460"] = "Misaligns viewmodel in sights.",
+
+    -- VTools
+    ["DisplayDistancePlane"] = "Tool contains faulty hook, which has been removed to keep ArcCW functional.",
 }
 
 local t = ArcCW.GetTranslation
@@ -165,6 +189,7 @@ function ArcCW.MakeIncompatibleWindow(tbl)
             surface.DrawText(txt2)
         end
         addonBtn.OnMousePressed = function(spaa, kc)
+            if addon.nourl then return end
             gui.OpenURL("https://steamcommunity.com/sharedfiles/filedetails/?id=" .. tostring(addon.wsid))
         end
     end
@@ -176,6 +201,6 @@ hook.Add("InitPostEntity", "ArcCW_CheckContent", function()
             return
         end
     end
-    chat.AddText(Color(255,255,255), "You have installed ArcCW Base but have no content packs installed. Perhaps you want to install the CS+ pack?")
-    chat.AddText(Color(255,255,255), "https://steamcommunity.com/sharedfiles/filedetails/?id=2131058270")
+    chat.AddText(Color(255,255,255), "You have installed the ArcCW base but have no weapons installed. Search the workshop for some!") -- Perhaps you want to install the CS+ pack?")
+    --chat.AddText(Color(255,255,255), "https://steamcommunity.com/sharedfiles/filedetails/?id=2131058270")
 end)

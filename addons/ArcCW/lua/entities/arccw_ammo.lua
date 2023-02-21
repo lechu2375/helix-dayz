@@ -104,7 +104,7 @@ function ENT:TTT_CheckForWeapon(ply)
     ]]
 
     -- Why does TTT not iterate over the player's weapons? This is obviously faster
-    for _, wep in pairs(ply:GetWeapons()) do
+    for _, wep in ipairs(ply:GetWeapons()) do
         --if self.CachedWeapons[wep:GetClass()] then return true end
         -- Perform check for overwritten ammo types (attachments) and UBGLs
         if wep.ArcCW and
@@ -123,7 +123,7 @@ function ENT:ApplyAmmo(ply)
         -- Stupid checks mate... but we'll play along unless an override exists
         if !self.IgnoreTTTChecks and !self:TTT_PlayerCanPickup(ply) or !self:TTT_CheckForWeapon(ply) then return end
 
-        local giveCount = math.min(self.AmmoCount, ArcCW.TTTAmmo_To_ClipMax[string.lower(self.AmmoType)] - ply:GetAmmoCount(self.AmmoType))
+        local giveCount = math.min(self.AmmoCount, ArcCW.TTTAmmoToClipMax[string.lower(self.AmmoType)] - ply:GetAmmoCount(self.AmmoType))
         if giveCount <= 0 then return end
 
         self.AmmoCount = self.AmmoCount - giveCount

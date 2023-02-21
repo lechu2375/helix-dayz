@@ -1,16 +1,80 @@
 ArcCW.PhysBullets = {
 }
 
+-- intentionally not 10 despite there being 10 default profiles.
+-- for some reason profile indices are previously referenced as zero-indexed but stored as one-indexed
+ArcCW.BulletProfileNum = 9
+ArcCW.BulletProfileBits = nil
 ArcCW.BulletProfiles = {
-    [1] = Color(255, 180, 100),
-    [2] = Color(255, 0, 0),
-    [3] = Color(0, 255, 0),
-    [4] = Color(0, 0, 255),
-    [5] = Color(255, 255, 0),
-    [6] = Color(255, 0, 255),
-    [7] = Color(0, 255, 255),
-    [8] = Color(0, 0, 0),
+    [0] = "default0",
+    [1] = "default1",
+    [2] = "default2",
+    [3] = "default3",
+    [4] = "default4",
+    [5] = "default5",
+    [6] = "default6",
+    [7] = "default7",
+    [8] = "default8",
+    [9] = "default9",
 }
+ArcCW.BulletProfileDict = {
+    ["default0"] = {id = 0, name = "default0", color = Color(255, 225, 200)},
+    ["default1"] = {id = 1, name = "default1", color = Color(255, 0, 0)},
+    ["default2"] = {id = 2, name = "default2", color = Color(0, 255, 0)},
+    ["default3"] = {id = 3, name = "default3", color = Color(0, 0, 255)},
+    ["default4"] = {id = 4, name = "default4", color = Color(255, 255, 0)},
+    ["default5"] = {id = 5, name = "default5", color = Color(255, 0, 255)},
+    ["default6"] = {id = 6, name = "default6", color = Color(0, 255, 255)},
+    ["default7"] = {id = 7, name = "default7", color = Color(0, 0, 0)},
+    ["default8"] = {id = 8, name = "default8", color = Color(100, 255, 100)},
+    ["default9"] = {id = 9, name = "default9", color = Color(100, 0, 255)},
+--[[]
+    ["profile_name"] = {
+        color = Color(255, 255, 255),
+        sprite_head = Material("effects/whiteflare"), -- set false to not draw a sprite, set nil to use default
+        sprite_tail = Material("effects/smoke_trail"), -- ditto
+        size = 1, -- Size growth factor of the physbullet (from distance)
+        size_min = 1, -- Base size of the physbullet
+        tail_length = 0.02, -- as a fraction of the bullet's velocity
+        model = "models/weapons/w_bullet.mdl", -- clientside model is not created without this path
+        model_nodraw = false, -- true to not draw model
+        particle = "myparticle", -- requires a model path; set to nodraw if you don't wish it to be visible
+
+        ThinkBullet = function(bulinfo, bullet) end, -- set bullet.Dead = true to stop processing and delete bullet.
+        DrawBullet = function(bulinfo, bullet) end, -- return true to prevent default drawing behavior
+        PhysBulletHit = function(bulinfo, bullet, tr) end,
+    }
+]]
+}
+
+local vector_down = Vector(0, 0, 1)
+
+function ArcCW:AddBulletProfile(name, bulinfo)
+
+    if istable(name) and !bulinfo then
+        bulinfo = name
+        name = tostring(ArcCW.BulletProfileNum + 1)
+    end
+
+    local new = !ArcCW.BulletProfileDict[name]
+    if new then
+        ArcCW.BulletProfileNum = ArcCW.BulletProfileNum + 1
+        ArcCW.BulletProfiles[ArcCW.BulletProfileNum] = name
+        ArcCW.BulletProfileBits = nil
+    end
+    ArcCW.BulletProfileDict[name] = bulinfo
+    if new then
+        ArcCW.BulletProfileDict[name].name = name
+        ArcCW.BulletProfileDict[name].id = ArcCW.BulletProfileNum
+    end
+end
+
+function ArcCW:BulletProfileBitNecessity()
+    if !ArcCW.BulletProfileBits then
+        ArcCW.BulletProfileBits = math.min(math.ceil(math.log(ArcCW.BulletProfileNum + 1, 2)), 32)
+    end
+    return ArcCW.BulletProfileBits
+end
 
 function ArcCW:SendBullet(bullet, attacker)
     net.Start("arccw_sendbullet", true)
@@ -19,7 +83,7 @@ function ArcCW:SendBullet(bullet, attacker)
     net.WriteFloat(bullet.Vel:Length())
     net.WriteFloat(bullet.Drag)
     net.WriteFloat(bullet.Gravity)
-    net.WriteUInt((bullet.Profile - 1) or 1, 3)
+    net.WriteUInt(bullet.Profile or 0, ArcCW:BulletProfileBitNecessity())
     net.WriteBool(bullet.PhysBulletImpact)
     net.WriteEntity(bullet.Weapon)
 
@@ -33,9 +97,18 @@ function ArcCW:SendBullet(bullet, attacker)
     end
 end
 
-function ArcCW:ShootPhysBullet(wep, pos, vel, prof)
-    local pbi = wep:GetBuff_Override("Override_PhysBulletImpact")
-    local num = wep:GetBuff_Override("Override_Num") or wep.Num
+function ArcCW:ShootPhysBullet(wep, pos, vel, prof, ovr)
+    ovr = ovr or {}
+    local pbi = ovr.PhysBulletImpact or wep:GetBuff_Override("Override_PhysBulletImpact")
+    local num = ovr.Num or wep:GetBuff("Num")
+
+    if !prof then
+        prof = wep:GetBuff_Override("Override_PhysTracerProfile", wep.PhysTracerProfile) or 1
+    end
+    if isstring(prof) then
+        prof = ArcCW.BulletProfileDict[prof].id
+    end
+
     local bullet = {
         DamageMax = wep:GetDamage(0) / num,
         DamageMin = wep:GetDamage(math.huge) / num,
@@ -47,6 +120,7 @@ function ArcCW:ShootPhysBullet(wep, pos, vel, prof)
         ImpactDecal = wep:GetBuff_Override("Override_ImpactDecal", wep.ImpactDecal),
         PhysBulletImpact = pbi == nil and true or pbi,
         Gravity = wep:GetBuff("PhysBulletGravity"),
+        HullSize = wep:GetBuff("HullSize"),
         Num = num,
         Pos = pos,
         Vel = vel,
@@ -62,17 +136,20 @@ function ArcCW:ShootPhysBullet(wep, pos, vel, prof)
         Damaged = {},
         Burrowing = false,
         Dead = false,
-        Profile = prof or wep:GetBuff_Override("Override_PhysTracerProfile") or wep.PhysTracerProfile or 0
+        Profile = prof
     }
+    table.Merge(bullet, ovr)
 
     table.Add(bullet.Filter, wep.Shields or {})
 
     local owner = wep:GetOwner()
 
+    --[[]
     if owner and owner:IsNPC() then
         bullet.DamageMax = bullet.DamageMax * GetConVar("arccw_mult_npcdamage"):GetFloat()
         bullet.DamageMin = bullet.DamageMin * GetConVar("arccw_mult_npcdamage"):GetFloat()
     end
+    ]]
 
     if SERVER and owner and owner:IsPlayer() then
         table.Add(bullet.Filter, ArcCW:GetVehicleFilter(owner) or {})
@@ -84,20 +161,28 @@ function ArcCW:ShootPhysBullet(wep, pos, vel, prof)
 
     table.insert(ArcCW.PhysBullets, bullet)
 
-    if wep:GetOwner():IsPlayer() and SERVER then
-        local ping = wep:GetOwner():Ping() / 1000
-        ping = math.Clamp(ping, 0, 0.5)
+    -- TODO: This is still bad but unless we can access FLOW_OUTGOING from inside INetChannelInfo I can't think of any better way to do this.
+    if owner:IsPlayer() and SERVER then
+        --local ping = owner:Ping() / 1000
+        --ping = math.Clamp(ping, 0, 0.5)
+
+        -- local latency = util.TimeToTicks((owner:Ping() / 1000) * 0.5)
+        local latency = math.floor(engine.TickCount() - owner:GetCurrentCommand():TickCount() - 1) -- FIXME: this math.floor does nothing
         local timestep = engine.TickInterval()
 
-        while ping > 0 do
-            ArcCW:ProgressPhysBullet(bullet, math.min(timestep, ping))
-            ping = ping - timestep
+        while latency > 0 do
+            ArcCW:ProgressPhysBullet(bullet, timestep)
+            latency = latency - 1
         end
+
+        -- while ping > 0 do
+        --     ArcCW:ProgressPhysBullet(bullet, timestep)
+        --     ping = ping - timestep
+        -- end
     end
 
     if SERVER then
-        ArcCW:ProgressPhysBullet(bullet, FrameTime())
-
+        -- ArcCW:ProgressPhysBullet(bullet, engine.TickInterval())
         ArcCW:SendBullet(bullet, wep:GetOwner())
     end
 end
@@ -110,7 +195,7 @@ net.Receive("arccw_sendbullet", function(len, ply)
     local vel = net.ReadFloat()
     local drag = net.ReadFloat()
     local grav = net.ReadFloat()
-    local profile = net.ReadUInt(3) + 1
+    local profile = net.ReadUInt(ArcCW:BulletProfileBitNecessity())
     local impact = net.ReadBool()
     local weapon = net.ReadEntity()
     local ent = nil
@@ -129,11 +214,12 @@ net.Receive("arccw_sendbullet", function(len, ply)
         Dead = false,
         Damaged = {},
         Drag = drag,
-        Attacker = ent,
+        Attacker = ent or weapon:GetOwner(),
         Gravity = grav,
         Profile = profile,
         PhysBulletImpact = impact,
         Weapon = weapon,
+        Filter = {weapon:GetOwner()},
     }
 
     if bit.band( util.PointContents( pos ), CONTENTS_WATER ) == CONTENTS_WATER then
@@ -147,18 +233,27 @@ end
 
 function ArcCW:DoPhysBullets()
     local new = {}
-    for _, i in pairs(ArcCW.PhysBullets) do
-        ArcCW:ProgressPhysBullet(i, FrameTime())
+    local deltatime = engine.TickInterval()
 
-        if !i.Dead then
+    for _, i in pairs(ArcCW.PhysBullets) do
+        ArcCW:ProgressPhysBullet(i, deltatime)
+        -- On the client, bullets must live for at least one tick so we get to render it
+        -- This prevents invisible tracers up close
+        if !i.Dead or (CLIENT and CurTime() - i.StartTime <= engine.TickInterval()) then
             table.insert(new, i)
+        elseif CLIENT and IsValid(i.CSModel) then
+            i.CSModel:Remove()
+            if i.CSParticle then
+                i.CSParticle:StopEmission()
+                i.CSParticle = nil
+            end
         end
     end
 
     ArcCW.PhysBullets = new
 end
 
-hook.Add("Think", "ArcCW_DoPhysBullets", ArcCW.DoPhysBullets)
+hook.Add("Tick", "ArcCW_DoPhysBullets", ArcCW.DoPhysBullets)
 
 local function indim(vec, maxdim)
     if math.abs(vec.x) > maxdim or math.abs(vec.y) > maxdim or math.abs(vec.z) > maxdim then
@@ -168,9 +263,9 @@ local function indim(vec, maxdim)
     end
 end
 
+local ArcCW_BulletGravity = GetConVar("arccw_bullet_gravity")
+local ArcCW_BulletDrag = GetConVar("arccw_bullet_drag")
 function ArcCW:ProgressPhysBullet(bullet, timestep)
-    timestep = timestep or FrameTime()
-
     if bullet.Dead then return end
 
     local oldpos = bullet.Pos
@@ -178,7 +273,7 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
     local dir = bullet.Vel:GetNormalized()
     local spd = bullet.Vel:Length() * timestep
     local drag = bullet.Drag * spd * spd * (1 / 150000)
-    local gravity = timestep * GetConVar("arccw_bullet_gravity"):GetFloat() * (bullet.Gravity or 1)
+    local gravity = timestep * ArcCW_BulletGravity:GetFloat() * (bullet.Gravity or 1)
 
     local attacker = bullet.Attacker
 
@@ -191,13 +286,21 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
         drag = drag * 3
     end
 
-    drag = drag * GetConVar("arccw_bullet_drag"):GetFloat()
+    drag = drag * ArcCW_BulletDrag:GetFloat()
 
     if spd <= 0.001 then bullet.Dead = true return end
 
+    local bulinfo = ArcCW.BulletProfileDict[ArcCW.BulletProfiles[bullet.Profile or 1] or ""]
+    if bulinfo == nil then
+        return
+    end
+    if bulinfo.ThinkBullet then
+        bulinfo:ThinkBullet(bullet)
+    end
+
     local newpos = oldpos + (oldvel * timestep)
     local newvel = oldvel - (dir * drag)
-    newvel = newvel - (Vector(0, 0, 1) * gravity)
+    newvel = newvel - (vector_down * gravity)
 
     if bullet.Imaginary then
         -- the bullet has exited the map, but will continue being visible.
@@ -213,21 +316,36 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
             attacker:LagCompensation(true)
         end
 
-        local tr = util.TraceLine({
-            start = oldpos,
-            endpos = newpos,
-            filter = bullet.Filter,
-            mask = MASK_SHOT
-        })
+        local tr
+        if bullet.HullSize then
+            local bb = Vector(bullet.HullSize / 2, bullet.HullSize / 2, bullet.HullSize / 2)
+            tr = util.TraceHull({
+                start = oldpos,
+                endpos = newpos,
+                filter = bullet.Filter,
+                mask = MASK_SHOT,
+                mins = -bb,
+                maxs = bb,
+            })
+            if GetConVar("arccw_dev_shootinfo"):GetInt() > 0 then
+                debugoverlay.Line(oldpos, tr.HitPos, 5, SERVER and Color(100,100,255) or Color(255,200,100), true)
+                debugoverlay.Box(tr.HitPos, -bb, bb, 5, SERVER and Color(100,100,255,0) or Color(255,200,100,0))
+            end
+        else
+            tr = util.TraceLine({
+                start = oldpos,
+                endpos = newpos,
+                filter = bullet.Filter,
+                mask = MASK_SHOT
+            })
+            if GetConVar("arccw_dev_shootinfo"):GetInt() > 0 then
+                debugoverlay.Line(oldpos, tr.HitPos, 5, SERVER and Color(100,100,255) or Color(255,200,100), true)
+                debugoverlay.Cross(tr.HitPos, 16, 0.05, SERVER and Color(100,100,255) or Color(255,200,100), true)
+            end
+        end
 
         if attacker:IsPlayer() then
             attacker:LagCompensation(false)
-        end
-
-        if SERVER then
-            debugoverlay.Line(oldpos, tr.HitPos, 5, Color(100,100,255), true)
-        else
-            debugoverlay.Line(oldpos, tr.HitPos, 5, Color(255,200,100), true)
         end
 
         if tr.HitSky then
@@ -277,15 +395,28 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
                 if IsValid(bullet.Weapon) then
                     bullet.Weapon:GetBuff_Hook("Hook_PhysBulletHit", {bullet = bullet, tr = tr})
                 end
+                if bullet.PhysBulletHit then
+                    bullet:PhysBulletHit(bullet, tr)
+                end
+                if bulinfo.PhysBulletHit then
+                    bulinfo:PhysBulletHit(bullet, tr)
+                end
                 return
             elseif SERVER then
+                local dmgtable
                 if IsValid(bullet.Weapon) then
                     bullet.Weapon:GetBuff_Hook("Hook_PhysBulletHit", {bullet = bullet, tr = tr})
+
+                    dmgtable = bullet.Weapon.BodyDamageMults
+                    dmgtable = bullet.Weapon:GetBuff_Override("Override_BodyDamageMults") or dmgtable
+                end
+                if bullet.PhysBulletHit then
+                    bullet:PhysBulletHit(bullet, tr)
                 end
                 if bullet.PhysBulletImpact then
+
                     local delta = bullet.Travelled / (bullet.Range / ArcCW.HUToM)
                     delta = math.Clamp(delta, 0, 1)
-                    local dmg = Lerp(delta, bullet.DamageMax, bullet.DamageMin)
                     -- deal some damage
                     attacker:FireBullets({
                         Src = oldpos,
@@ -295,57 +426,7 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
                         Damage = 0,
                         IgnoreEntity = bullet.Attacker,
                         Callback = function(catt, ctr, cdmg)
-                            local hit   = {}
-                            hit.att     = catt
-                            hit.tr      = ctr
-                            hit.dmg     = cdmg
-                            hit.range   = bullet.Travelled
-                            hit.damage  = dmg
-                            hit.dmgtype = bullet.DamageType
-                            hit.penleft = bullet.Penleft
-
-                            if IsValid(bullet.Weapon) then
-                                hit = bullet.Weapon:GetBuff_Hook("Hook_BulletHit", hit)
-
-                                if !hit then return end
-                            end
-
-                            if bullet.Damaged[ctr.Entity:EntIndex()] then
-                                cdmg:SetDamage(0)
-                            else
-                                cdmg:SetDamage(dmg)
-                                cdmg:SetDamageType(bullet.DamageType)
-                            end
-
-                            if bullet.DamageType == DMG_BURN and delta < 1 then
-                                cdmg:SetDamageType(DMG_BULLET)
-
-                                if bullet.Num > 1 then
-                                    cdmg:SetDamageType(DMG_BUCKSHOT)
-                                end
-
-                                if vFireInstalled then
-                                    CreateVFire(ctr.Entity, ctr.HitPos, ctr.HitNormal, dmg * 0.02)
-                                else
-                                    ctr.Entity:Ignite(1, 0)
-                                end
-                            end
-
-                            ArcCW.TryBustDoor(ctr.Entity, cdmg)
-
-                            if bullet.ImpactEffect then
-                                local ed = EffectData()
-                                ed:SetOrigin(ctr.HitPos)
-                                ed:SetNormal(ctr.HitNormal)
-
-                                util.Effect(bullet.ImpactEffect, ed)
-                            end
-
-                            if bullet.ImpactDecal then
-                                util.Decal(bullet.ImpactDecal, ctr.StartPos, ctr.HitPos - (ctr.HitNormal * 16), bullet.Attacker)
-                            end
-
-                            ArcCW:DoPenetration(ctr, dmg, bullet, bullet.Penleft, true, bullet.Damaged)
+                            ArcCW:BulletCallback(catt, ctr, cdmg, bullet, true)
                         end
                     }, true)
                 end
@@ -402,6 +483,8 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
         end
     end
 
+    bullet.OldPos = oldpos
+
     local MaxDimensions = 16384 * 4
     local WorldDimensions = 16384
 
@@ -414,45 +497,111 @@ function ArcCW:ProgressPhysBullet(bullet, timestep)
     end
 end
 
-local head = Material("effects/whiteflare")
+local head = Material("particle/fire")
 local tracer = Material("effects/smoke_trail")
 
 function ArcCW:DrawPhysBullets()
     cam.Start3D()
     for _, i in pairs(ArcCW.PhysBullets) do
-        if i.StartTime >= CurTime() - 0.1 then
-            if i.Travelled <= (i.Vel:Length() * 0.01) then continue end
+
+        local pro = i.Profile or 1
+        if pro == 7 then continue end -- legacy behavior: 7 is the "invisible" tracer
+        local bulinfo = ArcCW.BulletProfileDict[ArcCW.BulletProfiles[pro] or ""]
+
+        if bulinfo == nil then
+            print("Failed to find bullet info for profile " .. tostring(i) .. "!")
+            continue
         end
 
-        local size = 1
-
-        size = size * math.log(EyePos():DistToSqr(i.Pos) - math.pow(256, 2))
-
-        -- print(size)
-
-        size = math.Clamp(size, 0, math.huge)
-
-        local delta = (EyePos():DistToSqr(i.Pos) / math.pow(20000, 2))
-
-        size = math.pow(size, Lerp(delta, 1, 2))
-
-        local pro = (i.Profile + 1) or 1
-
-        if pro == 8 then continue end
-
-        local col = ArcCW.BulletProfiles[pro] or ArcCW.BulletProfiles[1]
-
-        -- cam.Start3D()
-
-        render.SetMaterial(head)
-        render.DrawSprite(i.Pos, size, size, col)
-
-        if !GetConVar("arccw_fasttracers"):GetBool() then
-            render.SetMaterial(tracer)
-            render.DrawBeam(i.Pos, i.Pos - i.Vel:GetNormalized() * math.min(i.Vel:Length() * 0.02, 512), size * 0.75, 0, 1, col)
+        -- Draw function override
+        if bulinfo.DrawBullet and bulinfo:DrawBullet(i) then
+            continue
         end
 
-        -- cam.End3D()
+        i.VelStart = i.VelStart or Vector(i.Vel)
+        i.PosStart = i.PosStart or Vector(i.Pos)
+
+        local rpos = i.Pos
+
+        local vel = i.Vel - LocalPlayer():GetVelocity()
+        local veldir = vel:GetNormalized()
+        local dampfraction = 1
+
+        -- Solve two problems presented by physbullets
+        -- 1: they come out of the player's eyes and it looks jarring
+        -- 2: they fly too fast and so tracers aren't that noticeable
+        if !i.DampenVelocity then i.DampenVelocity = math.Clamp(math.floor(i.VelStart:Length() ^ (bulinfo.dampen_factor or 0.65)), 128, 4096) end
+        if !i.Imaginary and i.Travelled <= i.DampenVelocity then
+            if IsValid(i.Weapon) and i.Weapon:GetOwner() == LocalPlayer() then
+                -- Lerp towards the muzzle position, effectively slowing and dragging the bullet back.
+                -- Bullet will appear to accelerate suddenly near the threshold, but it should be too fast to notice.
+
+                if !i.TracerOrigin then
+                    i.TracerOrigin = i.Weapon:GetTracerOrigin() or i.StartPos
+                end
+
+                dampfraction = (i.Travelled / i.DampenVelocity) ^ 0.5
+                rpos = LerpVector(dampfraction, i.TracerOrigin or i.PosStart, i.Pos)
+
+                if GetConVar("developer"):GetInt() >= 2 then
+                    debugoverlay.Cross(i.TracerOrigin, 2, 5, Color(255, 0, 0), true)
+                    debugoverlay.Cross(rpos, 8, 5, Color(0, 255, 255), true)
+                    debugoverlay.Line(rpos, i.Pos, 5, Color(250, 150, 255), true)
+                    debugoverlay.Cross(i.Pos, 4, 5, Color(255, 0, 255), true)
+                    debugoverlay.Text(rpos, math.Round(dampfraction, 2), 5)
+                end
+            else
+                -- don't draw too close to the firing position if we can't lerp, or it will look ugly
+                continue
+            end
+        end
+
+        local col = bulinfo.color
+
+        -- TODO: Tracer sizes are still kinda wacky
+        local sqrdist = EyePos():DistToSqr(rpos)
+        local distgrow = math.log(sqrdist) ^ 0.5
+        local size = math.max(0, (bulinfo.size_min or 1) * 0.25 + (bulinfo.size or 1) * distgrow)
+        local headsize = size * math.Clamp(sqrdist / 4000000, 1, 16)
+
+        -- Head is less visible on the sides; it's mostly useful for the shooter and target as tracers aren't very visible from front and back
+        local dot = EyeAngles():Forward():Dot(veldir)
+        dot = math.Clamp(((dot * dot) - 0.5) * 2, 0, 1)
+        headsize = headsize * dot
+        --size = size * math.Clamp(1 - dot, 0.5, 1)
+
+        if bulinfo.sprite_head != false then
+            render.SetMaterial(bulinfo.sprite_head or head)
+            render.DrawSprite(rpos, headsize, headsize, col)
+        end
+
+        if bulinfo.sprite_tracer != false and !GetConVar("arccw_fasttracers"):GetBool() then
+            render.SetMaterial(bulinfo.sprite_tracer or tracer)
+            local len = math.min(vel:Length() * (bulinfo.tail_length or 0.015), 512, (rpos - (i.TracerOrigin or i.PosStart)):Length())
+            local pos2 = rpos - veldir * len
+            if i.TracerOrigin and CurTime() - i.StartTime <= engine.TickInterval() then
+                pos2 = rpos - (rpos - i.TracerOrigin):GetNormalized() * len
+            end
+            render.DrawBeam(rpos, pos2, size * 0.25, 0, 0.5, col)
+            debugoverlay.Line(rpos, pos2, 7, Color(0, 255, 0), true)
+        end
+
+        if bulinfo.model then
+            if !IsValid(i.CSModel) then
+                i.CSModel = ClientsideModel(bulinfo.model)
+                i.CSModel:SetNoDraw(bulinfo.model_nodraw)
+                if bulinfo.particle then
+                    i.CSParticle = CreateParticleSystem(i.CSModel, bulinfo.particle, PATTACH_ABSORIGIN_FOLLOW, 1)
+                end
+            end
+            i.CSModel:SetPos(rpos)
+            i.CSModel:SetAngles(i.Vel:Angle())
+            i.CSModel:SetVelocity(i.Vel)
+            if i.CSParticle then
+                i.CSParticle:StartEmission()
+                i.CSParticle:SetSortOrigin(IsValid(i.Weapon) and i.Weapon:GetShootSrc() or vector_origin)
+            end
+        end
     end
     cam.End3D()
 end
@@ -461,4 +610,9 @@ hook.Add("PreDrawEffects", "ArcCW_DrawPhysBullets", ArcCW.DrawPhysBullets)
 
 hook.Add("PostCleanupMap", "ArcCW_CleanPhysBullets", function()
     ArcCW.PhysBullets = {}
+end)
+
+-- Can't run now or files after this in load order cannot add them properly
+hook.Add("InitPostEntity", "ArcCW_AddPhysBullets", function()
+    hook.Run("ArcCW_InitBulletProfiles")
 end)

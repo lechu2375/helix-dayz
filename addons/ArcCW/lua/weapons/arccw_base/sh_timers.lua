@@ -78,7 +78,7 @@ local function DoShell(wep, data)
     util.Effect(data.e, ed)
 end
 
-function SWEP:PlaySoundTable(soundtable, mult, start)
+function SWEP:PlaySoundTable(soundtable, mult, start, key)
     --if CLIENT and game.SinglePlayer() then return end
 
     local owner = self:GetOwner()
@@ -115,21 +115,24 @@ function SWEP:PlaySoundTable(soundtable, mult, start)
 
         for i, de in ipairs(self.EventTable) do
             if de[jhon] then
-                if !self.EventTable[i+1] then --[[print(CurTime(), "Occupier at " .. i .. ", creating " .. i+1)]] self.EventTable[i+1] = {} continue end
+                if !self.EventTable[i + 1] then
+                    --[[print(CurTime(), "Occupier at " .. i .. ", creating " .. i+1)]]
+                    self.EventTable[i + 1] = {}
+                    continue
+                end
             else
-                self.EventTable[i][jhon] = v
-                --print(CurTime(), "Clean at " .. i)
+                self.EventTable[i][jhon] = table.Copy(v)
+                self.EventTable[i][jhon].StartTime = CurTime()
+                self.EventTable[i][jhon].AnimKey = key
+                -- print(CurTime(), "Clean at " .. i)
             end
         end
-
     end
 end
 
 function SWEP:PlayEvent(v)
     if !v or !istable(v) then error("no event to play") end
-
     v = self:GetBuff_Hook("Hook_PrePlayEvent", v) or v
-
     if v.e and IsFirstTimePredicted() then
         DoShell(self, v)
     end

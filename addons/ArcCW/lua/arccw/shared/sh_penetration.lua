@@ -2,6 +2,10 @@ local mth      = math
 local m_rand   = mth.Rand
 local m_lerp   = Lerp
 
+local function draw_debug()
+    return (CLIENT or game.SinglePlayer()) and GetConVar("arccw_dev_shootinfo"):GetInt() >= 2
+end
+
 function ArcCW:GetRicochetChance(penleft, tr)
     if !GetConVar("arccw_enable_ricochet"):GetBool() then return 0 end
     local degree = tr.HitNormal:Dot((tr.StartPos - tr.HitPos):GetNormalized())
@@ -22,35 +26,38 @@ end
 
 function ArcCW:IsPenetrating(ptr, ptrent)
     if ptrent:IsWorld() then
-        return !ptr.StartSolid or ptr.AllSolid
+        return ptr.Contents != CONTENTS_EMPTY
     elseif IsValid(ptrent) then
-        local mins, maxs = ptrent:WorldSpaceAABB()
-        local wsc = ptrent:WorldSpaceCenter()
-        -- Expand the bounding box by a bit to account for hitboxes outside it
-        -- This is more consistent but less accurate
-        mins = mins + (mins - wsc) * 0.25
-        maxs = maxs + (maxs - wsc) * 0.25
-        local withinbounding = ptr.HitPos:WithinAABox(mins, maxs)
-        if GetConVar("arccw_dev_shootinfo"):GetInt() >= 2 then
-            --debugoverlay.Box(Vector(0, 0, 0), mins, maxs, 5, Color(255, 255, 255, 50))
-            --debugoverlay.Cross(mins, 4, 5, Color(128, 0, 0), true)
-            --debugoverlay.Cross(maxs, 4, 5, Color(128, 0, 0), true)
-            debugoverlay.Cross(ptr.HitPos, withinbounding and 2 or 6, 5, withinbounding and Color(255, 255, 0) or Color(128, 255, 0), true)
-        end
 
-        if withinbounding then return true end
-        --[[]
-        -- Check whether the point is inside the hitbox
-        -- Requires some math that I can't be bothered to solve
-        if ptr.HitBox > 0 then
-            local mins2, maxs2 = ptrent:GetHitBoxBounds(ptr.HitBox, ptr.HitGroup)
-            local bonepos, boneang = ptrent:GetBonePosition(ptrent:GetHitBoxBone(ptr.HitBox, ptrent:GetHitboxSet()))
-            if GetConVar("developer"):GetBool() then
-                debugoverlay.BoxAngles(bonepos, mins2, maxs2, boneang, 5, Color(255, 255, 255, 50))
-                debugoverlay.Axis(bonepos, boneang, 16, 5, true)
+        local withinbounding = false
+        local hboxset = ptrent:GetHitboxSet()
+        local hitbone = ptrent:GetHitBoxBone(ptr.HitBox, hboxset)
+        if hitbone then
+            -- If we hit a hitbox, compare against that hitbox only
+            local mins, maxs = ptrent:GetHitBoxBounds(ptr.HitBox, hboxset)
+            local bonepos, boneang = ptrent:GetBonePosition(hitbone)
+            mins = mins * 1.1
+            maxs = maxs * 1.1
+            local lpos = WorldToLocal(ptr.HitPos, ptr.HitNormal:Angle(), bonepos, boneang)
+
+            withinbounding = lpos:WithinAABox(mins, maxs)
+            if draw_debug() then
+                debugoverlay.BoxAngles(bonepos, mins, maxs, boneang, 5, Color(255, 255, 255, 10))
+            end
+        elseif util.PointContents(ptr.HitPos) != CONTENTS_EMPTY then
+            -- Otherwise default to rotated OBB
+            local mins, maxs = ptrent:OBBMins(), ptrent:OBBMaxs()
+            withinbounding = ptrent:WorldToLocal(ptr.HitPos):WithinAABox(mins, maxs)
+            if draw_debug() then
+                debugoverlay.BoxAngles(ptrent:GetPos(), mins, maxs, ptrent:GetAngles(), 5, Color(255, 255, 255, 10))
             end
         end
-        ]]
+        if draw_debug() then
+            debugoverlay.Cross(ptr.HitPos, withinbounding and 4 or 6, 5, withinbounding and Color(255, 255, 0) or Color(128, 255, 0), true)
+        end
+
+
+        return withinbounding
     end
     return false
 end
@@ -74,7 +81,7 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
     local trent = tr.Entity
 
     local penmult     = ArcCW.PenTable[tr.MatType] or 1
-    local pentracelen = 4 --2 originally, but this should be less costly
+    local pentracelen = 4
     local curr_ent    = trent
     local startpen = penleft
 
@@ -117,8 +124,12 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
 
     if !GetConVar("arccw_enable_penetration"):GetBool() then return end
 
+    local factor = 1
     while !skip and penleft > 0 and ArcCW:IsPenetrating(ptr, ptrent) and ptr.Fraction < 1 and ptrent == curr_ent do
-        penleft = penleft - (pentracelen * penmult)
+        penleft = penleft - (pentracelen * penmult) * factor
+
+        -- Prevent extremely long penetrations (such as with glass)
+        factor = factor * 1.05
 
         td.start  = endpos
         td.endpos = endpos + (dir * pentracelen)
@@ -157,7 +168,7 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
         end
         ]]
 
-        if GetConVar("arccw_dev_shootinfo"):GetInt() >= 2 then
+        if draw_debug() then
             local pdeltap = penleft / bullet.Penetration
             local colorlr = m_lerp(pdeltap, 0, 255)
 
@@ -167,11 +178,17 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
         endpos = endpos + (dir * pentracelen)
 
         dir = dir + (VectorRand() * 0.025 * penmult)
-
     end
 
     if penleft > 0 then
         if (dir:Length() == 0) then return end
+
+        -- Recover penetration lost from extra distance in the trace
+        --penleft = penleft + ptr.Fraction * pentracelen / penmult
+
+        if draw_debug() then
+            debugoverlay.Text(endpos + Vector(0, 0, 2), "(" .. math.Round(penleft, 2) .. "mm)", 5)
+        end
 
         local pdelta = penleft / bullet.Penetration
 
@@ -237,14 +254,14 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
                     dmg:SetDamage(bullet.Weapon:GetDamage(dist, true) * pdelta, true)
                 end
 
-                if GetConVar("arccw_dev_shootinfo"):GetInt() >= 2 then
+                if draw_debug() then
                     local e = endpos + dir * (btr.HitPos - endpos):Length()
                     debugoverlay.Line(endpos, e, 10, Color(150, 150, 150), true)
                     debugoverlay.Cross(e, 3, 10, alreadypenned[btr.Entity:EntIndex()] and Color(0, 128, 255) or Color(255, 128, 0), true)
                     debugoverlay.Text(e, math.Round(penleft, 1) .. "mm", 10)
                 end
-                if GetConVar("arccw_dev_shootinfo"):GetInt() >= 1 and IsValid(btr.Entity) and !alreadypenned[btr.Entity:EntIndex()] then
-                    local str = string.format("%ddmg/%dm(%d%%)", dmg:GetDamage(), dist, math.Round((1 - bullet.Weapon:GetRangeFraction(dist)) * 100))
+                if (CLIENT or game.SinglePlayer()) and GetConVar("arccw_dev_shootinfo"):GetInt() >= 1 and IsValid(btr.Entity) and !alreadypenned[btr.Entity:EntIndex()] then
+                    local str = string.format("%ddmg/%dm(%d%%)", math.floor(bullet.Weapon:GetDamage(dist)), dist, math.Round((1 - bullet.Weapon:GetRangeFraction(dist)) * 100))
                     debugoverlay.Text(btr.Entity:WorldSpaceCenter(), str, 5)
                 end
 
@@ -277,5 +294,162 @@ function ArcCW:DoPenetration(tr, damage, bullet, penleft, physical, alreadypenne
             attacker:FireBullets(supbullet, true)
         ]]
 
+    end
+end
+
+function ArcCW:BulletCallback(att, tr, dmg, bullet, phys)
+
+    local wep = phys and bullet.Weapon or bullet
+    local hitpos, hitnormal = tr.HitPos, tr.HitNormal
+    local trent = tr.Entity
+
+    local dist = (phys and bullet.Travelled or (hitpos - tr.StartPos):Length() ) * ArcCW.HUToM
+    local pen  = IsValid(wep) and wep:GetBuff("Penetration") or bullet.Penleft
+
+    if GetConVar("arccw_dev_shootinfo"):GetInt() >= 1 then
+        debugoverlay.Cross(hitpos, 1, 5, SERVER and Color(255, 0, 0) or Color(0, 0, 255), true)
+    end
+
+    local randfactor = IsValid(wep) and wep:GetBuff("DamageRand") or 0
+    local mul = 1
+    if randfactor > 0 then
+        mul = mul * math.Rand(1 - randfactor, 1 + randfactor)
+    end
+
+    local delta = !IsValid(wep) and math.Clamp(bullet.Travelled / (bullet.Range / ArcCW.HUToM), 0, 1) or wep:GetRangeFraction(dist)
+    local calc_damage = (!IsValid(wep) and Lerp(delta, bullet.DamageMax, bullet.DamageMin) or wep:GetDamage(dist, true)) * mul
+    local dmgtyp = !IsValid(wep)  and bullet.DamageType or wep:GetBuff_Override("Override_DamageType", wep.DamageType) or DMG_BULLET
+
+    local hit   = {}
+    hit.att     = att
+    hit.tr      = tr
+    hit.dmg     = dmg
+    hit.range   = dist
+    hit.damage  = calc_damage
+    hit.dmgtype = dmgtyp
+    hit.penleft = pen
+
+    if IsValid(wep) then
+        hit = wep:GetBuff_Hook("Hook_BulletHit", hit)
+
+        if !hit then return end
+    end
+
+    if bullet.Damaged and bullet.Damaged[tr.Entity:EntIndex()] then
+        dmg:SetDamage(0)
+    else
+        dmg:SetDamageType(hit.dmgtype)
+        dmg:SetDamage(hit.damage)
+    end
+
+    local dmgtable
+    if phys and IsValid(bullet.Weapon) then
+        dmgtable = bullet.Weapon:GetBuff_Override("Override_BodyDamageMults", bullet.Weapon.BodyDamageMults)
+    elseif IsValid(wep) then
+        dmgtable = wep:GetBuff_Override("Override_BodyDamageMults", wep.BodyDamageMults)
+    else
+        dmgtable = bullet.BodyDamageMults
+    end
+
+    if dmgtable then
+        local hg = tr.HitGroup
+        local gam = ArcCW.LimbCompensation[engine.ActiveGamemode()] or ArcCW.LimbCompensation[1]
+        if dmgtable[hg] then
+            dmg:ScaleDamage(dmgtable[hg])
+
+            -- cancelling gmod's stupid default values (but only if we have a multiplier)
+            if GetConVar("arccw_bodydamagemult_cancel"):GetBool() and gam[hg] then dmg:ScaleDamage(gam[hg]) end
+        end
+    end
+
+    if IsValid(att) and att:IsNPC() then
+        dmg:ScaleDamage(wep:GetBuff_Mult("Mult_DamageNPC") or 1)
+    end
+
+    local effect = phys and bullet.ImpactEffect or (IsValid(wep) and wep:GetBuff_Override("Override_ImpactEffect", wep.ImpactEffect))
+    local decal  = phys and bullet.ImpactDecal or (IsValid(wep) and wep:GetBuff_Override("Override_ImpactDecal", wep.ImpactDecal))
+
+    -- Do our handling of damage types, if not ignored by the gun or some attachment
+    if IsValid(wep) and !wep:GetBuff_Override("Override_DamageTypeHandled", wep.DamageTypeHandled) then
+        local _, maxrng = wep:GetMinMaxRange()
+        -- ignite target
+        if dmg:IsDamageType(DMG_BURN) and hit.range <= maxrng then
+            dmg:SetDamageType(dmg:GetDamageType() - DMG_BURN)
+
+            effect = "arccw_incendiaryround"
+            decal  = "FadingScorch"
+
+            if SERVER then
+                if vFireInstalled then
+                    CreateVFire(trent, hitpos, hitnormal, hit.damage * 0.02)
+                else
+                    trent:Ignite(1, 0)
+                end
+            end
+        end
+        -- explode target
+        if dmg:IsDamageType(DMG_BLAST) then
+            if dmg:GetDamage() >= 200 then
+                effect = "Explosion"
+                decal  = "Scorch"
+            else
+                effect = "arccw_incendiaryround"
+                decal  = "FadingScorch"
+            end
+            dmg:ScaleDamage(0.5) -- half applied as explosion and half done to hit target
+            util.BlastDamageInfo(dmg, tr.HitPos, math.Clamp(dmg:GetDamage(), 48, 256))
+            dmg:SetDamageType(dmg:GetDamageType() - DMG_BLAST)
+        end
+        -- damage helicopters
+        if dmg:IsDamageType(DMG_BULLET) and !dmg:IsDamageType(DMG_AIRBOAT)
+                and IsValid(hit.tr.Entity) and hit.tr.Entity:GetClass() == "npc_helicopter" then
+            dmg:SetDamageType(dmg:GetDamageType() + DMG_AIRBOAT)
+            dmg:ScaleDamage(0.1) -- coostimizable?
+        elseif dmg:GetDamageType() != DMG_BLAST and IsValid(hit.tr.Entity) and hit.tr.Entity:GetClass() == "npc_combinegunship" then
+            dmg:SetDamageType(DMG_BLAST)
+            dmg:ScaleDamage(0.05)
+            -- there is a damage threshold of 50 for damaging gunships
+            if dmg:GetDamage() < 50 and dmg:GetDamage() / 200 >= math.random() then
+                dmg:SetDamage(50)
+            end
+        end
+
+        -- pure DMG_BUCKSHOT do not create blood decals, somehow
+        if dmg:GetDamageType() == DMG_BUCKSHOT then
+            dmg:SetDamageType(dmg:GetDamageType() + DMG_BULLET)
+        end
+    end
+
+    if SERVER and IsValid(wep) then wep:TryBustDoor(trent, dmg) end
+
+    -- INCONSISTENCY: For physbullet, the entire bullet is copied; hitscan bullets reset some attributes in SWEP:DoPenetration (most notably damage)
+    -- For now, we just reset some changes as a temporary workaround
+    if !IsValid(wep) then
+        bullet.Damage = calc_damage
+        bullet.DamageType = dmgtyp
+        ArcCW:DoPenetration(tr, hit.damage, bullet, bullet.Penleft, true, bullet.Damaged)
+    else
+        wep:DoPenetration(tr, hit.penleft, { [trent:EntIndex()] = true })
+    end
+
+    if effect then
+        local ed = EffectData()
+        ed:SetOrigin(hitpos)
+        ed:SetNormal(hitnormal)
+        util.Effect(effect, ed)
+    end
+
+    if decal then
+        util.Decal(decal, tr.StartPos, hitpos - (hitnormal * 16), wep:GetOwner())
+    end
+
+    if (CLIENT or game.SinglePlayer()) and (!phys or SERVER) and GetConVar("arccw_dev_shootinfo"):GetInt() >= 1 then
+        local str = string.format("%ddmg/%dm(%d%%)", math.floor(dmg:GetDamage()), dist, math.Round((1 - delta) * 100))
+        debugoverlay.Text(hitpos, str, 10)
+        print(str)
+    end
+
+    if IsValid(wep) then
+        wep:GetBuff_Hook("Hook_PostBulletHit", hit)
     end
 end

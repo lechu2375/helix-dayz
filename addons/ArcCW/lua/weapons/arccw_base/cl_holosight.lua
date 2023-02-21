@@ -63,37 +63,72 @@ local rtmat = GetRenderTarget("arccw_rtmat", rtsize, rtsize, false)
 local rtmat_cheap = GetRenderTarget("arccw_rtmat_cheap", ScrW(), ScrH(), false)
 local rtmat_spare = GetRenderTarget("arccw_rtmat_spare", ScrW(), ScrH(), false)
 
--- local shadow = Material("arccw/hud/scopes/shadow.png")
 
 local thermal = Material("models/debug/debugwhite")
 local colormod = Material("pp/colour")
--- local warp = Material("models/props_c17/fisheyelens2")
 local coldtime = 30
 
--- shamelessly robbed from Jackarunda
-local function IsWHOT(ent)
-    if !ent:IsValid() then return false end
-    if (ent:IsWorld()) then return false end
-    if (ent.Health and (ent:Health() <= 0)) then return false end
-    if ent:IsOnFire() then return true end
-    if ent:IsPlayer() then
-        if ent.ArcticMedShots_ActiveEffects and ent.ArcticMedShots_ActiveEffects["coldblooded"] then
-            return false
-        end
+local additionalFOVconvar = GetConVar("arccw_vm_add_ads")
 
+local matRefract = Material("pp/arccw/refract_rt")
+local matRefract_cheap = Material("pp/arccw/refract_cs") -- cheap scopes stretches square overlays so i need to make it 16x9
+
+matRefract:SetTexture("$fbtexture", render.GetScreenEffectTexture())
+matRefract_cheap:SetTexture("$fbtexture", render.GetScreenEffectTexture())
+
+timer.Create("ihategmod", 5, 0, function() -- i really dont know what the fucking problem with cheap scopes they dont want to set texture as not cheap ones
+    matRefract_cheap:SetTexture("$fbtexture", render.GetScreenEffectTexture())
+    matRefract:SetTexture("$fbtexture", render.GetScreenEffectTexture()) -- not cheap scope here why not
+end)
+
+local pp_ca_base, pp_ca_r, pp_ca_g, pp_ca_b = Material("pp/arccw/ca_base"), Material("pp/arccw/ca_r"), Material("pp/arccw/ca_g"), Material("pp/arccw/ca_b")
+local pp_ca_r_thermal, pp_ca_g_thermal, pp_ca_b_thermal = Material("pp/arccw/ca_r_thermal"), Material("pp/arccw/ca_g_thermal"), Material("pp/arccw/ca_b_thermal")
+
+pp_ca_r:SetTexture("$basetexture", render.GetScreenEffectTexture())
+pp_ca_g:SetTexture("$basetexture", render.GetScreenEffectTexture())
+pp_ca_b:SetTexture("$basetexture", render.GetScreenEffectTexture())
+
+pp_ca_r_thermal:SetTexture("$basetexture", render.GetScreenEffectTexture())
+pp_ca_g_thermal:SetTexture("$basetexture", render.GetScreenEffectTexture())
+pp_ca_b_thermal:SetTexture("$basetexture", render.GetScreenEffectTexture())
+
+local greenColor = Color(0, 255, 0)  -- optimized +10000fps
+local whiteColor = Color(255, 255, 255)
+local blackColor = Color(0, 0, 0)
+
+local function DrawTexturedRectRotatedPoint( x, y, w, h, rot, x0, y0 ) -- stolen from gmod wiki
+    local c = math.cos( math.rad( rot ) )
+    local s = math.sin( math.rad( rot ) )
+
+    local newx = y0 * s - x0 * c
+    local newy = y0 * c + x0 * s
+
+    surface.DrawTexturedRectRotated( x + newx, y + newy, w, h, rot )
+end
+
+
+local function IsWHOT(ent)
+    if !ent:IsValid() or ent:IsWorld() then return false end
+
+    if ent:IsPlayer() then -- balling
+        if ent.ArcticMedShots_ActiveEffects and ent.ArcticMedShots_ActiveEffects["coldblooded"] or ent:Health() <= 0 then return false end -- arc stims
         return true
     end
-    if ent:IsNextBot() then return true end
-    if (ent:IsNPC()) then
-        if ent.ArcCWCLHealth and ent.ArcCWCLHealth <= 0 then return false end
-        if (ent.Health and (ent:Health() > 0)) then return true end
-    elseif (ent:IsRagdoll()) then
-        local Time = CurTime()
-        if !ent.ArcCW_ColdTime then ent.ArcCW_ColdTime = Time + coldtime end
-        return ent.ArcCW_ColdTime > Time
-    elseif (ent:IsVehicle()) then
-        return ent:GetVelocity():Length() >= 100
+
+    if ent:IsNPC() or ent:IsNextBot() then -- npcs
+        if ent.ArcCWCLHealth and ent.ArcCWCLHealth <= 0 or ent:Health() <= 0 then return false end
+        return true
     end
+
+    if ent:IsRagdoll() then -- ragdolling
+        if !ent.ArcCW_ColdTime then ent.ArcCW_ColdTime = CurTime() + coldtime end
+        return ent.ArcCW_ColdTime > CurTime()
+    end
+
+    if ent:IsVehicle() or ent:IsOnFire() or ent.ArcCW_Hot or ent:IsScripted() and !ent:GetOwner():IsValid() then -- vroom vroom + :fire: + ents but not guns (guns on ground will be fine)
+        return true
+    end
+
     return false
 end
 
@@ -114,8 +149,8 @@ function SWEP:FormThermalImaging(tex)
 
     local asight = self:GetActiveSights()
 
-    local nvsc = asight.ThermalScopeColor or Color(255, 255, 255)
-    local tvsc = asight.ThermalHighlightColor or Color(255, 255, 255)
+    local nvsc = asight.ThermalScopeColor or whiteColor
+    local tvsc = asight.ThermalHighlightColor or whiteColor
 
     local tab = ents.GetAll()
 
@@ -146,30 +181,13 @@ function SWEP:FormThermalImaging(tex)
 
         if !IsWHOT(v) then continue end
 
-        local Br = 0.9
-        if v.ArcCW_ColdTime then
-            Br = (0.75 * v.ArcCW_ColdTime - CurTime()) / coldtime
-        end
+        if !asight.ThermalScopeSimple then
+            render.SetBlend(0.5)
+            render.SuppressEngineLighting(true)
 
-        if v:IsVehicle() then
-            Br = math.Clamp(v:GetVelocity():Length() / 400, 0, 1)
-        end
-
-        if Br > 0 then
-
-            if !asight.ThermalScopeSimple then
-                render.SetBlend(0.5)
-                render.SuppressEngineLighting(true)
-
-                Br = Br * 250
-
-                -- render.MaterialOverride(thermal)
-
-                render.SetColorModulation(Br, Br, Br)
-            end
+            render.SetColorModulation(250, 250, 250)
 
             v:DrawModel()
-
         end
     end
 
@@ -184,7 +202,7 @@ function SWEP:FormThermalImaging(tex)
     render.SetStencilCompareFunction(STENCIL_EQUAL)
 
     if asight.ThermalScopeSimple then
-        surface.SetDrawColor(Color(255, 255, 255))
+        surface.SetDrawColor(255, 255, 255, 255)
         surface.DrawRect(0, 0, ScrW(), ScrH())
     end
 
@@ -233,6 +251,22 @@ function SWEP:FormThermalImaging(tex)
             })
         end
 
+        if GetConVar("arccw_thermalpp"):GetBool() and GetConVar("arccw_scopepp"):GetBool() then
+            -- chromatic abberation
+
+            render.CopyRenderTargetToTexture(render.GetScreenEffectTexture())
+
+            render.SetMaterial( pp_ca_base )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_r_thermal )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_g_thermal )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_b_thermal )
+            render.DrawScreenQuad()
+            -- pasted here cause otherwise either target colors will get fucked either pp either motion blur
+        end
+
         DrawColorModify({
             ["$pp_colour_addr"] = nvsc.r - 255,
             ["$pp_colour_addg"] = nvsc.g - 255,
@@ -242,7 +276,7 @@ function SWEP:FormThermalImaging(tex)
             -- ["$pp_colour_addb"] = 0,
             ["$pp_colour_brightness"] = asight.Brightness or 0.1,
             ["$pp_colour_contrast"] = asight.Contrast or 0.5,
-            ["$pp_colour_colour"] = 1,
+            ["$pp_colour_colour"] = asight.Colormult or 1,
             ["$pp_colour_mulr"] = 0,
             ["$pp_colour_mulg"] = 0,
             ["$pp_colour_mulb"] = 0
@@ -257,6 +291,14 @@ function SWEP:FormThermalImaging(tex)
 
     cam.End3D()
 
+    if GetConVar("arccw_thermalpp"):GetBool() then
+        if !render.SupportsPixelShaders_2_0() then return end
+
+        DrawSharpen(0.3,0.9)
+        DrawBloom(0,0.3,5,5,3,0.5,1,1,1)
+        -- DrawMotionBlur(0.7,1,1/(asight.FPSLock or 45)) -- upd i changed order and it fucking worked lmao     //////i cant fucking understand why motionblur fucks render target
+    end
+
     render.PopRenderTarget()
 end
 
@@ -269,7 +311,7 @@ function SWEP:FormNightVision(tex)
 
     render.PushRenderTarget(tex)
 
-    local nvsc = asight.NVScopeColor or Color(0, 255, 0)
+    local nvsc = asight.NVScopeColor or greenColor
 
     if !asight.NVFullColor then
         DrawColorModify({
@@ -302,17 +344,80 @@ function SWEP:FormNightVision(tex)
     colormod:SetTexture("$fbtexture", orig)
 end
 
+local pp_cc_tab = {
+    ["$pp_colour_addr"] = 0,
+    ["$pp_colour_addg"] = 0,
+    ["$pp_colour_addb"] = 0,
+    ["$pp_colour_brightness"] = 0, -- why nothing works hh
+    ["$pp_colour_contrast"] = 0.9,  -- but same time chroma dont work without calling it
+    ["$pp_colour_colour"] = 1,
+    ["$pp_colour_mulr"] = 0,
+    ["$pp_colour_mulg"] = 0,
+    ["$pp_colour_mulb"] = 0
+}
+
+function SWEP:FormPP(tex)
+    if !render.SupportsPixelShaders_2_0() then return end
+
+    local asight = self:GetActiveSights()
+
+    if asight.Thermal then return end -- eyah
+
+    local cs = GetConVar("arccw_cheapscopes"):GetBool()
+    local refract = GetConVar("arccw_scopepp_refract"):GetBool()
+    local pp = GetConVar("arccw_scopepp"):GetBool()
+
+
+    if refract or pp then
+        if !cs then render.PushRenderTarget(tex) end
+        render.CopyRenderTargetToTexture(render.GetScreenEffectTexture())
+
+        if pp then
+            render.SetMaterial( pp_ca_base )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_r )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_g )
+            render.DrawScreenQuad()
+            render.SetMaterial( pp_ca_b )
+            render.DrawScreenQuad()
+                -- Color modify
+
+            DrawColorModify( pp_cc_tab )
+                -- Sharpen
+            DrawSharpen(-0.1, 5) -- dont work for some reason
+        end
+
+        if refract then
+            local addads = math.Clamp(additionalFOVconvar:GetFloat(), -2, 14)
+            local refractratio = GetConVar("arccw_scopepp_refract_ratio"):GetFloat() or 0
+            local refractamount = (-0.6 + addads / 30) * refractratio
+            local refractmat = cs and matRefract_cheap or matRefract
+
+            refractmat:SetFloat( "$refractamount", refractamount )
+
+            render.SetMaterial(refractmat)
+            render.DrawScreenQuad()
+        end
+
+        if !cs then render.PopRenderTarget() end
+    end
+end
+
 function SWEP:FormCheapScope()
     local screen = render.GetRenderTarget()
 
     render.CopyTexture( screen, rtmat_spare )
 
     render.PushRenderTarget(screen)
-        cam.Start3D(EyePos(), EyeAngles(), nil, nil, nil, nil, nil, 0, nil)
+    cam.Start3D(EyePos(), EyeAngles(), nil, nil, nil, nil, nil, 0, nil)
         ArcCW.LaserBehavior = true
         self:DoLaser(false)
         ArcCW.LaserBehavior = false
-        cam.End3D()
+    cam.End3D()
+
+    self:FormPP(screen)
+
     render.PopRenderTarget()
 
     -- so, in order to avoid the fact that copying RTs doesn't transfer depth buffer data, we just take the screen texture and...
@@ -326,6 +431,11 @@ function SWEP:FormCheapScope()
 
     if asight.SpecialScopeFunction then
         asight.SpecialScopeFunction(screen)
+    end
+
+    -- integrated render delay for better optimization
+    if asight.FPSLock then
+        asight.fpsdelay = CurTime() + 1 / (asight.FPSLock or 45)
     end
 
     render.CopyTexture( screen, rtmat_cheap )
@@ -348,25 +458,52 @@ function SWEP:FormRTScope()
 
     ArcCW.Overdraw = true
     ArcCW.LaserBehavior = true
+    ArcCW.VMInRT = true
+
+    local rtangles, rtpos, rtdrawvm
+
+    if self:GetState() == ArcCW.STATE_SIGHTS then
+        if GetConVar("arccw_drawbarrel"):GetBool() and GetConVar("arccw_vm_coolsway"):GetBool() and asight.Slot and asight.Slot == 1 then -- slot check to ignore integrated
+            rtangles = self.VMAng - self.VMAngOffset - (self:GetOurViewPunchAngles() * mag * 0.1)
+            rtangles.x = rtangles.x - self.VMPosOffset_Lerp.z * 10
+            rtangles.y = rtangles.y + self.VMPosOffset_Lerp.y * 10
+
+            rtpos = self.VMPos + self.VMAng:Forward() * (asight.EVPos.y + 7 + (asight.ScopeMagnificationMax and asight.ScopeMagnificationMax / 3 or asight.HolosightData.HolosightMagnification / 3)) -- eh
+            rtdrawvm = true
+        else
+            rtangles = EyeAngles()
+            rtpos = EyePos()
+            rtdrawvm = false
+
+            -- HACK HACK HACK HACK HACK
+            -- If we do not draw the viewmodel in RT scope, calling GetAttachment on the vm seems to break LHIK.
+            -- So... just draw it! The results gets drawn over again so it doesn't affect the outcome
+            render.RenderView({drawviewmodel = true}) -- ?????
+        end
+    end
+
+    local addads = math.Clamp(additionalFOVconvar:GetFloat(), -2, 14)
 
     local rt = {
         w = rtsize,
         h = rtsize,
-        angles = LocalPlayer():EyeAngles() + (self:GetOurViewPunchAngles() * 0.5),
-        origin = LocalPlayer():EyePos(),
-        drawviewmodel = false,
-        fov = self:GetOwner():GetFOV() / mag / 1.2,
+        angles = rtangles,
+        origin = rtpos,
+        drawviewmodel = rtdrawvm,
+        fov = self:GetOwner():GetFOV() / mag / 1.2 - (addads or 0) / 4,
     }
 
     rtsize = ScrH()
 
     if ScrH() > ScrW() then rtsize = ScrW() end
 
-    rtmat = GetRenderTarget("arccw_rtmat", rtsize, rtsize, false)
+    local rtres = asight.ForceLowRes and ScrH() * 0.6 or ScrH() -- we can emit low res lcd displays for scopes
+
+    rtmat = GetRenderTarget("arccw_rtmat" .. rtres, rtres, rtres, false)
 
     render.PushRenderTarget(rtmat, 0, 0, rtsize, rtsize)
 
-    render.ClearRenderTarget(rt, Color(0, 0, 0))
+    render.ClearRenderTarget(rt, blackColor)
 
     if self:GetState() == ArcCW.STATE_SIGHTS then
         render.RenderView(rt)
@@ -377,6 +514,9 @@ function SWEP:FormRTScope()
 
     ArcCW.Overdraw = false
     ArcCW.LaserBehavior = false
+    ArcCW.VMInRT = false
+
+    self:FormPP(rtmat)
 
     render.PopRenderTarget()
 
@@ -389,7 +529,15 @@ function SWEP:FormRTScope()
     if asight.SpecialScopeFunction then
         asight.SpecialScopeFunction(rtmat)
     end
+
+    -- integrated render delay for better optimization
+    if asight.FPSLock then
+        asight.fpsdelay = CurTime() + 1 / (asight.FPSLock or 45)
+    end
+
 end
+
+-- local fpsdelay = CurTime()
 
 hook.Add("RenderScene", "ArcCW", function()
     if GetConVar("arccw_cheapscopes"):GetBool() then return end
@@ -397,12 +545,15 @@ hook.Add("RenderScene", "ArcCW", function()
     local wpn = LocalPlayer():GetActiveWeapon()
 
     if !wpn.ArcCW then return end
-
+    if wpn:GetActiveSights() and wpn:GetActiveSights().FPSLock
+            and (wpn:GetActiveSights().fpsdelay or 0) > CurTime() then
+        return
+    end
     wpn:FormRTScope()
 end)
 
 local black = Material("arccw/hud/black.png")
-local defaultdot = Material("arccw/hud/scopes/dot.png")
+local defaultdot = Material("arccw/hud/hit_dot.png")
 
 function SWEP:DrawHolosight(hs, hsm, hsp, asight)
     -- holosight structure
@@ -417,11 +568,18 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
         hs = asight.HolosightData
     end
 
-    if self:GetState() != ArcCW.STATE_SIGHTS then return end
+    if self:GetState() != ArcCW.STATE_SIGHTS and delta > 0.5 or self:GetBarrelNearWall() > 0 then return end
 
     if !hs then return end
 
-    local hsc = Color(255, 255, 255)
+    if delta != 0 and GetConVar("arccw_scopepp"):GetBool() then
+        pp_ca_r:SetVector("$color2", Vector(1-delta, 0, 0))
+        pp_ca_g:SetVector("$color2", Vector(0, 1-delta, 0))
+        pp_ca_b:SetVector("$color2", Vector(0, 0, 1-delta))
+        pp_ca_base:SetFloat("$alpha", 1-delta)
+    end
+
+    local hsc = Color(255, 255, 255) -- putting here global or white local SOMEHOW FUCKS IT EVEN GLOBAL BEING FUCKED WTF I HATE
 
     if hs.Colorable then
         hsc.r = GetConVar("arccw_scope_r"):GetInt()
@@ -458,9 +616,16 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
     end
 
+    local hsmag = asight.ScopeMagnification or 1
+
     local size = hs.HolosightSize or 1
 
-    local hsmag = asight.ScopeMagnification or 1
+    local addads = math.Clamp(additionalFOVconvar:GetFloat(), -2, 14)
+
+    local addconvar = asight.MagnifiedOptic and (addads or 0) or 0
+
+    size = size + addconvar + (addconvar > 5.5 and (addconvar-5.5) * 2 or 0)
+
 
     -- if asight.NightVision then
 
@@ -550,7 +715,7 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
     pos = LerpVector(delta, EyePos(), pos)
 
-    local eyeangs = self:GetOwner():EyeAngles() + (self:GetOurViewPunchAngles() * 0.5)
+    local eyeangs = self:GetOwner():EyeAngles() - self:GetOurViewPunchAngles() * hsmag * 0.1
 
     -- local vm = hsm or hsp
 
@@ -577,16 +742,14 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
     local pos2 = pos + (dir * -8)
 
-    local a = pos:ToScreen()
-    local x = a.x
-    local y = a.y
+    local a = self:GetOwner():InVehicle() and {x = ScrW() / 2, y = ScrH() / 2} or pos:ToScreen()
+    local x = a.x - (self.VMAngOffset.y - self.VMPosOffset_Lerp.y * 10) * (hsmag * 1.5) ^ 2
+    local y = a.y + (self.VMAngOffset.x * 5 + self.VMPosOffset_Lerp.z * 10) * (hsmag * 1.5) ^ 2
 
-    local a2 = pos2:ToScreen()
-    local x2 = a2.x
-    local y2 = a2.y
+    local a2 = self:GetOwner():InVehicle() and {x = ScrW() / 2, y = ScrH() / 2} or pos2:ToScreen()
 
-    local off_x = x2 - (ScrW() / 2)
-    local off_y = y2 - (ScrH() / 2)
+    local off_x = a2.x - (ScrW() / 2)
+    local off_y = a2.y - (ScrH() / 2)
 
     --pos = pos + Vector(ArcCW.StrafeTilt(self), 0, 0)
 
@@ -614,12 +777,18 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
         -- render.SetScissorRect( sx2, sy2, sx2 + sw2, sy2 + sh2, true )
 
+        if render.GetHDREnabled() and delta < 0.07 then
+            render.SetToneMappingScaleLinear(Vector(1,1,1)) -- hdr fix
+        end
+
         if GetConVar("arccw_cheapscopes"):GetBool() then
 
             screen = rtmat_cheap
 
-            local ssmag = hsmag
+            local addads = math.Clamp(additionalFOVconvar:GetFloat(), -2, 14)
+            local csratio = math.Clamp(GetConVar("arccw_cheapscopesv2_ratio"):GetFloat(), 0, 1)
 
+            local ssmag = 1 + csratio * hsmag + (addads or 0) / 20 -- idk why 20
             local sw = ScrW() * ssmag
             local sh = ScrH() * ssmag
 
@@ -628,12 +797,12 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
             local cpos = self:GetOwner():EyePos() + ((EyeAngles() + (self:GetOurViewPunchAngles() * 0.5)):Forward() * 2048)
 
-            cpos:Rotate(Angle(0, -ArcCW.StrafeTilt(self), 0))
+            --cpos:Rotate(Angle(0, -ArcCW.StrafeTilt(self), 0))
 
-            local ts = cpos:ToScreen()
+            local ts = self:GetOwner():InVehicle() and {x = ScrW() / 2, y = ScrH() / 2} or cpos:ToScreen()
 
-            local sx = ts.x - (sw / 2) - off_x
-            local sy = ts.y - (sh / 2) - off_y
+            local sx = ts.x - (sw / 2) - off_x - (self.VMAngOffset.y - self.VMPosOffset_Lerp.y * 15) * (hsmag * 1) ^ 2
+            local sy = ts.y - (sh / 2) - off_y + (self.VMAngOffset.x * 5 + self.VMPosOffset_Lerp.z * 15) * (hsmag * 1) ^ 2
 
             render.SetMaterial(black)
             render.DrawScreenQuad()
@@ -654,13 +823,6 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
             render.DrawTextureToScreenRect(screen, sx, sy, sw, sh)
 
         end
-
-        -- warp:SetFloat("$refractamount", -0.015)
-        -- render.UpdateRefractTexture()
-        -- render.SetMaterial(warp)
-        -- render.DrawScreenQuad()
-
-        -- render.SetScissorRect( sx2, sy2, sx2 + sw2, sy2 + sh2, false )
     end
 
     -- cam.Start3D()
@@ -702,15 +864,16 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
                     -- AYE, UR ACTIVE ANG BEIN TWISTED DUNT GIVE AUH SHET
 
     surface.SetMaterial(hs.HolosightReticle or defaultdot)
-    surface.SetDrawColor(hsc or Color(255, 255, 255))
-    surface.DrawTexturedRect(x - (hss / 2), y - (hss / 2), hss, hss)
-    --surface.DrawTexturedRectRotated(x, y, hss, hss, -thej.r or 0)
+    surface.SetDrawColor(hsc or 255, 255, 255)
+    -- surface.DrawTexturedRect(x - (hss / 2), y - (hss / 2), hss, hss)
+
+    DrawTexturedRectRotatedPoint(x, y, hss, hss, -(self.VMAngOffset.r+self.VMAngOffset_Lerp.r+self:GetOurViewPunchAngles().r)*5 , 0, 0)
 
     if !hs.HolosightNoFlare then
         render.SetStencilPassOperation(STENCIL_KEEP)
         render.SetStencilReferenceValue(ref - 1)
         surface.SetMaterial(hs.HolosightFlare or hs.HolosightReticle or defaultdot)
-        surface.SetDrawColor(Color(255, 255, 255, 150))
+        surface.SetDrawColor(255, 255, 255, 150)
 
         local hss2 = hss
 
@@ -757,3 +920,39 @@ function SWEP:DrawHolosight(hs, hsm, hsp, asight)
 
     end
 end
+
+
+--           I wanted to make here procedural normal map for refract using rt but steamsnooze
+
+
+-- local TEX_SIZE = 512
+
+-- local tex = GetRenderTarget( "ExampleRT", TEX_SIZE, TEX_SIZE )
+
+-- local txBackground = surface.GetTextureID( "pp/arccw/lense_nrm2" )
+-- local myMat = CreateMaterial( "ExampleRTMat3", "UnlitGeneric", {
+-- 	["$basetexture"] = tex:GetName() -- Make the material use our render target texture
+-- } )
+
+-- hook.Add( "HUDPaint", "DrawExampleMat", function()
+    -- render.PushRenderTarget( tex )
+    -- cam.Start2D()
+
+    --     surface.SetDrawColor( 128,128,255 )
+    --     surface.DrawRect(0,0,TEX_SIZE, TEX_SIZE)
+    --     surface.SetDrawColor( color_white )
+    --     surface.SetTexture( txBackground )
+        -- local joke = math.sin(CurTime()*5)/4
+
+    --     surface.DrawTexturedRect( TEX_SIZE/4-joke/2, TEX_SIZE/4-joke/2, TEX_SIZE/2+joke, TEX_SIZE/2+joke )
+
+    -- cam.End2D()
+    -- render.PopRenderTarget()
+    -- surface.SetDrawColor( color_white )
+    -- surface.SetMaterial( myMat )
+    -- surface.DrawTexturedRect( 25, 25, TEX_SIZE, TEX_SIZE )
+    -- print()
+    -- DrawTexturedRectRotatedPoint(250+250/2,250+250/2,250,250,(CurTime()%360)*50,0,0)
+    -- surface.DrawRect(250,250,250,250)
+
+-- end )

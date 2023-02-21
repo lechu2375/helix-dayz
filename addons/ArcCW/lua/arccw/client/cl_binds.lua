@@ -70,17 +70,18 @@ end
 local debounce = 0
 local function ToggleAtts(wep)
     if debounce > CurTime() then return end -- ugly hack for double trigger
-    debounce = CurTime() + 0.1
-    local used = false
+    debounce = CurTime() + 0.15
+    local sounds = {}
     for k, v in pairs(wep.Attachments) do
         local atttbl = v.Installed and ArcCW.AttachmentTable[v.Installed]
-        if atttbl and atttbl.ToggleStats then
-            used = true
+        if atttbl and atttbl.ToggleStats and !v.ToggleLock then
+            if atttbl.ToggleSound then sounds[atttbl.ToggleSound] = true
+            else sounds["weapons/arccw/firemode.wav"] = true end
             wep:ToggleSlot(k, nil, true)
         end
     end
-    if used then
-        EmitSound("weapons/arccw/firemode.wav", EyePos(), -2, CHAN_ITEM, 1,75, 0, math.random(90, 110))
+    for snd, _ in pairs(sounds) do
+        surface.PlaySound(snd)
     end
 end
 
@@ -93,37 +94,20 @@ local function ArcCW_PlayerBindPress(ply, bind, pressed)
 
     local block = false
 
+    if GetConVar("arccw_nohl2flash"):GetBool() and bind == "impulse 100" then
+        ToggleAtts(wep)
+
+        if ply:FlashlightIsOn() then return false end -- if hl2 flahslight is on we will turn it off as expected
+        
+        return true -- we dont want hl2 flashlight
+     end
+
     local alt
     bind, alt = ArcCW_TranslateBindToEffect(bind)
 
-    if bind == "firemode" and (alt or !GetConVar("arccw_altfcgkey"):GetBool()) and !ply:KeyDown(IN_USE) then
-        if wep:GetBuff_Override("UBGL") and !alt and !GetConVar("arccw_altubglkey"):GetBool() then
-            if lastpressZ >= CurTime() - 0.25 then
-                DoUbgl(wep)
-
-                lastpressZ = 0
-
-                timer.Remove("ArcCW_doubletapZ")
-            else
-                lastpressZ = CurTime()
-
-                timer.Create("ArcCW_doubletapZ", 0.25, 1, function()
-                    if !(IsValid(ply) and IsValid(wep)) then return end
-
-                    if ply:GetActiveWeapon() != wep then return end
-
-                    if wep:GetInUBGL() then return end
-
-                    SendNet("arccw_firemode")
-
-                    wep:ChangeFiremode()
-                end)
-            end
-        else
-            SendNet("arccw_firemode")
-
-            wep:ChangeFiremode()
-        end
+    if bind == "firemode" and (alt or true) and !ply:KeyDown(IN_USE) then
+		SendNet("arccw_firemode")
+		wep:ChangeFiremode()
 
         block = true
     elseif bind == "inv" and !ply:KeyDown(IN_USE) and GetConVar("arccw_enable_customization"):GetInt() > -1 then

@@ -1,19 +1,19 @@
 SWEP.Cam_Offset_Ang = Angle(0, 0, 0)
 
 function SWEP:SelectAnimation(anim)
-    if self:GetState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_iron"] then
+    if self:GetNWState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_iron"] then
         anim = anim .. "_iron"
     end
 
-    if self:GetState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_sights"] then
+    if self:GetNWState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_sights"] then
         anim = anim .. "_sights"
     end
 
-    if self:GetState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_sight"] then
+    if self:GetNWState() == ArcCW.STATE_SIGHTS and self.Animations[anim .. "_sight"] then
         anim = anim .. "_sight"
     end
 
-    if self:GetState() == ArcCW.STATE_SPRINT and self.Animations[anim .. "_sprint"] then
+    if self:GetNWState() == ArcCW.STATE_SPRINT and self.Animations[anim .. "_sprint"] and !self:CanShootWhileSprint() then
         anim = anim .. "_sprint"
     end
 
@@ -21,12 +21,20 @@ function SWEP:SelectAnimation(anim)
         anim = anim .. "_bipod"
     end
 
-    if self:Clip1() == 0 and self.Animations[anim .. "_empty"] then
+    if self:GetState() == ArcCW.STATE_CUSTOMIZE and self.Animations[anim .. "_inspect"] and ((CLIENT and !GetConVar("arccw_noinspect"):GetBool()) or (SERVER and self:GetOwner():GetInfoNum("arccw_noinspect", 0))) then
+        anim = anim .. "_inspect"
+    end
+
+    if (self:Clip1() == 0 or (self:HasBottomlessClip() and self:Ammo1() == 0)) and self.Animations[anim .. "_empty"] then
         anim = anim .. "_empty"
     end
 
     if self:GetMalfunctionJam() and self.Animations[anim .. "_jammed"] then
         anim = anim .. "_jammed"
+    end
+
+    if self:GetBuff_Override("Override_TriggerDelay", self.TriggerDelay) and self:IsTriggerHeld() and self.Animations[anim .. "_trigger"] then
+        anim = anim .. "_trigger"
     end
 
     if !self.Animations[anim] then return end
@@ -37,23 +45,23 @@ end
 SWEP.LastAnimStartTime = 0
 SWEP.LastAnimFinishTime = 0
 
-function SWEP:PlayAnimationEZ(key, mult, ignorereload)
-    self:PlayAnimation(key, mult, true, 0, false, false, ignorereload, false)
+function SWEP:PlayAnimationEZ(key, mult, priority)
+    return self:PlayAnimation(key, mult, true, 0, false, false, priority, false)
 end
 
-function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorereload, absolute)
+function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, priority, absolute)
     mult = mult or 1
     pred = pred or false
     startfrom = startfrom or 0
     tt = tt or false
     --skipholster = skipholster or false Unused
-    ignorereload = ignorereload or false
+    priority = priority or false
     absolute = absolute or false
     if !key then return end
 
-    local ct = CurTime() --pred and CurTime() or UnPredictedCurTime()
+    local ct = CurTime()
 
-    if self:GetReloading() and !ignorereload then return end
+    if self:GetPriorityAnim() and !priority then return end
 
     if game.SinglePlayer() and SERVER and pred then
         net.Start("arccw_sp_anim")
@@ -62,7 +70,7 @@ function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorer
         net.WriteFloat(startfrom)
         net.WriteBool(tt)
         --net.WriteBool(skipholster) Unused
-        net.WriteBool(ignorereload)
+        net.WriteBool(priority)
         net.Send(self:GetOwner())
     end
 
@@ -111,11 +119,11 @@ function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorer
     if !IsValid(vm) then return end
 
     local seq = anim.Source
-    if anim.RareSource and util.SharedRandom("raresource", 1, anim.RareSourceChance or 100, CurTime()/13) <= 1 then
+    if anim.RareSource and util.SharedRandom("raresource", 0, 1, CurTime()) < (1 / (anim.RareSourceChance or 100)) then
         seq = anim.RareSource
     end
     seq = self:GetBuff_Hook("Hook_TranslateSequence", seq)
-    
+
     if istable(seq) then
         seq["BaseClass"] = nil
         seq = seq[math.Round(util.SharedRandom("randomseq" .. CurTime(), 1, #seq))]
@@ -188,7 +196,10 @@ function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorer
     end
 
     if !(game.SinglePlayer() and CLIENT) then
-        self:PlaySoundTable(anim.SoundTable or {}, 1 / mult, startfrom)
+        -- self.EventTable = {}
+        if game.SinglePlayer() or (!game.SinglePlayer() and IsFirstTimePredicted()) then
+            self:PlaySoundTable(anim.SoundTable or {}, 1 / mult, startfrom, key)
+        end
     end
 
     if seq then
@@ -196,7 +207,8 @@ function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorer
         local dur = vm:SequenceDuration()
         vm:SetPlaybackRate(math.Clamp(dur / (ttime + startfrom), -4, 12))
         self.LastAnimStartTime = ct
-        self.LastAnimFinishTime = ct + (dur)
+        self.LastAnimFinishTime = ct + dur
+        self.LastAnimKey = key
     end
 
     local att = self:GetBuff_Override("Override_CamAttachment") or self.CamAttachment -- why is this here if we just... do cool stuff elsewhere?
@@ -207,25 +219,14 @@ function SWEP:PlayAnimation(key, mult, pred, startfrom, tt, skipholster, ignorer
     end
 
     self:SetNextIdle(CurTime() + ttime)
+
+    return true
 end
 
 function SWEP:PlayIdleAnimation(pred)
-    local ianim
-    local s = self:GetBuff_Override("Override_ShootWhileSprint") or self.ShootWhileSprint
-    if self:GetState() == ArcCW.STATE_SPRINT and !s then
-        ianim = self:SelectAnimation("idle_sprint") or ianim
-    end
-
-    if self:InBipod() then
-        ianim = self:SelectAnimation("idle_bipod") or ianim
-    end
-
-    if (self.Sighted or self:GetState() == ArcCW.STATE_SIGHTS) then
-        ianim = self:SelectAnimation("idle_sight") or self:SelectAnimation("idle_sights") or ianim
-    end
-
-    if self:GetState() == ArcCW.STATE_CUSTOMIZE then
-        ianim = self:SelectAnimation("idle_inspect") or ianim
+    local ianim = self:SelectAnimation("idle")
+    if self:GetGrenadePrimed() then
+        ianim = self:GetGrenadeAlt() and self:SelectAnimation("pre_throw_hold_alt") or self:SelectAnimation("pre_throw_hold")
     end
 
     -- (key, mult, pred, startfrom, tt, skipholster, ignorereload)
@@ -234,11 +235,12 @@ function SWEP:PlayIdleAnimation(pred)
         ianim = "idle_ubgl_empty"
     elseif self:GetBuff_Override("UBGL_BaseAnims") and self:GetInUBGL() and self.Animations.idle_ubgl then
         ianim = "idle_ubgl"
-    elseif (self:Clip1() == 0 or self:GetNeedCycle()) and self.Animations.idle_empty then
-        ianim = ianim or "idle_empty"
-    else
-        ianim = ianim or "idle"
     end
+
+    if self.LastAnimKey ~= ianim then
+        ianim = self:GetBuff_Hook("Hook_IdleReset", ianim) or ianim
+    end
+
     self:PlayAnimation(ianim, 1, pred, nil, nil, nil, true)
 end
 
@@ -267,7 +269,7 @@ function SWEP:GetAnimKeyTime(key, min)
         if !tseq then return 1 end
         tseq = vm:LookupSequence(tseq)
 
-		-- to hell with it, just spits wrong on draw sometimes
+        -- to hell with it, just spits wrong on draw sometimes
         t = vm:SequenceDuration(tseq) or 1
     end
 

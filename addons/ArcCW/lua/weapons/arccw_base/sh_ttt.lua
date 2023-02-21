@@ -110,15 +110,19 @@ function SWEP:TTT_Init()
         self.Primary.ClipMax = 0
     end
 
+    if SERVER and GetConVar("arccw_ttt_atts"):GetBool() then
+        self:NPC_SetupAttachments()
+    end
+
     if self.ForgetDefaultBehavior then return end
 
-    self.Primary.ClipMax = ArcCW.TTTAmmo_To_ClipMax[self.Primary.Ammo] or self.RegularClipSize * 2 or self.Primary.ClipSize * 2
+    self.Primary.ClipMax = ArcCW.TTTAmmoToClipMax[self.Primary.Ammo] or self.RegularClipSize * 2 or self.Primary.ClipSize * 2
 
     -- This will overwrite mag reducers, so give it a bit of time
     timer.Simple(0.1, function()
         if !IsValid(self) then return end
         self:SetClip1(self:GetCapacity() or self.RegularClipSize or self.Primary.ClipSize)
-        self.Primary.DefaultClip = self:GetCapacity()
+        self.Primary.DefaultClip = self.ForceDefaultAmmo or self.ForceDefaultClip or self:GetCapacity()
     end)
 
     if self.Throwing and self.Primary.Ammo and !self.ForceDefaultClip then
@@ -127,4 +131,8 @@ function SWEP:TTT_Init()
         self:SetClip1(-1)
         self.Singleton = true
     end
+end
+
+--- TTT2 uses this to populate custom convars in the equip menu
+function SWEP:AddToSettingsMenu(parent)
 end

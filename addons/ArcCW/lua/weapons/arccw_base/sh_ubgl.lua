@@ -4,29 +4,32 @@ function SWEP:SelectUBGL()
     if self:GetReloading() then return end
     if self:GetNextPrimaryFire() > CurTime() then return end
     if self:GetNextSecondaryFire() > CurTime() then return end
+    if self:GetUBGLDebounce() then return end
+    self:SetUBGLDebounce( true )
 
     self:SetInUBGL(true)
 
-    if !IsFirstTimePredicted() then return end
-
-    self:MyEmitSound(self.SelectUBGLSound)
     self:SetFireMode(1)
 
-    if CLIENT then
-        if !ArcCW:ShouldDrawHUDElement("CHudAmmo") then
-            self:GetOwner():ChatPrint("Selected " .. self:GetBuff_Override("UBGL_PrintName") or "UBGL")
-        end
+    if CLIENT and (game.SinglePlayer() or (!game.SinglePlayer() and IsFirstTimePredicted())) then
+        -- if !ArcCW:ShouldDrawHUDElement("CHudAmmo") then
+        --     self:GetOwner():ChatPrint("Selected " .. self:GetBuff_Override("UBGL_PrintName") or "UBGL")
+        -- end
         if !self:GetLHIKAnim() then
             self:DoLHIKAnimation("enter")
         end
+        self:MyEmitSound( self:GetBuff_Override("SelectUBGLSound") or self.SelectUBGLSound )
     end
 
     if self:GetBuff_Override("UBGL_BaseAnims") and self.Animations.enter_ubgl_empty and self:Clip2() == 0 then
-        self:PlayAnimation("enter_ubgl_empty", 1, false, 0, true)
+        self:PlayAnimation("enter_ubgl_empty", 1, true)
         self:SetNextSecondaryFire(CurTime() + self:GetAnimKeyTime("enter_ubgl_empty"))
     elseif self:GetBuff_Override("UBGL_BaseAnims") and self.Animations.enter_ubgl then
-        self:PlayAnimation("enter_ubgl", 1, false, 0, true)
+        self:PlayAnimation("enter_ubgl", 1, true)
         self:SetNextSecondaryFire(CurTime() + self:GetAnimKeyTime("enter_ubgl"))
+    else
+        self:PlayAnimationEZ("idle", 1, false)
+        self:SetNextSecondaryFire(CurTime() + 0.1)
     end
 
     self:GetBuff_Hook("Hook_OnSelectUBGL")
@@ -37,26 +40,28 @@ function SWEP:DeselectUBGL()
     if self:GetReloading() then return end
     if self:GetNextPrimaryFire() > CurTime() then return end
     if self:GetNextSecondaryFire() > CurTime() then return end
+    if self:GetUBGLDebounce() then return end
+    self:SetUBGLDebounce( true )
 
     self:SetInUBGL(false)
 
-    if !IsFirstTimePredicted() then return end
-
-    self:MyEmitSound(self.ExitUBGLSound)
-
-    if CLIENT then
-        if !ArcCW:ShouldDrawHUDElement("CHudAmmo") then
-            self:GetOwner():ChatPrint("Deselected " .. self:GetBuff_Override("UBGL_PrintName") or "UBGL")
-        end
-        if !self:GetLHIKAnim() then
+    if CLIENT and (game.SinglePlayer() or (!game.SinglePlayer() and IsFirstTimePredicted())) then
+        -- if !ArcCW:ShouldDrawHUDElement("CHudAmmo") then
+        --     self:GetOwner():ChatPrint("Deselected " .. self:GetBuff_Override("UBGL_PrintName") or "UBGL")
+        -- end
+        if !self:GetLHIKAnim() and bong then
             self:DoLHIKAnimation("exit")
         end
+        self:MyEmitSound( self:GetBuff_Override("ExitUBGLSound") or self.ExitUBGLSound )
     end
 
     if self:GetBuff_Override("UBGL_BaseAnims") and self.Animations.exit_ubgl_empty and self:Clip2() == 0 then
-        self:PlayAnimation("exit_ubgl_empty", 1, false, 0, true)
+        self:PlayAnimation("exit_ubgl_empty", 1, true)
     elseif self:GetBuff_Override("UBGL_BaseAnims") and self.Animations.exit_ubgl then
-        self:PlayAnimation("exit_ubgl", 1, false, 0, true)
+        self:PlayAnimation("exit_ubgl", 1, true)
+    else
+        self:PlayAnimationEZ("idle", 1, false)
+        self:SetNextSecondaryFire(CurTime() + 0.1)
     end
 
     self:GetBuff_Hook("Hook_OnDeselectUBGL")
@@ -108,7 +113,7 @@ end
 
 function SWEP:ShootUBGL()
     if self:GetNextSecondaryFire() > CurTime() then return end
-    if self:GetState() == ArcCW.STATE_SPRINT and !(self:GetBuff_Override("Override_ShootWhileSprint") or self.ShootWhileSprint) then return false end
+    if self:GetState() == ArcCW.STATE_SPRINT and !self:CanShootWhileSprint() then return false end
 
     self.Primary.Automatic = self:GetBuff_Override("UBGL_Automatic")
 
@@ -150,7 +155,7 @@ function SWEP:DoLHIKAnimation(key, time)
     if game.SinglePlayer() then
         net.Start("arccw_sp_lhikanim")
         net.WriteString(key)
-        net.WriteFloat(time)
+        net.WriteFloat(time or -1)
         net.Send(self:GetOwner())
     end
 end
