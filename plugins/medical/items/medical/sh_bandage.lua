@@ -1,6 +1,6 @@
-ITEM.name = "Bandage"
+ITEM.name = "Bandaż"
 ITEM.model = "models/gmodz/medical/bandage.mdl"
-ITEM.description = "Small roll of gauze cloth."
+ITEM.description = "Mały, odkażony wałek gazy."
 
 ITEM.price = 200
 
@@ -14,7 +14,7 @@ if (SERVER) then
 	end
 else
 	function ITEM:ExtendDesc(text)
-		text[#text+1] = "Stops bleeding"
+		text[#text+1] = "Zatrzymuje krwawienie"
 		return text
 	end
 end

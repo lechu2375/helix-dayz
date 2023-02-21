@@ -1,4 +1,4 @@
-ITEM.name = "Hercules"
+ITEM.name = "Herkules"
 ITEM.model = "models/gmodz/medical/hercules.mdl"
 ITEM.description = ""
 

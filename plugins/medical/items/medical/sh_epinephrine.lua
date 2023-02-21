@@ -1,6 +1,6 @@
 ITEM.name = "Epinephrine"
 ITEM.model = "models/gmodz/medical/epinephrine.mdl"
-ITEM.description = "epinephrine"
+ITEM.description = "Strzykawka z organicznym zwiążkiem chemicznym. Pobudza receptory poprzez silne skurczenie naczyń krwionośnych."
 
 ITEM.price = 1500
 
@@ -12,7 +12,7 @@ if (SERVER) then
 	end
 else
 	function ITEM:ExtendDesc(text)
-		text[#text+1] = Format("Relieves muscle pain (%d's)", ix.buff.list["morphine"].time)
+		text[#text+1] = Format("Łagodzi bóle mięśniowe (%d's)", ix.buff.list["morphine"].time)
 		return text
 	end
 end

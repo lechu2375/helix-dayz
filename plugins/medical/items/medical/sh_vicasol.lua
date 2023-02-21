@@ -18,7 +18,7 @@ if (SERVER) then
 	end
 else
 	function ITEM:ExtendDesc(text)
-		text[#text+1] = "Stops bleeding over time"
+		text[#text+1] = "Zatrzymuje krwawienie w czasie"
 		return text
 	end
 end

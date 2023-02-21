@@ -1,6 +1,6 @@
 ITEM.name = "Antirad"
-ITEM.model = "models/gmodz/medical/antidot.mdl"
-ITEM.description = "Antirad is a packet of anti-radiation drugs that neutralize radiation accumulated in the body."
+ITEM.model = "models/gmodz/medical/antirad.mdl"
+ITEM.description = "Paczka zawierająca leki anty radiacyjne. Wspomagają organizm w wydaleniu promieniowania."
 
 ITEM.radiationAmount = -300
 ITEM.price = 2500

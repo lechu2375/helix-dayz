@@ -1,6 +1,6 @@
-ITEM.name = "Medkit"
-ITEM.model = "models/gmodz/medical/medkit.mdl"
-ITEM.description = "All-purpose single-use medkit. Allows to handle injuries of different types and degrees of complexity. The medkit heals ~35%% of your life and removes a chunk of bleeding and accumulated radiation."
+ITEM.name = "Apteczka"
+ITEM.model = "models/illusion/eftcontainers/carmedkit.mdl"
+ITEM.description = "Uniwersalna apteczka jednorazowego użytku. Pozwala na radzenie sobie z obrażeniami różnego typu i stopnia skomplikowania. Apteczka leczy ~35% twojego życia i usuwa część krwawienia i nagromadzonego promieniowania."
 
 ITEM.healthAmount = 20
 ITEM.price = 2000

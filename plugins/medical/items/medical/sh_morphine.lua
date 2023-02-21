@@ -1,6 +1,6 @@
-ITEM.name = "Morphine injector"
+ITEM.name = "Morfina"
 ITEM.model = "models/gmodz/medical/morphine.mdl"
-ITEM.description = "Single-use syringe full of morphine - powerful drug, used primarily to treat both acute and chronic severe pain."
+ITEM.description = "Jednorazowa strzykawka pełna morfiny - silnego leku, stosowanego przede wszystkim w leczeniu zarówno ostrego, jak i przewlekłego silnego bólu."
 
 ITEM.useSound = "gmodz/items/syringe.wav"
 
@@ -16,7 +16,7 @@ if (SERVER) then
 	end
 else
 	function ITEM:ExtendDesc(text)
-		text[#text+1] = "Treats a fracture"
+		text[#text+1] = "Leczy złamanie"
 		return text
 	end
 end

@@ -1,6 +1,6 @@
-ITEM.name = "Army medkit"
-ITEM.model = "models/gmodz/medical/medkit_army.mdl"
-ITEM.description = "Includes medicine for faster blood coagulation, as well as painkillers, antibiotics, immunity stimulators, and more."
+ITEM.name = "Apteczka wojskowa"
+ITEM.model = "models/illusion/eftcontainers/ifak.mdl"
+ITEM.description = "Obejmuje leki na szybsze krzepnięcie krwi, a także środki przeciwbólowe, antybiotyki, stymulatory odporności i inne rzeczy tego typu."
 
 ITEM.healthAmount = 50
 ITEM.price = 10000
@@ -20,7 +20,7 @@ if (SERVER) then
 	end
 else
 	function ITEM:ExtendDesc(text)
-		text[#text+1] = "Stops bleeding"
+		text[#text+1] = "Zatrzymuje krwawienie"
 		return text
 	end
 end

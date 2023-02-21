@@ -1,6 +1,6 @@
-ITEM.name = "Adrenaline shot"
+ITEM.name = "Adrenalina"
 ITEM.model = "models/gmodz/medical/adrenaline.mdl"
-ITEM.description = "Sterile disposable syringe with a dose of adrenaline - the main hormone of the adrenal medulla. It is used to enhance the physiological response associated with the preparation of all muscles to increase activity temporarily boosts strength endurance. Relieves the sensation of pain."
+ITEM.description = "Strzykawka zawierająca adrenaline, wpływa na pracę serca i mięśni."
 
 ITEM.price = 15000
 
@@ -17,8 +17,8 @@ else
 		local buff = ix.buff.list["adrenaline"]
 
 		if (buff) then
-			text[#text+1] = Format("Increases movement speed (%d's)", buff.time)
-			text[#text+1] = Format("Increases stamina regeneration %.1f", buff.stamina_offset)
+			text[#text+1] = Format("Zwiększa prędkość ruchu (%d's)", buff.time)
+			text[#text+1] = Format("Zwiększa regenerację wytrzymałości %.1f", buff.stamina_offset)
 		end
 
 		return text
