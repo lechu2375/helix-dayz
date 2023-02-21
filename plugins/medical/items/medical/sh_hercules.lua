@@ -1,5 +1,5 @@
 ITEM.name = "Herkules"
-ITEM.model = "models/gmodz/medical/hercules.mdl"
+ITEM.model = "models/gmodz/food/water.mdl"
 ITEM.description = ""
 
 ITEM.price = 8000

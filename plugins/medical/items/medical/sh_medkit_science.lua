@@ -1,5 +1,5 @@
 ITEM.name = "Scientific medkit"
-ITEM.model = "models/gmodz/medical/medkit_science.mdl"
+ITEM.model = "models/gmodz/medical/medkit3.mdl"
 ITEM.description = "Leczy ona znacznie więcej zdrowia niż inne apteczki, a także automatycznie usuwają całkowicie zatrucie promieniowaniem. Jednakże, w przeciwieństwie do zestawów wojskowych, nie są one tak skuteczne w zatrzymywaniu utraty krwi."
 
 ITEM.healthAmount = 80
