@@ -1,6 +1,6 @@
-ITEM.name = "Energy drink"
-ITEM.model = "models/gmodz/food/energy_drink.mdl"
-ITEM.description = "A bottle filled with some carbonated flavoured water."
+ITEM.name = "Energetyk"
+ITEM.model = "models/illusion/eftcontainers/hotrod.mdl"
+ITEM.description = "Puszka energetyku Hot-Rod, popularna alternatywa dla energetyka redbull. Produkowana od 2011 roku w wschodniej europie przez Ukraińsk firmę."
 
 ITEM.thirstAmount = 0.35
 ITEM.staminaAmount = 0.45
