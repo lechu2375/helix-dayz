@@ -25,66 +25,79 @@ end
 do
 	Schema.AddReputationRank(-6, "rogue", Color(200, 0, 255), {
 		english = "★ Rogue ★",
+		polish = "★ Łajdak ★ ",
 		russian = "★ Изгой ★"
 	})
 
 	Schema.AddReputationRank(-5, "elite_bandit", Color(255, 0, 0), {
 		english = "★ Elite Bandit ★",
+		polish = "★ Bandzior ★",
 		russian = "★ Элитный Бандит ★"
 	})
 
 	Schema.AddReputationRank(-4, "bandit", Color(255, 0, 0), {
 		english = "Bandit",
+		polish = "Bandyta",
 		russian = "Бандит"
 	})
 
 	Schema.AddReputationRank(-3, "villain", Color(255, 0, 0), {
 		english = "Villain",
+		polish = "Oprych",
 		russian = "Злодей"
 	})
 
 	Schema.AddReputationRank(-2, "thug", Color(255, 0, 0), {
 		english = "Thug",
+		polish = "Opryszek",
 		russian = "Головорез"
 	})
 
 	Schema.AddReputationRank(-1, "outlaw", Color(255, 0, 0), {
 		english = "Outlaw",
+		polish = "Łajdak",
 		russian = "Вне Закона"
 	})
 
 	Schema.AddReputationRank(0, "survivor", color_white, {
 		english = "Survivor",
+		polish = "Ocalony",
 		russian = "Выживший"
 	})
 
 	Schema.AddReputationRank(1, "novice", Color(0, 150, 255), {
 		english = "Novice",
+		polish = "Nowicjusz",
 		russian = "Новичок"
 	})
 
 	Schema.AddReputationRank(2, "guardian", Color(0, 150, 255), {
 		english = "Guardian",
+		polish = "Obrońca",
 		russian = "Страж"
 	})
 
 	Schema.AddReputationRank(3, "vigilante", Color(0, 150, 255), {
 		english = "Vigilante",
+		polish = "Strażnik",
 		russian = "Линчеватель"
 	})
 
 	Schema.AddReputationRank(4, "hero", Color(0, 150, 255), {
 		english = "Hero",
+		polish = "Bohater",
 		russian = "Герой"
 	})
 
 	Schema.AddReputationRank(5, "elite_hero", Color(0, 150, 255), {
 		english = "★ Elite Hero ★",
+		polish = "★ Wzór ★",
 		russian = "★ Элитный Герой ★"
 	})
 
 	Schema.AddReputationRank(6, "legend", Color(200, 0, 255), {
 		english = "★ Legend ★",
+		polish = "★ Legenda ★",
 		russian = "★ Легенда ★"
 	})
 
@@ -119,34 +132,34 @@ for _, v in ipairs({"ct_gign", "ct_gsg9", "ct_sas", "ct_urban"}) do
 	str = nil
 end
 
-ix.config.Add("maxReputation", 1500, "Макс. репутация", function(oldValue, newValue)
+ix.config.Add("maxReputation", 1500, "Maksymalna ilość reputacji", function(oldValue, newValue)
 	Schema.rankScaleRep = newValue / Schema.rankLevels
 end, {
 	data = {min = 500, max = 9999},
 	category = PLUGIN.name,
 })
 
-ix.config.Add("reputationKill", 45, "Потеря репутации за убийство невинных.", nil, {
+ix.config.Add("reputationKill", 45, "Kara reputacji za zabójstwo niewinnych.", nil, {
 	data = {min = 1, max = 5000},
 	category = PLUGIN.name,
 })
 
-ix.config.Add("reputationSavior", 25, "Добавление репутации за убийство бандитов.", nil, {
+ix.config.Add("reputationSavior", 25, "Nagroda za zabijanie bandytów", nil, {
 	data = {min = 1, max = 5000},
 	category = PLUGIN.name,
 })
 
-ix.config.Add("safePenalty", 120, "Штрафное время за убийство", nil, {
+ix.config.Add("safePenalty", 120, "Czas trwania kary za zabójstwo", nil, {
 	data = {min = 1, max = 1200},
 	category = PLUGIN.name,
 })
 
-ix.config.Add("safePenaltyMul", 2, "Множитель штрафного времени", nil, {
+ix.config.Add("safePenaltyMul", 2, "Mnożnik czasu kary", nil, {
 	data = {min = 1, max = 10},
 	category = PLUGIN.name,
 })
 
-ix.config.Add("tagPVP", 120, "Штрафное время за попытку убийства", nil, {
+ix.config.Add("tagPVP", 120, "Czas trwania znacznika PVP(przy rozpoczęciu strzelaniny)", nil, {
 	data = {min = 1, max = 1200},
 	category = PLUGIN.name,
 })

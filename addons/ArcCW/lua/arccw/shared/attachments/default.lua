@@ -1,12 +1,20 @@
+
+/*
+
+    Take a look at
+    https://github.com/HaodongMo/ArcCW/wiki/Attachment-Parameters
+    for descriptions on these
+
+*/
+
 att.PrintName = ""
 att.AbbrevName = "" -- Shown in lists, cust2 only
 att.Icon = nil
 att.Description = ""
 att.Desc_Pros = {}
 att.Desc_Cons = {}
+att.Desc_Neutrals = {}
 att.Slot = ""
-att.TargetSpecificWeapon = "" -- ALWAYS make this attachment available on a specific weapon
-att.TargetSpecificSlot = 0 -- on this specific slot
 
 att.SortOrder = 0
 
@@ -20,16 +28,20 @@ att.Hidden = false
 att.HideIfBlocked = false -- if the attachment cannot be attached due to flag reasons, do not show up
 att.HideIfUnavailable = false -- if the attachment is not owned, do not show up even if "Hide Unowned Attachments" is off
 att.NoRandom = false -- will not be randomly rolled
+att.RandomWeight = 1 -- random rolling weight, defaults to 1
 
 att.NotForNPCs = false
 
 att.AddPrefix = ""
 att.AddSuffix = ""
 
+att.ToggleLockDefault = false -- if true then lock attachment from switching stats through bind (use on stocks/colored stuff) 
+
 att.ToggleStats = {
     -- {
     --     PrintName = "Red",
     --     AutoStatName = "On",
+    --     NoAutoStat = false,
     --     Laser = true,
     --     LaserColor = Color(255, 0, 0),
     --     Mult_HipDispersion = 0.75,
@@ -45,7 +57,7 @@ att.ToggleStats = {
     -- },
     -- {
     --     PrintName = "Blue",
-    --     NoAutoStats = true,
+    --     AutoStats = true,
     --     Laser = true,
     --     LaserColor = Color(0, 0, 255),
     --     Mult_HipDispersion = 0.75,
@@ -72,6 +84,9 @@ att.BaseIronsFirst = false
 att.GivesFlags = {}
 att.RequireFlags = {}
 att.ExcludeFlags = {}
+
+-- any strings present in data will be added to weapon flags
+att.Hook_ExtraFlags = function(wep, data) end
 
 -- Do not use right now.
 att.SubSlots = {
@@ -113,7 +128,6 @@ att.OffsetAng = Angle(0, 0, 0)
 att.ModelIsShield = false
 att.ShieldResistance = nil -- amount of penetration to get through one unit of shield
 att.ShieldBone = "ValveBiped.Bip01_R_Hand"
-att.DrawFunc = function(self, element, wm) end
 
 att.Charm = false
 att.CharmBone = "Charm"
@@ -224,6 +238,7 @@ att.MagExtender = false
 att.MagReducer = false
 att.OverrideClipSize = nil
 att.Add_ClipSize = 0
+att.BaseClipSize = nil -- currently only used to make autostats treat this as the "base" clip size for pros/cons
 
 att.Override_FuseTime = nil
 
@@ -309,6 +324,10 @@ att.Hook_NameChange = function(wep, name) end
 -- {vm = vm, eles = ae}
 att.Hook_ModifyBodygroups = function(wep, data) end
 
+-- modify the attachment however you like; only called for the particular attachment
+-- {vm = vm, element = VElement / WElement, slottbl = slottbl, wm = false/true}
+att.Hook_ModifyAttBodygroups = function(wep, data) end
+
 -- allows you to return a shotgun spread offset
 -- {n = int number, ang = angle offset}
 att.Hook_ShotgunSpreadOffset = function(wep, data) end
@@ -322,6 +341,9 @@ att.Hook_PreDoEffects = function(wep, fx) end
 -- return false = incompatible
 -- data = {slot = string or table, att = string}
 att.Hook_Compatible = function(wep, data) end
+
+-- called before the bullet is made.
+att.Hook_PostFireBullets = function(wep) end
 
 -- hook that lets you change the values of the bullet before it's fired.
 att.Hook_FireBullets = function(wep, bullettable) end
@@ -363,6 +385,10 @@ att.Hook_TranslateAnimation = function(wep, anim) end
 -- seq and return can either be string or table
 att.Hook_TranslateSequence = function(wep, seq) end
 
+-- called when the vm is about to play an idle animation
+-- return a value to override ianim
+att.Hook_IdleReset = function(wep, ianim) end
+
 -- allows any sound to be translated to any other
 att.Hook_TranslateSound = function(wep, soundname) end
 
@@ -380,6 +406,8 @@ att.Hook_LHIK_TranslateAnimation = function(wep, anim) end
 
 -- anim is string
 att.Hook_SelectBashAnim = function(wep, anim) end
+
+att.Hook_SelectFixAnim = function(wep, anim) end
 
 att.Hook_PreBash = function(wep) end
 
@@ -402,10 +430,19 @@ att.Hook_PhysBulletHit = function(wep, data) end
 -- changes to dmg may be overwritten later, so set damage and dmgtype instead
 att.Hook_BulletHit = function(wep, data) end
 
+-- called right after BulletHit, no further changes can be applied to damage
+att.Hook_PostBulletHit = function(wep, data) end
+
 -- return true to prevent reloading
 att.Hook_PreReload = function(wep) end
 
 att.Hook_PostReload = function(wep) end
+
+-- return true to prevent firemode change
+att.Hook_ChangeFiremode = function(wep) end
+
+-- return true to ignore current bullets in clip when reloading
+att.Hook_ReloadDumpClip = function(wep) end
 
 att.Hook_GetVisualBullets = function(wep) end
 
@@ -477,6 +514,8 @@ att.Override_DamageTypeHandled = nil
 att.Override_ShootEntity = nil
 att.Mult_MuzzleVelocity = 1
 
+att.Override_BodyDamageMults = nil
+
 att.Override_ShotgunSpreadPattern = {}
 att.Override_ShotgunSpreadPatternOverrun = {}
 
@@ -487,6 +526,10 @@ att.Mult_MeleeDamage = 1
 att.Add_MeleeRange = 0
 att.Mult_MeleeAttackTime = 1
 att.Override_MeleeDamageType = nil
+
+att.Override_Lunge = nil
+att.Add_LungeLength = 0
+att.Mult_LungeLength = 1
 
 -- jam/heat related buffs
 att.Override_Jamming = nil
@@ -500,6 +543,7 @@ att.Hook_Overheat = function(wep, heat) end
 att.Hook_PostOverheat = function(wep) end
 -- Return true to not do animation/heat locking
 att.Hook_OnOverheat = function(wep) end
+att.HeatOverflow = nil
 
 -- malfunction related buffs
 att.Override_Malfunction = nil
@@ -557,6 +601,8 @@ att.Override_ShootWhileSprint = nil
 
 att.Mult_RPM = 1
 
+att.Add_Num = nil
+att.Mult_Num = nil
 att.Override_Num = nil
 
 att.Mult_AccuracyMOA = 1
@@ -603,3 +649,21 @@ att.Mult_CycleTime = 1
 
 att.AttachSound = nil
 att.DetachSound = nil
+att.ToggleSound = nil
+
+-- free aim related buffs
+att.Override_FreeAimAngle = nil
+att.Mult_FreeAimAngle = nil
+att.Add_FreeAimAngle = nil
+att.Override_NeverFreeAim = nil
+att.Override_AlwaysFreeAim = nil
+
+att.Hook_OnDeploy = function(wep) end
+att.Hook_OnHolster = function(wep) end
+att.Hook_OnHolsterEnd = function(wep) end
+
+-- bool dodefault - set false to not do default throwing behavior
+-- vector force
+-- string shootentity
+-- number/nil fusetime
+att.Hook_Throw = function(wep, data) end

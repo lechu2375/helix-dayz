@@ -5,6 +5,7 @@ SWEP.Singleton = false -- for grenades, means that weapons ARE ammo; hold one, u
 
 SWEP.NotForNPCs = true
 
+SWEP.Delay = 1
 SWEP.Firemodes = {
     {
         Mode = 1,
@@ -18,13 +19,31 @@ SWEP.MuzzleVelocityAlt = nil -- Throwing with alt-fire will use this velocity if
 SWEP.PullPinTime = 0.25
 SWEP.FuseTime = 3.5
 
+SWEP.WindupTime = 0.5 -- Time to reach max velocity (does not apply for altfire)
+SWEP.WindupMinimum = 0.25 -- Velocity fraction if released without windup
+
+SWEP.ShootEntityDelay = 0.25 -- Delay between Throw() call and projectile existing
+
+SWEP.ThrowInertia = nil -- override default throw intertia settings
+
+SWEP.CookPrimFire = true
+SWEP.CookAltFire = true
+
 SWEP.ChamberSize = 0
 
 SWEP.HoldtypeHolstered = "normal"
-SWEP.HoldtypeActive = "grenade"
+SWEP.HoldtypeActive = "slam"
+SWEP.HoldtypeSights = "grenade"
+SWEP.HoldtypeCustomize = "slam"
 
 SWEP.Primary.ClipSize = 1
 SWEP.Primary.Ammo = "grenade"
+
+SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_GRENADE
+SWEP.AnimShootAlt = ACT_HL2MP_GESTURE_RANGE_ATTACK_SLAM
+
+-- By default, grenades with no ammo will be stripped. Set true to prevent
+SWEP.KeepIfEmpty = false
 
 SWEP.Animations = {
     -- ["draw"] = {

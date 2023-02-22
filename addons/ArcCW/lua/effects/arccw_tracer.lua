@@ -36,8 +36,10 @@ function EFFECT:Init(data)
         self.Speed = speed
     end
 
-    if IsValid(wep) and wep.GetBuff_Override then
+    local profile = 0
+    if wep.GetBuff_Override then
         profile = wep:GetBuff_Override("Override_PhysTracerProfile", wep.PhysTracerProfile) or 0
+        if isnumber(profile) then profile = ArcCW.BulletProfileDict[ArcCW.BulletProfiles[profile]] end
     end
 
     self.LifeTime = (hit - start):Length() / self.Speed
@@ -47,9 +49,7 @@ function EFFECT:Init(data)
 
     self.StartPos = start
     self.EndPos = hit
-    self.Color = ArcCW.BulletProfiles[(profile + 1) or 1] or ArcCW.BulletProfiles[1]
-
-    -- print(profile)
+    self.Color = (ArcCW.BulletProfileDict[profile] or ArcCW.BulletProfileDict["default0"]).color
 end
 
 function EFFECT:Think()

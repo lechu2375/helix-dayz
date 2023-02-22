@@ -45,10 +45,13 @@ local function DrawTextRot(span, txt, x, y, tx, ty, maxw, only)
     end
 end
 
+local noinspect = GetConVar("arccw_noinspect")
+
 function SWEP:ToggleCustomizeHUD(ic)
     if ic and self:GetState() == ArcCW.STATE_SPRINT then return end
     if self:GetReloading() then ic = false end
 
+    noinspect = noinspect or GetConVar("arccw_noinspect")
     if ic then
         if (self:GetNextPrimaryFire() + 0.1) >= CurTime() then return end
 
@@ -56,7 +59,10 @@ function SWEP:ToggleCustomizeHUD(ic)
         self:ExitSights()
         self:SetShouldHoldType()
         self:ExitBipod()
-        self:PlayAnimation(self:SelectAnimation("enter_inspect"), nil, true, nil, nil, true, false)
+        if noinspect and !noinspect:GetBool() then
+            self:PlayAnimation(self:SelectAnimation("enter_inspect"), nil, true, nil, nil, true, false)
+        end
+
         if CLIENT then
             self:OpenCustomizeHUD()
         end
@@ -65,7 +71,11 @@ function SWEP:ToggleCustomizeHUD(ic)
         self.Sighted = false
         self.Sprinted = false
         self:SetShouldHoldType()
-        self:PlayAnimation(self:SelectAnimation("exit_inspect"), nil, true, nil, nil, true, false)
+
+        if noinspect and !noinspect:GetBool() then
+            self:PlayAnimation(self:SelectAnimation("exit_inspect"), nil, true, nil, nil, true, false)
+        end
+
         if CLIENT then
             self:CloseCustomizeHUD()
             self:SendAllDetails()
@@ -222,12 +232,13 @@ function SWEP:ValidateAttachment(attname, attslot, i)
 end
 
 function SWEP:OpenCustomizeHUD()
-    if self:GetReloading() then return end
+    if self:GetPriorityAnim() then return end
     if IsValid(ArcCW.InvHUD) then
         ArcCW.InvHUD:Show()
         -- ArcCW.InvHUD:RequestFocus()
     else
-        if GetConVar("arccw_dev_cust2beta"):GetBool() then self:CreateCustomize2HUD() else self:CreateCustomizeHUD() end
+        --if GetConVar("arccw_dev_cust2beta"):GetBool() then self:CreateCustomize2HUD() else self:CreateCustomizeHUD() end
+        self:CreateCustomize2HUD()
         gui.SetMousePos(ScrW() / 2, ScrH() / 2)
     end
 
@@ -240,7 +251,8 @@ end
 
 function SWEP:CloseCustomizeHUD( hide )
     if IsValid(ArcCW.InvHUD) then
-        if !GetConVar("arccw_dev_cust2beta"):GetBool() then
+        --if !GetConVar("arccw_dev_cust2beta"):GetBool() then
+        if false then
             ArcCW.InvHUD:Hide()
             ArcCW.InvHUD:Clear()
             if vrmod and vrmod.MenuExists( "ArcCW_Customize" ) then
@@ -1738,7 +1750,7 @@ function SWEP:CreateCustomizeHUD()
             },
             {translate("stat.damage"), translate("stat.damage.tooltip"),
                 function()
-                    local curNum = (self:GetBuff_Override("Override_Num") or self.Num) + self:GetBuff_Add("Add_Num")
+                    local curNum = self:GetBuff("Num")
                     local orig = math.Round(self.Damage * GetConVar("arccw_mult_damage"):GetFloat()) .. (self.Num != 1 and ("×" .. self.Num) or "")
                     local cur = math.Round(self:GetDamage(0) / curNum * GetConVar("arccw_mult_damage"):GetFloat()) .. (curNum != 1 and ("×" .. curNum) or "")
                     return orig, cur
@@ -1751,7 +1763,7 @@ function SWEP:CreateCustomizeHUD()
             },
             {translate("stat.damagemin"), translate("stat.damagemin.tooltip"),
                 function()
-                    local curNum = (self:GetBuff_Override("Override_Num") or self.Num) + self:GetBuff_Add("Add_Num")
+                    local curNum = self:GetBuff("Num")
                     local orig = math.Round(self.DamageMin * GetConVar("arccw_mult_damage"):GetFloat()) .. (self.Num != 1 and ("×" .. self.Num) or "")
                     local cur = math.Round(self:GetDamage(self.Range) / curNum * GetConVar("arccw_mult_damage"):GetFloat()) .. (curNum != 1 and ("×" .. curNum) or "")
                     return orig, cur

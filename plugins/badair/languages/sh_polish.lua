@@ -1,0 +1,15 @@
+LANGUAGE = {
+	gmskNeedFilter = "Nie masz filtra na wymianę.",
+	gmskFilter = "Wymieniłeś filtr.",
+	filterTip = "Wymiana filtra na nowy pozwala na dalsze funkcjonowanie maski.",
+	maskEquipped = "Próbujesz założyć drugą maskę na twarz!",
+	noFilter = "W twoim ekwipunku nie ma filtra.",
+	maskFull = "Filtr w masce już jest nowy.",
+	gasMaskDesc = "Maska gazowa chroniąca przed niebezpiecznymi chemikaliami.\nMusi zostać założona jeśli chcesz chodzić po radioaktywnych terenach.",
+	gasMaskFilterDesc = "Filtr: %s (%s's.)",
+	gasMaskDescEntity = "Maska gazowa chroniąca przed niezbezpiecznymi oparami.",
+	filterDesc = "Filtr do maski gazowej. Maska gazowa bez niego nie działa.\nPrzeciągnij na ikonę maski gazowej by wymienić filtr.",
+	filterDescEntity = "Filtr do maski gazowej.",
+	txtFunc = "Działający",
+	txtFail = "Pusty",
+}

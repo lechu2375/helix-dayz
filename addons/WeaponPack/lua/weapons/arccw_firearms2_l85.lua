@@ -28,8 +28,8 @@ SWEP.Trivia_Year = "1985"
 
 SWEP.UseHands = false
 
-SWEP.ViewModel = "models/weapons/fas2/view/rifles/l85a1.mdl"
-SWEP.WorldModel = "models/weapons/fas2/world/rifles/l85a1.mdl"
+SWEP.ViewModel = "models/weapons/fas2/view/rifles/l85a2.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/rifles/l85a2.mdl"
 SWEP.ViewModelFOV = 75
 
 SWEP.DefaultBodygroups = "00000000"

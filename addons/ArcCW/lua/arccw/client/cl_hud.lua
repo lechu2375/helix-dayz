@@ -5,6 +5,8 @@ local hide = {
     ["CHudSecondaryAmmo"] = true,
 }
 
+CreateClientConVar("arccw_hud_togglestats", "0")
+
 ArcCW.HUDElementConVars = {
     ["CHudHealth"] = CreateClientConVar("arccw_hud_showhealth", "1"),
     ["CHudBattery"] = GetConVar("arccw_hud_showhealth"),
@@ -28,6 +30,7 @@ hook.Add("HUDShouldDraw", "ArcCW_HideHUD", function(name)
     if !hide[name] then return end
     if !LocalPlayer():IsValid() then return end
     if !LocalPlayer():GetActiveWeapon().ArcCW then return end
+    if GetConVar("arccw_override_hud_off"):GetBool() then return end
     if ArcCW.PollingDefaultHUDElements then return end
     if ArcCW.HUDElementConVars[name] and ArcCW.HUDElementConVars[name]:GetBool() == false then return end
     if engine.ActiveGamemode() == "terrortown" then return end
@@ -53,6 +56,7 @@ ArcCW.PollingDefaultHUDElements = false
 
 function ArcCW:ShouldDrawHUDElement(ele)
     if !GetConVar("cl_drawhud"):GetBool() then return false end
+    if GetConVar("arccw_override_hud_off"):GetBool() then return false end
 
     if engine.ActiveGamemode() == "terrortown" and (ele != "CHudAmmo") then return false end
 
@@ -223,7 +227,7 @@ function ArcCW_Regen(full)
     end
 end
 
-cvars.AddChangeCallback("arccw_dev_cust2beta",  function() ArcCW_Regen(true) end)
+--cvars.AddChangeCallback("arccw_dev_cust2beta",  function() ArcCW_Regen(true) end)
 cvars.AddChangeCallback("arccw_hud_deadzone_x", function() ArcCW_Regen(true) end)
 cvars.AddChangeCallback("arccw_hud_deadzone_y", function() ArcCW_Regen(true) end)
 cvars.AddChangeCallback("arccw_hud_size",       function() ArcCW_Regen(true) end)

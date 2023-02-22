@@ -16,14 +16,10 @@ function SWEP:NPC_Initialize()
 
     -- print(self:Clip1())
 
-    local range = self.Range
+    local range = self:GetBuff("Range") / ArcCW.HUToM
 
-    range = range / ArcCW.HUToM
-
-    range = range * 2
-
-    if self.DamageMin > self.Damage then
-        range = 15000
+    if self:GetBuff("DamageMin") >= self:GetBuff("Damage") or (self:GetBuff_Override("Override_ManualAction") or self.ManualAction) and self:GetBuff("Num") == 1 then
+        range = math.max(range, 10000) * 2
     end
 
     range = math.Clamp(range, 2048, 36000)
@@ -33,21 +29,25 @@ function SWEP:NPC_Initialize()
     self:SetNextPrimaryFire(CurTime())
     self:SetNextSecondaryFire(CurTime() + 30)
     self:GetOwner():NextThink(CurTime())
+
+    if self.PreAdjustAtts then
+        self.PreAdjustAtts = false
+        self:AdjustAtts()
+    end
 end
 
 function SWEP:AssignRandomAttToSlot(slot)
     if slot.DoNotRandomize then return end
     if slot.Installed then return end
 
-    local atts = ArcCW:GetAttsForSlot(slot.Slot, self, true)
-    if #atts <= 0 then return end
-
-    slot.Installed = table.Random(atts)
+    local att = ArcCW:RollRandomAttachment(true, self, slot)
+    if !att then return end
+    slot.Installed = att
 
     local atttbl = ArcCW.AttachmentTable[slot.Installed]
 
-    if !ArcCW:SlotAcceptsAtt(slot.Slot, self, slot.Installed) then return end
-    if !self:CheckFlags(atttbl.ExcludeFlags, atttbl.RequireFlags) then return end
+    --if !ArcCW:SlotAcceptsAtt(slot.Slot, self, slot.Installed) then return end
+    --if !self:CheckFlags(atttbl.ExcludeFlags, atttbl.RequireFlags) then return end
 
     if atttbl.MountPositionOverride then
         slot.SlidePos = atttbl.MountPositionOverride
@@ -87,9 +87,6 @@ function SWEP:NPC_SetupAttachments()
             s = table.Random(ss) or i
         end
         if !self.Attachments[s] then s = i end
-
-        local atts = ArcCW:GetAttsForSlot(self.Attachments[s].Slot, self)
-        if #atts <= 0 then continue end
 
         chance = chance - chancestep
 
@@ -134,16 +131,10 @@ function SWEP:NPC_Shoot()
     local delay = self:GetFiringDelay()
 
     if (self:GetBuff_Override("Override_ManualAction") or self.ManualAction) then
-        delay = (self.Animations.cycle.Time or 1) * self:GetBuff_Mult("Mult_CycleSpeed") or delay
+        delay = self:GetAnimKeyTime("cycle", true) * self:GetBuff("CycleTime")
     end
 
-    local num = self:GetBuff_Override("Override_Num")
-
-    if !num then
-        num = self.Num
-    end
-
-    num = num + self:GetBuff_Add("Add_Num")
+    local num = self:GetBuff("Num")
 
     if num > 0 then
         local spread = ArcCW.MOAToAcc * self:GetBuff("AccuracyMOA")
@@ -159,6 +150,10 @@ function SWEP:NPC_Shoot()
             Dir = self:GetOwner():GetAimVector(),
             Src = self:GetShootSrc(),
             Spread = Vector(spread, spread, spread),
+            Callback = function(att, tr, dmg)
+                ArcCW:BulletCallback(att, tr, dmg, self)
+            end,
+            --[[]
             Callback = function(att, tr, dmg)
                 local dist = (tr.HitPos - tr.StartPos):Length() * ArcCW.HUToM
 
@@ -203,6 +198,7 @@ function SWEP:NPC_Shoot()
                     tr.Entity:Ignite(1, 32)
                 end
             end
+            ]]
         }
 
         local sp = self:GetBuff_Override("Override_ShotgunSpreadPattern") or self.ShotgunSpreadPattern
@@ -224,11 +220,26 @@ function SWEP:NPC_Shoot()
                 self:DoPrimaryFire(false, btabl)
             end
         elseif se then
-            self:FireRocket(se, self.MuzzleVelocity * ArcCW.HUToM * self:GetBuff_Mult("Mult_MuzzleVelocity"))
+            self:FireRocket(se, self:GetBuff("MuzzleVelocity"))
         else
             self:GetBuff_Hook("Hook_FireBullets", btabl)
 
-            self:DoPrimaryFire(false, btabl)
+            for n = 1, btabl.Num do
+                btabl.Num = 1
+
+                local dispers = self:GetBuff_Override("Override_ShotgunSpreadDispersion", self.ShotgunSpreadDispersion)
+                local offset  = self:GetShotgunSpreadOffset(n)
+                local calcoff = dispers and (offset * self:GetDispersion() * ArcCW.MOAToAcc / 10) or offset
+
+                local ang = self:GetOwner():GetAimVector():Angle()
+                -- ang:RotateAroundAxis(ang:Right(), -1 * calcoff.p)
+                -- ang:RotateAroundAxis(ang:Up(), calcoff.y)
+                -- ang:RotateAroundAxis(ang:Forward(), calcoff.r)
+
+                btabl.Dir = ang:Forward()
+
+                self:DoPrimaryFire(false, btabl)
+            end
         end
     end
 
@@ -238,6 +249,7 @@ function SWEP:NPC_Shoot()
         self:DoShellEject()
     end
 
+    --[[]
     local ss = self.ShootSound
 
     if self:GetBuff_Override("Silencer") then
@@ -270,6 +282,9 @@ function SWEP:NPC_Shoot()
     if ss then
         self:MyEmitSound(ss, svol, spitch, 1, CHAN_WEAPON)
     end
+    ]]
+
+    self:DoShootSound()
 
     self:SetClip1(self:Clip1() - 1)
 
@@ -301,17 +316,20 @@ function SWEP:GetNPCBulletSpread(prof)
     mode = mode.Mode
 
     if mode < 0 then
-        return 10 / (prof + 1)
-    elseif mode == 0 then
-        return 20 / (prof + 1)
+        return 15 / (prof + 1)
     elseif mode == 1 then
         if math.Rand(0, 100) < (prof + 5) * 5 then
-            return 10 / (prof + 1)
+            return 5 / (prof + 1)
         else
-            return 50 / (prof + 1)
+            return 30 / (prof + 1)
         end
-    elseif mode >= 2 then
-        return 20 / (prof + 1)
+    elseif mode > 1 then
+        if math.Rand(0, 100) < (prof + 5) * 2 then
+            return 15 / (prof + 1)
+        else
+            return (20 + self:GetBuff("Recoil") * 10) / (prof + 1)
+        end
+
     end
 
     return 15
@@ -323,12 +341,10 @@ function SWEP:GetNPCBurstSettings()
 
     local delay = self:GetFiringDelay()
 
-    self:SetNextPrimaryFire(CurTime() + delay)
-
     if !mode then return 1, 1, delay end
 
     if self.ManualAction or self:GetBuff_Override("Override_ManualAction") then
-        return 0, 1, delay + self:GetAnimKeyTime("cycle", true)
+        return 1, 1, self:GetAnimKeyTime("cycle") * self:GetBuff("CycleTime")
     end
 
     if mode < 0 then
@@ -336,7 +352,8 @@ function SWEP:GetNPCBurstSettings()
     elseif mode == 0 then
         return 0, 0, delay
     elseif mode == 1 then
-        return 0, 1, delay + math.Rand(0.3, 0.6)
+        local c = self:GetCapacity()
+        return math.ceil(c * 0.075), math.floor(c * math.Rand(0.15, 0.3)), delay + math.Rand(0.2, 0.4)
     elseif mode >= 2 then
         if self:GetCurrentFiremode().RunawayBurst then
             return self:Clip1(), self:Clip1(), delay
@@ -347,16 +364,23 @@ function SWEP:GetNPCBurstSettings()
 end
 
 function SWEP:GetNPCRestTimes()
+    local mode = self:GetCurrentFiremode()
+    mode = mode.Mode
     local postburst = self:GetCurrentFiremode().PostBurstDelay or 0
-    local m = 1 * self:GetBuff_Mult("Mult_Recoil")
-    local rs = 1 * self:GetBuff_Mult("Mult_RecoilSide")
+    local m = self:GetBuff("Recoil")
+    local rs = self:GetBuff("RecoilSide")
 
-    local o = 1
+    if !mode then return 0.3, 0.6 end
 
-    o = o + (m * rs * 0.5)
-    o = o + postburst * self:GetBuff_Mult("Mult_PostBurstDelay") + self:GetBuff_Add("Add_PostBurstDelay")
+    local o = m * 0.3 + rs * 0.15
+    if self.ManualAction or self:GetBuff_Override("Override_ManualAction") then
+        local cycle = self:GetAnimKeyTime("cycle") * self:GetBuff("CycleTime")
+        return cycle + 0.1 * o, cycle + 0.2 * o
+    elseif mode < 0 then
+        o = o * 0.5 + postburst * self:GetBuff("PostBurstDelay")
+    end
 
-    return 0.2 * o, 0.6 * o
+    return 0.4 * o, 0.6 * o
 end
 
 function SWEP:CanBePickedUpByNPCs()

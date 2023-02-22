@@ -12,7 +12,7 @@ if (CLIENT) then
 
 			perc.textColor = color_white
 			perc.y = perc.y - perc.h - margin
-			hud:drawText(perc, "EPINEPHRINE: " .. string.ToMinutesSeconds(time))
+			hud:drawText(perc, "EPINEFRYNA: " .. string.ToMinutesSeconds(time))
 		end
 	end
 end

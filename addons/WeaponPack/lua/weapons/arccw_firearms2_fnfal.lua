@@ -18,7 +18,7 @@ SWEP.ItemData = {
     }
 }
 
-SWEP.PrintName = "FN FAL"
+SWEP.PrintName = "FN FALek"
 SWEP.Trivia_Class = "Battle Rifle"
 SWEP.Trivia_Desc = ""
 SWEP.Trivia_Manufacturer = "FN Herstal"
@@ -101,8 +101,8 @@ SWEP.SpeedMult = 0.8
 SWEP.SightedSpeedMult = 0.75
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-2.369, -2, 1.4),
-    Ang = Angle(-0.45, 0.03, 0),
+    Pos = Vector(-2.36, -3.418, 0.759),
+    Ang = Angle(0.552, 0, 0),
     Magnification = 1.1,
     SwitchToSound = {"fas2/weapon_sightraise.wav", "fas2/weapon_sightraise2.wav"}, -- sound that plays when switching to this sight
     SwitchFromSound = {"fas2/weapon_sightlower.wav", "fas2/weapon_sightlower2.wav"},

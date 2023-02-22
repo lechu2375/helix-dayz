@@ -11,7 +11,7 @@ ENT.Misfired            = false
 
 AddCSLuaFile()
 
-ENT.Model = "models/weapons/fas2/world/explosives/rpg26/rocket.mdl"
+ENT.Model = "models/weapons/fas2/world/explosives/rpg/rpg26_rocket.mdl"
 ENT.Ticks = 0
 ENT.FuseTime = 4.5
 

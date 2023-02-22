@@ -1,10 +1,18 @@
+--[[
+    Please, for the love of god, don't create objects in functions that are called multiple times per frame.
+    The garbage collector will explode and so will players' comptuters.
+
+    That means minimize usage of things that generate new objects, including:
+        calls to Vector() or Angle(); use vector_origin and angle_zero if the value isn't modified
+        arithmetic using +, -, * and / on Vectors and Angles; modifying individual parameters is fine
+        functions like Angle:Right() and Vector:Angle(); however functions like Vector:Add() and Angle:Add() are fine
+
+    Cache them if you use them more than one time!
+]]
+
 local mth = math
-local m_sin = mth.sin
-local m_cos = mth.cos
-local m_min = mth.min
 local m_appor = mth.Approach
 local m_clamp = mth.Clamp
-local m_angdif = mth.AngleDifference
 local f_lerp = Lerp
 local srf = surface
 SWEP.ActualVMData = false
@@ -28,7 +36,21 @@ SWEP.Velocity_Lerp = Vector()
 SWEP.VelocityLastDiff = 0
 SWEP.Breath_Intensity = 1
 SWEP.Breath_Rate = 1
-local coolswayCT = 0
+
+-- magic variables
+local sprint_vec1 = Vector(-2, 5, 2)
+local sprint_vec2 = Vector(0, 7, 3)
+local sprint_ang1 = Angle(-15, -15, 0)
+local spring_ang2 = Angle(-15, 15, -22)
+local sight_vec1 = Vector(0, 15, -4)
+local sight_vec2 = Vector(1, 5, -1)
+local sight_ang1 = Angle(0, 0, -45)
+local sight_ang2 = Angle(-5, 0, -10)
+local sextra_vec = Vector(0.0002, 0.001, 0.005)
+
+local procdraw_vec = Vector(0, 0, -5)
+local procdraw_ang = Angle(-70, 30, 0)
+local prochol_ang = Angle(-70, 30, 10)
 
 local lst = SysTime()
 local function scrunkly()
@@ -40,26 +62,90 @@ local function LerpC(t, a, b, powa)
     return a + (b - a) * math.pow(t, powa)
 end
 
+local function ApproachMod(usrobj, to, dlt)
+    usrobj[1] = m_appor(usrobj[1], to[1], dlt)
+    usrobj[2] = m_appor(usrobj[2], to[2], dlt)
+    usrobj[3] = m_appor(usrobj[3], to[3], dlt)
+end
+
+local function LerpMod(usrobj, to, dlt, clamp_ang)
+    usrobj[1] = f_lerp(dlt, usrobj[1], to[1])
+    usrobj[2] = f_lerp(dlt, usrobj[2], to[2])
+    usrobj[3] = f_lerp(dlt, usrobj[3], to[3])
+    if clamp_ang then
+        for i = 1, 3 do usrobj[i] = math.NormalizeAngle(usrobj[i]) end
+    end
+end
+
+local function LerpMod2(from, usrobj, dlt, clamp_ang)
+    usrobj[1] = f_lerp(dlt, from[1], usrobj[1])
+    usrobj[2] = f_lerp(dlt, from[2], usrobj[2])
+    usrobj[3] = f_lerp(dlt, from[3], usrobj[3])
+    if clamp_ang then
+        for i = 1, 3 do usrobj[i] = math.NormalizeAngle(usrobj[i]) end
+    end
+end
+
+-- debug for testing garbage count
+-- TODO: comment this out or something before actually going into main branch
+local sw = false
+local tries = {}
+local totaltries = 1000
+local sw_start = 0
+local sw_orig = 0
+concommand.Add("arccw_dev_stopwatch", function() tries = {} sw = true end)
+
+local function stopwatch(name)
+    if !sw then return end
+    if name == true then
+        local d = (collectgarbage("count") - sw_orig)
+        if #tries == 0 then print("    total garbage: " .. d) end
+        table.insert(tries, d)
+        if #tries == totaltries then
+            sw = false
+            local average = 0
+            for _, v in ipairs(tries) do average = average + v end
+            average = average / totaltries
+            print("----------------------------------")
+            print("average over " .. totaltries .. " tries: " .. average)
+        end
+        return
+    end
+    local gb = collectgarbage("count")
+    if name then
+        if #tries == 0 then print(name .. ": " .. (gb - sw_start)) end
+    else
+        if #tries == 0 then print("----------------------------------") end
+        sw_orig = gb
+    end
+    sw_start = gb
+end
+
 function SWEP:Move_Process(EyePos, EyeAng, velocity)
     local VMPos, VMAng = self.VMPos, self.VMAng
     local VMPosOffset, VMAngOffset = self.VMPosOffset, self.VMAngOffset
     local VMPosOffset_Lerp, VMAngOffset_Lerp = self.VMPosOffset_Lerp, self.VMAngOffset_Lerp
     local FT = scrunkly()
-    local sightedmult = (self:GetState() == ArcCW.STATE_SIGHTS and 0.1) or 1
+    local sightedmult = (self:GetState() == ArcCW.STATE_SIGHTS and 0.05) or 1
+    local sg = self:GetSightDelta()
     VMPos:Set(EyePos)
     VMAng:Set(EyeAng)
-    VMPosOffset.x = self:GetOwner():GetVelocity().z * 0.0015 * sightedmult
-    VMPosOffset.y = math.Clamp(velocity.y * -0.004, -1, 1) * sightedmult
+    VMPosOffset.x = math.Clamp(velocity.z * 0.0025, -1, 1) * sightedmult
+    VMPosOffset.x = VMPosOffset.x + (velocity.x * 0.001 * sg)
+    VMPosOffset.y = math.Clamp(velocity.y * -0.002, -1, 1) * sightedmult
+    VMPosOffset.z = math.Clamp(VMPosOffset.x * -2, -4, 4)
     VMPosOffset_Lerp.x = Lerp(8 * FT, VMPosOffset_Lerp.x, VMPosOffset.x)
     VMPosOffset_Lerp.y = Lerp(8 * FT, VMPosOffset_Lerp.y, VMPosOffset.y)
-    VMAngOffset.x = math.Clamp(VMPosOffset.x * 8, -4, 4)
+    VMPosOffset_Lerp.z = Lerp(8 * FT, VMPosOffset_Lerp.z, VMPosOffset.z)
+    --VMAngOffset.x = math.Clamp(VMPosOffset.x * 8, -4, 4)
     VMAngOffset.y = VMPosOffset.y
-    VMAngOffset.z = VMPosOffset.y * 0.5 + (VMPosOffset.x * -5)
+    VMAngOffset.z = VMPosOffset.y * 0.5 + (VMPosOffset.x * -5) + (velocity.x * -0.005 * sg)
     VMAngOffset_Lerp.x = LerpC(10 * FT, VMAngOffset_Lerp.x, VMAngOffset.x, 0.75)
     VMAngOffset_Lerp.y = LerpC(5 * FT, VMAngOffset_Lerp.y, VMAngOffset.y, 0.6)
     VMAngOffset_Lerp.z = Lerp(25 * FT, VMAngOffset_Lerp.z, VMAngOffset.z)
     VMPos:Add(VMAng:Up() * VMPosOffset_Lerp.x)
     VMPos:Add(VMAng:Right() * VMPosOffset_Lerp.y)
+    VMPos:Add(VMAng:Forward() * VMPosOffset_Lerp.z)
     VMAngOffset_Lerp:Normalize()
     VMAng:Add(VMAngOffset_Lerp)
 end
@@ -67,32 +153,26 @@ end
 local stepend = math.pi * 4
 
 function SWEP:Step_Process(EyePos, EyeAng, velocity)
-    local CT = CurTime()
-
-    if CT > coolswayCT then
-        coolswayCT = CT
-    else
-        return
-    end
 
     local VMPos, VMAng = self.VMPos, self.VMAng
     local VMPosOffset, VMAngOffset = self.VMPosOffset, self.VMAngOffset
-    local VMPosOffset_Lerp, VMAngOffset_Lerp = self.VMPosOffset_Lerp, self.VMAngOffset_Lerp
-    velocity = math.min(velocity:Length(), 400)
+    local VMPosOffset_Lerp = self.VMPosOffset_Lerp
+    local state = self:GetState()
+    local sprd = self:GetSprintDelta()
 
-    if self:GetState() == ArcCW.STATE_SPRINT and self:SelectAnimation("idle_sprint") then
+    if state == ArcCW.STATE_SPRINT and self:SelectAnimation("idle_sprint") and !self:GetReloading() and !self:CanShootWhileSprint() then
         velocity = 0
     else
-        velocity = velocity * Lerp(self:GetSprintDelta(), 1, 1.25)
+        velocity = math.min(velocity:Length(), 400) * Lerp(sprd, 1, 1.25)
     end
 
-    local delta = math.abs(self.StepBob * 2 / (stepend) - 1)
-    local FT = FrameTime()
-    local FTMult = 300 * FT
-    local sightedmult = (self:GetState() == ArcCW.STATE_SIGHTS and 0.25) or 1
-    local sprintmult = (self:GetState() == ArcCW.STATE_SPRINT and 2) or 1
+    local delta = math.abs(self.StepBob * 2 / stepend - 1)
+    local FT = scrunkly() --FrameTime()
+    local sightedmult = (state == ArcCW.STATE_SIGHTS and 0.25) or 1
+    local sprintmult = (state == ArcCW.STATE_SPRINT and !self:CanShootWhileSprint() and 2) or 1
+    local pronemult = (self:IsProne() and 10) or 1
     local onground = self:GetOwner():OnGround()
-    self.StepBob = self.StepBob + (velocity * 0.00015 + (math.pow(delta, 0.01) * 0.03)) * swayspeed * (FTMult)
+    self.StepBob = self.StepBob + (velocity * 0.00015 + (math.pow(delta, 0.01) * 0.03)) * swayspeed * FT * 300
 
     if self.StepBob >= stepend then
         self.StepBob = 0
@@ -106,14 +186,14 @@ function SWEP:Step_Process(EyePos, EyeAng, velocity)
 
     if onground then
         -- oh no it says sex tra
-        local sextra = Vector()
-        if (self:GetState() == ArcCW.STATE_SPRINT and !self:SelectAnimation("idle_sprint")) or true then
-            sextra = LerpVector(self:GetSprintDelta(), vector_origin, Vector(0.001, 0.0001, 0.005))
+        local sextra = vector_origin
+        if (state == ArcCW.STATE_SPRINT and !self:CanShootWhileSprint() and !self:SelectAnimation("idle_sprint")) or true then
+            sextra = LerpVector(sprd, vector_origin, sextra_vec)
         end
 
         VMPosOffset.x = (math.sin(self.StepBob) * velocity * (0.000375 + sextra.x) * sightedmult * swayxmult) * self.StepRandomX
-        VMPosOffset.y = (math.sin(self.StepBob * 0.5) * velocity * (0.0005 + sextra.y) * sightedmult * sprintmult * swayymult) * self.StepRandomY
-        VMPosOffset.z = math.sin(self.StepBob * 0.75) * velocity * (0.002 + sextra.z) * sightedmult * swayzmult
+        VMPosOffset.y = (math.sin(self.StepBob * 0.5) * velocity * (0.0005 + sextra.y) * sightedmult * sprintmult * pronemult * swayymult) * self.StepRandomY
+        VMPosOffset.z = math.sin(self.StepBob * 0.75) * velocity * (0.002 + sextra.z) * sightedmult * pronemult * swayzmult
     end
 
     VMPosOffset_Lerp.x = Lerp(32 * FT, VMPosOffset_Lerp.x, VMPosOffset.x)
@@ -134,7 +214,7 @@ function SWEP:Breath_Health()
     local health = owner:Health()
     local maxhealth = owner:GetMaxHealth()
     self.Breath_Intensity = math.Clamp(maxhealth / health, 0, 2)
-    self.Breath_Rate = math.Clamp(((maxhealth * 0.5) / health), 1, 1.5)
+    self.Breath_Rate = math.Clamp((maxhealth * 0.5) / health, 1, 1.5)
 end
 
 function SWEP:Breath_StateMult()
@@ -147,7 +227,7 @@ end
 function SWEP:Breath_Process(EyePos, EyeAng)
     local VMPos, VMAng = self.VMPos, self.VMAng
     local VMPosOffset, VMAngOffset = self.VMPosOffset, self.VMAngOffset
-    self:Breath_Health()
+    -- self:Breath_Health() Snaps around when regenerating
     self:Breath_StateMult()
     VMPosOffset.x = (math.sin(CurTime() * 2 * self.Breath_Rate) * 0.1) * self.Breath_Intensity
     VMPosOffset.y = (math.sin(CurTime() * 2.5 * self.Breath_Rate) * 0.025) * self.Breath_Intensity
@@ -165,13 +245,13 @@ function SWEP:Look_Process(EyePos, EyeAng, velocity)
     local FT = scrunkly()
     local sightedmult = (self:GetState() == ArcCW.STATE_SIGHTS and 0.25) or 1
     self.SmoothEyeAng = LerpAngle(0.05, self.SmoothEyeAng, EyeAng - self.LastEyeAng)
-    local xd, yd = (velocity.z/10), (velocity.y/200)
-    VMPosOffset.x = (-self.SmoothEyeAng.x) * -1 * sightedmult * lookxmult
-    VMPosOffset.y = (self.SmoothEyeAng.y) * 0.5 * sightedmult * lookymult
-    VMAngOffset.x = VMPosOffset.x * 2.5
-    VMAngOffset.y = VMPosOffset.y * 1.25
-    VMAngOffset.z = VMPosOffset.x * 2 + VMPosOffset.y * 2
-    self.VMLookLerp.y = Lerp(FT * 10, self.VMLookLerp.y, VMAngOffset.y * 1.5 + self.SmoothEyeAng.y)
+    -- local xd, yd = (velocity.z / 10), (velocity.y / 200)
+    VMPosOffset.x = -self.SmoothEyeAng.x * -0.5 * sightedmult * lookxmult
+    VMPosOffset.y = self.SmoothEyeAng.y * 0.5 * sightedmult * lookymult
+    VMAngOffset.x = VMPosOffset.x * 0.75
+    VMAngOffset.y = VMPosOffset.y * 2.5
+    VMAngOffset.z = VMPosOffset.x * 2 + VMPosOffset.y * -2
+    self.VMLookLerp.y = Lerp(FT * 10, self.VMLookLerp.y, VMAngOffset.y * -1.5 + self.SmoothEyeAng.y)
     VMAng.y = VMAng.y - self.VMLookLerp.y
     VMPos:Add(VMAng:Up() * VMPosOffset.x)
     VMPos:Add(VMAng:Right() * VMPosOffset.y)
@@ -182,9 +262,13 @@ function SWEP:GetVMPosition(EyePos, EyeAng)
     local velocity = self:GetOwner():GetVelocity()
     velocity = WorldToLocal(velocity, angle_zero, vector_origin, EyeAng)
     self:Move_Process(EyePos, EyeAng, velocity)
+    stopwatch("Move_Process")
     self:Step_Process(EyePos, EyeAng, velocity)
+    stopwatch("Step_Process")
     self:Breath_Process(EyePos, EyeAng)
+    stopwatch("Breath_Process")
     self:Look_Process(EyePos, EyeAng, velocity)
+    stopwatch("Look_Process")
     self.LastEyeAng = EyeAng
     self.LastEyePos = EyePos
     self.LastVelocity = velocity
@@ -192,205 +276,227 @@ function SWEP:GetVMPosition(EyePos, EyeAng)
     return self.VMPos, self.VMAng
 end
 
-local function ApprVecAng(from, to, dlt)
-    local ret = (isangle(from) and isangle(to)) and Angle() or Vector()
-    ret[1] = m_appor(from[1], to[1], dlt)
-    ret[2] = m_appor(from[2], to[2], dlt)
-    ret[3] = m_appor(from[3], to[3], dlt)
-
-    return ret
-end
-
 SWEP.TheJ = {posa = Vector(), anga = Angle()}
+local rap_pos = Vector()
+local rap_ang = Angle()
+
+local actual
+local target = {pos = Vector(), ang = Angle()}
+
+local GunDriverFix = Angle( 0, 90, 90 )
 
 function SWEP:GetViewModelPosition(pos, ang)
+    if GetConVar("arccw_dev_benchgun"):GetBool() then
+        if GetConVar("arccw_dev_benchgun_custom"):GetString() then
+            local bgc = GetConVar("arccw_dev_benchgun_custom"):GetString()
+            if string.Left(bgc, 6) != "setpos" then return vector_origin, angle_zero end
+
+            bgc = string.TrimLeft(bgc, "setpos ")
+            bgc = string.Replace(bgc, ";setang", "")
+            bgc = string.Explode(" ", bgc)
+
+            return Vector(bgc[1], bgc[2], bgc[3]), Angle(bgc[4], bgc[5], bgc[6])
+        else
+            return vector_origin, angle_zero
+        end
+    end
+
+    stopwatch()
+
     local owner = self:GetOwner()
     if !IsValid(owner) or !owner:Alive() then return end
-    local proceduralRecoilMult = 1
-    local SP = game.SinglePlayer()
     local FT = scrunkly()
     local CT = CurTime()
-    local UCT = UnPredictedCurTime()
-    --local FT = FrameTime()
     local TargetTick = (1 / FT) / 66.66
+    local cdelta = math.Clamp(math.ease.InOutSine((owner:GetViewOffset().z - owner:GetCurrentViewOffset().z) / (owner:GetViewOffset().z - owner:GetViewOffsetDucked().z)),0,1)
 
     if TargetTick < 1 then
         FT = FT * TargetTick
     end
 
-    local gunbone, gbslot = self:GetBuff_Override("LHIK_GunDriver")
-    local FT5, FT10 = FT * 5, FT * 10
-    local oldpos, oldang = Vector(), Angle()
+    local vm = LocalPlayer():GetViewModel()
+
     local asight = self:GetActiveSights()
     local state = self:GetState()
     local sgtd = self:GetSightDelta()
     local sprd = self:GetSprintDelta()
-    --print(sgtd)
+
+    local sprinted = self.Sprinted or state == ArcCW.STATE_SPRINT and !self:CanShootWhileSprint()
+    local sighted = self.Sighted or state == ArcCW.STATE_SIGHTS
+    local holstered = self:GetCurrentFiremode().Mode == 0
+
+    if game.SinglePlayer() then
+        sprinted = state == ArcCW.STATE_SPRINT and !self:CanShootWhileSprint()
+        sighted = state == ArcCW.STATE_SIGHTS
+    end
+
+    local oldpos, oldang = Vector(), Angle()
     oldpos:Set(pos)
     oldang:Set(ang)
-    ang = ang - self:GetOurViewPunchAngles()
+    ang:Sub(self:GetOurViewPunchAngles())
 
     actual = self.ActualVMData or {
         pos = Vector(),
         ang = Angle(),
         down = 1,
         sway = 1,
-        bob = 1
+        bob = 1,
+        evpos = Vector(),
+        evang = Angle(),
     }
 
-    local target = {}
-    target.pos = self:GetBuff_Override("Override_ActivePos") or self.ActivePos
-    target.ang = self:GetBuff_Override("Override_ActiveAng") or self.ActiveAng
+    local apos, aang = self:GetBuff_Override("Override_ActivePos", self.ActivePos), self:GetBuff_Override("Override_ActiveAng", self.ActiveAng)
+    local cpos, cang = self:GetBuff("CrouchPos", true) or apos, self:GetBuff("CrouchAng", true) or aang
     target.down = 1
     target.sway = 2
     target.bob = 2
 
-    if self:GetReloading() then
-        if self:GetBuff_Override("Override_ReloadPos") or self.ReloadPos then
-            target.pos = self.ReloadPos
-        end
+    stopwatch("set")
 
-        if self:GetBuff_Override("Override_ReloadAng") or self.ReloadAng then
-            target.ang = self.ReloadAng
-        end
-    end
-
-    local vm_right = GetConVar("arccw_vm_right"):GetFloat()
-    local vm_up = GetConVar("arccw_vm_up"):GetFloat()
-    local vm_forward = GetConVar("arccw_vm_forward"):GetFloat()
-    local vm_fov = GetConVar("arccw_vm_fov"):GetFloat()
-
-    if owner:Crouching() or owner:KeyDown(IN_DUCK) then
-        target.down = 0
-
-        if self:GetBuff("CrouchPos", true) then
-            target.pos = self.CrouchPos
-        end
-
-        if self:GetBuff("CrouchAng", true) then
-            target.ang = self.CrouchAng
-        end
-    end
-
-    if self:InBipod() then
-        if !self:GetBipodAngle() then
-            self:SetBipodPos(self:GetOwner():EyePos())
-            self:SetBipodAngle(self:GetOwner():EyeAngles())
-        end
-
-        local BEA = self:GetBipodAngle() - owner:EyeAngles()
+    if self:InBipod() and self:GetBipodAngle() then
         local bpos = self:GetBuff_Override("Override_InBipodPos", self.InBipodPos)
-        target.pos = asight and asight.Pos or target.pos
-        target.ang = asight and asight.Ang or target.ang
-        target.pos = target.pos + ((BEA):Right() * bpos.x * self.InBipodMult.x)
-        target.pos = target.pos + ((BEA):Forward() * bpos.y * self.InBipodMult.y)
-        target.pos = target.pos + ((BEA):Up() * bpos.z * self.InBipodMult.z)
+        target.pos:Set(asight and asight.Pos or apos)
+        target.ang:Set(asight and asight.Ang or aang)
+
+        local BEA = (self.BipodStartAngle or self:GetBipodAngle()) - owner:EyeAngles()
+        target.pos:Add(BEA:Right() * bpos.x * self.InBipodMult.x)
+        target.pos:Add(BEA:Forward() * bpos.y * self.InBipodMult.y)
+        target.pos:Add(BEA:Up() * bpos.z * self.InBipodMult.z)
         target.sway = 0.2
+    -- elseif (owner:Crouching() or owner:KeyDown(IN_DUCK)) and !self:GetReloading() then
+        -- target.pos:Set(self:GetBuff("CrouchPos", true) or apos)
+        -- target.ang:Set(self:GetBuff("CrouchAng", true) or aang)
+    elseif self:GetReloading() then
+        target.pos:Set(self:GetBuff("ReloadPos", true) or apos)
+        target.ang:Set(self:GetBuff("ReloadAng", true) or aang)
+    else
+        target.pos:Set(apos)
+        target.ang:Set(aang)
+        LerpMod(target.pos, cpos, cdelta)
+        LerpMod(target.ang, cang, cdelta, true)
     end
+    if (owner:Crouching() or owner:KeyDown(IN_DUCK)) then target.down = 0 end
 
-    target.pos = target.pos + Vector(vm_right, vm_forward, vm_up)
-    local sprinted = self.Sprinted or state == ArcCW.STATE_SPRINT
-    local sighted = self.Sighted or state == ArcCW.STATE_SIGHTS
-    local holstered = self:GetCurrentFiremode().Mode == 0
+    stopwatch("reload, crouch, bipod")
 
-    if SP then
-        sprinted = state == ArcCW.STATE_SPRINT
-        sighted = state == ArcCW.STATE_SIGHTS
-    end
+    target.pos.x = target.pos.x + GetConVar("arccw_vm_right"):GetFloat()
+    target.pos.y = target.pos.y + GetConVar("arccw_vm_forward"):GetFloat()
+    target.pos.z = target.pos.z + GetConVar("arccw_vm_up"):GetFloat()
+
+    target.ang.p = target.ang.p + GetConVar("arccw_vm_pitch"):GetFloat()
+    target.ang.y = target.ang.y + GetConVar("arccw_vm_yaw"):GetFloat()
+    target.ang.r = target.ang.r + GetConVar("arccw_vm_roll"):GetFloat()
 
     if state == ArcCW.STATE_CUSTOMIZE then
-        target.pos = Vector()
-        target.ang = Angle()
         target.down = 1
         target.sway = 3
         target.bob = 1
         local mx, my = input.GetCursorPos()
         mx = 2 * mx / ScrW()
         my = 2 * my / ScrH()
-        target.pos:Set(self:GetBuff("CustomizePos"))
-        target.ang:Set(self:GetBuff("CustomizeAng"))
-        target.pos = target.pos + Vector(mx, 0, my)
-        target.ang = target.ang + Angle(0, my * 2, mx * 2)
-
+        target.pos:Set(self:GetBuff_Override("Override_CustomizePos", self.CustomizePos))
+        target.ang:Set(self:GetBuff_Override("Override_CustomizeAng", self.CustomizeAng))
+        target.pos.x = target.pos.x + mx
+        target.pos.z = target.pos.z + my
+        target.ang.y = target.ang.y + my * 2
+        target.ang.r = target.ang.r + mx * 2
         if self.InAttMenu then
-            target.ang = target.ang + Angle(0, -5, 0)
+            target.ang.y = target.ang.y - 5
         end
     end
 
+    stopwatch("cust")
+
     -- Sprinting
+    local hpos, spos = self:GetBuff("HolsterPos", true), self:GetBuff("SprintPos", true)
+    local hang, sang = self:GetBuff("HolsterAng", true), self:GetBuff("SprintAng", true)
     do
-        local hpos, spos = self:GetBuff("HolsterPos", true), self:GetBuff("SprintPos", true)
-        local hang, sang = self:GetBuff("HolsterAng", true), self:GetBuff("SprintAng", true)
         local aaaapos = holstered and (hpos or spos) or (spos or hpos)
         local aaaaang = holstered and (hang or sang) or (sang or hang)
 
-        local sd = (holstered and 1) or (!(self:GetBuff_Override("Override_ShootWhileSprint") or self.ShootWhileSprint) and self:GetSprintDelta()) or 0
-        target.pos = f_lerp(sd, target.pos, aaaapos)
-        target.ang = f_lerp(sd, target.ang, aaaaang)
+        local sd = (self:GetReloading() and 0) or (self:IsProne() and math.Clamp(owner:GetVelocity():Length() / prone.Config.MoveSpeed, 0, 1)) or (holstered and 1) or (!self:CanShootWhileSprint() and sprd) or 0
+        sd = math.pow(math.sin(sd * math.pi * 0.5), 2)
 
-        local fu_sprint = (self:GetState() == ArcCW.STATE_SPRINT and self:SelectAnimation("idle_sprint"))
+        local d = math.pow(math.sin(sd * math.pi * 0.5), math.pi)
+        local coolilove = d * math.cos(d * math.pi * 0.5)
+
+        local joffset, jaffset
+        if !sprinted then
+            joffset = sprint_vec2
+            jaffset = spring_ang2
+        else
+            joffset = sprint_vec1
+            jaffset = sprint_ang1
+        end
+
+        LerpMod(target.pos, aaaapos, sd)
+        LerpMod(target.ang, aaaaang, sd, true)
+        for i = 1, 3 do
+            target.pos[i] = target.pos[i] + joffset[i] * coolilove
+            target.ang[i] = target.ang[i] + jaffset[i] * coolilove
+        end
+
+        local fu_sprint = (sprinted and self:SelectAnimation("idle_sprint"))
 
         target.sway = target.sway * f_lerp(sd, 1, fu_sprint and 0 or 2)
         target.bob = target.bob * f_lerp(sd, 1, fu_sprint and 0 or 2)
-
-        --[[if ang.p < -15 then
-            target.ang.p = target.ang.p + ang.p + 15
-        end
-        target.ang.p = m_clamp(target.ang.p, -80, 80)]]
     end
+
+    stopwatch("sprint")
 
     -- Sighting
     if asight then
         local delta = sgtd
-        delta = math.pow(delta, 2)
+        delta = math.pow(math.sin(delta * math.pi * 0.5), math.pi)
         local im = asight.Midpoint
+        local coolilove = delta * math.cos(delta * math.pi * 0.5)
 
-        local coolilove = delta * math.cos(delta * (math.pi / 2))
-        local joffset = (im and im.Pos or Vector(0, 30, -5)) * coolilove
-        local jaffset = (im and im.Ang or Angle(0, 0, -45)) * coolilove
-
+        local joffset, jaffset
         if !sighted then
-            joffset = Vector(1, 10, -2) * coolilove
-            jaffset = Angle(-5, 0, -15) * coolilove
+            joffset = sight_vec2
+            jaffset = sight_ang2
+        else
+            joffset = (im and im.Pos or sight_vec1)
+            jaffset = (im and im.Ang or sight_ang1)
         end
 
-        target.pos = f_lerp(delta, asight.Pos, target.pos + Vector(0, 0, -1)) + joffset
-        target.ang = f_lerp(delta, asight.Ang, target.ang) + jaffset
-        target.evpos = f_lerp(delta, asight.EVPos or Vector(), Vector(0, 0, 0))
-        target.evang = f_lerp(delta, asight.EVAng or Angle(), Angle(0, 0, 0))
+        target.pos.z = target.pos.z - 1
+        LerpMod2(asight.Pos, target.pos, delta)
+        LerpMod2(asight.Ang, target.ang, delta)
+        for i = 1, 3 do
+            target.pos[i] = target.pos[i] + joffset[i] * coolilove
+            target.ang[i] = target.ang[i] + jaffset[i] * coolilove
+        end
+
+        target.evpos = f_lerp(delta, asight.EVPos or vector_origin, vector_origin)
+        target.evang = f_lerp(delta, asight.EVAng or angle_zero, angle_zero)
+
         target.down = 0
         target.sway = target.sway * f_lerp(delta, 0.1, 1)
         target.bob = target.bob * f_lerp(delta, 0.1, 1)
-
-        -- wtf is this?
-        local sightroll = self:GetBuff_Override("Override_AddSightRoll")
-
-        if sightroll then
-            target.ang = Angle()
-            target.ang:Set(asight.Ang)
-            target.ang.r = sightroll
-        end
     end
 
-    local deg = self:BarrelHitWall()
+    stopwatch("sight")
 
-    if deg > 0 then
-        target.pos = LerpVector(deg, target.pos, self.HolsterPos)
-        target.ang = LerpAngle(deg, target.ang, self.HolsterAng)
-        target.down = 2
-        target.sway = 2
-        target.bob = 2
+    local deg = self:GetBarrelNearWall()
+    if deg > 0 and GetConVar("arccw_vm_nearwall"):GetBool() then
+        LerpMod(target.pos, hpos, deg)
+        LerpMod(target.ang, hang, deg)
+        target.down = 2 * math.max(sgtd, 0.5)
     end
 
     if !isangle(target.ang) then
         target.ang = Angle(target.ang)
     end
 
+    target.ang.y = target.ang.y + (self:GetFreeAimOffset().y * 0.5)
+    target.ang.p = target.ang.p - (self:GetFreeAimOffset().p * 0.5)
+
     if self.InProcDraw then
         self.InProcHolster = false
-        local delta = m_clamp((CT - self.ProcDrawTime) / (0.25 * self:GetBuff_Mult("Mult_DrawTime")), 0, 1)
-        target.pos = LerpVector(delta, Vector(0, 0, -5), target.pos)
-        target.ang = LerpAngle(delta, Angle(-70, 30, 0), target.ang)
+        local delta = m_clamp((CT - self.ProcDrawTime) / (0.5 * self:GetBuff_Mult("Mult_DrawTime")), 0, 1)
+        target.pos = LerpVector(delta, procdraw_vec, target.pos)
+        target.ang = LerpAngle(delta, procdraw_ang, target.ang)
         target.down = target.down
         target.sway = target.sway
         target.bob = target.bob
@@ -399,8 +505,8 @@ function SWEP:GetViewModelPosition(pos, ang)
     if self.InProcHolster then
         self.InProcDraw = false
         local delta = 1 - m_clamp((CT - self.ProcHolsterTime) / (0.25 * self:GetBuff_Mult("Mult_DrawTime")), 0, 1)
-        target.pos = LerpVector(delta, Vector(0, 0, -5), target.pos)
-        target.ang = LerpAngle(delta, Angle(-70, 30, 10), target.ang)
+        target.pos = LerpVector(delta, procdraw_vec, target.pos)
+        target.ang = LerpAngle(delta, prochol_ang, target.ang)
         target.down = target.down
         target.sway = target.sway
         target.bob = target.bob
@@ -411,24 +517,22 @@ function SWEP:GetViewModelPosition(pos, ang)
         local mult = self:GetBuff_Mult("Mult_MeleeTime")
         local mtime = self.MeleeTime * mult
         local delta = 1 - m_clamp((CT - self.ProcBashTime) / mtime, 0, 1)
-        local bp, ba = self.BashPos, self.BashAng
-        bp = self:GetBuff_Override("Override_BashPos") or bp
-        ba = self:GetBuff_Override("Override_BashAng") or ba
+
+        local bp, ba
 
         if delta > 0.3 then
-            bp, ba = self.BashPreparePos, self.BashPrepareAng
-            bp = self:GetBuff_Override("Override_BashPreparePos") or bp
-            ba = self:GetBuff_Override("Override_BashPrepareAng") or ba
+            bp = self:GetBuff_Override("Override_BashPreparePos", self.BashPreparePos)
+            ba = self:GetBuff_Override("Override_BashPrepareAng", self.BashPrepareAng)
             delta = (delta - 0.5) * 2
         else
+            bp = self:GetBuff_Override("Override_BashPos", self.BashPos)
+            ba = self:GetBuff_Override("Override_BashAng", self.BashAng)
             delta = delta * 2
         end
 
-        target.pos = LerpVector(delta, bp, target.pos)
-        target.ang = LerpAngle(delta, ba, target.ang)
-        target.down = target.down
-        target.sway = target.sway
-        target.bob = target.bob
+        LerpMod2(bp, target.pos, delta)
+        LerpMod2(ba, target.ang, delta)
+
         target.speed = 10
 
         if delta == 0 then
@@ -436,51 +540,68 @@ function SWEP:GetViewModelPosition(pos, ang)
         end
     end
 
-    if self.ViewModel_Hit then
-        local nap = Vector()
-        nap[1] = self.ViewModel_Hit[1]
-        nap[2] = self.ViewModel_Hit[2]
-        nap[3] = self.ViewModel_Hit[3]
-        nap[1] = m_clamp(nap[2], -1, 1) * 0.25
-        nap[3] = m_clamp(nap[1], -1, 1) * 1
-        target.pos = target.pos + nap
+    stopwatch("proc")
 
-        if !self.ViewModel_Hit:IsZero() then
-            local naa = Angle()
-            naa[1] = self.ViewModel_Hit[1]
-            naa[2] = self.ViewModel_Hit[2]
-            naa[3] = self.ViewModel_Hit[3]
-            naa[1] = m_clamp(naa[1], -1, 1) * 5
-            naa[2] = m_clamp(naa[2], -1, 1) * -2
-            naa[3] = m_clamp(naa[3], -1, 1) * 12.5
-            target.ang = target.ang + naa
+    -- local gunbone, gbslot = self:GetBuff_Override("LHIK_GunDriver")
+    -- if gunbone and IsValid(self.Attachments[gbslot].VElement.Model) and self.LHIKGunPos and self.LHIKGunAng then
+    --     local magnitude = 1 --Lerp(sgtd, 0.1, 1)
+    --     local lhik_model = self.Attachments[gbslot].VElement.Model
+    --     local att = lhik_model:GetAttachment(lhik_model:LookupAttachment(gunbone))
+    --     local attang = att.Ang
+    --     local attpos = att.Pos
+    --     attang = lhik_model:WorldToLocalAngles(attang)
+    --     attpos = lhik_model:WorldToLocal(attpos)
+    --     attang:Sub(self.LHIKGunAng)
+    --     attpos:Sub(self.LHIKGunPos)
+    --     attang:Mul(magnitude)
+    --     attpos:Mul(magnitude)
+    --     --target.ang:Add(attang)
+    --     --target.pos:Add(attpos)
+    --     --debugoverlay.Axis(lhik_model:GetPos() + attpos, att.Ang, 8, FrameTime() * 3, true)
+    --     debugoverlay.Axis(lhik_model:GetPos(), att.Ang, 8, FrameTime() * 3, true)
+    -- end
+
+    -- stopwatch("gunbone")
+
+    local vmhit = self.ViewModel_Hit
+    if vmhit then
+        if !vmhit:IsZero() then
+            target.pos.x = target.pos.x + m_clamp(vmhit.y, -1, 1) * 0.25
+            target.pos.y = target.pos.y + vmhit.y
+            target.pos.z = target.pos.z + m_clamp(vmhit.x, -1, 1) * 1
+            target.ang.x = target.ang.x + m_clamp(vmhit.x, -1, 1) * 5
+            target.ang.y = target.ang.y + m_clamp(vmhit.y, -1, 1) * -2
+            target.ang.z = target.ang.z + m_clamp(vmhit.z, -1, 1) * 12.5
         end
 
-        local nvmh = Vector()
-        local spd = self.ViewModel_Hit:Length()
-        nvmh[1] = m_appor(self.ViewModel_Hit[1], 0, FT5 * spd)
-        nvmh[2] = m_appor(self.ViewModel_Hit[2], 0, FT5 * spd)
-        nvmh[3] = m_appor(self.ViewModel_Hit[3], 0, FT5 * spd)
-        self.ViewModel_Hit = nvmh
+        local spd = vmhit:Length() * 5
+        vmhit.x = m_appor(vmhit.x, 0, FT * spd)
+        vmhit.y = m_appor(vmhit.y, 0, FT * spd)
+        vmhit.z = m_appor(vmhit.z, 0, FT * spd)
     end
 
-    target.pos = target.pos + (VectorRand() * self.RecoilAmount * 0.2) * self.RecoilVMShake
-    local speed = target.speed or 3
-    -- For some reason, in multiplayer the sighting speed is twice as fast
-    -- speed = 1 / self:GetSightTime() * speed * FT * (SP and 1 or 0.5)
-    -- speed = ( 40 / ( self:GetState() == ArcCW.STATE_SIGHTS and self:GetSightTime() or 1 ) ) * FT * (SP and 1 or 0.5)
-    -- WHAT THE FUCK IS WRONG WITH YOU
-    speed = 15 * FT * (SP and 1 or 2)
-    actual.pos = LerpVector(speed, actual.pos, target.pos)
-    actual.ang = LerpAngle(speed, actual.ang, target.ang)
+    if GetConVar("arccw_shakevm"):GetBool() and !engine.IsRecordingDemo() then
+        target.pos:Add(VectorRand() * self.RecoilAmount * 0.2 * self.RecoilVMShake)
+    end
+
+    stopwatch("vmhit")
+
+    local speed = 15 * FT * (game.SinglePlayer() and 1 or 2)
+
+    LerpMod(actual.pos, target.pos, speed)
+    LerpMod(actual.ang, target.ang, speed, true)
+    LerpMod(actual.evpos, target.evpos or vector_origin, speed)
+    LerpMod(actual.evang, target.evang or angle_zero, speed, true)
     actual.down = f_lerp(speed, actual.down, target.down)
     actual.sway = f_lerp(speed, actual.sway, target.sway)
     actual.bob = f_lerp(speed, actual.bob, target.bob)
-    actual.evpos = f_lerp(speed, actual.evpos or Vector(), target.evpos or Vector())
-    actual.evang = f_lerp(speed, actual.evang or Angle(), target.evang or Angle())
-    actual.pos = ApprVecAng(actual.pos, target.pos, speed * 0.1)
-    actual.ang = ApprVecAng(actual.ang, target.ang, speed * 0.1)
+
+    ApproachMod(actual.pos, target.pos, speed * 0.1)
+    ApproachMod(actual.ang, target.ang, speed * 0.1)
     actual.down = m_appor(actual.down, target.down, speed * 0.1)
+
+    stopwatch("actual -> target")
+
     local coolsway = GetConVar("arccw_vm_coolsway"):GetBool()
     self.SwayScale = (coolsway and 0) or actual.sway
     self.BobScale = (coolsway and 0) or actual.bob
@@ -492,47 +613,92 @@ function SWEP:GetViewModelPosition(pos, ang)
         swayspeed = GetConVar("arccw_vm_sway_speedmult"):GetFloat() or 1
         lookxmult = GetConVar("arccw_vm_look_xmult"):GetFloat() or 1
         lookymult = GetConVar("arccw_vm_look_ymult"):GetFloat() or 1
+
+        local sd = self:GetSightDelta()
+        lookxmult = Lerp(sd, 0, lookxmult)
+        lookymult = Lerp(sd, 0, lookymult)
+        swayxmult = Lerp(sd, 0, swayxmult)
+        swayymult = Lerp(sd, 0, swayymult)
+        swayzmult = Lerp(sd, 0, swayzmult)
+        swayspeed = Lerp(sd, 0, swayspeed)
+
+        stopwatch("before vmposition")
         local npos, nang = self:GetVMPosition(oldpos, oldang)
         pos:Set(npos)
         ang:Set(nang)
     end
 
-    pos = pos + math.min(self.RecoilPunchBack, Lerp(self:GetSightDelta(), self.RecoilPunchBackMaxSights or 1, self.RecoilPunchBackMax)) * -oldang:Forward()
-    ang:RotateAroundAxis(oldang:Right(), actual.ang.x)
-    ang:RotateAroundAxis(oldang:Up(), actual.ang.y)
-    ang:RotateAroundAxis(oldang:Forward(), actual.ang.z)
-    ang:RotateAroundAxis(oldang:Right(), actual.evang.x)
-    ang:RotateAroundAxis(oldang:Up(), actual.evang.y)
-    ang:RotateAroundAxis(oldang:Forward(), actual.evang.z)
-    pos = pos + (oldang:Right() * actual.evpos.x)
-    pos = pos + (oldang:Forward() * actual.evpos.y)
-    pos = pos + (oldang:Up() * actual.evpos.z)
-    pos = pos + actual.pos.x * ang:Right()
-    pos = pos + actual.pos.y * ang:Forward()
-    pos = pos + actual.pos.z * ang:Up()
-    pos = pos - Vector(0, 0, actual.down)
-    -- if asight and asight.Holosight then ang = ang - self:GetOurViewPunchAngles() end
-    ang = ang + self:GetOurViewPunchAngles() * Lerp(sgtd, 1, -1)
-    -- if IsFirstTimePredicted() then
+    local old_r, old_f, old_u = oldang:Right(), oldang:Forward(), oldang:Up()
+    pos:Add(math.min(self.RecoilPunchBack, Lerp(sgtd, self.RecoilPunchBackMaxSights or 1, self.RecoilPunchBackMax)) * -old_f)
+
+    ang:RotateAroundAxis(old_r, actual.ang.x)
+    ang:RotateAroundAxis(old_u, actual.ang.y)
+    ang:RotateAroundAxis(old_f, actual.ang.z)
+    ang:RotateAroundAxis(old_r, actual.evang.x)
+    ang:RotateAroundAxis(old_u, actual.evang.y)
+    ang:RotateAroundAxis(old_f, actual.evang.z)
+
+    local new_r, new_f, new_u = ang:Right(), ang:Forward(), ang:Up()
+    old_r:Mul(actual.evpos.x)
+    old_f:Mul(actual.evpos.y)
+    old_u:Mul(actual.evpos.z)
+    pos:Add(old_r)
+    pos:Add(old_f)
+    pos:Add(old_u)
+    new_r:Mul(actual.pos.x)
+    new_f:Mul(actual.pos.y)
+    new_u:Mul(actual.pos.z)
+    pos:Add(new_r)
+    pos:Add(new_f)
+    pos:Add(new_u)
+
+    pos.z = pos.z - actual.down
+
+    ang:Add(self:GetOurViewPunchAngles() * Lerp(sgtd, 1, -1))
+
+    local gunbone, gbslot = self:GetBuff_Override("LHIK_GunDriver")
+    local lhik_model = gbslot and self.Attachments[gbslot].VElement and self.Attachments[gbslot].VElement.Model -- Visual M203 attachment
+    local lhik_anim_model = gbslot and self.Attachments[gbslot].GodDriver and self.Attachments[gbslot].GodDriver.Model -- M203 anim and camera
+    local lhik_refl_model = gbslot and self.Attachments[gbslot].ReflectDriver and self.Attachments[gbslot].ReflectDriver.Model -- Rifle
+    if IsValid(lhik_model) and IsValid(lhik_anim_model) and IsValid(lhik_refl_model) and lhik_anim_model:GetAttachment(lhik_anim_model:LookupAttachment(gunbone)) then
+        local att = lhik_anim_model:LookupAttachment(gunbone)
+        local offset = lhik_anim_model:GetAttachment(att).Pos
+        local affset = lhik_anim_model:GetAttachment(att).Ang
+
+        affset:Sub( GunDriverFix )
+        local r = affset.r
+        affset.r = affset.p
+        affset.p = -r
+        affset.y = -affset.y
+
+        local anchor = self.Attachments[gbslot].VMOffsetPos
+
+        local looku = lhik_refl_model:LookupBone( self.Attachments[gbslot].Bone )
+        local bonp, bona = lhik_refl_model:GetBonePosition( looku )
+        if bonp == lhik_refl_model:GetPos() then
+            bonp = lhik_refl_model:GetBoneMatrix( looku ):GetTranslation()
+            bona = lhik_refl_model:GetBoneMatrix( looku ):GetAngles()
+        end
+
+        if anchor and bonp then -- Not ready / deploying
+            anchor = ( bonp + ( (bona:Forward()*anchor.x) + (bona:Right()*anchor.y) + (bona:Up()*anchor.z) ) )
+
+			debugoverlay.Axis(anchor, angle_zero, 4, FrameTime(), true)
+
+            rap_pos, rap_ang = ArcCW.RotateAroundPoint2(pos, ang, anchor, offset, affset)
+            rap_pos:Sub(pos)
+            rap_ang:Sub(ang)
+
+            pos:Add(rap_pos)
+            ang:Add(rap_ang)
+        end
+    end
+
     self.ActualVMData = actual
 
-    -- end
-    if gunbone then
-        local magnitude = Lerp(sgtd, 0.1, 1)
-        local lhik_model = self.Attachments[gbslot].VElement.Model
-        local att = lhik_model:LookupAttachment(gunbone)
-        local attang = lhik_model:GetAttachment(att).Ang
-        local attpos = lhik_model:GetAttachment(att).Pos
-        attang = lhik_model:WorldToLocalAngles(attang)
-        attpos = lhik_model:WorldToLocal(attpos)
-        attang = attang - self.LHIKGunAng
-        attpos = attpos - self.LHIKGunPos
-        attang = attang * magnitude
-        attpos = attpos * magnitude
-        -- attang = vm:LocalToWorldAngles(attang)
-        ang = ang + attang
-        pos = pos + attpos
-    end
+    stopwatch("apply actual")
+
+    stopwatch(true)
 
     lst = SysTime()
     return pos, ang
@@ -580,9 +746,10 @@ function SWEP:DrawWorldModel()
         self:DoScopeGlint()
     end
 
-    if !self.CertainAboutAtts then
+    if !self.CertainAboutAtts and !self.AttReqSent and IsValid(self:GetOwner()) then
+        self.AttReqSent = true
         net.Start("arccw_rqwpnnet")
-        net.WriteEntity(self)
+            net.WriteEntity(self)
         net.SendToServer()
     end
 end
@@ -591,7 +758,10 @@ function SWEP:ShouldCheapScope()
     if !self:GetConVar("arccw_cheapscopes"):GetBool() then return end
 end
 
-local lst = SysTime()
+local POSTVMDONE = nil
+local POSTVMDONE_TIME = 0
+
+local lst2 = SysTime()
 function SWEP:PreDrawViewModel(vm)
     if ArcCW.VM_OverDraw then return end
     if !vm then return end
@@ -601,8 +771,8 @@ function SWEP:PreDrawViewModel(vm)
     end
 
     if GetConVar("arccw_cheapscopesautoconfig"):GetBool() then
-        local fps = 1 / (SysTime()-lst)
-        lst = SysTime()
+        local fps = 1 / (SysTime() - lst2)
+        lst2 = SysTime()
         local lowfps = fps <= 45
         GetConVar("arccw_cheapscopes"):SetBool(lowfps)
         GetConVar("arccw_cheapscopesautoconfig"):SetBool(false)
@@ -610,37 +780,52 @@ function SWEP:PreDrawViewModel(vm)
 
     local asight = self:GetActiveSights()
 
-    if asight then
-        if self:GetSightDelta() < 1 and asight.Holosight then
-            ArcCW:DrawPhysBullets()
-        end
-
-        if GetConVar("arccw_cheapscopes"):GetBool() and self:GetSightDelta() < 1 and asight.MagnifiedOptic then
-            self:FormCheapScope()
-        end
-
-        if self:GetSightDelta() < 1 and asight.ScopeTexture then
-            self:FormCheapScope()
-        end
+    if asight and ((GetConVar("arccw_cheapscopes"):GetBool() and self:GetSightDelta() < 1 and asight.MagnifiedOptic)
+            or (self:GetSightDelta() < 1 and asight.ScopeTexture)) then
+        -- Necessary to call here since physbullets are not drawn until PreDrawEffects; cheap scope implementation will not allow them to be visible
+        -- Introduces a bug when we try to call GetAttachment on the viewmodel in DrawPhysBullets here, so set a workaround variable to not call it
+        ArcCW:DrawPhysBullets(true)
+        self:FormCheapScope()
     end
 
-    cam.Start3D(EyePos(), EyeAngles(), self.CurrentViewModelFOV or self.ViewModelFOV, nil, nil, nil, nil, 1.5, 15000)
+    local coolFOV = self.CurrentViewModelFOV or self.ViewModelFOV
+
+    if ArcCW.VMInRT then
+        local mag = asight.ScopeMagnification
+        coolFOV = self.ViewModelFOV - mag * 4 - (GetConVar("arccw_vm_add_ads"):GetFloat() * 3 or 0)
+        ArcCW.VMInRT = false
+    end
+
+    cam.Start3D(EyePos(), EyeAngles(), self:QuickFOVix(coolFOV), nil, nil, nil, nil, 0.5, 1000)
     cam.IgnoreZ(true)
     self:DrawCustomModel(false)
     self:DoLHIK()
+
+    if !ArcCW.Overdraw then
+        self:DoLaser(false, true)
+    end
+
+    -- patrol
+    if POSTVMDONE == false and POSTVMDONE_TIME <= CurTime() then
+        POSTVMDONE_TIME = CurTime() + 1
+        print( "[ArcCW] Warning: PostDrawViewModel failed response!! cam.End3D errors may be inbound!! You may have an addon conflict!!")
+        print( "[ArcCW] Follow the troubleshooting guide at https://github.com/HaodongMo/ArcCW/wiki/Help-&-Troubleshooting#camend3d-errors")
+    end
+    POSTVMDONE = false
 end
 
 function SWEP:PostDrawViewModel()
+    POSTVMDONE = true
     if ArcCW.VM_OverDraw then return end
     render.SetBlend(1)
     cam.End3D()
-    cam.Start3D(EyePos(), EyeAngles(), self.CurrentViewModelFOV or self.ViewModelFOV, nil, nil, nil, nil, 0.1, 15000)
+    cam.Start3D(EyePos(), EyeAngles(), self:QuickFOVix(self.CurrentViewModelFOV or self.ViewModelFOV), nil, nil, nil, nil, 0.5, 1000)
     cam.IgnoreZ(true)
 
     if ArcCW.Overdraw then
         ArcCW.Overdraw = false
     else
-        self:DoLaser()
+        --self:DoLaser()
         self:DoHolosight()
     end
 

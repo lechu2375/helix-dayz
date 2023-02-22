@@ -6,7 +6,7 @@ PLUGIN.description = "Adds a merchant of things."
 
 -- Go away, asshole.
 
-ix.config.Add("merchantInterval", 120, "Интервал обновлений ассортимента торговца (в минутах)", 
+ix.config.Add("merchantInterval", 120, "Co ile ma się zmieniać asortyment u handlarza(minuty)", 
 	function(_, newValue)
 		if (SERVER) then
 			if (timer.Exists("ixMerchantInterval")) then

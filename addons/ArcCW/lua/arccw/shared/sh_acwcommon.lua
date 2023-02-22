@@ -26,6 +26,9 @@ ArcCW.VolumetricLightX = 256
 ArcCW.VolumetricLightY = 256
 ArcCW.VolumetricLightZ = 384
 
+-- Special clip size denoting an bottomless clip
+ArcCW.BottomlessMagicNumber = -1
+
 COND_WEAPON_HAS_LOS = 41
 COND_WEAPON_SIGHT_OCCLUDED = 45
 
@@ -33,7 +36,10 @@ ArcCW.ShellSoundsTable = {
     "weapons/arccw/casings/casing_556_1.wav",
     "weapons/arccw/casings/casing_556_2.wav",
     "weapons/arccw/casings/casing_556_3.wav",
-    "weapons/arccw/casings/casing_556_4.wav",
+    "weapons/arccw/casings/casing_556_4.wav"
+}
+
+ArcCW.MediumShellSoundsTable = {
     "weapons/arccw/casings/casing_308_1.wav",
     "weapons/arccw/casings/casing_308_2.wav",
     "weapons/arccw/casings/casing_308_3.wav",
@@ -55,9 +61,10 @@ ArcCW.TinyShellSoundsTable = {
 }
 
 ArcCW.ShotgunShellSoundsTable = {
-    "weapons/fx/tink/shotgun_shell1.wav",
-    "weapons/fx/tink/shotgun_shell2.wav",
-    "weapons/fx/tink/shotgun_shell3.wav"
+    "weapons/arccw/casings/casing_12ga_1.wav",
+    "weapons/arccw/casings/casing_12ga_2.wav",
+    "weapons/arccw/casings/casing_12ga_3.wav",
+    "weapons/arccw/casings/casing_12ga_4.wav"
 }
 
 ArcCW.RicochetSounds = {
@@ -128,7 +135,7 @@ ArcCW.PenTable = {
    [MAT_CLIP]        = 1000,
    [MAT_SNOW]        = 0.25,
    [MAT_PLASTIC]     = 0.5,
-   [MAT_METAL]       = 2,
+   [MAT_METAL]       = 1.5,
    [MAT_SAND]        = 0.25,
    [MAT_FOLIAGE]     = 0.5,
    [MAT_COMPUTER]    = 0.25,

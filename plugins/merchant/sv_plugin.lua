@@ -169,12 +169,18 @@ net.Receive("ixMerchantTrade", function(len, client)
 		end
 		client:NotifyLocalized("businessPurchase", L(stockItem.name, client), ix.currency.Get(price))
 
+		itemData.data.quantity = itemData.data.quantity or 1
+
 		if (allStack and stockItem.isStackable and data) then
 			itemData.data.quantity = itemData.data.quantity - data.quantity
 		else
 			itemData.data.quantity = itemData.data.quantity - 1
 		end
+		
+		entity.items[id] = itemData.data.quantity < 1 and nil or itemData
 
+
+		
 		if (itemData.data.quantity < 1) then
 			entity.items[id] = nil
 		else
@@ -193,7 +199,6 @@ end)
 --- Установить рандомный массив предметов
 function PLUGIN:SetRandomItems(maxItems, scale)
 	local items = {}
-
 	if (maxItems > 0) then
 		local index, itemData
 
@@ -208,7 +213,7 @@ function PLUGIN:SetRandomItems(maxItems, scale)
 
 				if (item.isStackable) then
 					itemData.quantity = 1
-
+				
 					for k, v in ipairs(items) do
 						if (v.uniqueID == item.uniqueID) then
 							index = k
@@ -225,7 +230,6 @@ function PLUGIN:SetRandomItems(maxItems, scale)
 					local merchItem = items[index] or {data = {}}
 					merchItem.uniqueID = merchItem.uniqueID or item.uniqueID
 					merchItem.data.quantity = (merchItem.data.quantity or 0) + 1
-
 					items[index] = merchItem
 				else
 					table.insert(items, {
@@ -233,7 +237,7 @@ function PLUGIN:SetRandomItems(maxItems, scale)
 						data = itemData
 					})
 				end
-
+				
 				index = nil
 			end
 		end

@@ -15,14 +15,21 @@ SWEP.LHIKCamAng = Angle(0, 0, 0)
 SWEP.LHIKGunAng = Angle(0, 0, 0)
 
 function SWEP:DoLHIKAnimation(key, time, spbitch)
+    if !IsValid(self:GetOwner()) then return end
+
     if game.SinglePlayer() and !spbitch then
         timer.Simple(0, function() if IsValid(self) then self:DoLHIKAnimation(key, time, true) end end)
         return
     end
 
+    local vm = self:GetOwner():GetViewModel()
+    if !IsValid(vm) then return end
+
     local lhik_model
+    local lhik_anim_model
     local LHIK_GunDriver
     local LHIK_CamDriver
+    local offsetang
 
     local tranim = self:GetBuff_Hook("Hook_LHIK_TranslateAnimation", key)
 
@@ -34,6 +41,8 @@ function SWEP:DoLHIKAnimation(key, time, spbitch)
 
         if self:GetBuff_Stat("LHIK", i) then
             lhik_model = k.VElement.Model
+            lhik_anim_model = k.GodDriver and k.GodDriver.Model or false
+            offsetang = k.VElement.OffsetAng
 
             if self:GetBuff_Stat("LHIK_GunDriver", i) then
                 LHIK_GunDriver = self:GetBuff_Stat("LHIK_GunDriver", i)
@@ -45,7 +54,7 @@ function SWEP:DoLHIKAnimation(key, time, spbitch)
         end
     end
 
-    if !lhik_model then return false end
+    if !IsValid(lhik_model) then return false end
 
     local seq = lhik_model:LookupSequence(key)
 
@@ -53,8 +62,11 @@ function SWEP:DoLHIKAnimation(key, time, spbitch)
     if seq == -1 then return false end
 
     lhik_model:ResetSequence(seq)
+    if IsValid(lhik_anim_model) then
+        lhik_anim_model:ResetSequence(seq)
+    end
 
-    if !time then time = lhik_model:SequenceDuration(seq) end
+    if !time or time < 0 then time = lhik_model:SequenceDuration(seq) end
 
     self.LHIKAnimation = seq
     self.LHIKAnimationStart = UnPredictedCurTime()
@@ -62,20 +74,24 @@ function SWEP:DoLHIKAnimation(key, time, spbitch)
 
     self.LHIKAnimation_IsIdle = false
 
-    if LHIK_GunDriver then
-        local att = lhik_model:LookupAttachment(LHIK_GunDriver)
-        local ang = lhik_model:GetAttachment(att).Ang
-        local pos = lhik_model:GetAttachment(att).Pos
+    if IsValid(lhik_anim_model) and LHIK_GunDriver then
+        local att = lhik_anim_model:LookupAttachment(LHIK_GunDriver)
+        local ang = lhik_anim_model:GetAttachment(att).Ang
+        local pos = lhik_anim_model:GetAttachment(att).Pos
 
-        self.LHIKGunAng = lhik_model:WorldToLocalAngles(ang)
-        self.LHIKGunPos = lhik_model:WorldToLocal(pos)
+        self.LHIKGunAng = lhik_anim_model:WorldToLocalAngles(ang) - Angle(0, 90, 90)
+        self.LHIKGunPos = lhik_anim_model:WorldToLocal(pos)
+
+        self.LHIKGunAngVM = vm:WorldToLocalAngles(ang) - Angle(0, 90, 90)
+        self.LHIKGunPosVM = vm:WorldToLocal(pos)
     end
 
-    if LHIK_CamDriver then
-        local att = lhik_model:LookupAttachment(LHIK_CamDriver)
-        local ang = lhik_model:GetAttachment(att).Ang
+    if IsValid(lhik_anim_model) and LHIK_CamDriver then
+        local att = lhik_anim_model:LookupAttachment(LHIK_CamDriver)
+        local ang = lhik_anim_model:GetAttachment(att).Ang
 
-        self.LHIKCamAng = lhik_model:WorldToLocalAngles(ang)
+        self.LHIKCamOffsetAng = offsetang
+        self.LHIKCamAng = lhik_anim_model:WorldToLocalAngles(ang)
     end
 
     -- lhik_model:SetCycle(0)
@@ -99,14 +115,17 @@ function SWEP:GetLHIKAnim()
 end
 
 function SWEP:DoLHIK()
+    if !IsValid(self:GetOwner()) then return end
+
     local justhide = false
     local lhik_model = nil
+    local lhik_anim_model = nil
     local hide_component = false
     local delta = 1
 
     local vm = self:GetOwner():GetViewModel()
 
-    if !self.NoHideLeftHandInCustomization and !self:GetBuff_Override("Override_NoHideLeftHandInCustomization") then
+    if !GetConVar("arccw_reloadincust"):GetBool() and !self.NoHideLeftHandInCustomization and !self:GetBuff_Override("Override_NoHideLeftHandInCustomization") then
         if self:GetState() == ArcCW.STATE_CUSTOMIZE then
             self.Customize_Hide = math.Approach(self.Customize_Hide, 1, FrameTime() / 0.25)
         else
@@ -128,6 +147,9 @@ function SWEP:DoLHIK()
         -- if atttbl.LHIK then
         if self:GetBuff_Stat("LHIK", i) then
             lhik_model = k.VElement.Model
+            if k.GodDriver then
+                lhik_anim_model = k.GodDriver.Model
+            end
         end
     end
 
@@ -138,7 +160,7 @@ function SWEP:DoLHIK()
 
         for i, k in pairs(tl) do
             if !k or !k.t then continue end
-            if k.t + self.LHIKStartTime > CurTime() then
+            if k.t + self.LHIKStartTime > UnPredictedCurTime() then
                 next_stage_index = i
                 break
             end
@@ -158,7 +180,7 @@ function SWEP:DoLHIK()
             next_stage = {t = self.LHIKEndTime, lhik = self.LHIKTimeline[#self.LHIKTimeline].lhik}
         end
 
-        local local_time = CurTime() - self.LHIKStartTime
+        local local_time = UnPredictedCurTime() - self.LHIKStartTime
 
         local delta_time = next_stage.t - stage.t
         delta_time = (local_time - stage.t) / delta_time
@@ -184,6 +206,10 @@ function SWEP:DoLHIK()
                 if seq and seq > 0 then
                     lhik_model:SetSequence(seq)
                     lhik_model:SetCycle(delta)
+                    if lhik_anim_model then
+                        lhik_anim_model:SetSequence(seq)
+                        lhik_anim_model:SetCycle(delta)
+                    end
                 end
             end
         end
@@ -279,6 +305,10 @@ function SWEP:DoLHIK()
     if self.LHIKAnimation and cyc < 1 then
         lhik_model:SetSequence(self.LHIKAnimation)
         lhik_model:SetCycle(cyc)
+        if IsValid(lhik_anim_model) then
+            lhik_anim_model:SetSequence(self.LHIKAnimation)
+            lhik_anim_model:SetCycle(cyc)
+        end
     else
         local key = "idle"
 
@@ -286,8 +316,8 @@ function SWEP:DoLHIK()
 
         key = tranim or key
 
-        if key and key != "DoNotPlayIdle" then 
-            self:DoLHIKAnimation(key, 1)
+        if key and key != "DoNotPlayIdle" then
+            self:DoLHIKAnimation(key, -1)
         end
 
         self.LHIKAnimation_IsIdle = true
@@ -295,6 +325,7 @@ function SWEP:DoLHIK()
 
     local cf_deltapos = Vector(0, 0, 0)
     local cf = 0
+
 
     for _, bone in pairs(ArcCW.LHIKBones) do
         local vmbone = vm:LookupBone(bone)

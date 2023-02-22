@@ -1,7 +1,5 @@
 if engine.ActiveGamemode() != "terrortown" then return end
 
-
-
 CreateClientConVar("arccw_ttt_inforoundstart", "1", true, false, "Whether to show ArcCW config every round.")
 CreateClientConVar("arccw_ttt_rolecrosshair", "1", true, false, "Whether to color your crosshair according to your role.")
 
@@ -38,7 +36,7 @@ hook.Add("TTTBodySearchPopulate", "ArcCW_PopulateHUD", function(processed, raw)
     -- Attachment Info
     local mode = GetConVar("arccw_ttt_bodyattinfo"):GetInt()
     local attTbl = ArcCW.TTT_AttInfo[raw.eidx]
-    if attTbl and table.Count(attTbl) > 0 and (mode == 2 or (mode == 1 and raw.detective_search)) then
+    if attTbl and !table.IsEmpty(attTbl) and (mode == 2 or (mode == 1 and raw.detective_search)) then
         local finalTbl = {
             img    = "arccw/ttticons/arccw_dropattinfo.png",
             p = 10.5, -- Right after the murder weapon
@@ -177,51 +175,53 @@ hook.Add("TTTPrepareRound", "ArcCW_TTT_Info", function()
     ArcCW.TTT_AttInfo = {}
 end)
 
-hook.Add("TTTSettingsTabs", "ArcCW_TTT", function(dtabs)
+if !TTT2 then
+    hook.Add("TTTSettingsTabs", "ArcCW_TTT", function(dtabs)
 
-    local padding = dtabs:GetPadding() * 2
+        local padding = dtabs:GetPadding() * 2
 
-    local panellist = vgui.Create("DPanelList", dtabs)
-    panellist:StretchToParent(0,0,padding,0)
-    panellist:EnableVerticalScrollbar(true)
-    panellist:SetPadding(10)
-    panellist:SetSpacing(10)
+        local panellist = vgui.Create("DPanelList", dtabs)
+        panellist:StretchToParent(0,0,padding,0)
+        panellist:EnableVerticalScrollbar(true)
+        panellist:SetPadding(10)
+        panellist:SetSpacing(10)
 
-    local dgui = vgui.Create("DForm", panellist)
-    dgui:SetName("#arccw.menus.ttt_client")
-    dgui:Help("#arccw.ttt_clienthelp")
-    dgui:CheckBox("#arccw.cvar.ttt_inforoundstart", "arccw_ttt_inforoundstart")
-    dgui:CheckBox("#arccw.cvar.ttt_rolecrosshair", "arccw_ttt_rolecrosshair")
-    panellist:AddItem(dgui)
+        local dgui = vgui.Create("DForm", panellist)
+        dgui:SetName("#arccw.menus.ttt_client")
+        dgui:Help("#arccw.ttt_clienthelp")
+        dgui:CheckBox("#arccw.cvar.ttt_inforoundstart", "arccw_ttt_inforoundstart")
+        dgui:CheckBox("#arccw.cvar.ttt_rolecrosshair", "arccw_ttt_rolecrosshair")
+        panellist:AddItem(dgui)
 
-
-    -- Can't rely on LocalPlayer() being valid now
-    -- TTT2 generates tabs before menu opens
-    --if LocalPlayer():IsAdmin() then
         local dgui2 = vgui.Create("DForm", panellist)
         dgui2:SetName("#arccw.menus.ttt_server")
         ArcCW.GeneratePanelElements(dgui2, TTTPanel)
         panellist:AddItem(dgui2)
-    --end
 
-    for menu, data in SortedPairs(ArcCW.ClientMenus) do
-        local form = vgui.Create("DForm", panellist)
-        form:SetName(data.text)
-        data.func(form, true)
-        form:SetExpanded(false)
-        panellist:AddItem(form)
-    end
+        for menu, data in SortedPairs(ArcCW.ClientMenus) do
+            local form = vgui.Create("DForm", panellist)
+            form:SetName(data.text)
+            data.func(form, true)
+            form:SetExpanded(false)
+            panellist:AddItem(form)
+        end
 
-    dtabs:AddSheet("ArcCW", panellist, "icon16/gun.png", false, false, "ArcCW Settings")
-end)
+        dtabs:AddSheet("ArcCW", panellist, "icon16/gun.png", false, false, "ArcCW")
+    end)
+end
+
+-----------------------------
+-- TTT2-specific support
+-----------------------------
 
 hook.Add("TTTRenderEntityInfo", "ArcCW_TTT2_Weapons", function(tData)
     local client = LocalPlayer()
     local ent = tData:GetEntity()
 
+
     if !IsValid(client) or !client:IsTerror() or !client:Alive()
     or !IsValid(ent) or tData:GetEntityDistance() > 100 or !ent:IsWeapon()
-    or !ent.ArcCW or ent.Throwable then
+    or !ent.ArcCW or ent.Throwing then
         return
     end
 
@@ -231,7 +231,9 @@ hook.Add("TTTRenderEntityInfo", "ArcCW_TTT2_Weapons", function(tData)
 
     local pickx = GetConVar("arccw_atts_pickx"):GetInt()
 
-    if ent.Attachments and ent:CountAttachments() > 0 then
+    if !ent.CertainAboutAtts then
+        tData:AddDescriptionLine("??? Attachments")
+    elseif ent.Attachments and ent:CountAttachments() > 0 then
         tData:AddDescriptionLine(tostring(ent:CountAttachments()) .. (pickx > 0 and ("/" .. pickx) or "") .. ArcCW.GetTranslation("ttt.attachments"), nil)
         for i, v in pairs(ent.Attachments) do
             local attName = v.Installed
@@ -272,3 +274,94 @@ hook.Add("TTTRenderEntityInfo", "ArcCW_TTT2_Ammo", function(tData)
     tData:SetTitle(ent.PrintName)
     tData:SetSubtitle(ArcCW.GetTranslation("ttt.ammo") .. ent:GetNWInt("truecount", ent.AmmoCount))
 end)
+
+function ArcCW.TTT2_PopulateSettings(parent, title, tbl)
+
+    local form = vgui.CreateTTT2Form(parent, title)
+
+    for _, data in pairs(tbl) do
+
+        local name = data.text
+        if string.Left(name, 1) == "#" then name = string.sub(name, 2) end
+
+        if data.type == "h" or data.type == "c" then
+            form:MakeHelp({
+                label = name
+            })
+        end
+
+        local cvar = GetConVar(data.var or "")
+        if !cvar then continue end
+        local option
+
+        if data.type == "b" then
+            option = form:MakeCheckBox({
+                label = name,
+                default = tobool(cvar:GetDefault()),
+                initial = cvar:GetBool(),
+                OnChange = function(self, value)
+                    ArcCW.NetworkConvar(data.var, value, self)
+                end,
+            })
+            option.TickCreated = UnPredictedCurTime()
+        elseif data.type == "i" or data.type == "f" then
+               option = form:MakeSlider({
+                    label = name,
+                    min = data.min,
+                    max = data.max,
+                    decimal = data.type == "i" and 0 or 2,
+                    default = tonumber(cvar:GetDefault()),
+                    initial = data.type == "i" and cvar:GetInt() or cvar:GetFloat(),
+                    OnChange = function(self, value)
+                        ArcCW.NetworkConvar(data.var, value, self)
+                    end,
+                })
+                option.TickCreated = UnPredictedCurTime()
+        elseif data.type == "o" then
+            option = form:MakeComboBox({
+                label = name,
+                default = tonumber(cvar:GetDefault()),
+                initial = cvar:GetInt(),
+                --choices = data.choices,
+                OnChange = function(self, _, _, value)
+                    ArcCW.NetworkConvar(data.var, value, self)
+                end,
+            })
+            option.TickCreated = UnPredictedCurTime()
+            for k, v in pairs(data.choices) do
+                option:AddChoice(v, k)
+            end
+        end
+    end
+end
+
+-- In almost all cases TTT2 lang names are identical to ISO 639-1; except for simplified / traditional Chinese
+local ttt_langtranslate = {
+    ["zh-cn"] = "zh_hans", -- i find it funny the original ttt's lang name for this is "simpchinese". haha simp
+    ["zh-tw"] = "zh_tw",
+}
+
+-- This is only necessary in TTT2, where we use its interface for convars
+function ArcCW.TTT2_LoadClientLangs()
+    if !TTT2 then return end
+    local files = file.Find("arccw/client/cl_languages/*", "LUA")
+    for _, v in pairs(files) do
+        local exp = string.Explode("_", string.lower(string.Replace(v, ".lua", "")))
+
+        local lang = exp[#exp]
+        lang = ttt_langtranslate[lang] or LANG.GetNameFromAlias(lang)
+
+        -- cannot add to languages that do not exist
+        if !LANG.IsLanguage(lang) then
+            continue
+        end
+
+        include("arccw/client/cl_languages/" .. v)
+        for phrase, str in pairs(L) do
+            LANG.AddToLanguage(lang, phrase, str)
+        end
+        print("Loaded ArcCW cl_language file " .. v .. " with " .. table.Count(L) .. " strings for TTT2.")
+        L = nil
+    end
+end
+hook.Add("PostGamemodeLoaded", "ArcCW_TTT2_Localization", ArcCW.TTT2_LoadClientLangs)

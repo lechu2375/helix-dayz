@@ -4,7 +4,7 @@ PLUGIN.description = "You save your junk in the stash."
 
 ix.stash = ix.stash or {}
 
-ix.config.Add("maxStash", 100, "Макс. размер хранилища по умолчанию.", nil, {
+ix.config.Add("maxStash", 100, "Maksymalny rozmiar skrytki", nil, {
 	data = {min = 1, max = 1000},
 	category = PLUGIN.name
 })

@@ -66,6 +66,7 @@ ArcCW.StringToLang = {
     ["standard stock"] = "attslot.stock.default",
     ["no stock"] = "attslot.stock.none",
     ["standard fcg"] = "attslot.fcg.default",
+    ["standard magazine"] = "attslot.magazine.default",
 }
 
 -- Helper function for getting the overwrite or default language
@@ -154,15 +155,6 @@ if CLIENT then
         local lang = ArcCW.GetLanguage()
         files = files or file.Find("arccw/client/cl_languages/*", "LUA")
 
-        --[[]
-        -- First make sure there is actually a file in such language; otherwise default to english
-        local has = false
-        for _, v in pairs(files) do
-            local exp = string.Explode("_", string.lower(string.Replace(v, ".lua", "")))
-            if exp[#exp] == lang then has = true break end
-        end
-        if !has then lang = "en" end
-        ]]
         local lang_tbl = {}
         local lang_tbl_en = {}
 
@@ -229,7 +221,6 @@ function ArcCW.LoadLanguages()
 
     if CLIENT then
         ArcCW.LoadClientLanguage()
-
     end
 
     hook.Run("ArcCW_LocalizationLoaded")
@@ -249,8 +240,9 @@ hook.Add("PreGamemodeLoaded", "ArcCW_Lang", function()
     end
 end)
 
-
 concommand.Add("arccw_reloadlangs", function(ply)
+    if SERVER and !game.SinglePlayer() and IsValid(ply) and !ply:IsSuperAdmin() then return end
+
     ArcCW.LoadLanguages()
     if SERVER and game.SinglePlayer() then
         net.Start("arccw_sp_reloadlangs")

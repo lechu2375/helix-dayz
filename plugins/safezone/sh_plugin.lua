@@ -5,7 +5,7 @@ PLUGIN.description = ""
 ix.util.Include("sv_plugin.lua")
 
 ix.command.Add("SafezoneEdit", {
-	description = "Enters safezone edit mode",
+	description = "Wchodzi w tryb edycji bezpiecznych stref",
 	superAdminOnly = true,
 	OnRun = function(self, client)
 		SH_SZ:Sync(client)

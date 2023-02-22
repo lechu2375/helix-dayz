@@ -149,19 +149,25 @@ SWEP.Animations = {
     },
 }
 
-function SWEP:Reload()
+function SWEP:Reload() //87	=	rpg26_rocket
+
+    if(SERVER) then
+
+        local owner = self:GetOwner()
+        local char = owner:GetCharacter()
+        if(char) then
+
+            local inv = char:GetInventory()
+            local item = inv:HasItem("arccw_firearms2_rpg26")
+
+            if(item) then
+                item:Remove()
+            end
+
+        else
+            owner:GetOwner():StripWeapon(wep:GetClass())
+        end
+
+    end
 end
 
-SWEP.Hook_PostFireBullets = function(wep)
-    timer.Simple(1.5, function()
-        if not IsValid( wep ) then return end
-        if wep:Clip1() == 0 and wep:Ammo1() >= 1 then
-            wep:SetClip1(1)
-            wep:GetOwner():SetAmmo(wep:Ammo1() - 1, wep.Primary.Ammo)
-        else
-            if SERVER then
-            wep:GetOwner():StripWeapon(wep:GetClass())
-            end
-        end
-    end)
-end

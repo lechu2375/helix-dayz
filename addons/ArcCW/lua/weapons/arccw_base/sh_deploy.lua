@@ -1,7 +1,11 @@
+local ang0 = Angle(0, 0, 0)
+local dev_alwaysready = GetConVar("arccw_dev_alwaysready")
+
 function SWEP:Deploy()
     if !IsValid(self:GetOwner()) or self:GetOwner():IsNPC() then
         return
     end
+
     if self.UnReady then
         local sp = game.SinglePlayer()
 
@@ -27,7 +31,7 @@ function SWEP:Deploy()
     self:SetShouldHoldType()
 
     self:SetReloading(false)
-    self:SetState(0)
+    self:SetPriorityAnim(false)
     self:SetInUBGL(false)
     self:SetMagUpCount(0)
     self:SetMagUpIn(0)
@@ -35,38 +39,41 @@ function SWEP:Deploy()
     self:SetHolster_Time(0)
     self:SetHolster_Entity(NULL)
 
+    self:SetFreeAimAngle(ang0)
+    self:SetLastAimAngle(ang0)
+
     self.LHIKAnimation = nil
+    self.CrosshairDelta = 0
 
     self:SetBurstCount(0)
 
-    self:CallOnClient("FuckingKillMe")
-    self:FuckingKillMe()
-    -- Don't play anim if in vehicle. This can be caused by HL2 level changes
+    self:WepSwitchCleanup()
+    if game.SinglePlayer() then self:CallOnClient("WepSwitchCleanup") end
 
-    if !self:GetOwner():InVehicle() then
+    if !self:GetOwner():InVehicle() then -- Don't play anim if in vehicle. This can be caused by HL2 level changes
         local prd = false
 
         local r_anim = self:SelectAnimation("ready")
         local d_anim = self:SelectAnimation("draw")
 
-        if self.Animations[r_anim] and self.UnReady then
+        if self.Animations[r_anim] and ( dev_alwaysready:GetBool() or self.UnReady ) then
             self:PlayAnimation(r_anim, 1, true, 0, false)
-
-            self:SetReloading(CurTime() + self:GetAnimKeyTime(r_anim, true))
-
             prd = self.Animations[r_anim].ProcDraw
+
+            self:SetPriorityAnim(CurTime() + self:GetAnimKeyTime(r_anim, true) )
         elseif self.Animations[d_anim] then
             self:PlayAnimation(d_anim, self:GetBuff_Mult("Mult_DrawTime"), true, 0, false)
-
-            self:SetReloading(CurTime() + (self:GetAnimKeyTime(d_anim, true) * self:GetBuff_Mult("Mult_DrawTime")))
-
             prd = self.Animations[d_anim].ProcDraw
+
+            self:SetPriorityAnim(CurTime() + self:GetAnimKeyTime(d_anim, true) * self:GetBuff_Mult("Mult_DrawTime"))
         end
 
         if prd or (!self.Animations[r_anim] and !self.Animations[d_anim]) then
             self:ProceduralDraw()
         end
     end
+
+    self:SetState(ArcCW.STATE_DISABLE)
 
     if self.UnReady then
         if SERVER then
@@ -75,13 +82,9 @@ function SWEP:Deploy()
         self.UnReady = false
     end
 
-    if (self.AutoReload or self:GetBuff_Override("Override_AutoReload")) and (self:GetBuff_Override("Override_AutoReload") != false) then
+    if self:GetBuff_Override("Override_AutoReload", self.AutoReload) then
         self:RestoreAmmo()
-    else
-        self:RestoreAmmo(0)
     end
-
-    self.LHIKAnimation = nil
 
     timer.Simple(0, function()
         if IsValid(self) then self:SetupModel(false) end
@@ -89,10 +92,18 @@ function SWEP:Deploy()
 
     if SERVER then
         self:SetupShields()
-        self:NetworkWeapon()
+        -- Networking the weapon at this time is too early - entity is not yet valid on client
+        -- Instead, make client send a request when it is valid there
+        --self:NetworkWeapon()
+    elseif CLIENT and !self.CertainAboutAtts then
+        net.Start("arccw_rqwpnnet")
+            net.WriteEntity(self)
+        net.SendToServer()
     end
 
     -- self:RefreshBGs()
+
+    self:GetBuff_Hook("Hook_OnDeploy")
 
     return true
 end
@@ -111,7 +122,7 @@ function SWEP:InitialDefaultClip()
     if engine.ActiveGamemode() == "darkrp" then return end -- DarkRP is god's second biggest mistake after gmod
 
     if self:GetOwner() and self:GetOwner():IsPlayer() then
-        if self:HasBottomlessClip() and self:Clip1() > 0 then
+        if self:HasBottomlessClip() then
             self:SetClip1(0)
         end
         if self.ForceDefaultAmmo then
@@ -159,12 +170,24 @@ function SWEP:Initialize()
         -- Check for incompatibile addons once 
         if LocalPlayer().ArcCW_IncompatibilityCheck != true and game.SinglePlayer() then
             LocalPlayer().ArcCW_IncompatibilityCheck = true
+
             local incompatList = {}
             local addons = engine.GetAddons()
             for _, addon in pairs(addons) do
                 if ArcCW.IncompatibleAddons[tostring(addon.wsid)] and addon.mounted then
                     incompatList[tostring(addon.wsid)] = addon
                 end
+            end
+
+            local predrawvmhooks = hook.GetTable().PreDrawViewModel
+            if predrawvmhooks and (predrawvmhooks.DisplayDistancePlaneLS or predrawvmhooks.DisplayDistancePlane) then -- vtools lua breaks arccw with stupid return in vm hook, ya dont need it if you going to play with guns
+                hook.Remove("PreDrawViewModel", "DisplayDistancePlane")
+                hook.Remove("PreDrawViewModel", "DisplayDistancePlaneLS")
+                incompatList["DisplayDistancePlane"] = {
+                    title = "Light Sprayer / Scenic Dispenser tool",
+                    wsid = "DisplayDistancePlane",
+                    nourl = true,
+                }
             end
             local shouldDo = true
             -- If never show again is on, verify we have no new addons
@@ -176,8 +199,10 @@ function SWEP:Initialize()
                 end
                 if shouldDo then file.Delete("arccw_incompatible.txt") end
             end
-            if shouldDo and table.Count(incompatList) > 0 then
+            if shouldDo and !table.IsEmpty(incompatList) then
                 ArcCW.MakeIncompatibleWindow(incompatList)
+            elseif !table.IsEmpty(incompatList) then
+                print("ArcCW ignored " .. table.Count(incompatList) .. " incompatible addons. If things break, it's your fault.")
             end
         end
     end
@@ -194,7 +219,9 @@ function SWEP:Initialize()
 
     self.Attachments["BaseClass"] = nil
 
-    self:SetHoldType(self.HoldtypeActive)
+    if !self:GetOwner():IsNPC() then
+        self:SetHoldType(self.HoldtypeActive)
+    end
 
     local og = weapons.Get(self:GetClass())
 
@@ -208,6 +235,8 @@ function SWEP:Initialize()
         self:TTT_Init()
     end
 
+    hook.Run("ArcCW_WeaponInit", self)
+
     self:AdjustAtts()
 end
 
@@ -217,14 +246,18 @@ function SWEP:Holster(wep)
 
     if CLIENT and self:GetOwner() == LocalPlayer() and ArcCW.InvHUD then ArcCW.InvHUD:Remove() end
 
-    if self:GetBurstCount() > 0 and self:Clip1() > 0 then return false end
+    if self:GetBurstCount() > 0 and self:Clip1() > self:GetBuff("AmmoPerShot") then return false end
 
     if CLIENT and LocalPlayer() != self:GetOwner() then
         return
     end
 
-    self:CallOnClient("FuckingKillMe")
-    self:FuckingKillMe()
+    if self:GetGrenadePrimed() then
+        self:GrenadeDrop(true)
+    end
+
+    self:WepSwitchCleanup()
+    if game.SinglePlayer() then self:CallOnClient("WepSwitchCleanup") end
 
     if wep == self then self:Deploy() return false end
     if self:GetHolster_Time() > CurTime() then return false end
@@ -234,6 +267,7 @@ function SWEP:Holster(wep)
         self:SetHolster_Time(0)
         self:SetHolster_Entity(NULL)
         self:FinishHolster()
+        self:GetBuff_Hook("Hook_OnHolsterEnd")
         return true
     else
         self:SetHolster_Entity(wep)
@@ -251,15 +285,22 @@ function SWEP:Holster(wep)
         local time = 0.25
         local anim = self:SelectAnimation("holster")
         if anim then
+            local prd = self.Animations[anim].ProcHolster
             time = self:GetAnimKeyTime(anim)
+            if prd then
+                self:ProceduralHolster()
+                time = 0.25
+            end
             self:PlayAnimation(anim, self:GetBuff_Mult("Mult_DrawTime"), true, nil, nil, nil, true)
             self:SetHolster_Time(CurTime() + time * self:GetBuff_Mult("Mult_DrawTime"))
         else
             self:ProceduralHolster()
             self:SetHolster_Time(CurTime() + time * self:GetBuff_Mult("Mult_DrawTime"))
         end
-        self:SetReloading(CurTime() + time * self:GetBuff_Mult("Mult_DrawTime"))
+        self:SetPriorityAnim(CurTime() + time * self:GetBuff_Mult("Mult_DrawTime"))
         self:SetWeaponOpDelay(CurTime() + time * self:GetBuff_Mult("Mult_DrawTime"))
+
+        self:GetBuff_Hook("Hook_OnHolster")
     end
 end
 
@@ -318,7 +359,7 @@ function SWEP:ProceduralHolster()
     self.ProcHolsterTime = CurTime()
 end
 
-function SWEP:FuckingKillMe()
+function SWEP:WepSwitchCleanup()
     table.Empty(self.EventTable)
     self.InProcDraw = false
     self.InProcHolster = false

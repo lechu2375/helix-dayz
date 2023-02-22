@@ -1,67 +1,42 @@
+local translate = ArcCW.GetTranslation
+local try_translate = ArcCW.TryTranslation
+local defaultatticon = Material("arccw/hud/atts/default.png", "mips smooth")
+local blockedatticon = Material("arccw/hud/atts/blocked.png", "mips smooth")
 
+local bullseye = Material("arccw/hud/bullseye.png", "mips smooth")
+local mat_hit = Material("arccw/hud/hit.png", "mips smooth")
+local mat_hit_dot = Material("arccw/hud/hit_dot.png", "mips smooth")
+
+local pickx_empty = Material("arccw/hud/pickx_empty.png", "mips smooth")
+local pickx_full = Material("arccw/hud/pickx_filled.png", "mips smooth")
+
+local bird = Material("arccw/hud/arccw_bird.png", "mips smooth")
+
+local iconlock = Material("arccw/hud/locked_32.png", "mips smooth")
+local iconunlock = Material("arccw/hud/unlocked_32.png", "mips smooth")
+
+local col_fg = Color(255, 255, 255, 255)
+local col_fg_tr = Color(255, 255, 255, 100)
+local col_shadow = Color(0, 0, 0, 255)
+local col_button = Color(0, 0, 0, 175)
+local col_button_hv = Color(75, 75, 75, 175)
+local col_mayomustard = Color(255, 255, 127)
+local mayoicons = false
+
+local col_block = Color(50, 0, 0, 175)
+local col_block_txt = Color(175, 10, 10, 255)
+
+local col_bad = Color(255, 50, 50, 255)
+local col_good = Color(100, 255, 100, 255)
+local col_info = Color(150, 150, 255, 255)
+
+local col_unowned = col_block
+local col_unowned_txt = col_block_txt
+
+local ss, rss, thicc
 
 local function ScreenScaleMulti(input)
     return ScreenScale(input) * GetConVar("arccw_hud_size"):GetFloat()
-end
-
-local function multlinetext(text, maxw, font)
-    local content = {}
-    local tline = ""
-    local x = 0
-    surface.SetFont(font)
-
-    local newlined = string.Split(text, "\n")
-
-    for _, line in pairs(newlined) do
-        local words = string.Split(line, " ")
-
-        for _, word in pairs(words) do
-            local tx = surface.GetTextSize(word)
-
-            if x + tx >= maxw then
-                table.insert(content, tline)
-                tline = ""
-                x = surface.GetTextSize(word)
-            end
-
-            tline = tline .. word .. " "
-
-            x = x + surface.GetTextSize(word .. " ")
-        end
-
-        table.insert(content, tline)
-        tline = ""
-        x = 0
-    end
-
-    return content
-end
-
-function SWEP:ShowInventoryButton()
-    if GetConVar("arccw_attinv_free"):GetBool() then return false end
-    --if GetConVar("arccw_attinv_lockmode"):GetBool() then return false end
-    if !GetConVar("arccw_enable_dropping"):GetBool() then return false end
-
-    return true
-end
-
-function SWEP:GetSlotInstalled(i)
-    local slot = self.Attachments[i]
-    local installed = slot.Installed
-
-    if !installed then
-        for _, slot2 in pairs(slot.MergeSlots or {}) do
-            if !isnumber(slot2) then continue end
-            if self.Attachments[slot2] and self.Attachments[slot2].Installed then
-                installed = self.Attachments[slot2].Installed
-                break
-            elseif !self.Attachments[slot2] then
-                print("ERROR! No attachment " .. tostring(slot2))
-            end
-        end
-    end
-
-    return installed
 end
 
 local function LerpColor(d, col1, col2)
@@ -118,19 +93,178 @@ local function DrawTextRot(span, txt, x, y, tx, ty, maxw, only)
     end
 end
 
-local translate = ArcCW.GetTranslation
-local try_translate = ArcCW.TryTranslation
-local defaultatticon = Material("arccw/hud/atts/default.png", "mips smooth")
-local blockedatticon = Material("arccw/hud/atts/blocked.png", "mips smooth")
+local function multlinetext(text, maxw, font)
+    local content = {}
+    local tline = ""
+    local x = 0
+    surface.SetFont(font)
 
-local bullseye = Material("arccw/hud/bullseye.png", "mips smooth")
-local mat_hit = Material("arccw/hud/hit.png", "mips smooth")
-local mat_hit_dot = Material("arccw/hud/hit_dot.png", "mips smooth")
+    local newlined = string.Split(text, "\n")
 
-local pickx_empty = Material("arccw/hud/pickx_empty.png", "mips smooth")
-local pickx_full = Material("arccw/hud/pickx_filled.png", "mips smooth")
+    for _, line in pairs(newlined) do
+        local words = string.Split(line, " ")
 
-local bird = Material("arccw/hud/arccw_bird.png", "mips smooth")
+        for _, word in pairs(words) do
+            local tx = surface.GetTextSize(word)
+
+            if x + tx >= maxw then
+                table.insert(content, tline)
+                tline = ""
+                x = surface.GetTextSize(word)
+            end
+
+            tline = tline .. word .. " "
+
+            x = x + surface.GetTextSize(word .. " ")
+        end
+
+        table.insert(content, tline)
+        tline = ""
+        x = 0
+    end
+
+    return content
+end
+
+-- given fov and distance solve apparent size
+local function solvetriangle(angle, dist)
+    local a = angle / 2
+    local b = dist
+    return b * math.tan(a) * 2
+end
+
+local hits_1 = {}
+local hits_3 = {}
+
+local function rollhit(radius)
+    local anglerand = math.Rand(0, 360)
+    local dist = math.Rand(0, radius)
+
+    local hit_x = math.sin(anglerand) * dist
+    local hit_y = math.cos(anglerand) * dist
+
+    return {x = hit_x, y = hit_y}
+end
+
+local function rollallhits(self, range_3, range_1)
+
+    hits_1 = {}
+    hits_3 = {}
+
+    local ang = self:GetBuff("AccuracyMOA") / 60
+
+    local radius_1 = solvetriangle(ang, range_1 * ArcCW.HUToM)
+    local radius_3 = solvetriangle(ang, range_3 * ArcCW.HUToM)
+
+    local hitcount = math.Clamp(math.max(math.Round(self:GetCapacity() / 4), math.Round(self:GetBuff("Num") * 2)), 10, 20)
+
+    for i = 1, hitcount do
+        table.insert(hits_1, rollhit(radius_1))
+    end
+
+    for i = 1, hitcount do
+        table.insert(hits_3, rollhit(radius_3))
+    end
+end
+
+local function RangeText(range)
+    local metres = tostring(math.Round(range)) .. "m"
+    local hu = tostring(math.Round(range / ArcCW.HUToM / 100) * 100) .. "HU"
+
+    return metres, hu
+end
+
+local shot_limit = 12
+local max_shots = 8
+
+local function shotstokill(mult, dmgmin, dmgmax, mran, sran)
+
+    -- for i, return range where i * damage == 100
+    -- return -1 if can't kill with i shots, math.huge if can kill at any range
+    local result = {}
+
+    for i = 1, shot_limit do
+        local req_damage = math.ceil(100 / mult / i) -- target damage to kill in i shots
+        if req_damage > dmgmin and req_damage > dmgmax then
+            -- cannot reach target damage ever
+            result[i] = -1
+        elseif req_damage <= dmgmin and req_damage <= dmgmax then
+            -- will always exceed target damage
+            result[i] = math.huge
+        elseif dmgmin < dmgmax then
+            -- damage decays over range
+            local frac = 1 - math.Clamp((req_damage - dmgmin) / (dmgmax - dmgmin), 0, 1)
+            result[i] = mran + frac * (sran - mran)
+        else
+            -- damage increases over range
+            local frac = math.Clamp((req_damage - dmgmax) / (dmgmin - dmgmax), 0, 1)
+            result[i] = mran + frac * (sran - mran)
+        end
+    end
+    return result
+end
+
+local function linepaintfunc(self2, w, h)
+    surface.SetDrawColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
+    surface.SetMaterial(pickx_full)
+
+    local imsize = h * 0.45
+
+    surface.DrawTexturedRect((h - imsize) / 2, ((h - imsize) / 2) + (ss * 2), imsize, imsize)
+
+    local tp = h + (ss * 2)
+
+    surface.SetFont("ArcCWC2_10_Glow")
+    surface.SetTextColor(col_shadow)
+    surface.SetTextPos(tp, 0)
+    DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp)
+
+    surface.SetFont("ArcCWC2_10")
+    surface.SetTextColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
+    surface.SetTextPos(tp, 0)
+    DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp, true)
+end
+
+local function headpaintfunc(self2, w, h)
+    local tp = 0
+
+    surface.SetFont("ArcCWC2_8_Glow")
+    surface.SetTextColor(col_shadow)
+    surface.SetTextPos(tp, 0)
+    DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp)
+
+    surface.SetFont("ArcCWC2_8")
+    surface.SetTextColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
+    surface.SetTextPos(tp, 0)
+    DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp, true)
+end
+
+function SWEP:ShowInventoryButton()
+    if GetConVar("arccw_attinv_free"):GetBool() then return false end
+    --if GetConVar("arccw_attinv_lockmode"):GetBool() then return false end
+    if !GetConVar("arccw_enable_dropping"):GetBool() then return false end
+
+    return true
+end
+
+function SWEP:GetSlotInstalled(i)
+    local slot = self.Attachments[i]
+    local installed = slot.Installed
+
+    if !installed then
+        for _, slot2 in pairs(slot.MergeSlots or {}) do
+            if !isnumber(slot2) then continue end
+            if self.Attachments[slot2] and self.Attachments[slot2].Installed then
+                installed = self.Attachments[slot2].Installed
+                break
+            elseif !self.Attachments[slot2] then
+                print("ERROR! No attachment " .. tostring(slot2))
+            end
+        end
+    end
+
+    return installed
+end
 
 -- 1: Customize
 -- 2: Presets
@@ -153,23 +287,20 @@ ArcCW.Inv_ShownAtt = nil
 ArcCW.Inv_Hidden = false
 
 function SWEP:CreateCustomize2HUD()
-    local col_fg = Color(255, 255, 255, 255)
-    local col_fg_tr = Color(255, 255, 255, 100)
-    local col_shadow = Color(0, 0, 0, 255)
-    local col_button = Color(0, 0, 0, 175)
-    local col_button_hv = Color(75, 75, 75, 175)
 
-    local col_block = Color(50, 0, 0, 175)
-    local col_block_txt = Color(175, 10, 10, 255)
+    local cvar_reloadincust = GetConVar("arccw_reloadincust")
+    local cvar_cust_sounds = GetConVar("arccw_cust_sounds")
+    local cvar_darkunowned = GetConVar("arccw_attinv_darkunowned")
+    local cvar_lockmode = GetConVar("arccw_attinv_lockmode")
+    local cvar_truenames = GetConVar("arccw_truenames")
 
-    if GetConVar("arccw_attinv_darkunowned"):GetBool() then
-        col_block = Color(0, 0, 0, 100)
-        col_block_txt = Color(10, 10, 10, 255)
+    if cvar_darkunowned:GetBool() then
+        col_unowned = Color(0, 0, 0, 150)
+        col_unowned_txt = Color(150, 150, 150, 255)
+    else
+        col_unowned = col_block
+        col_unowned_txt = col_block_txt
     end
-
-    local col_bad = Color(255, 50, 50, 255)
-    local col_good = Color(100, 255, 100, 255)
-    local col_info = Color(150, 150, 255, 255)
 
     ArcCW.Inv_ShownAtt = nil
 
@@ -185,8 +316,9 @@ function SWEP:CreateCustomize2HUD()
     local scrwmult = GetConVar("arccw_hud_deadzone_x"):GetFloat() * scrw
     local scrhmult = GetConVar("arccw_hud_deadzone_y"):GetFloat() * scrh
 
-    local ss = ArcCW.AugmentedScreenScale(1)
-    local rss = ss -- REAL SCREEN SCALE
+    ss = ArcCW.AugmentedScreenScale(1)
+    rss = ss -- REAL SCREEN SCALE
+    thicc = math.ceil(ss * 2)
 
     scrw, scrh = scrw - scrwmult, scrh - scrhmult
 
@@ -198,7 +330,7 @@ function SWEP:CreateCustomize2HUD()
     local smallgap = ss * 4
 
     local top_zone = ss * 24
-    local bottom_zone = ss * 68
+    local bottom_zone = ss * 40
 
     local cornerrad = ss * 4
 
@@ -236,7 +368,7 @@ function SWEP:CreateCustomize2HUD()
             return
         end
 
-        if self:GetReloading() then
+        if self:GetReloading() and !cvar_reloadincust:GetBool() then
             ArcCW.InvHUD:Remove()
             return
         end
@@ -252,16 +384,20 @@ function SWEP:CreateCustomize2HUD()
                 -- This'll completely screw up on multiplayer games and sometimes even singleplayer
         end
         col_fg = Color(255, 255, 255, Lerp(ArcCW.Inv_Fade, 0, 255))
+        col_mayomustard = Color(255, 255, 127, Lerp(ArcCW.Inv_Fade, 0, 255))
         col_fg_tr = Color(255, 255, 255, Lerp(ArcCW.Inv_Fade, 0, 125))
         col_shadow = Color(0, 0, 0, Lerp(ArcCW.Inv_Fade, 0, 255))
         col_button = Color(0, 0, 0, Lerp(ArcCW.Inv_Fade, 0, 175))
 
-        if GetConVar("arccw_attinv_darkunowned"):GetBool() then
-            col_block = Color(0, 0, 0, Lerp(ArcCW.Inv_Fade, 0, 100))
-            col_block_txt = Color(10, 10, 10, Lerp(ArcCW.Inv_Fade, 0, 255))
+        col_block = Color(50, 0, 0, 175 * ArcCW.Inv_Fade)
+        col_block_txt = Color(175, 10, 10, Lerp(ArcCW.Inv_Fade, 0, 255))
+
+        if cvar_darkunowned:GetBool() then
+            col_unowned = Color(0, 0, 0, Lerp(ArcCW.Inv_Fade, 0, 150))
+            col_unowned_txt = Color(150, 150, 150, Lerp(ArcCW.Inv_Fade, 0, 255))
         else
-            col_block = Color(50, 0, 0, 175 * ArcCW.Inv_Fade)
-            col_block_txt = Color(175, 10, 10, Lerp(ArcCW.Inv_Fade, 0, 255))
+            col_unowned = col_block
+            col_unowned_txt = col_block_txt
         end
 
         --col_bad = Color(255, 50, 50, 255 * ArcCW.Inv_Fade)
@@ -506,7 +642,7 @@ function SWEP:CreateCustomize2HUD()
         local str = nil
         if #atts == 0 then
             str = translate("ui.noatts")
-        elseif GetConVar("arccw_attinv_lockmode"):GetBool() then
+        elseif cvar_lockmode:GetBool() then
             str = translate("ui.lockinv")
         end
 
@@ -545,7 +681,7 @@ function SWEP:CreateCustomize2HUD()
             button:DockMargin(0, smallgap, 0, 0)
             button:Dock(TOP)
             button.DoClick = function(self2, clr, btn)
-                if GetConVar("arccw_attinv_lockmode"):GetBool() then return end
+                if cvar_lockmode:GetBool() then return end
 
                 surface.PlaySound("weapons/arccw/uninstall.wav")
 
@@ -582,7 +718,7 @@ function SWEP:CreateCustomize2HUD()
                 local icon_h = h
                 local buffer = 0
 
-                if !GetConVar("arccw_attinv_lockmode"):GetBool() then
+                if !cvar_lockmode:GetBool() then
                     local amt = ArcCW:PlayerGetAtts(self:GetOwner(), self2.att) or 0
                     amt = math.min(amt, 99)
                     local amttxt = tostring(amt)
@@ -607,7 +743,7 @@ function SWEP:CreateCustomize2HUD()
                     txt = translate("name." .. self2.att) or atttbl.PrintName
                 end
 
-                surface.SetTextColor(col2)
+                surface.SetTextColor(atttbl.Ignore and col_mayomustard or col2)
                 surface.SetTextPos(icon_h + ss * 4, ss * 2)
                 surface.SetFont("ArcCWC2_12")
 
@@ -616,7 +752,7 @@ function SWEP:CreateCustomize2HUD()
                 local icon = atttbl.Icon
                 if !icon or icon:IsError() then icon = bird end
 
-                surface.SetDrawColor(col2)
+                surface.SetDrawColor(atttbl.Ignore and mayoicons and col_mayomustard or col2)
                 surface.SetMaterial(icon)
                 surface.DrawTexturedRect(ss * 2, 0, icon_h, icon_h)
             end
@@ -715,10 +851,11 @@ function SWEP:CreateCustomize2HUD()
         preset = self:GetPresets()
 
         for i, k in pairs(preset) do
-            if k == "autosave.txt" then continue end
+            if string.StripExtension(k) == "autosave" then continue end
             local load_btn = vgui.Create("DButton", presetpanel)
             load_btn:SetText("")
-            load_btn.PresetName = string.sub(k, 1, -5)
+            load_btn.PresetName = string.StripExtension(k)
+            load_btn.PresetFile = k
             load_btn:SetSize(menu1_w, smallbuttonheight)
             load_btn:DockMargin(0, smallgap, 0, 0)
             load_btn:Dock(TOP)
@@ -727,8 +864,7 @@ function SWEP:CreateCustomize2HUD()
                     self.LastPresetName = self2.PresetName
                     self:LoadPreset(self2.PresetName)
                 else
-                    local filename = ArcCW.PresetPath .. self:GetPresetBase() .. "/" .. self2.PresetName .. ".txt"
-                    file.Delete(filename)
+                    file.Delete(ArcCW.PresetPath .. self:GetPresetBase() .. "/" .. self2.PresetFile)
                     self2:Remove()
                     surface.PlaySound("weapons/arccw/uninstall.wav")
                 end
@@ -758,7 +894,7 @@ function SWEP:CreateCustomize2HUD()
 
                 draw.RoundedBox(cornerrad, 0, 0, w, h, col)
 
-                local preset_txt = self2.PresetName
+                local preset_txt = self2.PresetName:upper()
 
                 surface.SetFont("ArcCWC2_14")
                 surface.SetTextPos(ss * 4, ss * 0)
@@ -866,7 +1002,7 @@ function SWEP:CreateCustomize2HUD()
                 local col = col_button
                 local col2 = col_fg
 
-                local atttbl = ArcCW.AttachmentTable[self2.att or ""]
+                local atttbl = ArcCW.AttachmentTable[self2.att or ""] or {}
 
                 local _, _, blocked, showqty = self:ValidateAttachment(att.att, nil, att.slot)
 
@@ -889,9 +1025,12 @@ function SWEP:CreateCustomize2HUD()
 
                 local owned = ArcCW:PlayerGetAtts(self:GetOwner(), att.att) > 0
 
-                if blocked or (!owned and installed != self2.att) then
+                if blocked then
                     col = col_block
                     col2 = col_block_txt
+                elseif !owned and installed != self2.att then
+                    col = col_unowned
+                    col2 = col_unowned_txt
                 end
 
                 if !owned and installed != self2.att then
@@ -942,7 +1081,7 @@ function SWEP:CreateCustomize2HUD()
                     txt = translate("name." .. self2.att) or atttbl.PrintName
                 end
 
-                surface.SetTextColor(col2)
+                surface.SetTextColor(atttbl.Ignore and col_mayomustard or col2)
                 surface.SetTextPos(icon_h + ss * 4, ss * 2)
                 surface.SetFont("ArcCWC2_12")
 
@@ -951,7 +1090,7 @@ function SWEP:CreateCustomize2HUD()
                 local icon = atttbl.Icon
                 if !icon or icon:IsError() then icon = bird end
 
-                surface.SetDrawColor(col2)
+                surface.SetDrawColor(atttbl.Ignore and mayoicons and col_mayomustard or col2)
                 surface.SetMaterial(icon)
                 surface.DrawTexturedRect(ss * 2, 0, icon_h, icon_h)
             end
@@ -1001,7 +1140,7 @@ function SWEP:CreateCustomize2HUD()
                     self.Inv_SelectedSlot = nil
                     ArcCW.InvHUD_Menu2:Clear()
                     clearrightpanel()
-                    if GetConVar("arccw_cust_sounds"):GetBool() then surface.PlaySound("weapons/arccw/close.wav") end
+                    if cvar_cust_sounds:GetBool() then surface.PlaySound("weapons/arccw/close.wav") end
                 else
                     local aslot = self.Attachments[i]
 
@@ -1009,7 +1148,7 @@ function SWEP:CreateCustomize2HUD()
                         self.Inv_SelectedSlot = self2.attindex
                         ArcCW.InvHUD_FormAttachmentSelect()
                         ArcCW.InvHUD_FormAttachmentStats(self2.attindex, self2.attindex, true)
-                        if GetConVar("arccw_cust_sounds"):GetBool() then surface.PlaySound("weapons/arccw/open.wav") end
+                        if cvar_cust_sounds:GetBool() then surface.PlaySound("weapons/arccw/open.wav") end
                     end
                 end
             end
@@ -1058,12 +1197,12 @@ function SWEP:CreateCustomize2HUD()
 
                 local slot_txt = try_translate(slot.PrintName)
 
-                surface.SetDrawColor(col2)
+                surface.SetDrawColor((atttbl and atttbl.Ignore and mayoicons and col_mayomustard) or col2)
                 local icon_h = h
                 surface.SetMaterial(att_icon)
                 surface.DrawTexturedRect(w - icon_h - ss * 2, 0, icon_h, icon_h)
 
-                surface.SetTextColor(col2)
+                surface.SetTextColor((atttbl and atttbl.Ignore and col_mayomustard) or col2)
                 surface.SetFont("ArcCWC2_10")
                 surface.SetTextPos(ss * 6, ss * 4)
                 DrawTextRot(self2, slot_txt, 0, 0, ss * 6, ss * 4, w - icon_h - ss * 4)
@@ -1087,7 +1226,7 @@ function SWEP:CreateCustomize2HUD()
             local d = 0.5
             local diff = CurTime() - (ArcCW.Inv_LastPickXBlock or 0 + d)
             if diff > 0 then
-                col_fg_pick = Color(255, 255 * diff / d, 255 * diff / d)
+                col_fg_pick = Color(255, 255 * diff / d, 255 * diff / d, 255*ArcCW.Inv_Fade)
             end
 
             if pickx_amount == 0 then return end
@@ -1201,8 +1340,8 @@ function SWEP:CreateCustomize2HUD()
         end
 
         local scroll = vgui.Create("DScrollPanel", ArcCW.InvHUD_Menu3)
-        scroll:SetSize(menu3_w - airgap_x, ss * 128)
-        scroll:SetPos(0, rss * 32 + ss * 16)
+        --scroll:SetSize(menu3_w - airgap_x, ss * 128)
+        --scroll:SetPos(0, rss * 32 + ss * 16)
 
         local scroll_bar = scroll:GetVBar()
         scroll_bar.Paint = function() end
@@ -1266,6 +1405,7 @@ function SWEP:CreateCustomize2HUD()
                     if !input.IsMouseDown(MOUSE_LEFT) then
                         self2.Dragging = false
 
+                        self:SetupActiveSights()
                         self:SendDetail_SlidePos(slot)
                         self:SavePreset("autosave")
                     end
@@ -1282,13 +1422,13 @@ function SWEP:CreateCustomize2HUD()
             end
 
             leftbuffer = m_w * 2 / 3
-            bottombuffer = rss * 10
+            bottombuffer = bottombuffer + rss * 10
         end
 
         if equipped and atttbl.ToggleStats then
             local toggle = vgui.Create("DButton", ArcCW.InvHUD_Menu3)
 
-            toggle:SetSize(m_w * 1 / 3, rss * 10)
+            toggle:SetSize(m_w * 1 / 3 - rss * 2, rss * 10)
             toggle:SetPos(leftbuffer + (ss * 4), rss * 16 + rss * 24 + ss * 128 - (rss * 10))
             toggle:SetText("")
             toggle.OnMousePressed = function(self2, kc)
@@ -1330,13 +1470,41 @@ function SWEP:CreateCustomize2HUD()
                 surface.DrawText(txt)
             end
 
-            bottombuffer = rss * 10
+            local togglelock = vgui.Create("DButton", ArcCW.InvHUD_Menu3)
+            togglelock:SetSize(rss * 10, rss * 10)
+            togglelock:SetPos(leftbuffer + (ss * 4) + m_w * 1 / 3, rss * 16 + rss * 24 + ss * 128 - (rss * 10))
+            togglelock:SetText("")
+            togglelock.OnMousePressed = function(self2, kc)
+                self.Attachments[slot].ToggleLock = !self.Attachments[slot].ToggleLock
+                if self.Attachments[slot].ToggleLock then
+                    self:EmitSound("weapons/arccw/dragatt.wav", 0, 150)
+                else
+                    self:EmitSound("weapons/arccw/dragatt.wav", 0, 80)
+                end
+            end
+            togglelock.Paint = function(self2, w, h)
+                local col = col_button
+                local col2 = col_fg
+
+                if self2:IsHovered() or ArcCW.Inv_SelectedInfo == self2.Val then
+                    col = col_fg_tr
+                    col2 = col_shadow
+                end
+
+                draw.RoundedBox(cornerrad, 0, 0, w, h, col)
+                surface.SetDrawColor(col2.r, col2.g, col2.b)
+                surface.SetMaterial(self.Attachments[slot].ToggleLock and iconlock or iconunlock)
+                surface.DrawTexturedRect(4, 4, w - 8, h - 8)
+            end
+
+            bottombuffer = bottombuffer + rss * 10
         end
 
+        scroll:SetPos(0, rss * 32 + ss * 16 + bottombuffer)
         scroll:SetSize(menu3_w - airgap_x, ss * 128 - bottombuffer)
 
         local multiline = {}
-        local desc = translate("desc." .. atttbl.ShortName) or atttbl.Description
+        local desc = translate("desc." .. atttbl.ShortName) or translate(atttbl.Description) or atttbl.Description
 
         multiline = multlinetext(desc, scroll:GetWide() - (ss * 2), "ArcCW_10")
 
@@ -1418,41 +1586,6 @@ function SWEP:CreateCustomize2HUD()
             pan_infos.Paint = function() end
         end
         p_w = (pan_pros and pan_cons) and (menu3_w / 2) or p_w
-
-        local function linepaintfunc(self2, w, h)
-            surface.SetDrawColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
-            surface.SetMaterial(pickx_full)
-
-            local imsize = h * 0.45
-
-            surface.DrawTexturedRect((h - imsize) / 2, ((h - imsize) / 2) + (ss * 2), imsize, imsize)
-
-            local tp = h + (ss * 2)
-
-            surface.SetFont("ArcCWC2_10_Glow")
-            surface.SetTextColor(col_shadow)
-            surface.SetTextPos(tp, 0)
-            DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp)
-
-            surface.SetFont("ArcCWC2_10")
-            surface.SetTextColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
-            surface.SetTextPos(tp, 0)
-            DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp, true)
-        end
-
-        local function headpaintfunc(self2, w, h)
-            local tp = 0
-
-            surface.SetFont("ArcCWC2_8_Glow")
-            surface.SetTextColor(col_shadow)
-            surface.SetTextPos(tp, 0)
-            DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp)
-
-            surface.SetFont("ArcCWC2_8")
-            surface.SetTextColor(Color(self2.Color.r, self2.Color.g, self2.Color.b, self2.Color.a * ArcCW.Inv_Fade))
-            surface.SetTextPos(tp, 0)
-            DrawTextRot(self2, self2.Text, tp, 0, tp, 0, self2:GetWide() - tp, true)
-        end
 
         if #pros > 0 then
             local pan_head = vgui.Create("DPanel", pan_pros)
@@ -1592,7 +1725,7 @@ function SWEP:CreateCustomize2HUD()
         weapon_title:SetPos(0, 0)
         weapon_title.Paint = function(self2, w, h)
             if !IsValid(ArcCW.InvHUD) or !IsValid(self) then return end
-            local name = translate("name." .. self:GetClass() .. (GetConVar("arccw_truenames"):GetBool() and ".true" or "")) or translate(self.PrintName) or self.PrintName
+            local name = translate("name." .. self:GetClass() .. (cvar_truenames:GetBool() and ".true" or "")) or translate(self.PrintName) or self.PrintName
 
             surface.SetFont("ArcCWC2_32")
             local tw = surface.GetTextSize(name)
@@ -1704,7 +1837,7 @@ function SWEP:CreateCustomize2HUD()
         info.Paint = function(self2, w, h)
             local infos = self.Infos_Trivia or {}
 
-            local year = self:GetBuff_Override("Override_Trivia_Year") or self.Trivia_Year
+            local year = try_translate(self:GetBuff_Override("Override_Trivia_Year") or self.Trivia_Year)
 
             if year then
                 if isnumber(year) and year < 0 then
@@ -1721,7 +1854,7 @@ function SWEP:CreateCustomize2HUD()
                 end
             end
 
-            local mech = self:GetBuff_Override("Override_Trivia_Mechanism") or self.Trivia_Mechanism
+            local mech = try_translate(self:GetBuff_Override("Override_Trivia_Mechanism") or self.Trivia_Mechanism)
 
             if mech then
                 table.insert(infos, {
@@ -1730,7 +1863,7 @@ function SWEP:CreateCustomize2HUD()
                 })
             end
 
-            local country = self:GetBuff_Override("Override_Trivia_Country") or self.Trivia_Country
+            local country = try_translate(self:GetBuff_Override("Override_Trivia_Country") or self.Trivia_Country)
 
             if country then
                 table.insert(infos, {
@@ -1739,7 +1872,7 @@ function SWEP:CreateCustomize2HUD()
                 })
             end
 
-            local manufacturer = self:GetBuff_Override("Override_Trivia_Manufacturer") or self.Trivia_Manufacturer
+            local manufacturer = try_translate(self:GetBuff_Override("Override_Trivia_Manufacturer") or self.Trivia_Manufacturer)
 
             if manufacturer then
                 table.insert(infos, {
@@ -1748,7 +1881,7 @@ function SWEP:CreateCustomize2HUD()
                 })
             end
 
-            local calibre = self:GetBuff_Override("Override_Trivia_Calibre") or self.Trivia_Calibre
+            local calibre = try_translate(self:GetBuff_Override("Override_Trivia_Calibre") or self.Trivia_Calibre)
 
             if calibre then
                 table.insert(infos, {
@@ -1811,134 +1944,143 @@ function SWEP:CreateCustomize2HUD()
         ArcCW.InvHUD_Menu3:Clear()
         ArcCW.InvHUD_FormWeaponName()
 
+        self.Infos_Stats = nil
+        self.Infos_Breakpoints = nil
+        local stats_breakpoint = false
+
         local info = vgui.Create("DPanel", ArcCW.InvHUD_Menu3)
         info:SetSize(menu3_w - airgap_x, menu3_h - ss * 110 - rss * 48 - ss * 32)
         info:SetPos(0, rss * 48 + ss * 32 + ss * 110)
         info.Paint = function(self2, w, h)
             if !IsValid(ArcCW.InvHUD) or !IsValid(self) then return end
-            local infos = self.Infos_Stats or {}
+            --local infos = self.Infos_Stats or {}
 
-            -- rpm
-            local rpm = math.Round(60 / self:GetFiringDelay())
+            if !self.Infos_Stats then
 
-            if self:GetIsManualAction() then
-                local fireanim = self:GetBuff_Hook("Hook_SelectFireAnimation") or self:SelectAnimation("fire")
-                local firedelay = self.Animations[fireanim].MinProgress or 0
-                rpm = math.Round(60 / ((firedelay + self:GetAnimKeyTime("cycle", true)) * self:GetBuff_Mult("Mult_CycleTime")))
-            end
+                self.Infos_Stats = {}
 
-            if self:GetIsManualAction() then
-                table.insert(infos, {
-                    title = translate("trivia.firerate"),
-                    value = "~" .. tostring(rpm),
-                    unit = translate("unit.rpm"),
-                })
-            elseif !self.PrimaryBash and !self.Throwing then
-                table.insert(infos, {
-                    title = translate("trivia.firerate"),
-                    value = tostring(rpm),
-                    unit = translate("unit.rpm"),
-                })
-                local mode = self:GetCurrentFiremode()
-                if mode.Mode < 0 then
-                    table.insert(infos, {
-                        title = translate("trivia.firerate_burst"),
-                        value = tostring( math.Round( 60/(self:GetFiringDelay()+((mode.PostBurstDelay or 0)/-mode.Mode)) ) ),
+                -- rpm
+                local rpm = math.Round(60 / self:GetFiringDelay())
+
+                if self:GetIsManualAction() then
+
+                    local fireanim = self:GetBuff_Hook("Hook_SelectFireAnimation") or self:SelectAnimation("fire")
+                    local firedelay = self.Animations[fireanim].MinProgress or 0
+                    rpm = math.Round(60 / ((firedelay + self:GetAnimKeyTime("cycle", true)) * self:GetBuff_Mult("Mult_CycleTime")))
+
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.firerate"),
+                        value = "~" .. tostring(rpm),
                         unit = translate("unit.rpm"),
                     })
+                elseif !self.PrimaryBash and !self.Throwing then
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.firerate"),
+                        value = tostring(rpm),
+                        unit = translate("unit.rpm"),
+                    })
+                    local mode = self:GetCurrentFiremode()
+                    if mode.Mode < 0 then
+                        table.insert(self.Infos_Stats, {
+                            title = translate("trivia.firerate_burst"),
+                            value = tostring( math.Round( 60 / (self:GetFiringDelay() + ((mode.PostBurstDelay or 0) / -mode.Mode)) ) ),
+                            unit = translate("unit.rpm"),
+                        })
+                    end
                 end
-            end
 
-            -- precision
-            local precision = math.Round(self:GetBuff("AccuracyMOA"), 1)
+                -- precision
+                local precision = math.Round(self:GetBuff("AccuracyMOA"), 1)
 
-            if !self.PrimaryBash and !self.Throwing then
-                table.insert(infos, {
-                    title = translate("trivia.precision"),
-                    value = precision,
-                    unit = translate("unit.moa"),
-                })
-            end
-
-            -- ammo type
-            local ammo = string.lower(self:GetBuff_Override("Override_Ammo", self.Primary.Ammo))
-            if (ammo or "") != "" and ammo != "none" then
-                local ammotype = ArcCW.TranslateAmmo(ammo) --language.GetPhrase(self.Primary.Ammo .. "_ammo")
-                if ammotype then
-                    table.insert(infos, {
-                        title = translate("trivia.ammo"),
-                        value = ammotype,
-                        --unit = " (" .. ammo .. ")",
+                if !self.PrimaryBash and !self.Throwing then
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.precision"),
+                        value = precision,
+                        unit = translate("unit.moa"),
                     })
                 end
-            end
 
-            -- penetration
-            local shootent = self:GetBuff("ShootEntity", true)
+                -- ammo type
+                local ammo = string.lower(self:GetBuff_Override("Override_Ammo", self.Primary.Ammo))
+                if (ammo or "") != "" and ammo != "none" then
+                    local ammotype = ArcCW.TranslateAmmo(ammo) --language.GetPhrase(self.Primary.Ammo .. "_ammo")
+                    if ammotype then
+                        table.insert(self.Infos_Stats, {
+                            title = translate("trivia.ammo"),
+                            value = ammotype,
+                            --unit = " (" .. ammo .. ")",
+                        })
+                    end
+                end
 
-            if !self.PrimaryBash and !shootent then
-                local pen  = self:GetBuff("Penetration")
-                table.insert(infos, {
-                    title = translate("trivia.penetration"),
-                    value = pen,
-                    unit = translate("unit.mm"),
-                })
-            end
+                -- penetration
+                local shootent = self:GetBuff("ShootEntity", true)
 
-            -- noise
-            local noise = self:GetBuff("ShootVol")
-
-            if !self.PrimaryBash and !self.Throwing then
-                table.insert(infos, {
-                    title = translate("trivia.noise"),
-                    value = noise,
-                    unit = translate("unit.db"),
-                })
-            end
-
-            if self.Throwing then
-                local ft = self:GetBuff_Override("Override_FuseTime") or self.FuseTime
-                if ft and ft > 0 then
-                    table.insert(infos, {
-                        title = translate("trivia.fusetime"),
-                        value = tostring(math.Round(ft, 1)),
-                        unit = "s"
+                if !self.PrimaryBash and !shootent then
+                    local pen = math.Round( self:GetBuff("Penetration") )
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.penetration"),
+                        value = pen,
+                        unit = translate("unit.mm"),
                     })
                 end
-            end
 
-            if self.PrimaryBash then
-                local meleedelay = self.MeleeTime * self:GetBuff_Mult("Mult_MeleeTime")
-                table.insert(infos, {
-                    title = translate("trivia.attackspersecond"),
-                    value = tostring(math.Round(1 / meleedelay, 1)),
-                    unit = translate("unit.aps")
-                })
+                -- noise
+                local noise = self:GetBuff("ShootVol")
 
-                local meleerange = self:GetBuff("MeleeRange")
-                table.insert(infos, {
-                    title = translate("trivia.range"),
-                    value = tostring(math.Round(meleerange * ArcCW.HUToM)),
-                    unit = "m"
-                })
-
-                local dmg = self.MeleeDamage * self:GetBuff_Mult("Mult_MeleeDamage")
-                table.insert(infos, {
-                    title = translate("trivia.damage"),
-                    value = dmg,
-                })
-
-                local dmgtype = self:GetBuff_Override("Override_MeleeDamageType") or self.MeleeDamageType
-
-                if ArcCW.MeleeDamageTypes[dmgtype or ""] then
-                    table.insert(infos, {
-                        title = translate("trivia.meleedamagetype"),
-                        value = translate(ArcCW.MeleeDamageTypes[dmgtype]),
+                if !self.PrimaryBash and !self.Throwing then
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.noise"),
+                        value = math.Round(noise),
+                        unit = translate("unit.db"),
                     })
                 end
+
+                if self.Throwing then
+                    local ft = self:GetBuff_Override("Override_FuseTime") or self.FuseTime
+                    if ft and ft > 0 then
+                        table.insert(self.Infos_Stats, {
+                            title = translate("trivia.fusetime"),
+                            value = tostring(math.Round(ft, 1)),
+                            unit = "s"
+                        })
+                    end
+                end
+
+                if self.PrimaryBash then
+                    local meleedelay = self.MeleeTime * self:GetBuff_Mult("Mult_MeleeTime")
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.attackspersecond"),
+                        value = tostring(math.Round(1 / meleedelay, 1)),
+                        unit = translate("unit.aps")
+                    })
+
+                    local meleerange = self:GetBuff("MeleeRange")
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.range"),
+                        value = tostring(math.Round(meleerange * ArcCW.HUToM)),
+                        unit = "m"
+                    })
+
+                    local dmg = self.MeleeDamage * self:GetBuff_Mult("Mult_MeleeDamage")
+                    table.insert(self.Infos_Stats, {
+                        title = translate("trivia.damage"),
+                        value = dmg,
+                    })
+
+                    local dmgtype = self:GetBuff_Override("Override_MeleeDamageType") or self.MeleeDamageType
+
+                    if ArcCW.MeleeDamageTypes[dmgtype or ""] then
+                        table.insert(self.Infos_Stats, {
+                            title = translate("trivia.meleedamagetype"),
+                            value = translate(ArcCW.MeleeDamageTypes[dmgtype]),
+                        })
+                    end
+                end
+
             end
 
-            for i, triv in pairs(infos) do
+            for i, triv in pairs(self.Infos_Stats) do
                 triv.unit = triv.unit or ""
                 local i_2 = i - 1
                 surface.SetFont("ArcCWC2_8")
@@ -1987,17 +2129,30 @@ function SWEP:CreateCustomize2HUD()
             end
         end
 
-        local rangegraph = vgui.Create("DPanel", ArcCW.InvHUD_Menu3)
+        local stk_min, stk_max, stk_count = 1, shot_limit, shot_limit
+        local stk_num = self:GetBuff("Num")
+
+        local rangegraph = vgui.Create("DButton", ArcCW.InvHUD_Menu3)
         rangegraph:SetSize(ss * 200, ss * 110)
         rangegraph:SetPos(menu3_w - ss * 200 - airgap_x, rss * 48 + ss * 32)
+        rangegraph:SetText("")
+        rangegraph.DoClick = function(self2)
+            stats_breakpoint = !stats_breakpoint
+        end
         rangegraph.Paint = function(self2, w, h)
             if !IsValid(ArcCW.InvHUD) or !IsValid(self) then return end
+
+            local col = col_button
+            if self2:IsHovered() then
+                col = col_button_hv
+            end
+            draw.RoundedBox(cornerrad, 0, 0, w, h, col)
+
             if self.PrimaryBash or
                 self.ShootEntity or
                 self:GetBuff_Override("Override_ShootEntity") or
                 self.NoRangeGraph
             then
-                draw.RoundedBox(cornerrad, 0, 0, w, h, col_button)
 
                 local txt = translate("ui.nodata")
 
@@ -2008,23 +2163,236 @@ function SWEP:CreateCustomize2HUD()
                 surface.DrawText(txt)
 
                 return
+            elseif self:GetBuff("Num") <= 0 then
+
+                local txt = translate("ui.nonum")
+
+                surface.SetTextColor(col_fg)
+                surface.SetFont("ArcCWC2_12")
+                local tw, th = surface.GetTextSize(txt)
+                surface.SetTextPos((w - tw) / 2, (h - th) / 2)
+                surface.DrawText(txt)
+
+                return
             end
+
             local dmgmax = self:GetDamage(0)
             local dmgmin = self:GetDamage(math.huge)
 
-            --local mran = (self.RangeMin or 0) * self:GetBuff_Mult("Mult_RangeMin")
-            --local sran = self.Range * self:GetBuff_Mult("Mult_Range")
             local mran, sran = self:GetMinMaxRange()
 
+            if stats_breakpoint then
+
+                if !self.Infos_Breakpoints then
+                    self.Infos_Breakpoints = {}
+
+                    local our = self:GetBuff_Override("Override_BodyDamageMults", self.BodyDamageMults)
+                    local gam = ArcCW.LimbCompensation[engine.ActiveGamemode()] or ArcCW.LimbCompensation[1]
+                    if our and GetConVar("arccw_bodydamagemult_cancel"):GetBool() then
+                        gam = {}
+                    elseif !our then
+                        our = {}
+                    end
+
+                    -- Head
+                    table.insert(self.Infos_Breakpoints, {"ui.hitgroup.head", shotstokill((our[HITGROUP_HEAD] or 1) / (gam[HITGROUP_HEAD] or 1), dmgmin, dmgmax, mran, sran)})
+
+                    -- Torso
+                    -- separates into Chest and Stomach if they have different values
+                    local m_chest = (our[HITGROUP_CHEST] or 1) / (gam[HITGROUP_CHEST] or 1)
+                    local m_stomach = (our[HITGROUP_STOMACH] or 1) / (gam[HITGROUP_STOMACH] or 1)
+                    if m_chest == m_stomach then
+                        table.insert(self.Infos_Breakpoints, {"ui.hitgroup.torso", shotstokill(m_chest, dmgmin, dmgmax, mran, sran)})
+                    else
+                        table.insert(self.Infos_Breakpoints, {"ui.hitgroup.chest", shotstokill(m_chest, dmgmin, dmgmax, mran, sran)})
+                        table.insert(self.Infos_Breakpoints, {"ui.hitgroup.stomach", shotstokill(m_stomach, dmgmin, dmgmax, mran, sran)})
+                    end
+
+                    -- Arms and Legs
+                    -- if two limbs have different multipliers (why???), use the smaller one
+                    local m_arms = math.min((our[HITGROUP_LEFTARM] or 1) / (gam[HITGROUP_LEFTARM] or 1), (our[HITGROUP_RIGHTARM] or 1) / (gam[HITGROUP_RIGHTARM] or 1))
+                    table.insert(self.Infos_Breakpoints, {"ui.hitgroup.arms", shotstokill(m_arms, dmgmin, dmgmax, mran, sran)})
+                    local m_legs = math.min((our[HITGROUP_LEFTLEG] or 1) / (gam[HITGROUP_LEFTLEG] or 1), (our[HITGROUP_RIGHTLEG] or 1) / (gam[HITGROUP_RIGHTLEG] or 1))
+                    table.insert(self.Infos_Breakpoints, {"ui.hitgroup.legs", shotstokill(m_legs, dmgmin, dmgmax, mran, sran)})
+
+                    stk_num = self:GetBuff("Num")
+                    local max = max_shots * (stk_num > 1 and 0.5 or 1)
+
+                    -- Trim table values that are all -1 or math.huge on either end
+                    stk_min, stk_max = 1, 1 + max_shots
+                    local stk_min_n, stk_min_y = true, true
+                    for i = 1, shot_limit do
+                        if stk_min_y or stk_min_n then
+                            stk_min = i
+                        else
+                            break
+                        end
+                        for j = 1, #self.Infos_Breakpoints do
+                            if stk_min_n and self.Infos_Breakpoints[j][2][i] != -1 then
+                                stk_min_n = false
+                            elseif stk_min_y and self.Infos_Breakpoints[j][2][i] != math.huge then
+                                stk_min_y = false
+                            end
+                            if !stk_min_y and !stk_min_n then
+                                stk_min = math.Clamp(shot_limit, 1, math.max(1, i - 1))
+                                break
+                            end
+                        end
+                    end
+
+                    local stk_max_n, stk_max_y = true, true
+                    for i = shot_limit, 1, -1 do
+                        if stk_max_y or stk_max_n then
+                            stk_max = i
+                        else
+                            break
+                        end
+                        for j = 1, #self.Infos_Breakpoints do
+                            if stk_max_n and self.Infos_Breakpoints[j][2][i] != -1 then
+                                stk_max_n = false
+                            elseif stk_max_y and self.Infos_Breakpoints[j][2][i] != math.huge then
+                                stk_max_y = false
+                            end
+                            if !stk_max_y and !stk_max_n then
+                                stk_max = math.Clamp(i + 1, 1, shot_limit)
+                                break
+                            end
+                        end
+                    end
+
+                    stk_count = stk_max - stk_min + 1
+                    if stk_count > max then
+                        stk_max = stk_min + max - 1
+                        stk_count = max
+                    end
+
+
+                    if GetConVar("developer"):GetInt() > 0 then
+                        print(dmgmax .. "-" .. dmgmin .. "DMG; range " .. mran .. "/" .. sran)
+                        print("table range: " .. stk_min .. " - " .. stk_max .. " (" .. stk_count .. ")")
+                        PrintTable(self.Infos_Breakpoints)
+                    end
+                end
+
+                local header_w = ss * 48
+                local column_w = (w - header_w) / stk_count
+                local header_h = ss * 16
+                local column_h = (h - header_h) / #self.Infos_Breakpoints
+
+                -- header texts
+                surface.SetTextColor(col_fg)
+                surface.SetFont("ArcCWC2_8")
+
+                local hg_t = translate("ui.hitgroup")
+                local _, hg_h = surface.GetTextSize(hg_t)
+                surface.SetTextPos(ss, header_h - (thicc / 2) - hg_h)
+                surface.DrawText(hg_t)
+
+                local stk_t = translate("ui.shotstokill")
+                local stk_w, _ = surface.GetTextSize(stk_t)
+                surface.SetTextPos(header_w - (thicc / 2) - stk_w, 0)
+                surface.DrawText(stk_t)
+
+                -- vertical dividers
+                local cnt_t = stk_num > 1 and ("×" .. stk_num) or ""
+                surface.SetFont("ArcCWC2_8")
+                local cnt_w, cnt_h = surface.GetTextSize(cnt_t)
+
+                surface.SetDrawColor(255, 255, 255, Lerp(ArcCW.Inv_Fade, 0, 255))
+                for i = 1, stk_count do
+                    surface.DrawLine(header_w + i * column_w, 0, header_w + i * column_w, header_h)
+                    surface.SetFont("ArcCWC2_16")
+                    local num_t = tostring(i + stk_min - 1)
+                    local num_w, num_h = surface.GetTextSize(num_t)
+                    surface.SetTextPos(header_w + (i - 0.5) * column_w - num_w / 2 - cnt_w / 2, header_h / 2 - num_h / 2)
+                    surface.DrawText(num_t)
+
+                    if stk_num > 1 then
+                        surface.SetFont("ArcCWC2_8")
+                        surface.SetTextPos(header_w + (i - 0.5) * column_w + num_w / 2 - cnt_w / 2, header_h / 2 - num_h / 2 + cnt_h / 2)
+                        surface.DrawText(cnt_t)
+                    end
+                end
+
+                -- table info
+                surface.SetFont("ArcCWC2_8")
+                for i, tbl in ipairs(self.Infos_Breakpoints) do
+                    local row_t = translate(tbl[1])
+                    local row_w, row_h = surface.GetTextSize(row_t)
+                    surface.SetTextPos(header_w / 2 - row_w / 2, header_h + column_h * (i - 0.5) - row_h / 2)
+                    surface.DrawText(row_t)
+
+                    for j = 1, stk_count do
+                        local val = tbl[2][j + stk_min - 1]
+                        local mat, siz
+                        if val == -1 then
+                            --ran_t = "⨯"
+                            siz = ss * 8
+                            mat = mat_hit
+                            surface.SetDrawColor(col_bad.r, col_bad.g, col_bad.b, Lerp(ArcCW.Inv_Fade, 0, 255))
+                        elseif val == math.huge then
+                            --ran_t = "⚫"
+                            siz = ss * 16
+                            mat = mat_hit_dot
+                            surface.SetDrawColor(col_good.r, col_good.g, col_good.b, Lerp(ArcCW.Inv_Fade, 0, 255))
+                        else
+                            local ran_t = math.floor(val) .. "m"
+                            local ran_w, ran_h = surface.GetTextSize(ran_t)
+                            surface.SetTextPos(header_w + (j - 0.5) * column_w - ran_w / 2, header_h + column_h * (i - 0.5) - ran_h / 2)
+                            surface.DrawText(ran_t)
+                        end
+
+                        if mat then
+                            surface.SetMaterial(mat)
+                            surface.DrawTexturedRect(header_w + (j - 0.5) * column_w - siz / 2, header_h + column_h * (i - 0.5) - siz / 2, siz, siz)
+                        end
+                    end
+                end
+
+
+                for i = 1, thicc do
+                    local meth = ((thicc - i) / thicc)
+                    surface.SetDrawColor(255, 255, 255, Lerp(ArcCW.Inv_Fade, 0, 127 * meth))
+
+                    local of
+                    if i == 1 then
+                        surface.SetDrawColor(col_fg)
+                        of = 0
+                    elseif (i % 2 == 0) then
+                        -- even
+                        of = -1 * i / 2
+                    else
+                        -- odd
+                        of = 1 * i / 2
+                    end
+
+                    -- first vertical
+                    surface.DrawLine(header_w + of, 0, header_w + of, h)
+
+                    -- first horizontal
+                    surface.DrawLine(0, header_h + of, w, header_h + of)
+
+                    -- diagonal header
+                    --surface.DrawLine(0, of, header_w, header_h + of)
+
+                    -- horizontal dividers
+                    for j = 1, #self.Infos_Breakpoints - 1 do
+                        surface.DrawLine(0, header_h + column_h * j + of, w, header_h + column_h * j + of)
+                    end
+                end
+
+                return
+            end
+
             local scale = math.ceil((math.max(dmgmax, dmgmin) + 10) / 25) * 25
-            local hscale = math.ceil(math.max(mran, sran) / 100) * 100
+            local hscale = math.ceil(math.max(mran, sran) / 150) * 150
 
             scale = math.max(scale, 75)
-            hscale = math.max(hscale, 100)
+            hscale = math.max(hscale, 150)
 
-            draw.RoundedBox(cornerrad, 0, 0, w, h, col_button)
-
-            local thicc = math.ceil(ss * 2)
+            local wmin = mran / hscale * w
+            local wmax = math.min(sran / hscale * w, w - ss * 32)
+            if sran == hscale then wmax = w end
 
             -- segment 1: minimum range
             local x_1 = 0
@@ -2033,11 +2401,8 @@ function SWEP:CreateCustomize2HUD()
             -- segment 2: slope
             local x_2 = 0
             local y_2 = y_1
-            if mran > 0 then
-                x_2 = w * 1 / 3
-            end
             -- segment 3: maximum range
-            local x_3 = w * 2 / 3
+            local x_3 = wmax
             local y_3 = h - (dmgmin / scale * h)
             y_3 = math.Clamp(y_3, ss * 16, h - (ss * 16))
 
@@ -2047,6 +2412,8 @@ function SWEP:CreateCustomize2HUD()
             if sran == mran then
                 x_2 = w / 2
                 x_3 = w / 2
+            elseif mran > 0 then
+                x_2 = wmin -- w * 1 / 3
             end
 
             local col_vline = LerpColor(0.5, col_fg, Color(0, 0, 0, 0))
@@ -2093,62 +2460,100 @@ function SWEP:CreateCustomize2HUD()
             surface.SetTextColor(col_fg)
             surface.SetFont("ArcCWC2_8")
 
-            local function RangeText(range)
-                local metres = tostring(math.Round(range)) .. "m"
-                local hu = tostring(math.Round(range / ArcCW.HUToM)) .. "HU"
-
-                return metres, hu
-            end
-
-            if dmgmax != dmgmin then
-                local m_1, hu_1 = RangeText(0)
-
-                surface.SetTextPos(ss * 2, h - rss * 16)
-                surface.DrawText(m_1)
-                surface.SetTextPos(ss * 2, h - rss * 10)
-                surface.DrawText(hu_1)
-            end
-
             local drawndmg = false
+            if dmgmax != dmgmin then
 
-            if dmgmax != dmgmin and mran > 0 then
-                local dmg = tostring(math.Round(dmgmax))
-                local tw = surface.GetTextSize(dmg)
-                surface.SetTextPos(x_2 - (tw / 2), ss * 1)
-                surface.DrawText(dmg)
+                if mran == 0 or wmin > ss * 24 then
+                    local m_1, hu_1 = RangeText(0)
 
-                local m_2, hu_2 = RangeText(mran)
+                    surface.SetTextPos(ss * 2, h - rss * 16)
+                    surface.DrawText(m_1)
+                    surface.SetTextPos(ss * 2, h - rss * 10)
+                    surface.DrawText(hu_1)
+                end
 
-                surface.SetTextPos(x_2, h - rss * 16)
-                surface.DrawText(m_2)
-                surface.SetTextPos(x_2, h - rss * 10)
-                surface.DrawText(hu_2)
+                if sran != hscale and w - wmax > ss * 40 then
+                    local m_1x, hu_1x = RangeText(hscale)
+                    local w_m, _ = surface.GetTextSize(m_1x)
+                    local w_hu, _ = surface.GetTextSize(hu_1x)
 
-                local dmgt = tostring("DMG")
-                local twt = surface.GetTextSize(dmgt)
-                surface.SetTextPos(x_2 - (twt / 2), ss * 8)
-                surface.DrawText(dmgt)
+                    surface.SetTextPos(w - w_m - ss * 2, h - rss * 16)
+                    surface.DrawText(m_1x)
+                    surface.SetTextPos(w - w_hu - ss * 2, h - rss * 10)
+                    surface.DrawText(hu_1x)
+                end
 
-                drawndmg = true
-            end
+                if mran > 0 then
+                    -- min damage
+                    local dmg = tostring(math.Round(dmgmax))
+                    local tw = surface.GetTextSize(dmg)
+                    if wmin < tw then
+                        surface.SetTextPos(x_2 + ss * 1, ss * 1)
+                    else
+                        surface.SetTextPos(x_2 - (tw / 2), ss * 1)
+                    end
+                    surface.DrawText(dmg)
 
-            if dmgmax != dmgmin and sran != mran then
-                local dmg = tostring(math.Round(dmgmin))
-                local tw = surface.GetTextSize(dmg)
-                surface.SetTextPos(x_3 - (tw / 2), ss * 1)
-                surface.DrawText(dmg)
+                    local m_2, hu_2 = RangeText(mran)
 
-                local m_3, hu_3 = RangeText(sran)
+                    surface.SetTextPos(x_2, h - rss * 16)
+                    surface.DrawText(m_2)
+                    surface.SetTextPos(x_2, h - rss * 10)
+                    surface.DrawText(hu_2)
 
-                surface.SetTextPos(x_3, h - rss * 16)
-                surface.DrawText(m_3)
-                surface.SetTextPos(x_3, h - rss * 10)
-                surface.DrawText(hu_3)
+                    local dmgt = tostring("DMG")
+                    local twt = surface.GetTextSize(dmgt)
 
-                local dmgt = tostring("DMG")
-                local twt = surface.GetTextSize(dmgt)
-                surface.SetTextPos(x_3 - (twt / 2), ss * 8)
-                surface.DrawText(dmgt)
+                    if wmin < tw then
+                        surface.SetTextPos(x_2 + ss * 1, ss * 8)
+                    else
+                        surface.SetTextPos(x_2 - (twt / 2), ss * 8)
+                    end
+                    surface.DrawText(dmgt)
+
+                    drawndmg = true
+                end
+
+                if sran == hscale then
+                    -- draw max damage at edge
+                    local dmg = tostring(math.Round(dmgmin))
+                    local tw = surface.GetTextSize(dmg)
+                    surface.SetTextPos(w - ss * 2 - tw, ss * 1)
+                    surface.DrawText(dmg)
+
+                    local m_3, hu_3 = RangeText(sran)
+                    local w_m, _ = surface.GetTextSize(m_3)
+                    local w_hu, _ = surface.GetTextSize(hu_3)
+
+                    surface.SetTextPos(w - ss * 2 - w_m, h - rss * 16)
+                    surface.DrawText(m_3)
+                    surface.SetTextPos(w - ss * 2 - w_hu, h - rss * 10)
+                    surface.DrawText(hu_3)
+
+                    local dmgt = tostring("DMG")
+                    local twt = surface.GetTextSize(dmgt)
+                    surface.SetTextPos(w - ss * 2 - twt, ss * 8)
+                    surface.DrawText(dmgt)
+
+                elseif sran != mran then
+                    -- draw max damage centered
+                    local dmg = tostring(math.Round(dmgmin))
+                    local tw = surface.GetTextSize(dmg)
+                    surface.SetTextPos(x_3 - (tw / 2), ss * 1)
+                    surface.DrawText(dmg)
+
+                    local m_3, hu_3 = RangeText(sran)
+
+                    surface.SetTextPos(x_3, h - rss * 16)
+                    surface.DrawText(m_3)
+                    surface.SetTextPos(x_3, h - rss * 10)
+                    surface.DrawText(hu_3)
+
+                    local dmgt = tostring("DMG")
+                    local twt = surface.GetTextSize(dmgt)
+                    surface.SetTextPos(x_3 - (twt / 2), ss * 8)
+                    surface.DrawText(dmgt)
+                end
             end
 
             if !drawndmg then
@@ -2168,62 +2573,70 @@ function SWEP:CreateCustomize2HUD()
         ArcCW.InvHUD_Menu3:Clear()
         ArcCW.InvHUD_FormWeaponName()
 
+        self.Infos_Ballistics = nil
+
         local info = vgui.Create("DPanel", ArcCW.InvHUD_Menu3)
         info:SetSize(menu3_w - airgap_x, menu3_h - (ss * 110) - (ss * 70) - rss * 48 - ss * 32)
         info:SetPos(0, rss * 48 + ss * 32 + (ss * 110) + (ss * 70))
         info.Paint = function(self2, w, h)
             if !IsValid(ArcCW.InvHUD) or !IsValid(self) then return end
-            local infos = self.Infos_Stats or {}
 
-            table.insert(infos, {
-                title = translate("trivia.muzzlevel"),
-                value = self:GetMuzzleVelocity() * ArcCW.HUToM,
-                unit = translate("unit.mps"),
-            })
+            if !self.Infos_Ballistics then
 
-            table.insert(infos, {
-                title = translate("trivia.recoil"),
-                value = math.Truncate(self.Recoil * ArcCW.RecoilUnit * self:GetBuff_Mult("Mult_Recoil"), 1),
-                unit = translate("unit.lbfps"),
-            })
+                self.Infos_Ballistics = {}
 
-            table.insert(infos, {
-                title = translate("trivia.recoilside"),
-                value = math.Truncate(self.RecoilSide * ArcCW.RecoilUnit * self:GetBuff_Mult("Mult_RecoilSide"), 1),
-                unit = translate("unit.lbfps"),
-            })
+                table.insert(self.Infos_Ballistics, {
+                    title = translate("trivia.muzzlevel"),
+                    value = math.Round(self:GetMuzzleVelocity() * ArcCW.HUToM),
+                    unit = translate("unit.mps"),
+                })
 
-            -- arccw_approved_recoil_score
-            local aars = 0
-            local disclaimers = ""
+                table.insert(self.Infos_Ballistics, {
+                    title = translate("trivia.recoil"),
+                    value = math.Round(self.Recoil * ArcCW.RecoilUnit * self:GetBuff_Mult("Mult_Recoil"), 1),
+                    unit = translate("unit.lbfps"),
+                })
 
-            aars = aars + (self.Recoil + self:GetBuff_Add("Add_Recoil")) * self:GetBuff_Mult("Mult_Recoil")
-            aars = aars + (self.RecoilSide + self:GetBuff_Add("Add_RecoilSide")) * self:GetBuff_Mult("Mult_RecoilSide") * 0.5
+                table.insert(self.Infos_Ballistics, {
+                    title = translate("trivia.recoilside"),
+                    value = math.Round(self.RecoilSide * ArcCW.RecoilUnit * self:GetBuff_Mult("Mult_RecoilSide"), 1),
+                    unit = translate("unit.lbfps"),
+                })
 
-            local arpm = (60 / self:GetFiringDelay())
+                -- arccw_approved_recoil_score
+                local aars = 0
+                local disclaimers = ""
 
-            if self:GetIsManualAction() then
-                local fireanim = self:GetBuff_Hook("Hook_SelectFireAnimation") or self:SelectAnimation("fire")
-                local firedelay = self.Animations[fireanim].MinProgress or 0
+                aars = aars + (self.Recoil + self:GetBuff_Add("Add_Recoil")) * self:GetBuff_Mult("Mult_Recoil")
+                aars = aars + (self.RecoilSide + self:GetBuff_Add("Add_RecoilSide")) * self:GetBuff_Mult("Mult_RecoilSide") * 0.5
 
-                arpm = math.Round(60 / ((firedelay + self:GetAnimKeyTime("cycle", true)) * self:GetBuff_Mult("Mult_CycleTime")))
-            elseif self:GetCurrentFiremode().Mode == 1 then
-                arpm = math.min(400, (60 / self:GetFiringDelay()))
+                local arpm = (60 / self:GetFiringDelay())
+
+                if self:GetIsManualAction() then
+                    local fireanim = self:GetBuff_Hook("Hook_SelectFireAnimation") or self:SelectAnimation("fire")
+                    local firedelay = self.Animations[fireanim].MinProgress or 0
+
+                    arpm = math.Round(60 / ((firedelay + self:GetAnimKeyTime("cycle", true)) * self:GetBuff_Mult("Mult_CycleTime")))
+                elseif self:GetCurrentFiremode().Mode == 1 then
+                    arpm = math.min(400, 60 / self:GetFiringDelay())
+                end
+                aars = aars * arpm
+
+                --[[
+                if self:GetCurrentFiremode().Mode == 1 or self:GetIsManualAction() then
+                    disclaimers = disclaimers .. " " .. arpm .. translate("unit.rpm")
+                end
+                ]]
+
+                table.insert(self.Infos_Ballistics, {
+                    title = translate("trivia.recoilscore"),
+                    value = math.Round(aars),
+                    unit = " points" .. disclaimers,
+                })
+
             end
-            aars = aars * arpm
 
-            
-            if self:GetCurrentFiremode().Mode == 1 or self:GetIsManualAction() then
-                disclaimers = disclaimers .. " " .. arpm .. "rpm"
-            end
-
-            table.insert(infos, {
-                title = "Fesiug's Recoil Score (lower is better)",
-                value = math.Round(aars),
-                unit = " points" .. disclaimers,
-            })
-
-            for i, triv in pairs(infos) do
+            for i, triv in pairs(self.Infos_Ballistics) do
                 triv.unit = triv.unit or ""
                 local i_2 = i - 1
                 surface.SetFont("ArcCWC2_8")
@@ -2279,52 +2692,14 @@ function SWEP:CreateCustomize2HUD()
             range_1 = range_3 * 0.5
         end
 
-        -- given fov and distance solve apparent size
-        local function solvetriangle(angle, dist)
-            local a = angle / 2
-            local b = dist
-            return b * math.tan(a) * 2
-        end
-
-        local hits_1 = {}
-        local hits_3 = {}
-
-        local function rollhit(radius)
-            local anglerand = math.Rand(0, 360)
-            local dist = math.Rand(0, radius)
-
-            local hit_x = math.sin(anglerand) * dist
-            local hit_y = math.cos(anglerand) * dist
-
-            return {x = hit_x, y = hit_y}
-        end
-
-        local function rollallhits()
-            local ang = self:GetBuff("AccuracyMOA") / 60
-
-            local radius_1 = solvetriangle(ang, range_1 * ArcCW.HUToM)
-            local radius_3 = solvetriangle(ang, range_3 * ArcCW.HUToM)
-
-            local hitcount = math.Clamp(math.max(math.Round(self:GetCapacity() / 4), math.Round(self:GetBuff("Num") * 2)), 10, 20)
-
-            for i = 1, hitcount do
-                table.insert(hits_1, rollhit(radius_1))
-            end
-
-            for i = 1, hitcount do
-                table.insert(hits_3, rollhit(radius_3))
-            end
-        end
-
-        rollallhits()
+        rollallhits(self, range_3, range_1)
 
         local ballisticchart = vgui.Create("DButton", ArcCW.InvHUD_Menu3)
         ballisticchart:SetSize(ss * 200, ss * 110)
         ballisticchart:SetPos(menu3_w - ss * 200 - airgap_x, rss * 48 + ss * 32)
         ballisticchart:SetText("")
         ballisticchart.DoClick = function(self2)
-            ArcCW.InvHUD_FormWeaponBallistics()
-            ArcCW.Inv_SelectedInfo = 3
+            rollallhits(self, range_3, range_1)
         end
         ballisticchart.Paint = function(self2, w, h)
             if !IsValid(ArcCW.InvHUD) or !IsValid(self) then return end
@@ -2337,7 +2712,7 @@ function SWEP:CreateCustomize2HUD()
             if self.PrimaryBash then
                 draw.RoundedBox(cornerrad, 0, 0, w, h, col)
 
-                local txt = "No Data"
+                local txt = translate("ui.nodata")
 
                 surface.SetTextColor(col_fg)
                 surface.SetFont("ArcCWC2_24")
@@ -2352,8 +2727,8 @@ function SWEP:CreateCustomize2HUD()
             local s = w / 2
             local s2 = ss * 10
 
-            local range_1_txt = tostring(range_1) .. "m / " .. tostring(math.Round(range_1 / ArcCW.HUToM)) .. "HU"
-            local range_3_txt = tostring(range_3) .. "m / " .. tostring(math.Round(range_3 / ArcCW.HUToM)) .. "HU"
+            local range_1_txt = tostring(range_1) .. "m / " .. tostring(math.Round(range_1 / ArcCW.HUToM / 100) * 100) .. "HU"
+            local range_3_txt = tostring(range_3) .. "m / " .. tostring(math.Round(range_3 / ArcCW.HUToM / 100) * 100) .. "HU"
 
             local col_bullseye = Color(200, 200, 200, Lerp(ArcCW.Inv_Fade, 0, 100))
 

@@ -22,12 +22,12 @@ net.Receive('MenuItemSpawn', function(len, client)
 		ix.item.Spawn(uniqueID, trace.HitPos, function(item, entity)
 			entity:SetPos(trace.HitPos - trace.HitNormal * entity:OBBMins().z)
 
-			client:Notify("You have spawned a " .. item.name .. ".")
+			client:Notify("Stworzyłeś " .. item.name .. ".")
 
 			undo.Create("ixItem")
 				undo.AddEntity(entity)
 				undo.SetPlayer(client)
-				undo.SetCustomUndoText('Undone ' .. item:GetName())
+				undo.SetCustomUndoText('Cofnięto tworzenie ' .. item:GetName())
 			undo.Finish()
 
 			client:AddCleanup("ixItems", entity)
@@ -50,7 +50,7 @@ net.Receive('MenuItemGive', function(len, client)
 			return
 		end
 
-		client:Notify("You have given "..client:Name().." a " .. itemTable.name .. ".")
+		client:Notify("Dałeś "..client:Name().." przedmiot " .. itemTable.name .. ".")
 	end
 
 	itemTable = nil

@@ -8,7 +8,7 @@ do
 		MinAccess = "admin"
 	})
 
-	ix.config.Add("tradeChatDelay", 60, "The delay before a player can use Trade chat again in seconds.", nil, {
+	ix.config.Add("tradeChatDelay", 60, "Odstęp przed kolejnym wysłaniem wiadomości w oknie handlu", nil, {
 		data = {min = 0, max = 10000},
 		category = "chat"
 	})
