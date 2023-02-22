@@ -18,37 +18,8 @@ ix.util.Include("sv_schema.lua")
 ix.util.IncludeDir("hooks")
 ix.util.IncludeDir("meta")
 
--- Restrict character description
-local descVar = ix.char.vars["description"]
-descVar.OnValidate = nil
-descVar.OnPostSetup = nil
-descVar.bNoDisplay = true
-descVar.bNoNetworking = true
-descVar.bNotModifiable = true
-descVar.bSaveLoadInitialOnly = true
 
--- Restrict character name
-ix.char.RegisterVar("name", {
-	field = "name",
-	fieldType = ix.type.string,
-	default = "John Doe",
-	index = 1,
-	OnValidate = nil,
-	OnPostSetup = nil,
-	bNoDisplay = true,
-	bNoNetworking = true,
-	bNotModifiable = true,
-	bSaveLoadInitialOnly = true,
-	OnGet = function(character, default)
-		local client = character:GetPlayer()
 
-		if (IsValid(client)) then
-			return client:GetName()
-		end
-
-		return "Unknown"
-	end
-})
 
 if (CLIENT) then
 	local GM = GM or GAMEMODE
