@@ -59,8 +59,10 @@ LANGUAGE = {
 	// chat_channels
 	tradeChatDelay = "Musisz poczekać jeszcze %s sekund przed następnym handlem!",
 	tradeChatPrefix = "[Handel] ",
-	globalChatPrefix = "[Global] ",
-	localChatPrefix = "[Local] ",
+	globalChatPrefix = "[Globalnie] ",
+	localChatPrefix = "[Lokalnie] ",
+	whisperChatPrefix = "[Szept] ",
+	yellChatPrefix = "[Krzyk] ",
 	squadChatPrefix = "[Drużyna] ",
 	onlyEnglishLetters = "Only english is allowed in global chat.",
 	cmdTradeChat = "Wysyła wiadomość w czacie handlu.",

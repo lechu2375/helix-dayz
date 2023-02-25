@@ -55,6 +55,9 @@ if (CLIENT) then
 					if (durability <= 0) then
 						self.NextMalfunction = 999999
 					else
+						if(!self.MalfunctionMeanCopy) then 
+							self:DoMalfunction()
+						end
 						self.MalfunctionMeanCopy = self.MalfunctionMeanCopy or self:MalfunctionMeanCalculate()
 						self.MalfunctionMean = math.max(0, self.MalfunctionMeanCopy * (durability / 100))
 					end

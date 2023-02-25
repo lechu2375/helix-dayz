@@ -108,8 +108,44 @@ function SWEP:GetMalfunctionAnimation()
     return anim
 end
 
+function SWEP:MalfunctionMeanCalculate()
+	local mm
+
+	if self.Jamming then mm = self.HeatCapacity * 4
+	else mm = self.Primary.ClipSize * 8 end
+
+	if self.ManualAction then
+		-- Manual guns are less likely to jam
+		mm = mm * 2
+	else
+		-- Burst and semi only guns are less likely to jam
+		local a, b = false, false
+		for k, v in pairs(self.Firemodes) do
+			if !v.Mode then continue end
+			if v.Mode == 2 then a = true
+			elseif v.Mode < 0 then b = true end
+		end
+		if !a and b then
+			mm = mm * 1.25
+		elseif !a and !b then
+			mm = mm * 1.5
+		end
+	end
+
+	return mm
+end
+
+
 function SWEP:DoMalfunction(post)
 
+    if !self:MalfunctionEnabled() then return false end
+
+    -- Auto calculated malfunction mean
+    if self.MalfunctionMean == nil or self.MalfunctionMeanCopy == nil then
+        self.MalfunctionMean = self:MalfunctionMeanCalculate()
+		self.MalfunctionMeanCopy = self.MalfunctionMean
+    end
+    
     if !IsFirstTimePredicted() then return end
     if !self:MalfunctionEnabled() then return false end
     local shouldpost = self:GetBuff_Override("Override_MalfunctionPostFire", self.MalfunctionPostFire)
@@ -139,6 +175,7 @@ function SWEP:DoMalfunction(post)
             end
         end
         self.MalfunctionMean = mm
+        
     end
 
     local cvar = math.max(GetConVar("arccw_mult_malfunction"):GetFloat(), 0.00000001)
