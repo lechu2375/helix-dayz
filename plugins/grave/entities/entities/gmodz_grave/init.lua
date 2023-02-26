@@ -1,7 +1,7 @@
 AddCSLuaFile("cl_init.lua")
 AddCSLuaFile("shared.lua")
 include("shared.lua")
-local modele = {"models/tankbags/large_bags/largebag02.mdl", "models/tankbags/large_bags/largebag01.mdl"}
+local modele = {"models/se_ex/sumka5.mdl", "models/tankbags/large_bags/largebag01.mdl"}
 function ENT:Initialize()
 	self:SetModel(modele[math.random(1, 2)])
 	self:SetSkin(math.random(0,1))
