@@ -1,6 +1,6 @@
-FACTION.name = "Cywil"
+FACTION.name = "Renegaci"
 FACTION.description = "Obcokrajowcy oraz obywatele Czarnorusi, którzy przetrwali."
-FACTION.isDefault = true
+FACTION.isDefault = false
 FACTION.color = Color(0, 140, 0)
 
 FACTION.models = {
@@ -19,4 +19,4 @@ FACTION.models = {
 	"models/infection/female_01.mdl"
 }
 
-FACTION_SURVIVOR = FACTION.index
+FACTION_RENEGACI = FACTION.index
