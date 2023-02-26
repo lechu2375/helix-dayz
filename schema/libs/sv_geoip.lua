@@ -81,7 +81,12 @@ hook.Add("PlayerLoadedCharacter", "GeoIP", function(client, character)
 
 	if (character) then
 		ix.geoip:Query(client:IPAddress(), function(data)
-			if (istable(data)) then
+			print("data print")
+			print(data)
+			
+			if (istable(data) and data.country_code) then
+				print("table print")
+				PrintTable(data)
 				client:SetNetVar("country_code", data.country_code:lower())
 			end
 		end)

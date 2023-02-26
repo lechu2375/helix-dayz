@@ -3,7 +3,7 @@ Schema.author = "Hikka & Lechu2375"
 Schema.description = ""
 
 -- ix.util.Include("libs/thirdparty/circles.lua", "client")
-
+ix.util.Include("libs/thirdparty/sh_netstream2.lua", "shared")
 math.randomseed(os.time())
 
 function Schema:GetGameDescription()
@@ -217,4 +217,9 @@ function ix.plugin.LoadEntities(path)
 	end
 end
 
+ix.anim.SetModelClass("models/ninja/mgs4_haven_trooper.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_pieuvre_armament_merc.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc_short_sleeved.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_raven_sword_merc.mdl", "player")
 collectgarbage()

@@ -1,6 +1,6 @@
-ITEM.name = "Bread"
+ITEM.name = "Chleb"
 ITEM.model = "models/gmodz/food/bread.mdl"
-ITEM.description = "A whole loaf of bread. It goes well with canned meat and butter pieces."
+ITEM.description = "Pożywny kawałek chleba uzupełniany trocinami, wyprodukowany w trudnych warunkach stanowi dobre źródło pożywienia."
 
 ITEM.hungerAmount = 0.25
 ITEM.thirstAmount = -0.05
