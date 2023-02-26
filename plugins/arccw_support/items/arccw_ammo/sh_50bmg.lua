@@ -1,9 +1,9 @@
-ITEM.name = ".50 BMG Ammo"
+ITEM.name = "Paczka amunicji .50 BMG"
 ITEM.model = "models/gmodz/ammo/50cal_bmg.mdl"
 ITEM.ammo = ".50bmg"
 ITEM.ammoAmount = 10
 ITEM.maxRounds = 20
-ITEM.description =  "Ammo box that contains .50 BMG caliber"
+ITEM.description =  "Paczka amunicji zawierająca kaliber .50 BMG"
 
 ITEM.price = 170000
 

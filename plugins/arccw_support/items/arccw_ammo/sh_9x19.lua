@@ -1,9 +1,9 @@
-ITEM.name = "9x19 Ammo"
+ITEM.name = "Amunicja 9x19"
 ITEM.model = "models/gmodz/ammo/9x19.mdl"
 ITEM.ammo = "9x19mm"
 ITEM.ammoAmount = 24
 ITEM.maxRounds = 48
-ITEM.description =  "Ammo box that contains 9x19 mm caliber"
+ITEM.description =  "Paczka amunicji zawierająca kaliber 9x19 mm"
 
 ITEM.price = 2400
 

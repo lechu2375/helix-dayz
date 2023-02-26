@@ -1,9 +1,9 @@
-ITEM.name = "5.7x28 Ammo"
+ITEM.name = "Amunicja 5.7x28"
 ITEM.model = "models/gmodz/ammo/57x28.mdl"
 ITEM.ammo = "5.7x28MM"
 ITEM.ammoAmount = 25
 ITEM.maxRounds = 60
-ITEM.description =  "Ammo box that contains 5.7x28 mm caliber"
+ITEM.description =  "Paczka amunicji zawierająca kaliber 5.7x28 mm"
 
 ITEM.price = 10000
 
