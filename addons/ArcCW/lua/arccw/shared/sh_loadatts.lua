@@ -183,15 +183,7 @@ if CLIENT then
         ArcCW_LoadAtts()
     end)
 
-    spawnmenu.AddCreationTab( "#spawnmenu.category.entities", function()
 
-        local ctrl = vgui.Create( "SpawnmenuContentPanel" )
-        ctrl:EnableSearch( "entities", "PopulateEntities" )
-        ctrl:CallPopulateHook( "PopulateEntities" )
-
-        return ctrl
-
-    end, "icon16/bricks.png", 20 )
 
     -- Client receives blacklist table from server and updates itself
     net.Receive("arccw_blacklist", function()

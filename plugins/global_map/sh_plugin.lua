@@ -8,7 +8,7 @@ local draw, surface, TEXT_ALIGN_CENTER = draw, surface, TEXT_ALIGN_CENTER
 local SH_SZ = SH_SZ
 
 ix.map = ix.map or {
-	texture = Material("gmodz/global_map/rp_stalker_v2.png"),
+	texture = Material("gmdz/map.png"),
 	objects = {},
 	gui = {
 		map = nil,
@@ -21,7 +21,7 @@ ix.map = ix.map or {
 local map = {}
 function map.Generate()
 	-- Thanks Dakota0001
-
+	print("Generating map...")
 	local mapBoundsMax = select(2, game.GetWorld():GetModelBounds())
 	local uptrace = util.TraceLine({
 		start = vector_origin,
@@ -111,6 +111,7 @@ function map.ToWorld(x, y, w, h)
 end
 
 function map.Open()
+	map.Generate()
 	if (!map.SizeX) then map.Generate() end
 	if (!LocalPlayer():GetCharacter() or !LocalPlayer():Alive()) then return end
 	if (IsValid(ix.map.gui.map)) then ix.map.gui.map:Remove() end
@@ -176,7 +177,7 @@ function map.Open()
 
 		clr = ix.map.default_color
 
-		draw.SimpleTextOutlined(L("globalMapYOU"), "MapFont", x, y - ix.map.iconSize, clr, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, color_black)
+		//draw.SimpleTextOutlined(L("globalMapYOU"), "MapFont", x, y - ix.map.iconSize, clr, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, color_black)
 		draw.SimpleTextOutlined(ix.map.signs[1], "MapFont", x, y, clr, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER, 1, color_black)
 
 		for _, v in ipairs(ix.map.objects) do
