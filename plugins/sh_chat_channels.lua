@@ -43,26 +43,56 @@ end
 function PLUGIN:InitializedChatClasses()
 	local clr_gray = ix.color.Darken(color_white, 100)
 
-	for _, v in ipairs({"me", "it", "roll", "looc"}) do
-		local class = ix.chat.classes[v]
 
-		if (CLIENT and class and class.prefix) then
-			if (istable(class.prefix)) then
-				for _, v in ipairs(class.prefix) do
-					if (v:utf8sub(1, 1) == "/") then
-						ix.command.list[v:utf8sub(2):lower()] = nil
-					end
-				end
-			elseif (isstring(class.prefix)) then
-				ix.command.list[class.prefix:utf8sub(2):lower()] = nil
-			end
-		end
-
-		ix.chat.classes[v] = nil
-		class = nil
-	end
 
 	ix.chat.classes["pm"].deadCanChat = nil
+
+	ix.chat.Register("y", {
+		indicator = "chatTalking",
+		OnChatAdd = function(self, speaker, text)
+			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or clr_gray
+			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
+			local flag = ix.geoip:GetMaterial(speaker, false) or ""
+
+			if (#icon > 0) then
+				icon = ix.util.GetMaterial(icon)
+			end
+
+			chat.AddText(Color(0, 150, 255), L"yellChatPrefix", icon, flag, name_color, name .. ": ", color_white, text)
+		end,
+		CanHear = ix.config.Get("chatRange", 280)*2,
+		noSpaceAfter = true,
+		format = "%s yells \"%s\"",
+		CanHear = ix.config.Get("chatRange", 280) * 2,
+		prefix = {"/Y", "/Yell"},
+		description = "@cmdY",
+		indicator = "chatYelling",
+		font  = "ixBigFont"
+	})
+
+	ix.chat.Register("w", {
+		format = "%s whispers \"%s\"",
+		CanHear = ix.config.Get("chatRange", 280) * 0.25,
+		prefix = {"/W", "/Whisper"},
+		description = "@cmdW",
+		indicator = "chatWhispering",
+		font  = "ixSmallFont",
+		OnChatAdd = function(self, speaker, text)
+			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or clr_gray
+			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
+			local flag = ix.geoip:GetMaterial(speaker, false) or ""
+
+			if (#icon > 0) then
+				icon = ix.util.GetMaterial(icon)
+			end
+
+			chat.AddText(Color(0, 150, 255), L"whisperChatPrefix", icon, flag, name_color, name .. ": ", color_white, text)
+		end,
+		CanHear = ix.config.Get("chatRange", 280),
+		noSpaceAfter = true
+	})
 
 	ix.chat.Register("ic", {
 		indicator = "chatTalking",
@@ -110,11 +140,7 @@ function PLUGIN:InitializedChatClasses()
 
 	ix.chat.Register("ooc", {
 		CanSay = function(self, speaker, text)
-			-- contains non latin letters
-			if (text:match("[^%c%p%s%w]") != nil) then
-				speaker:NotifyLocalized("onlyEnglishLetters")
-				return false
-			end
+
 
 			if (!ix.config.Get("allowGlobalOOC")) then
 				speaker:NotifyLocalized("global_ooc_disabled")
@@ -195,7 +221,7 @@ function PLUGIN:InitializedChatClasses()
 
 	// COMMANDS
 
-	for _, cmd in ipairs({"CharGetUp", "CharFallOver", "BecomeClass", "CharDesc"}) do
+	for _, cmd in ipairs({"CharGetUp", "CharFallOver", "BecomeClass"}) do
 		local data = ix.command.list[cmd:lower()]
 
 		if (data) then

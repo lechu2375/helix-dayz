@@ -87,6 +87,7 @@ hook.Add("ArccwSupportPostInit", "durability_weapons.ArccwSupportPostInit", func
 
 						self.MalfunctionMeanCopy = self.MalfunctionMeanCopy or self:MalfunctionMeanCalculate()
 						self.MalfunctionMean = math.max(0, self.MalfunctionMeanCopy * (durability / 100))
+
 					end
 				end)
 

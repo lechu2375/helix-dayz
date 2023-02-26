@@ -3,7 +3,7 @@ Schema.author = "Hikka & Lechu2375"
 Schema.description = ""
 
 -- ix.util.Include("libs/thirdparty/circles.lua", "client")
-
+ix.util.Include("libs/thirdparty/sh_netstream2.lua", "shared")
 math.randomseed(os.time())
 
 function Schema:GetGameDescription()
@@ -18,37 +18,8 @@ ix.util.Include("sv_schema.lua")
 ix.util.IncludeDir("hooks")
 ix.util.IncludeDir("meta")
 
--- Restrict character description
-local descVar = ix.char.vars["description"]
-descVar.OnValidate = nil
-descVar.OnPostSetup = nil
-descVar.bNoDisplay = true
-descVar.bNoNetworking = true
-descVar.bNotModifiable = true
-descVar.bSaveLoadInitialOnly = true
 
--- Restrict character name
-ix.char.RegisterVar("name", {
-	field = "name",
-	fieldType = ix.type.string,
-	default = "John Doe",
-	index = 1,
-	OnValidate = nil,
-	OnPostSetup = nil,
-	bNoDisplay = true,
-	bNoNetworking = true,
-	bNotModifiable = true,
-	bSaveLoadInitialOnly = true,
-	OnGet = function(character, default)
-		local client = character:GetPlayer()
 
-		if (IsValid(client)) then
-			return client:GetName()
-		end
-
-		return "Unknown"
-	end
-})
 
 if (CLIENT) then
 	local GM = GM or GAMEMODE
@@ -246,4 +217,9 @@ function ix.plugin.LoadEntities(path)
 	end
 end
 
+ix.anim.SetModelClass("models/ninja/mgs4_haven_trooper.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_pieuvre_armament_merc.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc_short_sleeved.mdl", "player")
+ix.anim.SetModelClass("models/ninja/mgs4_raven_sword_merc.mdl", "player")
 collectgarbage()
