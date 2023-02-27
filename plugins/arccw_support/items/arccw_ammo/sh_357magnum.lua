@@ -1,9 +1,9 @@
-ITEM.name = ".357 Magnum Ammo"
-ITEM.model = "models/gmodz/ammo/357.mdl"
+ITEM.name = "Amunicja .357 Magnum"
+ITEM.model = "models/ammo/fas2/357magnum.mdl"
 ITEM.ammo = ".357magnum"
 ITEM.ammoAmount = 16
 ITEM.maxRounds = 32
-ITEM.description =  "Ammo box that contains .357 Magnum caliber"
+ITEM.description =  "Paczka amunicji .357 Magnum"
 
 ITEM.price = 9600
 

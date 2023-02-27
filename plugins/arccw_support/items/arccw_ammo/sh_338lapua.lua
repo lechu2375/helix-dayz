@@ -1,9 +1,9 @@
-ITEM.name = ".338 Lapua Ammo"
+ITEM.name = "Amunicja .338 Lapua"
 ITEM.model = "models/gmodz/ammo/338lapua.mdl"
 ITEM.ammo = ".338lapua"
 ITEM.ammoAmount = 10
 ITEM.maxRounds = 20
-ITEM.description =  "Ammo box that contains .338 Lapua caliber"
+ITEM.description =  "Paczka amunicji .338 Lapua"
 
 ITEM.price = 170000
 
