@@ -111,7 +111,7 @@ function PANEL:Init()
 			local countryIcon = ix.geoip:GetMaterial(client)
 
 			-- Name
-			local name = client:Name()
+			local name = row.character:GetName()
 			name = (name:utf8len() > 34 and string.format("%s...", name:utf8sub(1, 34)) or name)
 
 			local name_color = hook.Run("GetPlayerColorSB", client) or color_white
