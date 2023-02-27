@@ -1,4 +1,4 @@
-ITEM.name = "Amunicja .454 Casull
+ITEM.name = "Amunicja .454 Casull"
 ITEM.model = "models/ammo/fas2/454casull.mdl"
 ITEM.ammo = "454casull"
 ITEM.ammoAmount = 8
