@@ -336,3 +336,25 @@ function PLUGIN:PlayerCanPickupWeapon(client, weapon)
 		end)
 	end
 end
+
+
+function PLUGIN:Hook_PostFireBullets(wep)
+    if(wep:GetClass()=="arccw_firearms2_rpg26") then
+
+        local owner = wep:GetOwner()
+        local char = owner:GetCharacter()
+        if(char) then
+
+            local inv = char:GetInventory()
+            local item = inv:HasItem("arccw_firearms2_rpg26")
+
+            if(item) then
+                item:Remove()
+            end
+
+        else
+            owner:StripWeapon(wep:GetClass())
+        end
+
+    end
+end
