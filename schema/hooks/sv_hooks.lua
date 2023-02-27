@@ -45,10 +45,7 @@ function GM:PlayerInteractItem(client)
 	client.lastInteractTime = CurTime() + 0.33
 end
 
--- Restrict character name
-function Schema:AdjustCreationPayload(client, payload, newPayload)
-	newPayload.name = client:Name()
-end
+
 
 function Schema:PlayerSpray(client)
 	return true

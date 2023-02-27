@@ -7,7 +7,7 @@ function PLUGIN:InitializedChatClasses()
 		ix.chat.Register("it", {
 			OnChatAdd = function(self, speaker, text)
 						
-				chat.AddText(Color(142, 68, 173), "(("..speaker:GetName().."))".."** "..text)
+				chat.AddText(Color(142, 68, 173), "(("..speaker:GetCharacter():GetName().."))".."** "..text)
 			end,
 			CanHear = ix.config.Get("chatRange", 280) * 2,
 			prefix = {"/It","/Do"},
