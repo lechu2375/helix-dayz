@@ -44,8 +44,7 @@ do
 		return self:SteamName()
 	end
 
-	playerMeta.Nick = playerMeta.GetName
-	playerMeta.Name = playerMeta.GetName
+	
 
 	function playerMeta:GetItems(onlyMain)
 		local char = self:GetCharacter()

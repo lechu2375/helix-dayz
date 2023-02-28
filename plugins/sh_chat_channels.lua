@@ -50,7 +50,7 @@ function PLUGIN:InitializedChatClasses()
 	ix.chat.Register("y", {
 		indicator = "chatTalking",
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or clr_gray
 			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
@@ -79,7 +79,7 @@ function PLUGIN:InitializedChatClasses()
 		indicator = "chatWhispering",
 		font  = "ixSmallFont",
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or clr_gray
 			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
@@ -97,7 +97,7 @@ function PLUGIN:InitializedChatClasses()
 	ix.chat.Register("ic", {
 		indicator = "chatTalking",
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or clr_gray
 			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
@@ -128,7 +128,7 @@ function PLUGIN:InitializedChatClasses()
 			return speaker:GetCharacter():GetSquadID() != "NULL"
 		end,
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
 
 			chat.AddText(Color(51, 153, 255), L"squadChatPrefix", flag, clr_gray, name .. ": ", color_white, text)
@@ -162,7 +162,7 @@ function PLUGIN:InitializedChatClasses()
 			end
 		end,
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local name_color = IsValid(speaker) and hook.Run("GetPlayerColorSB", speaker) or color_white
 			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
@@ -199,7 +199,7 @@ function PLUGIN:InitializedChatClasses()
 			end
 		end,
 		OnChatAdd = function(self, speaker, text)
-			local name = IsValid(speaker) and speaker:Name() or "Console"
+			local name = IsValid(speaker) and speaker:GetCharacter():GetName() or "Console"
 			local icon = IsValid(speaker) and ix.chat.GetPlayerIcon(speaker) or ""
 			local flag = ix.geoip:GetMaterial(speaker, false) or ""
 
