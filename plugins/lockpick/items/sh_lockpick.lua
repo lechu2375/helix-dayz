@@ -3,7 +3,7 @@
 ITEM.name = "Wytrych"
 ITEM.description = "Narzędzie służące do otwierania lub odblokowania zamków"
 ITEM.model = "models/props_c17/TrapPropeller_Lever.mdl"
-ITEM.category = "Narzędzia"
+ITEM.category = "Użytkowe"
 ITEM.functions.Use = {
 	OnRun = function(itemTable)
 		local chance = math.random(50, 50)
