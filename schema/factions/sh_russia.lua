@@ -1,5 +1,5 @@
-FACTION.name = "Cywil"
-FACTION.description = "Obcokrajowcy oraz obywatele Czarnorusi, którzy przetrwali."
+FACTION.name = "Siły Operacji Specjalnych"
+FACTION.description = "Żołnierze Federacji Rosyjskiej, którzy zostali wysłani do strefy wykluczenia."
 FACTION.isDefault = true
 FACTION.color = Color(0, 140, 0)
 
@@ -12,4 +12,4 @@ FACTION.models = {
 	"models/dizcordum/citizens/playermodels/pm_male_02.mdl"
 }
 
-FACTION_SURVIVOR = FACTION.index
+FACTION_OSS = FACTION.index
