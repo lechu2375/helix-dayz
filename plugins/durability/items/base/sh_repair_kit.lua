@@ -1,7 +1,7 @@
 ITEM.base = "base_stackable"
 
 ITEM.name = "Repair Kit Base"
-ITEM.category = "RepairKit"
+ITEM.category = "Użytkowe"
 ITEM.description = "Repair Kit Base description"
 ITEM.model = "models/props_lab/box01a.mdl"
 ITEM.width = 1

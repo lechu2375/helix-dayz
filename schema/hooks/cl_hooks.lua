@@ -51,7 +51,7 @@ function Schema:PopulateImportantCharacterInfo(client, character, container)
 	-- name
 	local name = container:AddRow("name")
 	name:SetImportant()
-	name:SetText(client:GetName())
+	name:SetText(client:Name())
 	name:SetBackgroundColor(ix.util.GetInjuredColor(client))
 	name:SizeToContents()
 
@@ -384,4 +384,25 @@ function Schema:ItemPressedLeftShift(icon, item)
 			LocalPlayer():NotifyLocalized("noFit")
 		end
 	end
+end
+
+
+
+
+function Schema:OnCharacterMenuCreated(menu)
+
+	local extraButton = menu.mainPanel.mainButtonList:Add("ixMenuButton")
+	extraButton:SetText("Fabuła", true)
+	extraButton:SizeToContents()
+	extraButton.DoClick = function()
+		local frame = vgui.Create("DFrame")
+		frame:SetSize(ScrW() * 0.9, ScrH() * 0.9)
+		frame:SetTitle("Fabuła serwera")
+		frame:Center()
+		frame:MakePopup()
+		local html = vgui.Create("DHTML", frame)
+		html:Dock(FILL)
+		html:OpenURL("https://sites.google.com/view/ixincydentz/frakcje")
+	end
+	extraButton:SetZPos(0)
 end

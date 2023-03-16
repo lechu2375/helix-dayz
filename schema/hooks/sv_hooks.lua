@@ -191,28 +191,7 @@ local chat_types = {
 	["ic"] = true,
 	["radio"] = true
 }
-function GM:PlayerSay(client, text)
---[[ 	if (teamChat and ix.chat.Send(client, "radio", text)) then
-		return ""
-	end ]]
 
-	local chatType, message, anonymous = ix.chat.Parse(client, text, true)
-
-	if (chatType == "ic") then
-		if (ix.command.Parse(client, message)) then
-			return ""
-		end
-	end
-
-	text = ix.chat.Send(client, chatType, message, anonymous)
-
-	if (isstring(text) and !chat_types[chatType]) then
-		ix.log.Add(client, "chat", chatType and chatType:utf8upper() or "??", text)
-	end
-
-	hook.Run("PostPlayerSay", client, chatType, message, anonymous)
-	return ""
-end
 
 function GM:DoPlayerDeath(client, attacker, damageinfo)
 	client:AddDeaths(1)

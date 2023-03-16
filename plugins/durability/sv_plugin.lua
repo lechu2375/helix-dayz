@@ -1,7 +1,8 @@
 local PLUGIN = PLUGIN
 
 function PLUGIN:PlayerTakeDamageClothes(client, info, attacker)
-	local weapon = attacker:GetActiveWeapon()
+	if(attacker:IsNextBot()) then return end
+	
 
 	if (IsValid(weapon) and weapon.ixItem) then
 		local durability = (weapon.ixItem:GetData("durability", 100) / 100)

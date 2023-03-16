@@ -44,7 +44,7 @@ do
 		return self:SteamName()
 	end
 
-	
+
 
 	function playerMeta:GetItems(onlyMain)
 		local char = self:GetCharacter()

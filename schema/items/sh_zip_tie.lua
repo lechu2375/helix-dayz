@@ -3,6 +3,7 @@ ITEM.name = "Kajdanki"
 ITEM.description = "Zwyczajne, ciasne kajdanki."
 ITEM.price = 8
 ITEM.model = "models/items/crossbowrounds.mdl"
+ITEM.category = "Użytkowe"
 ITEM.factions = {FACTION_MPF, FACTION_OTA}
 ITEM.functions.Use = {
 	OnRun = function(itemTable)

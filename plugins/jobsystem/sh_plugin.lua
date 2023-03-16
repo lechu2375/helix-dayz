@@ -70,9 +70,9 @@ if SERVER then
 			end
 			if(!noremove) then item:Remove() end
 			ix.dialogue.notifyItemLost(client, ix.item.list[ix.jobs.isItemJob(jobidentifier)].name)
-			client:Notify("Item delivered!")
+			client:Notify("Oddano przedmiot!")
 		else
-			client:Notify("Required item not in inventory!")
+			client:Notify("Brak wymaganego przedmiotu!")
 		end
 	end)
 

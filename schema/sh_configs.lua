@@ -24,10 +24,8 @@ end, {
 -- unload plugins
 local noLoad = {
 	saveitems = true,
-	recognition = false,
 	wepselect = true,
 	stamina = true,
-	doors = false,
 	spawnsaver = true,
 	thirdperson = true,
 	permakill = true,
