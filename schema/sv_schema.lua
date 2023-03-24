@@ -1,5 +1,5 @@
 local GM = GM or GAMEMODE
-
+L = ""
 local entityMeta = FindMetaTable("Entity")
 
 --- Clears all of the networked variables.
