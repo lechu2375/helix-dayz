@@ -121,7 +121,7 @@ function evci.StartEvent(waveSize, wavesAmount)
             evci.zombies[k] = v
         end)
     end
-
+    L = ""
     local citizens = {}
     for k,v in pairs(evci.HostagesPositions) do //citizen spawner
         local npc = ents.Create("nb_citizen") //citizens without weapons

@@ -1,7 +1,9 @@
 local GM = GM or GAMEMODE
-L = ""
-local entityMeta = FindMetaTable("Entity")
 
+local entityMeta = FindMetaTable("Entity")
+local translations = L
+L = ""
+translations = translateFunction
 --- Clears all of the networked variables.
 -- @realm server
 -- @internal
