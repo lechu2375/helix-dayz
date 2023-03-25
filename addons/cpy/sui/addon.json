@@ -1,0 +1,9 @@
+{
+	"title"		:	"SUI",
+	"type"		:	"ServerContent",
+	"tags"		:	["fun", "cartoon"],
+	"ignore"	:
+	[
+		".*"
+	]
+}
