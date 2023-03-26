@@ -2,6 +2,7 @@ local PLUGIN = PLUGIN
 
 PLUGIN.name = "Event system"
 PLUGIN.author =  "Lechu2375"
+ix.util.Include("sv_airdrops.lua")
 ix.util.Include("sv_data.lua")
 local evci = PLUGIN.eventCityInvasion
 local function printnpcs()
@@ -18,6 +19,22 @@ ix.command.Add("cityinvasion1", {
 	OnRun = function(self, client, waveSize, wavesAmount)
         evci.StartEvent(waveSize, wavesAmount)
         client:Notify("Rozpoczęto event: Inwazja na miasto.")
+	end
+})
+
+ix.command.Add("spawnairdrop", {
+	description = "Zrzuć skrzynię z uzbrojeniem tam gdzie się patrzysz.",
+	arguments = ix.type.number,
+	OnRun = function(self, client, itemsAmount)
+        
+        local trace = client:GetEyeTraceNoCursor()
+        local TestTrace = util.QuickTrace( trace.HitPos, Vector(0,0,9999))
+        if(TestTrace.HitSky) then
+            airdrops.SpawnAtPos(trace.HitPos,itemsAmount)
+            client:Notify("Zrespiłeś skrzynkę z "..itemsAmount.." przedmiotami.")
+        else
+            client:Notify("Pozycja nie znajduje się pod niebem!")
+        end
 	end
 })
 
@@ -44,3 +61,13 @@ concommand.Add( "printpos", function( ply, cmd, args )
   
     print(table.ToString(ply.getpostable,"",true))
 end )
+
+if(true) then return end
+
+function PLUGIN:HUDPaint()
+    local start = Vector(-10124.512695313,11516.71875,40.03125)
+    local traceup = util.QuickTrace( start, Vector(0,0,999))
+    local posStart = traceup.StartPos:ToScreen()
+    local posEnd = traceup.HitPos:ToScreen()
+    draw.SimpleText( "Prop here", "Default", posEnd.x, posEnd.y, Color( 255, 255, 255 ), TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER )
+end
