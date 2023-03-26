@@ -21,6 +21,12 @@ ix.command.Add("cityinvasion1", {
 	end
 })
 
+ix.container.Register("models/gmodz/airdrops/supplycrate.mdl", {
+	name = "Zrzut",
+	description = "Zaopatrzenie zrzucone z powietrza.",
+	width = 8,
+	height = 6,
+})
 
 concommand.Add( "pos", function( ply, cmd, args )
     ply.getpostable = ply.getpostable or {}

@@ -1,5 +1,7 @@
 
 local PLUGIN = PLUGIN
+
+
 PLUGIN.eventCityInvasion = {}
 local evci = PLUGIN.eventCityInvasion
 evci.hostages = evci.hostages or {}
@@ -48,14 +50,14 @@ evci.ArmoredGuardsPost 	=	{
     Vector(819.77966308594,3122.2416992188,40.03125),
 }
 
-evci.NextBotsClasses = {"nb_zombine","nb_type1","nb_infected_citizen","nb_type3","nb_boss_corpse","nb_seeker"}
-evci.TargetDestination = Vector("179.379410 4026.378906 568.031250")
+evci.NextBotsClasses = {"nb_zombine","nb_type1","nb_infected_citizen","nb_type3","nb_seeker"}
+evci.TargetDestination = Vector("179.379410 4026.378906 530.031250")
 
 
 function evci.AreHostageAlive()
     local count = 0
     for _,v in pairs(evci.hostages) do
-        if(IsValid(v) and v:IsAlive()) then
+        if(IsValid(v)) then
             count = count+1
         end
     end
@@ -65,6 +67,16 @@ function evci.AreHostageAlive()
         return count 
     end
 
+end
+function evci.GetFirstAliveHostage()
+
+    for _,v in pairs(evci.hostages) do
+        print(v)
+        if(IsValid(v)) then
+            return v
+        end
+    end
+    return false
 end
 function evci.EventCleanup()
     if(timer.Exists("evci.EventTimer")) then timer.Remove("evci.EventTimer") end
@@ -98,15 +110,17 @@ function evci.StartEvent(waveSize, wavesAmount)
     evci.destination:SetCollisionGroup(COLLISION_GROUP_NONE)
     evci.destination:Spawn()
     evci.destination:DropToFloor()
-    evci.destination:SetColor( Color( 0, 0, 0, 0 ) ) //invisible so player won't see him
-    evci.destination:SetRenderMode( RENDERMODE_TRANSCOLOR ) 
+    //evci.destination:SetColor( Color( 0, 0, 0, 0 ) ) //invisible so player won't see him
+    //evci.destination:SetRenderMode( RENDERMODE_TRANSCOLOR ) 
     local npc
-    local position
+    local position = 1
     local posPointer = 0
-
+local class = ""
     for i=1,waveSize do //zombie spawner
         timer.Simple(math.Rand(0,1.30),function() //timer to avoid npc stuck even with changed collision group
-            npc = ents.Create(table.Random(evci.NextBotsClasses))
+            class = table.Random(evci.NextBotsClasses) 
+            if(i==1) then class = "nb_boss_gargantuan" end
+            npc = ents.Create(class)
             posPointer = posPointer + 1
             if(#evci.NextBotsPositions<posPointer) then posPointer = 1 end
 
@@ -118,7 +132,8 @@ function evci.StartEvent(waveSize, wavesAmount)
             npc:SetMoveCollide(MOVECOLLIDE_FLY_BOUNCE)
             npc:DropToFloor()
 
-            evci.zombies[k] = v
+            evci.zombies[position] = npc
+            position = position + 1
         end)
     end
 
@@ -129,7 +144,7 @@ function evci.StartEvent(waveSize, wavesAmount)
         npc:SetCollisionGroup(COLLISION_GROUP_NONE)
         npc:Spawn()
         npc:DropToFloor()
-        citizens[k] = v
+        citizens[k] = npc
     end
     evci.hostages = citizens
 
@@ -139,19 +154,58 @@ function evci.StartEvent(waveSize, wavesAmount)
         npc:SetCollisionGroup(COLLISION_GROUP_NONE)
         npc:Spawn()
         npc:DropToFloor()
-        evci.guards[k] = v
+        evci.guards[k] = npc
     end
     
-    printnpcs()
-    evci.EventTimer = timer.Create("evci.EventTimer", 10, 1, //check after certain amount of time if we should reward player
+    //printnpcs()
+    evci.EventTimer = timer.Create("evci.EventTimer", 120, 1, //check after certain amount of time if we should reward player
         function()
-            local shouldReward = evci.AreHostageAlive()
-            if(shouldReward>0) then
-                local rewardSpawnPos = evci.TargetDestination
-                //spawn reward
+            local shouldReward = true or evci.AreHostageAlive()
+
+            if(shouldReward) then
+                local rewardSpawnPos = Vector(815.09545898438,3491.5947265625,40.03125)
+                PrintMessage(HUD_PRINTTALK, "Cywile przeżyli! Niedaleko budynku wylądował zrzut.")
+                local container = ents.Create("ix_container")
+			    container:SetPos(rewardSpawnPos)
+			    
+			    container:SetModel("models/gmodz/airdrops/supplycrate.mdl")
+                container:SetCollisionGroup(COLLISION_GROUP_WEAPON)
+			    container:Spawn()
+
+			ix.inventory.New(0, "container:" .. "models/gmodz/airdrops/supplycrate.mdl", function(inventory)
+				-- we'll technically call this a bag since we don't want other bags to go inside
+				inventory.vars.isBag = true
+				inventory.vars.isContainer = true
+
+				if (IsValid(container)) then
+					container:SetInventory(inventory)
+					ix.plugin.list.containers:SaveContainer()
+				end
+			end)
+            local RandomItems = ix.plugin.list.merchant:SetRandomItems(math.random(30, 40))
+                local inv = container:GetInventory()
+                for k,v in pairs(RandomItems) do
+                    //print(v.uniqueID, v.data.quantity)
+                    inv:Add(v.uniqueID, v.data.quantity)
+                end
+            else
+                PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
             end
         end
     )
 end
 
 
+
+function PLUGIN:OnNextbotDeath(npc)
+
+
+    if(npc==evci.destination) then
+        
+
+        for k,v in pairs(evci.zombies) do
+            
+            v:SetEnemy(evci.hostages[1])
+        end
+    end
+end
