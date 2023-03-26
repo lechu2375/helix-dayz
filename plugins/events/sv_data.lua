@@ -3,7 +3,7 @@ local PLUGIN = PLUGIN
 
 
 PLUGIN.eventCityInvasion = {}
-local evci = PLUGIN.eventCityInvasion
+evci = PLUGIN.eventCityInvasion
 evci.hostages = evci.hostages or {}
 evci.zombies = evci.zombies or {}
 evci.guards = evci.guards or {}
@@ -71,7 +71,6 @@ end
 function evci.GetFirstAliveHostage()
 
     for _,v in pairs(evci.hostages) do
-        print(v)
         if(IsValid(v)) then
             return v
         end
@@ -80,6 +79,7 @@ function evci.GetFirstAliveHostage()
 end
 function evci.EventCleanup()
     if(timer.Exists("evci.EventTimer")) then timer.Remove("evci.EventTimer") end
+    if(timer.Exists("evci.WaveTimer")) then timer.Remove("evci.WaveTimer") end
     if(IsValid(evci.destination)) then
         evci.destination:Remove()
     end
@@ -115,26 +115,39 @@ function evci.StartEvent(waveSize, wavesAmount)
     local npc
     local position = 1
     local posPointer = 0
-local class = ""
-    for i=1,waveSize do //zombie spawner
-        timer.Simple(math.Rand(0,1.30),function() //timer to avoid npc stuck even with changed collision group
-            class = table.Random(evci.NextBotsClasses) 
-            if(i==1) then class = "nb_boss_gargantuan" end
-            npc = ents.Create(class)
-            posPointer = posPointer + 1
-            if(#evci.NextBotsPositions<posPointer) then posPointer = 1 end
-
-            npc:SetPos(evci.NextBotsPositions[posPointer]+Vector(math.random(40,120),0,0))
-            npc:SetEnemy(evci.destination)
-            npc:SetSolid(SOLID_NONE)
-            npc:SetCollisionGroup(COLLISION_GROUP_NONE)
-            npc:Spawn()
-            npc:SetMoveCollide(MOVECOLLIDE_FLY_BOUNCE)
-            npc:DropToFloor()
-
-            evci.zombies[position] = npc
-            position = position + 1
+    local class = ""
+    local delay
+    for wave=1,wavesAmount do
+        delay  = (wave-1)*120
+        if(wave ==1) then 
+            delay = 0
+            PrintMessage(HUD_PRINTTALK, "Horda zombie zbliża się do miasta!")
+        end
+        
+        timer.Create("evci.WaveTimer",120, wavesAmount-1, function()
+            PrintMessage(HUD_PRINTTALK, "Kolejna horda zombie zbliża się do miasta!")
         end)
+        for i=1,waveSize do //zombie spawner
+            timer.Simple(delay+math.Rand(0,2.30),function() //timer to avoid npc stuck even with changed collision group
+                if(!timer.Exists("evci.EventTimer")) then return end
+                class = table.Random(evci.NextBotsClasses) 
+                if(i==1) then class = "nb_boss_gargantuan" end
+                npc = ents.Create(class)
+                posPointer = posPointer + 1
+                if(#evci.NextBotsPositions<posPointer) then posPointer = 1 end
+
+                npc:SetPos(evci.NextBotsPositions[posPointer]+Vector(math.random(40,120),0,0))
+                npc:SetEnemy(evci.destination)
+                npc:SetSolid(SOLID_NONE)
+                npc:SetCollisionGroup(COLLISION_GROUP_NONE)
+                npc:Spawn()
+                npc:SetMoveCollide(MOVECOLLIDE_FLY_BOUNCE)
+                npc:DropToFloor()
+
+                evci.zombies[position] = npc
+                position = position + 1
+            end)
+        end
     end
 
     local citizens = {}
@@ -158,7 +171,7 @@ local class = ""
     end
     
     //printnpcs()
-    evci.EventTimer = timer.Create("evci.EventTimer", 120, 1, //check after certain amount of time if we should reward player
+    evci.EventTimer = timer.Create("evci.EventTimer", 120*wavesAmount, 1, //check after certain amount of time if we should reward player
         function()
             local shouldReward = true or evci.AreHostageAlive()
 
@@ -189,6 +202,7 @@ local class = ""
                     inv:Add(v.uniqueID, v.data.quantity)
                 end
             else
+                evci.EventCleanup()
                 PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
             end
         end
@@ -199,13 +213,18 @@ end
 
 function PLUGIN:OnNextbotDeath(npc)
 
-
+    local nextTarget = evci.GetFirstAliveHostage()
+    if(!IsValid(evci.destination) and !nextTarget) then
+        evci.EventCleanup()
+        PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
+        return
+    end
     if(npc==evci.destination) then
         
 
         for k,v in pairs(evci.zombies) do
-            
-            v:SetEnemy(evci.hostages[1])
+            evci.destination = evci.GetFirstAliveHostage()
+            v:SetEnemy(evci.destination)
         end
     end
 end
