@@ -1,4 +1,31 @@
 
+local allZombies = {}
+allZombies["nb_zombine"] = true
+allZombies["nb_infested"] = true
+allZombies["nb_freshdead"] = true
+allZombies["nb_type2"] = true
+allZombies["nb_infected_citizen"] = true
+allZombies["nb_boss_gargantuan"] = true
+allZombies["nb_type1"] = true
+allZombies["nb_boss_corpse"] = true
+allZombies["nb_shambler"] = true
+allZombies["nb_type3"] = true
+allZombies["nb_hulk_infested"] = true
+allZombies["nb_seeker"] = true
+allZombies["nb_seeker_slow"] = true
+allZombies["nb_infected_citizen_slow"] = true
+allZombies["nb_ghoul"] = true
+local allZombieBoss = {}
+allZombieBoss["nb_boss_gargantuan"] = true
+allZombieBoss["nb_boss_corpse"] = true
+local allBadGuys = {}
+allBadGuys["nb_mercenary_condottiere"] = true
+allBadGuys["nb_soldier"] = true
+allBadGuys["nb_mercenary_bomber"] = true
+allBadGuys["nb_soldier_nade"] = true
+allBadGuys["nb_mercenary_melee"] = true
+allBadGuys["nb_mercenary"] = true
+allBadGuys["nb_mercenary_terrorist"] = true
 
 local function CalculateCredit(entity, attacker, trigger)
   hook.Run("ix_JobTrigger", attacker, trigger)
@@ -20,129 +47,23 @@ end
 
 function PLUGIN:OnNPCKilled(entity, attacker, inflictor)
   local class = string.lower(entity:GetClass())
+
   if attacker:IsPlayer() then
-    if(string.find( class, "npc_mutant" )) then
-      CalculateCredit(entity, attacker, "mutantKilled")
-    end
 
-    if class == "npc_mutant_classiczombie" or class == "npc_mutant_classiczombie_babka" or class == "npc_mutant_classiczombie_radio" or class == "npc_mutant_classiczombie_volatile" then
+    if ( allZombies[class] or string.find(class, "zombie") )  then
       CalculateCredit(entity, attacker, "zombieKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
     end
 
-    if class == "npc_mutant_rodent" then
-      CalculateCredit(entity, attacker, "rodentKilled")
+    if (allZombieBoss[class])then
+      CalculateCredit(entity, attacker, "bossKilled")
     end
 
-    if class == "npc_mutant_karlik" then
-      CalculateCredit(entity, attacker, "karlikKilled")
-      CalculateCredit(entity, attacker, "groupPsyKilled")
+    if (allBadGuys[class]) then
+      CalculateCredit(entity, attacker, "mercenaryKilled")
     end
-
-    if class == "npc_mutant_snork" then
-      CalculateCredit(entity, attacker, "snorkKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
-    end
-
-    if class == "npc_mutant_cat" then
-      CalculateCredit(entity, attacker, "catKilled")
-      CalculateCredit(entity, attacker, "groupPredatorKilled")
-    end
-
-    if class == "npc_mutant_bloodsucker" then
-      CalculateCredit(entity, attacker, "bloodsuckerKilled")
-      CalculateCredit(entity, attacker, "groupPredatorKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
-    end
-
-    if class == "npc_mutant_boar" then
-      CalculateCredit(entity, attacker, "boarKilled")
-      CalculateCredit(entity, attacker, "groupMeatKilled")
-    end  
-
-    if class == "npc_mutant_burer" then
-      CalculateCredit(entity, attacker, "burerKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
-      CalculateCredit(entity, attacker, "groupPsyKilled")
-    end
-
-    if class == "npc_mutant_chimera" then
-      CalculateCredit(entity, attacker, "chimeraKilled")
-    end
-
-    if class == "npc_mutant_chimera_electro" then
-      CalculateCredit(entity, attacker, "electrochimeraKilled")
-    end
-
-    if class == "npc_mutant_controller" or class == "npc_mutant_controller_swamp" or class == "npc_mutant_controller_electro" or class == "npc_mutant_controller_fast" then
-      CalculateCredit(entity, attacker, "controllerKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
-      CalculateCredit(entity, attacker, "groupPsyKilled")
-    end
-
-    if class == "npc_mutant_dog" then
-      CalculateCredit(entity, attacker, "blinddogKilled")
-      CalculateCredit(entity, attacker, "groupCanineKilled")
-    end
-
-    if class == "npc_mutant_hellhound" then
-      CalculateCredit(entity, attacker, "hellhoundKilled")
-      CalculateCredit(entity, attacker, "groupCanineKilled")
-    end
-
-    if class == "npc_mutant_flesh" then
-      CalculateCredit(entity, attacker, "fleshKilled")
-      CalculateCredit(entity, attacker, "groupMeatKilled")
-    end
-
-    if class == "npc_mutant_pseudodog" then
-      CalculateCredit(entity, attacker, "pseudodogKilled")
-      CalculateCredit(entity, attacker, "groupCanineKilled")
-    end
-
-    if class == "npc_mutant_psydog" then
-      CalculateCredit(entity, attacker, "psydogKilled")
-      CalculateCredit(entity, attacker, "groupCanineKilled")
-      CalculateCredit(entity, attacker, "groupPsyKilled")
-    end 
-
-    if class == "npc_mutant_pseudogiant_fast" or class == "npc_mutant_pseudogiant_slow" then
-      CalculateCredit(entity, attacker, "pseudogiantKilled")
-    end
-
-    if class == "npc_mutant_izlom" then
-      CalculateCredit(entity, attacker, "izlomKilled")
-      CalculateCredit(entity, attacker, "groupHumanoidKilled")
-    end
-
-    if class == "npc_mutant_spider" then
-      CalculateCredit(entity, attacker, "spiderKilled")
-      CalculateCredit(entity, attacker, "groupPredatorKilled")
-    end
-
-    if class == "npc_mutant_sprig" then
-      CalculateCredit(entity, attacker, "sprigKilled")
-      CalculateCredit(entity, attacker, "groupPredatorKilled")
-    end
-
-    if class == "npc_mutant_tark" then
-      CalculateCredit(entity, attacker, "tarkKilled")
-      CalculateCredit(entity, attacker, "groupMeatKilled")
-    end
-
-    if class == "npc_mutant_bear" then
-      CalculateCredit(entity, attacker, "bearKilled")
-      CalculateCredit(entity, attacker, "groupPredatorKilled")
-    end
-
-    if class == "npc_mutant_vareshka" then
-      CalculateCredit(entity, attacker, "vareshkaKilled")
-    end
-
-    if class == "npc_mutant_skeleton" then
-      CalculateCredit(entity, attacker, "skeletonKilled")
-    end
+    
   end
+
 end
 
 function PLUGIN:PlayerSay(sender, text, teamchat)
