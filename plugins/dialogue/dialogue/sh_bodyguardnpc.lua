@@ -1,7 +1,7 @@
 DIALOGUE.name = "Bodyguard NPC"
 
 DIALOGUE.addTopic("GREETING", {
-	response = "Yes?",
+	response = "Tak?",
 	options = {
 		"TradeTopic", 
 		"BackgroundTopic",
@@ -16,8 +16,8 @@ DIALOGUE.addTopic("GREETING", {
 })
 
 DIALOGUE.addTopic("TradeTopic", {
-	statement = "Want to trade?",
-	response = "I have some spare equipment laying around, yes.",
+	statement = "Chcesz pohandlować??",
+	response = "Chętnie zobacze co masz na stanie.",
 	postCallback = function(self, client, target)
 		if (SERVER) then
 			local character = client:GetCharacter()
@@ -58,7 +58,7 @@ DIALOGUE.addTopic("TradeTopic", {
 })
 
 DIALOGUE.addTopic("AboutWorkTopic", {
-	statement = "About work...",
+	statement = "Co do mojej pracy...",
 	response = "",
 	IsDynamic = true,
 	options = {
@@ -75,7 +75,7 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 
 			if itemuid and not jobs[target:GetDisplayName()].isCompleted then
 				dynopts = {
-					{statement = string.format("Hand over 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
+					{statement = string.format("Oddaj 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
 				}
 			end
 		end
@@ -94,12 +94,12 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 					ix.dialogue.notifyTaskComplete(client, ix.jobs.getFormattedName(jobs[target:GetDisplayName()]))
 					client:ixJobComplete(target:GetDisplayName()) 
 				end
-				if (CLIENT) then self.response = "As promised, here's your reward." end
+				if (CLIENT) then self.response = "Tak jak obiecałem, oto twoja nagroda." end
 			else
-				if (CLIENT) then self.response = string.format("What's the status on %s?", ix.jobs.getFormattedName(jobs[target:GetDisplayName()])) end
+				if (CLIENT) then self.response = string.format("Co z %s?", ix.jobs.getFormattedName(jobs[target:GetDisplayName()])) end
 			end
 		else
-			if (CLIENT) then self.response = "What are you talking about? We haven't planned anything." end
+			if (CLIENT) then self.response = "O czym Ty mówisz? Niczego takiego nie planowaliśmy." end
 		end
 
 	end,
@@ -132,8 +132,8 @@ DIALOGUE.addTopic("ConfirmTask", {
 	end,
 	GetDynamicOptions = function(self, client, target)
 		local dynopts = {
-			{statement = "I'll take it", topicID = "ConfirmTask", dyndata = {accepted = true}},
-			{statement = "I'll pass", topicID = "ConfirmTask", dyndata = {accepted = false}},
+			{statement = "Biorę te zadanie", topicID = "ConfirmTask", dyndata = {accepted = true}},
+			{statement = "Na razie odpuszczam", topicID = "ConfirmTask", dyndata = {accepted = false}},
 		}
 		-- Return table of options
 		-- statement : String shown to player
@@ -145,7 +145,7 @@ DIALOGUE.addTopic("ConfirmTask", {
 		if (SERVER) then
 			if (dyndata.accepted) then
 				if (!ix.jobs.NPCHasJob(target:GetDisplayName(), target.taskid)) then
-					client:Notify("Task was taken by somebody else!")
+					client:Notify("Ktoś już pracuje nad tym zadaniem!")
 				else
 					ix.dialogue.notifyTaskGet(client, ix.jobs.getFormattedNameInactive(target.taskid))
 		
@@ -164,14 +164,14 @@ DIALOGUE.addTopic("ConfirmTask", {
 })
 
 DIALOGUE.addTopic("GetTask", {
-	statement = "Do you have any work for me?",
-	response = "I have a few things I need done, yes.",
+	statement = "Masz jakąś pracę dla mnie?",
+	response = "W sumie to mam parę spraw do załatwienia.",
 	options = {
 		"BackTopic"
 	},
 	preCallback = function(self, client, target)
 		if client:ixHasJobFromNPC(target:GetDisplayName()) and CLIENT then
-			self.response = "You already have a task, which isn't completed yet."
+			self.response = "Już masz pracę."
 		end
 	end,
 	IsDynamic = true,
@@ -214,7 +214,7 @@ DIALOGUE.addTopic("HandInComplexProgressionItemTopic", {
 	DynamicPreCallback = function(self, player, target, dyndata)
 		if (dyndata) then
 			if(CLIENT)then
-				self.response = string.format("Nice work, this %s will help our cause.", ix.item.list[dyndata.itemid].name)
+				self.response = string.format("Dobra robota, %s pomoże naszej sprawie.", ix.item.list[dyndata.itemid].name)
 			else
 				if ix.progression.IsActive(dyndata.progid) then
 					
@@ -317,15 +317,15 @@ DIALOGUE.addTopic("ViewProgression", {
 
 
 DIALOGUE.addTopic("AboutProgression", {
-	statement = "What do you need help with?",
-	response = "I have a few things I need done.",
+	statement = "Z czym potrzebujesz pomocy?",
+	response = "Jest parę rzeczy z którymi możesz mi pomóc.",
 	options = {
 		"BackTopic"
 	},
 	preCallback = function(self, client, target)
 		if( CLIENT ) then
 			if #ix.progression.GetActiveProgressions("'Bodyguard'") <= 0 then
-				self.response = "Nothing at the moment."
+				self.response = "Na razie z niczym."
 			end
 
 			net.Start("progression_sync")
@@ -358,16 +358,16 @@ DIALOGUE.addTopic("AboutProgression", {
 })
 
 DIALOGUE.addTopic("BackgroundTopic", {
-	statement = "Tell me about yourself.",
-	response = "No.",
+	statement = "Opowiedz mi coś o sobie.",
+	response = "Nie.",
 	options = {
 		"BackTopic",
 	}
 })
 
 DIALOGUE.addTopic("BackTopic", {
-	statement = "Let's talk about another topic.",
-	response = "Anything else?",
+	statement = "Porozmawiajmy o czymś innym.",
+	response = "O czym?",
 	options = {
 		"TradeTopic", 
 		"BackgroundTopic",
@@ -382,6 +382,6 @@ DIALOGUE.addTopic("BackTopic", {
 })
 
 DIALOGUE.addTopic("GOODBYE", {
-	statement = "I'll talk to you later.",
-	response = "Bye."
+	statement = "Do zobaczenia.",
+	response = "Cześć."
 })

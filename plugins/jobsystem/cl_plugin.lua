@@ -46,9 +46,9 @@ if(CLIENT) then
 			function self.index.dltbtn.DoClick() 
 				if LocalPlayer():GetCharacter():GetData("lastTaskAbandon", 0) < os.time() then
 					netstream.Start("job_removeplayerjob", index)
-					LocalPlayer():Notify("Task abandoned")
+					LocalPlayer():Notify("Zadanie porzucone")
 				else
-					LocalPlayer():Notify("You can't abandon another task so soon!")
+					LocalPlayer():Notify("Nie możesz tak szybko porzucić zadania!")
 				end
 			end
 
@@ -71,12 +71,12 @@ if(CLIENT) then
 			self.index.description:SetFont("ixGenericFont")
 			self.index.description:DockMargin(self.index:GetWide()*0.1, self.index:GetTall()*0.05, 0, self.index:GetTall()*0.05)
 			if v.progress == v.numberRec then
-				self.index.description:SetText("Objective completed.")
+				self.index.description:SetText("Zadanie ukończone.")
 				self.index.description:SetColor(Color(180, 255, 180))
 			end
 
 			self.index.taskgiver = self.index:Add("DLabel")
-			self.index.taskgiver:SetText("Task Giver: "..index)
+			self.index.taskgiver:SetText("Pracodawca: "..index)
 			self.index.taskgiver:Dock(TOP)
 			self.index.taskgiver:DockMargin(self.index:GetWide()*0.1, self.index:GetTall()*0.05, 0, 0)
 			self.index.taskgiver:SetFont("ixGenericFont")
@@ -189,7 +189,7 @@ if(CLIENT) then
 		self:DockPadding(self:GetWide()*0.25, self:GetTall()*0.25, self:GetWide()*0.25, self:GetTall()*0.85)
 
 		self.title = self:Add("DLabel")
-		self.title:SetText("Current Tasks:")
+		self.title:SetText("Obecne zadnia:")
 		self.title:Dock(TOP)
 		self.title:DockMargin(0, self:GetTall()*0.025, 0, 0)
 		self.title:SetFont("stalkerregularbigfont")
