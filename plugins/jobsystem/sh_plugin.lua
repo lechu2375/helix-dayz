@@ -36,7 +36,7 @@ ix.char.RegisterVar("jobs", {
 
 ix.util.Include("sh_killjobs.lua")
 ix.util.Include("sh_itemjobs.lua")
-//ix.util.Include("sh_artifactjobs.lua")
+ix.util.Include("sh_artifactjobs.lua")
 ix.util.Include("sh_specialjobs.lua")
 ix.util.Include("sh_listeners.lua")
 ix.util.Include("cl_plugin.lua")
@@ -70,9 +70,9 @@ if SERVER then
 			end
 			if(!noremove) then item:Remove() end
 			ix.dialogue.notifyItemLost(client, ix.item.list[ix.jobs.isItemJob(jobidentifier)].name)
-			client:Notify("Oddano przedmiot!")
+			client:Notify("Item delivered!")
 		else
-			client:Notify("Brak wymaganego przedmiotu!")
+			client:Notify("Required item not in inventory!")
 		end
 	end)
 
@@ -113,6 +113,16 @@ if SERVER then
 		end
 
 		return ret
+	end
+
+	function ix.jobs.NPCHasJob(npcidentifier, jobidentifier)
+		for k,v in pairs(ix.jobs.activejobs[npcidentifier]) do
+			if (v.identifier == jobidentifier) then
+				return true
+			end
+		end
+
+		return false
 	end
 
 	function ix.jobs.setNPCJobTaken(npcidentifier, jobidentifier)

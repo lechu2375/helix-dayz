@@ -19,7 +19,25 @@ ix.npctemplates.animtemplatestranslation[7] = "idle_idle"
 
 
 
-
+ix.npctemplates.templates["00templatenpc"] = {
+	name 		= "Terry",
+	description = "Nie możesz określić jego wieku ponieważ, jego lico jest skrywane przez kominiarkę.",
+	model 		= "models/monk.mdl",
+	skin 		= 0,
+	bubble 		= 0,
+	scale 		= 0.4,
+	dialogueid 	= "00templatenpc",
+	soundgroup 	= "TutorialNpc",
+	idleanim 	= "ACT_IDLE",
+	items = {
+	-- ["uniqueid"] = { 1: Special set price, 2: Starting stock, 3: Mode [1:B/S, 2:S, 3:B], 4: Maximum stock, 5: Restock interval in hours, 6: Restock amount }
+		["flashlight"] 	= { nil, 8, SELLANDBUY, 8, 0.10, 2 },
+		["bandage"] 	= { nil, 10, SELLANDBUY, 10, 1, 2 },
+		["eat_bread"] 	= { nil, 10, SELLANDBUY, 10, 1, 2 },
+		["drink_water"] 	= { nil, 8, SELLANDBUY, 8, 1, 2 },
+		
+	},
+}
 ix.npctemplates.templates["tutorialnpc"] = {
 	name 		= "Diego",
 	description = "Nie możesz określić jego wieku ponieważ, jego lico jest skrywane przez kominiarkę.",
@@ -29,7 +47,7 @@ ix.npctemplates.templates["tutorialnpc"] = {
 	scale 		= 0.4,
 	dialogueid 	= "tutorialnpc",
 	soundgroup 	= "TutorialNpc",
-	idleanim 	= "idle",
+	idleanim 	= "ACT_IDLE",
 	items = {
 	-- ["uniqueid"] = { 1: Special set price, 2: Starting stock, 3: Mode [1:B/S, 2:S, 3:B], 4: Maximum stock, 5: Restock interval in hours, 6: Restock amount }
 		["flashlight"] 	= { nil, 8, SELLANDBUY, 8, 0.10, 2 },

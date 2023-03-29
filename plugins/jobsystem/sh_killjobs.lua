@@ -40,5 +40,22 @@ do
 
   tempJob = nil
 
+  local tempJob = {}
+
+  tempJob.name = "Zabij %d zombie."
+  tempJob.desc = "%d zombie."
+  tempJob.icon = "propic/event/mutanthunt"
+  tempJob.tier = 1
+  tempJob.listenTrigger = "zombieKilled"
+  tempJob.numberRec = 5
+  tempJob.reward = {{"545x39", { ["quantity"] = 15 }}, {"556x45", { ["quantity"] = 15 }}, {"9x18", { ["quantity"] = 20 }}, {"9x19", { ["quantity"] = 20 }}, {"762x39", { ["quantity"] = 10 }}}
+  tempJob.rewardCount = 2
+  tempJob.repReward = 12
+  tempJob.moneyReward = {750, 1100}
+  tempJob.categories = {"mutantkillgroupeasy"}
+
+  ix.jobs.register(tempJob, "killMutants5")
+
+  tempJob = nil
   
 end

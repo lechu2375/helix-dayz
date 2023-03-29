@@ -28,8 +28,8 @@ DIALOGUE.addTopic("GREETING", {
 })
 
 DIALOGUE.addTopic("BackTopic", {
-	statement = "Let's talk about something else.",
-	response = "What would you like to know?",
+	statement = "Pogadajmy o czymś innym.",
+	response = "Co chciałbyś wiedzieć??",
 	options = {
 		"InterestTopic",
 		"TradeTopic", 
@@ -41,8 +41,8 @@ DIALOGUE.addTopic("BackTopic", {
 })
 
 DIALOGUE.addTopic("GOODBYE", {
-	statement = "See you!",
-	response = "Take care, STALKER..."
+	statement = "Na razie!",
+	response = "Uważaj na siebie..."
 })
 
 ----------------------------------------------------------------
@@ -50,8 +50,8 @@ DIALOGUE.addTopic("GOODBYE", {
 ----------------------------------------------------------------
 
 DIALOGUE.addTopic("TradeTopic", {
-	statement = "Want to trade?",
-	response = "Yes!",
+	statement = "Chcesz pohandlować?",
+	response = "Tak!",
 	postCallback = function(self, client, target)
 		if (SERVER) then
 			local character = client:GetCharacter()
@@ -98,14 +98,14 @@ DIALOGUE.addTopic("TradeTopic", {
 ----------------------------------------------------------------
 
 DIALOGUE.addTopic("GetTask", {
-	statement = "Do you have any work for me?",
-	response = "Yes, have a look.",
+	statement = "Masz jakąś pracę dla mnie?",
+	response = "Tak, zobacz co trzeba zrobić.",
 	options = {
 		"BackTopic"
 	},
 	preCallback = function(self, client, target)
 		if client:ixHasJobFromNPC(target:GetDisplayName()) and CLIENT then
-			self.response = "I already gave you some work."
+			self.response = "Już dostałeś odemnie robotę."
 		end
 	end,
 	IsDynamic = true,
@@ -146,8 +146,8 @@ DIALOGUE.addTopic("ConfirmTask", {
 	end,
 	GetDynamicOptions = function(self, client, target)
 		local dynopts = {
-			{statement = "I'll take it", topicID = "ConfirmTask", dyndata = {accepted = true}},
-			{statement = "I'll pass", topicID = "ConfirmTask", dyndata = {accepted = false}},
+			{statement = "Wezmę", topicID = "ConfirmTask", dyndata = {accepted = true}},
+			{statement = "Nie chcę, odpuszczam", topicID = "ConfirmTask", dyndata = {accepted = false}},
 		}
 		return dynopts
 	end,
@@ -155,7 +155,7 @@ DIALOGUE.addTopic("ConfirmTask", {
 		if (SERVER) then
 			if (dyndata.accepted) then
 				if (!ix.jobs.NPCHasJob(target:GetDisplayName(), target.taskid)) then
-					client:Notify("Task was taken by somebody else!")
+					client:Notify("Ktoś już zabrał to zadanie!")
 				else
 					ix.dialogue.notifyTaskGet(client, ix.jobs.getFormattedNameInactive(target.taskid))
 		
@@ -206,12 +206,12 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 					ix.dialogue.notifyTaskComplete(client, ix.jobs.getFormattedName(jobs[target:GetDisplayName()]))
 					client:ixJobComplete(target:GetDisplayName()) 
 				end
-				if (CLIENT) then self.response = "Great work on the job, here's your reward." end
+				if (CLIENT) then self.response = "Dobra robota, oto Twoja zapłata." end
 			else
-				if (CLIENT) then self.response = string.format("Have you finished %s yet?", ix.jobs.getFormattedName(jobs[target:GetDisplayName()])) end
+				if (CLIENT) then self.response = string.format("Skończyłeś %s już?", ix.jobs.getFormattedName(jobs[target:GetDisplayName()])) end
 			end
 		else
-			if (CLIENT) then self.response = "You're not working for me right now." end
+			if (CLIENT) then self.response = "Nie pracujesz dla mnie obecnie." end
 		end
 
 	end,
@@ -233,8 +233,8 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 ----------------------------------------------------------------
 
 DIALOGUE.addTopic("RepairItems", {
-	statement = "Can you repair my items?",
-	response = "What would you like me to look at?",
+	statement = "Możesz naprawić moje przedmioty?",
+	response = "Co mam naprawić konkretnie?",
 	IsDynamic = true,
 	options = {
 		"BackTopic"
@@ -282,7 +282,7 @@ DIALOGUE.addTopic("ConfirmRepair", {
 	DynamicPreCallback = function(self, player, target, dyndata)
 		if(dyndata) then
 			if (CLIENT) then
-				self.response = string.format("Repairing that %s will cost you %s.", ix.item.list[dyndata.itemuid].name ,ix.currency.Get(dyndata.cost))
+				self.response = string.format("Naprawa %s będzie kosztowała %s.", ix.item.list[dyndata.itemuid].name ,ix.currency.Get(dyndata.cost))
 			else
 				target.repairstruct = { dyndata.itemid, dyndata.cost, dyndata.type }
 			end
@@ -291,8 +291,8 @@ DIALOGUE.addTopic("ConfirmRepair", {
 	GetDynamicOptions = function(self, client, target)
 
 		local dynopts = {
-			{statement = "That's fine, repair it.", topicID = "ConfirmRepair", dyndata = {accepted = true}},
-			{statement = "On second thought...", topicID = "ConfirmRepair", dyndata = {accepted = false}},
+			{statement = "Okej, naprawiaj.", topicID = "ConfirmRepair", dyndata = {accepted = true}},
+			{statement = "Muszę się zastanowić.", topicID = "ConfirmRepair", dyndata = {accepted = false}},
 		}
 
 		-- Return table of options
@@ -320,7 +320,7 @@ DIALOGUE.addTopic("ConfirmRepair", {
 
 DIALOGUE.addTopic("NotEnoughMoneyRepair", {
 	statement = "",
-	response = "Not enough money for that.",
+	response = "Nie masz tyle pieniędzy.",
 	options = {
 		"BackTopic"
 	}
@@ -336,7 +336,7 @@ DIALOGUE.addTopic("NotEnoughMoneyRepair", {
 ----------------------------------------------------------------
 
 DIALOGUE.addTopic("InterestTopic", {
-    statement = "Can you tell me something interesting?",
+    statement = "Możesz opowiedzieć mi coś ciekawego?",
     response = "",
     options = {
     	"InterestMoreTopic",
@@ -358,7 +358,7 @@ DIALOGUE.addTopic("InterestTopic", {
 } )
 
 DIALOGUE.addTopic("InterestMoreTopic", {
-    statement = "Very nice, more?",
+    statement = "Interesujące, coś jeszcze?",
     response = "",
     options = {
     	"InterestMoreTopic",

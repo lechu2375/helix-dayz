@@ -257,7 +257,6 @@ net.OldBroadcast = net.OldBroadcast or net.Broadcast
 function net.Start(messageName, unreliable)
 	net.CurrentMessageName = messageName
 	net.IsUnreliable = unreliable or false
-
 	net.OldStart(messageName, unreliable)
 end
 

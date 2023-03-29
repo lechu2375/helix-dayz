@@ -205,7 +205,11 @@ if SERVER then
           end
         end
 
-        self:addReputation(ix.jobs.list[identifier].repReward)
+        self:AddReputation(ix.jobs.list[identifier].repReward)
+        net.Start("ixUpdateRep", true)
+        net.WriteBool(false) -- положительная репутация
+        net.WriteUInt(ix.jobs.list[identifier].repReward, 16)
+        net.Send(self)
         ix.dialogue.notifyReputationReceive(self, ix.jobs.list[identifier].repReward)
 
         if (ix.jobs.list[identifier].moneyReward) then

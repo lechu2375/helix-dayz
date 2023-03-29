@@ -59,39 +59,39 @@ DIALOGUE.addTopic("TradeTopic", {
 })
 
 DIALOGUE.addTopic("BackgroundTopic", {
-	statement = "Tell me about yourself.",
-	response = "I just came here to do a good deal for all of us. Mostly me. ",
+	statement = "Opowiedz mi coś o sobie.",
+	response = "Staram się po prostu zarobić. Cały ja. ",
 	options = {
 		"BackgroundTopic2",
 	}
 })
 
 DIALOGUE.addTopic("BackgroundTopic2", {
-	statement = "Uh, 'mostly you'?",
-	response = "Yes. I sell you gear, and you don't ask how I get it. You pay the price and don't try to haggle. I do. How's that?",
+	statement = "Uh, cały ty?",
+	response = "Tak, kupujesz sprzęt i nie pytasz skąd go mam. Coś Ci nie pasuje?",
 	options = {
 		"BackgroundTopic3",
 	}
 })
 
 DIALOGUE.addTopic("BackgroundTopic3", {
-	statement = "Sure. Is there another way to get gear out here?",
-	response = "Fuck off.",
+	statement = "Nie, wszystko w porządku. Jak mogę inaczej zdobyć sprzęt?",
+	response = "*handlarz zmienia wyraz twarzy na zdenerwowany* Spierdalaj...",
 	options = {
 		"BackTopic",
 	}
 })
 
 DIALOGUE.addTopic("InterestTopic", {
-	statement = "Can you tell me something interesting?",
-	response = "Not really, no.",
+	statement = "Możesz mi opowiedzieć coś ciekawego?",
+	response = "Nie.",
 	options = {
 		"BackTopic",
 	}
 })
 
 DIALOGUE.addTopic("AboutWorkTopic", {
-	statement = "About work...",
+	statement = "Jeśli chodzi o pracę...",
 	response = "",
 	IsDynamic = true,
 	options = {
@@ -108,7 +108,7 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 
 			if itemuid and not jobs[target:GetDisplayName()].isCompleted then
 				dynopts = {
-					{statement = string.format("Hand over 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
+					{statement = string.format("Przekaż 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
 				}
 			end
 		end
