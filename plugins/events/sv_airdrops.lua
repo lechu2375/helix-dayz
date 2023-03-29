@@ -13,7 +13,8 @@ function airdrops.SpawnAtPos(pos,itemsAmount)
     supplyCrate:SetPos(trace.HitPos )
     
     supplyCrate:Spawn()
-
+    supplyCrate:EmitSound("Trainyard.wind_gust1",80)
+    
     ix.inventory.New(0, "container:" .. "models/gmodz/airdrops/supplycrate.mdl", function(inventory)
         -- we'll technically call this a bag since we don't want other bags to go inside
         inventory.vars.isBag = true

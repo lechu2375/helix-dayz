@@ -2,8 +2,19 @@ local PLUGIN = PLUGIN
 
 PLUGIN.name = "Event system"
 PLUGIN.author =  "Lechu2375"
+
 ix.util.Include("sv_airdrops.lua")
+ix.util.Include("sv_helicrash.lua")
 ix.util.Include("sv_data.lua")
+
+sound.Add( {
+	name = "helicopterPreCrash",
+	channel = CHAN_STATIC,
+	volume = 1.0,
+	level = 160,
+	pitch = {95, 110},
+	sound = "ambient/machines/heli_pass_quick1.wav"
+} )
 local evci = PLUGIN.eventCityInvasion
 local function printnpcs()
     local ents = ents.GetAll()
@@ -37,14 +48,33 @@ ix.command.Add("spawnairdrop", {
         end
 	end
 })
-
+ix.command.Add("crashsite", {
+	description = "Zrzuć skrzynię z uzbrojeniem tam gdzie się patrzysz.",
+	arguments = ix.type.number,
+	OnRun = function(self, client, itemsAmount)
+        
+        local trace = client:GetEyeTraceNoCursor()
+        local TestTrace = util.QuickTrace( trace.HitPos, Vector(0,0,9999))
+        if(TestTrace.HitSky) then
+            helicrash.TestCrash(trace.HitPos)
+            //client:Notify("Zrespiłeś skrzynkę z "..itemsAmount.." przedmiotami.")
+        else
+            //client:Notify("Pozycja nie znajduje się pod niebem!")
+        end
+	end
+})
 ix.container.Register("models/gmodz/airdrops/supplycrate.mdl", {
 	name = "Zrzut",
 	description = "Zaopatrzenie zrzucone z powietrza.",
 	width = 8,
 	height = 6,
 })
-
+ix.container.Register("models/gmodz/airdrops/heli_uh60_crush.mdl", {
+	name = "Wrak",
+	description = "Wrak śmigłowca.",
+	width = 8,
+	height = 6,
+})
 concommand.Add( "pos", function( ply, cmd, args )
     ply.getpostable = ply.getpostable or {}
     table.insert(ply.getpostable,ply:GetEyeTrace().HitPos)
