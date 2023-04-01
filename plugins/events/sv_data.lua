@@ -8,6 +8,7 @@ evci.hostages = evci.hostages or {}
 evci.zombies = evci.zombies or {}
 evci.guards = evci.guards or {}
 evci.EventTimer = evci.EventTimer or nil
+evci.IsRunning = false
 evci.NextBotsPositions = {
     Vector(-2704.5671386719,7535.115234375,48.196334838867),
     Vector(-2860.9677734375,7634.9970703125,55.947677612305),
@@ -95,9 +96,10 @@ function evci.EventCleanup()
         if(IsValid(v)) then v:Remove() end
         evci.hostages[k] = nil
     end   
+    evci.IsRunning = false
 end
 function evci.StartEvent(waveSize, wavesAmount)
-
+    evci.IsRunning = true
     for _,v in pairs(player.GetAll()) do //fade so players wont notice lag due to spawning npc
         v:ScreenFade( SCREENFADE.PURGE, color_black,0.1, 1.5 )
     end
@@ -214,7 +216,7 @@ end
 function PLUGIN:OnNextbotDeath(npc)
 
     local nextTarget = evci.GetFirstAliveHostage()
-    if(!IsValid(evci.destination) and !nextTarget) then
+    if(!IsValid(evci.destination) and !nextTarget and evci.IsRunning) then
         evci.EventCleanup()
         PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
         return
