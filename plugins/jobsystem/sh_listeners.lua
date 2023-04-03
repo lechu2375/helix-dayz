@@ -47,10 +47,10 @@ end
 
 function PLUGIN:OnNPCKilled(entity, attacker, inflictor)
   local class = string.lower(entity:GetClass())
-
   if attacker:IsPlayer() then
 
     if ( allZombies[class] or string.find(class, "zombie") )  then
+      print("killed zombie")
       CalculateCredit(entity, attacker, "zombieKilled")
     end
 

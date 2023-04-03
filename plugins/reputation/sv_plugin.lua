@@ -1,5 +1,29 @@
 local PLUGIN = PLUGIN
 local SH_SZ = SH_SZ
+local goodBoys = {}
+goodBoys["nb_swat"] = true
+goodBoys["nb_swat_nade"] = true
+goodBoys["nb_swat_melee"] = true
+
+goodBoys["nb_rebel_melee"] = true
+goodBoys["nb_rebel"] = true
+goodBoys["nb_rebel_citizen"] = true
+goodBoys["nb_rebel_medic"] = true
+goodBoys["nb_rebel_elite"] = true
+goodBoys["nb_citizen"] = true
+
+local badBoys = {}
+badBoys["nb_mercenary_condottiere"] = true
+badBoys["nb_soldier"] = true
+badBoys["nb_mercenary_bomber"] = true
+badBoys["nb_soldier_nade"] = true
+badBoys["nb_mercenary_melee"] = true
+badBoys["nb_mercenary"] = true
+badBoys["nb_mercenary_terrorist"] = true
+badBoys["nb_mercenary_condottiere"] = true
+badBoys["nb_mercenary_condottiere"] = true
+badBoys["nb_mercenary_condottiere"] = true
+badBoys["nb_mercenary_condottiere"] = true
 
 -- PlayerExitSafeZone -- realm @server
 -- PlayerEnterSafeZone -- realm @server
@@ -129,4 +153,20 @@ function PLUGIN:PostPlayerLoadout(client)
 	else
 		client.IsBandit = nil
 	end
+end
+
+
+function PLUGIN:OnNPCKilled(npc, attacker, weapon)
+	local config_rep = ix.config.Get("reputationSavior", 10)
+
+	if (attacker:IsPlayer()) then
+		net.Start("ixUpdateRep", true)
+			net.WriteBool(false) -- положительная репутация
+			net.WriteUInt(config_rep, 16)
+		net.Send(attacker)
+
+		attacker:AddReputation(config_rep)
+	end
+
+
 end

@@ -30,3 +30,8 @@ end
 function playerMeta:AddPVPTime(amount)
 	self:SetLocalVar("PVPTime", CurTime() + amount)
 end
+
+function playerMeta:IsBandit()
+	local repPerc = self:GetReputation() / ix.config.Get("maxReputation", 1500)
+	return repPerc <= -0.6
+end

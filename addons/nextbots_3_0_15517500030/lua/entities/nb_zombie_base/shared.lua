@@ -764,7 +764,7 @@ function ENT:Flinch( dmginfo, hitgroup )
 end
 
 function ENT:OnKilled( dmginfo )
-
+	print("nextbotbase kill")
 	if self.HitByVehicle then 
 	return end
 

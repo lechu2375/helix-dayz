@@ -214,7 +214,7 @@ end
 
 
 function PLUGIN:OnNextbotDeath(npc)
-
+    print("NB DEATH",npc,"died")
     local nextTarget = evci.GetFirstAliveHostage()
     if(!IsValid(evci.destination) and !nextTarget and evci.IsRunning) then
         evci.EventCleanup()
