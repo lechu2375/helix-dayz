@@ -160,13 +160,24 @@ function PLUGIN:OnNPCKilled(npc, attacker, weapon)
 	local config_rep = ix.config.Get("reputationSavior", 10)
 
 	if (attacker:IsPlayer()) then
-		net.Start("ixUpdateRep", true)
-			net.WriteBool(false) -- положительная репутация
-			net.WriteUInt(config_rep, 16)
-		net.Send(attacker)
 
-		attacker:AddReputation(config_rep)
+
+		net.Start("ixUpdateRep", true)
+		if(goodBoys[npc:GetClass()]) then
+			net.WriteBool(true) 
+			net.WriteUInt(config_rep, 16)
+			net.Send(attacker)
+			attacker:TakeReputation(config_rep)
+		else
+			net.WriteBool(false) 
+			net.WriteUInt(config_rep, 16)	
+			net.Send(attacker)
+			attacker:AddReputation(config_rep)
+		end	
+		
+
 	end
 
 
 end
+
