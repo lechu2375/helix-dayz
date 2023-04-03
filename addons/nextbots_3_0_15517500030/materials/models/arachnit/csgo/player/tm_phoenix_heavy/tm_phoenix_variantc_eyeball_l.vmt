@@ -1,0 +1,27 @@
+"EyeRefract"
+{
+	"$Iris" "models/arachnit/csgo/player/tm_phoenix_heavy/tm_phoenix_variantc_eyes_L"
+	"$AmbientOcclTexture" "models/arachnit/shared/eyeball_ao"
+	"$Envmap" "Engine/eye-reflection-cubemap-"
+	"$CorneaTexture" "Engine/eye-cornea"
+	"$LightWarpTexture" "models/arachnit/shared/eye_lightwarp"
+
+"$Irisframe" "0"
+"$EyeballRadius" "0.5"
+"$AmbientOcclColor" "[0.4 0.3 0.27]"
+"$Dilation" "0.7"
+"$Glossiness" "1"
+"$ParallaxStrength" "0.25"
+"$CorneaBumpStrength" "0.5"
+"$HalfLambert" "1"
+"$NoDecal" "1"
+"$AmbientOcclusion" "0"
+"$RaytraceSphere" "0"
+"$SphereTexkillCombo" "0"
+
+	"Eyes_DX8"
+	{
+		"$BaseTexture" "models/gman/eyeball_l"
+		"$Iris" "models/breen/pupil_l"
+	}
+}

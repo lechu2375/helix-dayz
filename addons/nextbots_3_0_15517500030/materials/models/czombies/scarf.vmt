@@ -1,0 +1,5 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CZombies/scarf"
+	"$surfaceprop" "Flesh"
+}

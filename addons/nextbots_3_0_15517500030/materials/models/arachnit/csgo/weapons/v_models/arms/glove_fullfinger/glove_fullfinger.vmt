@@ -1,0 +1,69 @@
+//Arachnit's super duper cool MLG vmt config, donut steal plz. :(
+
+"VertexLitGeneric"
+{
+//Basic
+	"$BaseTexture" 			    "models/arachnit/csgo/weapons/v_models/arms/glove_fullfinger/glove_fullfinger"
+	"$BumpMap" 				    "models/arachnit/csgo/weapons/v_models/arms/glove_fullfinger/glove_fullfinger_normal"
+	"$PhongExponentTexture"     "models/arachnit/csgo/weapons/v_models/arms/glove_fullfinger/glove_fullfinger_exp"
+
+//Warp
+	"$LightWarpTexture"         "models/arachnit/shared/clothes_wrp2"		//< Change as needed
+//	"$PhongWarpTexture"         "models/arachnit/shared/ctm_specwarp" 		//< Change as needed
+//	"$FresnelRangesTexture"     "models/arachnit/shared/ctm_fresnelwarp"
+	"$WarpIndex"                "0.11"
+	
+//Phong
+	"$Phong"				    "1"
+	"$PhongBoost"               "2" 	//< Change as needed
+//	"$PhongExponent"            "1" 	//< $PhongExponent overrides $PhongExponentTexture !!!
+	"$PhongFresnelRanges"	    "[0.3 0.6 1]"
+	"$PhongTint" 			    "[0.7 0.8 1]"
+	"$PhongDisableHalflambert"  "0"
+	"$PhongAlbedoTint"          "1"
+	"$PhongAlbedoBoost"         "15"
+	"$BasemapAlphaPhongMask"    "0"
+//	"$NormalmapAlphaPhongMask"  "1"
+	"$ForcePhong"				"1"
+
+//Rimlight
+	"$Rimlight" 			    "1"
+	"$RimMask" 				    "1"
+	"$RimlightExponent"         "4"
+	"$RimlightBoost"            "1" // "0.1"
+	"$RimlightAlbedo"           "0.6"
+	"$RimlightTint"             "[0.8 1.0 1.2]"
+	"$FakeRimTint"              "[0.5 0.7 1]"
+	"$FakeRimBoost"             "9"
+
+//Environment map / Reflection
+	"$Envmap"                   "env_cubemap"
+	"$EnvmapTint" 			    "[ .01 .01 .02 ]"
+	"$EnvmapLightScale"         "1"
+	"$EnvmapLightScaleMinMax"   "[-.05 1]"
+	"$NormalmapAlphaEnvmapMask" "1"
+
+//Other
+	"$Model"                    "1"
+	"$HalfLambert" 			    "1"
+	"$NoDecal" 				    "0"
+	"$NoLod" 				    "0"
+	"$AmbientOcclusion" 	    "1"
+	"$NoCull" 				    "1"
+//	"$Color2"					"{ 255 255 255 }"	//< RGB colors
+	"$CloakPassEnabled" 		"1" 	//< For SFM and TF2
+	
+//CS:GO&L4D2	
+	"$ShadowSaturation"      	  "0.23"
+	"$ShadowSaturationBounds"	  "[-0.1 0.3 0.4 0.7]"
+	"$ShadowContrast"        	  "0.4"
+	"$ShadowTint"            	  "[0 0.5 1 0.2]"
+	"$AmbientReflectionBoost" 	  "0.035"
+	"$DiffuseExp" 			 	  "1.5"
+
+//Detail
+	"$Detail" 				  	  "models/arachnit/csgo/weapons/customization/shared/paint_wear" 	//< Change as needed
+	"$DetailScale" 			  	  "1"
+	"$DetailBlendFactor" 	  	  "1"
+	"$DetailBlendMode" 		   	  "0"
+}

@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\czombies/citizen_sheet9"
+	"$halflambert" 1
+}

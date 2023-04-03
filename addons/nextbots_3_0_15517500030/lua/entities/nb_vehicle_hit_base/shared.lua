@@ -806,26 +806,38 @@ function ENT:FirstValueTable( table )
 end
 
 function ENT:CanTargetThisEnemy( ent )
-
+	//print(ent)
 	if ent then
 	
 		if ent.BASENEXTBOT then return false end
-
+		//print("p1")
 		if IsValid( ent ) and ent:Health() > 0 then
-			
+			//print("p2")
 			if ent.NEXTBOT then
 				if ent.NEXTBOTFACTION != self.NEXTBOTFACTION then
 					return true	
 				end
 			else
+				//print("p3")
 				if ai_ignoreplayers:GetInt() == 0 then
 					if ent:IsPlayer() then
+						//print("p4")
 						if ent:Alive() then
+							//print("p5")
+
+
 							if self.FriendlyToPlayers then
-								if self:IsPlayerZombie( ent ) then
+								//print("p6")
+								if self:IsPlayerZombie( ent ) or ent:IsBandit() then
+									print(ent,"Can be attacked")
 									return true
 								end
+							elseif(self.NEXTBOTMERCENARY and ent:IsBandit()) then
+
+								return false
+							
 							else
+								
 								if self.NEXTBOTFACTION == 'NEXTBOTZOMBIE' then
 									if !self:IsPlayerZombie( ent ) then
 										return true

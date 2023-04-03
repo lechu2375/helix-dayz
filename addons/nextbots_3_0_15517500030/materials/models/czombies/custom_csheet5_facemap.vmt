@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CZombies/Custom_CSheet5_facemap"
+	"$surfaceprop" "Flesh"
+	"$halflambert" 1
+	"$model" "1"
+}

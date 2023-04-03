@@ -1196,7 +1196,7 @@ function ENT:OnKilled( dmginfo )
 		end
 		
 	end
-	
+	hook.Run( "OnNPCKilled",self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
 	self:PlayDeathSound()
 	
 end

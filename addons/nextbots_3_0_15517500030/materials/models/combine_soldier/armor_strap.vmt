@@ -1,0 +1,13 @@
+"vertexlitGeneric"
+{
+	"$basetexture" "models/combine_soldier/armor_strap"
+	"$bumpmap" "models/combine_soldier/armor_strap_n"
+	"$surfaceprop" "flesh"
+	"$model" "1"
+	
+	"$phong" 1
+	"$phongboost" "8"
+	"$PhongExponent" "5"
+	"$halflambert" "1"									
+	"$phongfresnelranges"	"[.1 .5 1.0]"
+}

@@ -152,6 +152,9 @@ function ENT:FindEnemy()
 				if v:Health() < 0 then --Remove dead targets from pool of enemies
 					table.remove( enemies, k )
 				end
+				if (v:IsPlayer() and v:IsBandit()) then
+					table.remove( enemies, k )
+				end
 				if ai_ignoreplayers:GetInt() == 0 then --Remove players from pool of enemies if ignore players is true
 					if v:IsPlayer() then
 						if !v:Alive() then --Remove dead players from pool of enemies

@@ -172,7 +172,6 @@ function ENT:RunBehaviour()
 		if math.random(1,3) == 1 then
 			self:EquipWeapon()
 			self:PlaySequenceAndWait("pullgrenade",1)
-			print("nade")
 			self.PulledGrenade = true
 			self:GrenadeTimer()
 			self:MovementFunction()
@@ -355,11 +354,9 @@ function ENT:OnRemove()
 end
 
 function ENT:OnKilled( dmginfo )
-	print("death")
 	SafeRemoveEntity( self.NadeModel )
 	self:BecomeRagdoll( dmginfo )
 	self:PlayDeathSound()
-	hook.Run( "OnNPCKilled",self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
 end
 
 function ENT:Flinch( dmginfo, hitgroup )

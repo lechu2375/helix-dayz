@@ -1,0 +1,14 @@
+VertexLitGeneric
+{
+	"$basetexture"			"models//sr/Headset"
+
+	 "$envmap" 			"env_cubemap"
+	"$envmaptint"			"[ 0.36 0.36 0.36 ]"
+	"$normalmapalphaenvmapmask"	"1"
+	"$envmapsaturation" 0.7
+	"$envmapcontrast" 0.3
+
+	"$model" 1
+	"$surfaceprop" "metal"
+	"$halflambert" 1
+}

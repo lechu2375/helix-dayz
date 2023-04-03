@@ -1,0 +1,8 @@
+VertexLitGeneric
+{
+	"$basetexture"			"models/sr/usmc_tactical_mich_col"
+
+	"$model" 1
+	"$surfaceprop" "metal"
+	"$halflambert" 1
+}

@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/vance_facemap10"
+	"$bumpmap" "models/CZombies/vance_facemap10_normal"
+	"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+}

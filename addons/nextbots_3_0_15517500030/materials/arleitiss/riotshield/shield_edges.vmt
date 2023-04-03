@@ -1,0 +1,8 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "arleitiss/riotshield/shield_edges"
+	"$bumpmap" "arleitiss/riotshield/riot_metal_bump"
+	"$envmap"	"env_cubemap"
+	"$envmaptint"	"[ .4 .4 .4 ]"
+	"$normalmapalphaenvmapmask" "1"
+}

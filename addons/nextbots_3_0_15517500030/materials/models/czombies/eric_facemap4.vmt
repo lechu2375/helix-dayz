@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\czombies/eric_facemap4"
+	"$halflambert" "1"
+	"$nodecal" "0"
+}

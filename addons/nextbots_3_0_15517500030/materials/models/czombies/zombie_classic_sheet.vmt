@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/Zombie_Classic_sheet"
+		"$bumpmap" "Models/CZombies/zombie_classic_sheet_normal"
+	"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+}

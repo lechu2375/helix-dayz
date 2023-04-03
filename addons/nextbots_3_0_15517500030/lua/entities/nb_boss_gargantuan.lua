@@ -465,5 +465,5 @@ function ENT:OnKilled( dmginfo )
 	self:EmitFlesh( math.random(5,7), math.random(150,200), 105, self:GetPos() + Vector(0,0,80) )
 	self:BecomeRagdoll( dmginfo )
 	self:PlayDeathSound()
-	
+	hook.Run( "OnNPCKilled",self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
 end

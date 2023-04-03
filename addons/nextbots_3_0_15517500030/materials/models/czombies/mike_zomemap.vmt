@@ -1,0 +1,6 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/CZombies/mike_zomemap"
+	"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+}

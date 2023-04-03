@@ -109,7 +109,7 @@ function ENT:OnKilled( dmginfo )
 
 	self:BecomeRagdoll( dmginfo )
 	self:PlayDeathSound()
-	hook.Run( "OnNPCKilled",self, dmginfo:GetAttacker(), dmginfo:GetInflictor() )
+	
 end
 
 function ENT:CustomOnOtherKilled( ent, dmginfo )
