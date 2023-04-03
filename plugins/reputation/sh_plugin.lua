@@ -213,3 +213,14 @@ function PLUGIN:PlayerMerchantCalcPrice(client, price, isSellingToVendor)
 		return math.max(price, 1.5 * (price + price * rate))
 	end
 end
+
+ix.command.Add("SetReputation", {
+	description = "Ustaw komuś punkty reputacji",
+	arguments = {
+		ix.type.character,
+		ix.type.number
+	},
+	OnRun = function(self, client, target, reputation)
+		target:GetPlayer():SetReputation(reputation)
+	end
+})

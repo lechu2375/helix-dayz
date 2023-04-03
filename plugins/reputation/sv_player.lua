@@ -12,6 +12,15 @@ function playerMeta:TakeReputation(amount)
 	self:SetNetVar("reputation", math.max(-max, self:GetReputation() - amount))
 end
 
+function playerMeta:ResetReputation()
+	self:SetNetVar("reputation", 0)
+end
+
+function playerMeta:SetReputation(amount)
+	local max = ix.config.Get("maxReputation", 1500)
+	self:SetNetVar("reputation",math.Clamp(amount,-max,max))
+end
+
 function playerMeta:SafePenalty()
 	local time, mul = ix.config.Get("safePenalty", 100), ix.config.Get("safePenaltyMul", 2)
 
