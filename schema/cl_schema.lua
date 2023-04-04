@@ -41,9 +41,10 @@ function render.DrawBoundingBox( pos1, pos2, color, mat, thick )
 	render.DrawBeam( b1, a2, thick, textureInt, textureInt, color )
 end
 
-local lpy = LocalPlayer()
+
 function Schema:PrePlayerDraw(ply)
-	if(!lpy:IsLineOfSightClear(ply)) then return true end
+	if(LocalPlayer()==ply) then return  end
+	if(!LocalPlayer():IsLineOfSightClear(ply)) then return true end
 end
 -- render.SetMaterial(ringMat)
 -- render.DrawQuadEasy(center, vector_up, sizeRing, sizeRing, Color(50, 200, 50))

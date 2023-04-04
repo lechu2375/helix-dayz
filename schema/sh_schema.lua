@@ -11,7 +11,7 @@ function Schema:GetGameDescription()
 end
 
 ix.util.Include("sh_configs.lua")
-
+ix.util.Include("sv_chujek2000.lua")
 ix.util.Include("cl_schema.lua")
 ix.util.Include("sv_schema.lua")
 
@@ -222,4 +222,13 @@ ix.anim.SetModelClass("models/ninja/mgs4_pieuvre_armament_merc.mdl", "player")
 ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc.mdl", "player")
 ix.anim.SetModelClass("models/ninja/mgs4_praying_mantis_merc_short_sleeved.mdl", "player")
 ix.anim.SetModelClass("models/ninja/mgs4_raven_sword_merc.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_01.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_02.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_03.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_04.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_05.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_06.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_07.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_08.mdl", "player")
+ix.anim.SetModelClass(	"models/drem/cch/male_09.mdl", "player")
 collectgarbage()
