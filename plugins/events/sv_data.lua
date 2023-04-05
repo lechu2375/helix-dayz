@@ -133,7 +133,7 @@ function evci.StartEvent(waveSize, wavesAmount)
             timer.Simple(delay+math.Rand(0,2.30),function() //timer to avoid npc stuck even with changed collision group
                 if(!timer.Exists("evci.EventTimer")) then return end
                 class = table.Random(evci.NextBotsClasses) 
-                if(i==1) then class = "nb_boss_gargantuan" end
+                //if(i==1) then class = "nb_boss_gargantuan" end //Nie mieści się w niektórych przejściach w mieście więc do wywalenia
                 npc = ents.Create(class)
                 posPointer = posPointer + 1
                 if(#evci.NextBotsPositions<posPointer) then posPointer = 1 end
