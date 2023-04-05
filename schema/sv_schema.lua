@@ -1,7 +1,8 @@
 local GM = GM or GAMEMODE
 
 local entityMeta = FindMetaTable("Entity")
-
+local example = GetConVar( "nb_targetmethod" )
+example:SetInt(1)
 --- Clears all of the networked variables.
 -- @realm server
 -- @internal

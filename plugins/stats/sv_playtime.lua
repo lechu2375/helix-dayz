@@ -5,8 +5,9 @@ function PLUGIN:CharacterLoaded(character)
         timer.Create("cplaytime"..player:SteamID64(),60,0, function()
             if(IsValid(player) and character) then
                 local character = player:GetCharacter()
-                character:SetPlaytime(character:GetPlaytime()+1)
-                print("Grasz na postaci już: "..character:GetPlaytime().." minut!")
+                if(character) then
+                    character:SetPlaytime(character:GetPlaytime()+1)
+                end
             else
                 //print("kurwoo nie ma chara")
                 timer.Destroy(cplaytime..id)
