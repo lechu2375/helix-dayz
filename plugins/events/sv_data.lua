@@ -71,14 +71,17 @@ function evci.AreHostageAlive()
 end
 function evci.GetFirstAliveHostage()
 
-    for _,v in pairs(evci.hostages) do
+    for k,v in pairs(evci.hostages) do
         if(IsValid(v)) then
             return v
+        else
+            evci.hostages[k] = nil
         end
     end
     return false
 end
 function evci.EventCleanup()
+    if(timer.Exists("evci.BugCatcher")) then timer.Remove("evci.BugCatcher") end
     if(timer.Exists("evci.EventTimer")) then timer.Remove("evci.EventTimer") end
     if(timer.Exists("evci.WaveTimer")) then timer.Remove("evci.WaveTimer") end
     if(IsValid(evci.destination)) then
@@ -99,13 +102,13 @@ function evci.EventCleanup()
     evci.IsRunning = false
 end
 function evci.StartEvent(waveSize, wavesAmount)
-    evci.IsRunning = true
+
     for _,v in pairs(player.GetAll()) do //fade so players wont notice lag due to spawning npc
         v:ScreenFade( SCREENFADE.PURGE, color_black,0.1, 1.5 )
     end
 
     evci.EventCleanup() //In case if someone would do the same command second time
-
+    evci.IsRunning = true
 
     evci.destination = ents.Create("nb_citizen") //XDD spawn citizen then for every zombie set him as enemy so they will run to his position
     evci.destination:SetPos(evci.TargetDestination)
@@ -128,6 +131,32 @@ function evci.StartEvent(waveSize, wavesAmount)
         
         timer.Create("evci.WaveTimer",120, wavesAmount-1, function()
             PrintMessage(HUD_PRINTTALK, "Kolejna horda zombie zbliża się do miasta!")
+        end)
+        timer.Create("evci.BugCatcher",11,0, function()
+
+            if(evci.IsRunning) then
+                if(!IsValid(evci.destination)) then
+                    local nextTarget = evci.GetFirstAliveHostage()
+                    if(!nextTarget) then
+                        evci.EventCleanup()
+
+                        PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
+                        return 
+                    end
+                    evci.destination = nextTarget
+                    for k,v in pairs(evci.zombies) do
+                        if(IsValid(v)) then
+                            
+                            v:SetEnemy(evci.destination)
+                        else
+                            evci.zombies[k] = nil
+                        end
+                    end
+                end
+                
+
+                return
+            end
         end)
         for i=1,waveSize do //zombie spawner
             timer.Simple(delay+math.Rand(0,2.30),function() //timer to avoid npc stuck even with changed collision group
@@ -205,6 +234,7 @@ function evci.StartEvent(waveSize, wavesAmount)
                 end
             else
                 evci.EventCleanup()
+                print("timer end")
                 PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
             end
         end
@@ -214,19 +244,24 @@ end
 
 
 function PLUGIN:OnNextbotDeath(npc)
-    print("NB DEATH",npc,"died")
+
     local nextTarget = evci.GetFirstAliveHostage()
-    if(!IsValid(evci.destination) and !nextTarget and evci.IsRunning) then
+    PrintTable(evci.hostages)
+    if(!IsValid(evci.destination) and !IsValid(nextTarget) and evci.IsRunning) then
         evci.EventCleanup()
         PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
         return
     end
     if(npc==evci.destination) then
         
-
+        evci.destination = nextTarget
         for k,v in pairs(evci.zombies) do
-            evci.destination = evci.GetFirstAliveHostage()
-            v:SetEnemy(evci.destination)
+            if(IsValid(v)) then
+                
+                v:SetEnemy(evci.destination)
+            else
+                evci.zombies[k] = nil
+            end
         end
     end
 end
