@@ -7,6 +7,9 @@ function PLUGIN:CharacterLoaded(character)
                 local character = player:GetCharacter()
                 if(character) then
                     character:SetPlaytime(character:GetPlaytime()+1)
+                    if(character:GetPlaytime()==60) then    
+                        ix.discordrelay.RelayChatToDiscord(character:GetName(), "Właśnie przegrał swoją pierwszą godzinę na postaci!")
+                    end
                 end
             else
                 //print("kurwoo nie ma chara")
