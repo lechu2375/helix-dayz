@@ -604,7 +604,7 @@ function ENT:AlertNearby( ent )
 
 			for k,v in pairs( ents.FindByClass("nb_*") ) do
 
-				if !v.BASENEXTBOT and v != self then
+				if !v.BASENEXTBOT and v != self and IsValid(v)then
 					
 					if self.NEXTBOTFACTION == v.NEXTBOTFACTION then
 
@@ -697,7 +697,7 @@ function ENT:OnOtherKilled( ent, dmginfo )
 			
 				if ( ent.NEXTBOT or ( ent:IsPlayer() and !self:IsPlayerZombie( ent ) and ai_ignoreplayers:GetInt() == 0 ) ) then
 				
-					if !self:HaveEnemy() then
+					if (self.HaveEnemy and !self:HaveEnemy()) then
 				
 						local enemy = dmginfo:GetAttacker()
 			

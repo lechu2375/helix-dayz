@@ -120,8 +120,9 @@ function ENT:CustomBehaveUpdate()
 				
 					local selfNAV = navmesh.GetNavArea( self:GetPos(), self.LeapRange + 5 )
 					local enemyNAV = navmesh.GetNavArea( self.Enemy:GetPos(), self.LeapRange + 5 )
-					local heightdiff = selfNAV:ComputeAdjacentConnectionHeightChange( enemyNAV )
-					
+					if(enemyNAV and selfNAV) then
+						local heightdiff = selfNAV:ComputeAdjacentConnectionHeightChange( enemyNAV )
+					end
 					if heightdiff != nil then --dont jump
 					
 						if heightdiff < ( self.JumpHeight + 60 ) then
