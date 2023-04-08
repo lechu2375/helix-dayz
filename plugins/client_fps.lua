@@ -65,13 +65,13 @@ if (CLIENT) then
 	end
 
 	hook.Add("OnEntityCreated", "GmodZ.DisableShadows", function(entity)
-		if (ix.option.Get("entityShadows", false)) then
+		if (ix.option.Get("entityShadows", true)) then
 			entity:DrawShadow(false)
 		end
 	end)
 
 	hook.Add("InitPostEntity", "GmodZ.DisableShadows", function()
-		if (ix.option.Get("entityShadows", false)) then
+		if (ix.option.Get("entityShadows", true)) then
 			for _, entity in ipairs(ents.GetAll()) do
 				entity:DrawShadow(false)
 			end
