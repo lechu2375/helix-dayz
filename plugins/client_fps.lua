@@ -1,5 +1,5 @@
 PLUGIN.name = "Boost FPS"
-PLUGIN.author = "STEAM_0:1:29606990"
+PLUGIN.author = "STEAM_0:1:29606990 && Lechu2375"
 PLUGIN.description = ""
 
 do
