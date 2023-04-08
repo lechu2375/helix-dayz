@@ -55,9 +55,10 @@ local h = surface.GetTextSize(ver)
 local wave = Material( "dayzlogo.png", "noclamp smooth" )
 function Schema:PostRenderVGUI()
 	ix.util.DrawText(ver, ScrW()-h, ScrH()-w, color_white, TEXT_ALIGN_LEFT, TEXT_ALIGN_LEFT, "DebugFixedSmall", 255)
+	/*
 	surface.SetMaterial( wave )
 	surface.SetDrawColor( 255, 255, 255, 50 )
-	surface.DrawTexturedRect( 0, 0, 128, 112   )
+	surface.DrawTexturedRect( 0, 0, 128, 112   )*/
 end
 
 
