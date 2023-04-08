@@ -7,6 +7,7 @@ PLUGIN.author = "Lechu2375"
 ix.command.Add("AddTimedText", {
 	description = "Adds floating text on your position",
 	arguments = {ix.type.number,ix.type.text},
+    adminOnly = true,
 	OnRun = function(self, client, lifeTime, text)
         net.Start("ixTimedText")
         net.WriteVector(client:GetPos()+Vector(0,0,50))
@@ -16,6 +17,16 @@ ix.command.Add("AddTimedText", {
 	end
 })
 
+ix.command.Add("TestDC", {
+	description = "Adds floating text on your position",
+	OnRun = function(self, client)
+        net.Start("ixTimedText")
+        net.WriteVector(client:GetPos()+Vector(0,0,50))
+        net.WriteString(client:GetName().." opuścił serwer")
+        net.WriteUInt(50,10)
+        net.Broadcast()
+	end
+})
 
 if(SERVER) then
 
@@ -35,7 +46,7 @@ if(CLIENT) then
 
     PLUGIN.DeathTexts = {}
 
-    function AddTimedText(position,text,lifeitme)
+    function AddTimedText(position,text,lifetime)
         PLUGIN.DeathTexts[position.x] = {position = position,text=text or "Brak tekstu",lifetime = lifetime or 10}
         timer.Simple(lifetime or 10, function()
             PLUGIN.DeathTexts[position.x] = nil
