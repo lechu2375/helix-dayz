@@ -58,9 +58,9 @@ if(CLIENT) then
     end)
     
 
-    
+    local angle
     function PLUGIN:PostDrawTranslucentRenderables()
-        local angle = EyeAngles()
+        angle = EyeAngles()
 
 
         angle = Angle( 0, angle.y, 0 )
