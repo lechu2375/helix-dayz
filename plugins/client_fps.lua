@@ -86,3 +86,27 @@ if (SERVER) then
 		end
 	end)
 end
+
+local toPrecache = "grabber_0"
+
+for i=1,9 do
+	util.PrecacheModel(toPrecache..i..".mdl")
+end
+
+toPrecache = "infected_0"
+
+for i=1,9 do
+	util.PrecacheModel(toPrecache..i..".mdl")
+end
+
+toPrecache = "seeker_0"
+
+for i=1,3 do
+	util.PrecacheModel(toPrecache..i..".mdl")
+end
+
+toPrecache = "freshdead_0"
+
+for i=1,7 do
+	util.PrecacheModel(toPrecache..i..".mdl")
+end
