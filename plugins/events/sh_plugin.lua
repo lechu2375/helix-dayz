@@ -30,6 +30,7 @@ ix.command.Add("cityinvasion1", {
 	OnRun = function(self, client, waveSize, wavesAmount)
         evci.StartEvent(waveSize, wavesAmount)
         client:Notify("Rozpoczęto event: Inwazja na miasto.")
+        ix.discordrelay.RelayChatToDiscord("Zombie zbliżają się do miasta!", "Zombie rozpoczynają inwazję na miasto by zabić jak najwięcej bezbronnych cywili!")
 	end
 })
 
