@@ -29,7 +29,7 @@ if(CLIENT) then
     function PLUGIN:PostDrawTranslucentRenderables()
         for _,v in pairs(PLUGIN.slupyElektryczne) do
             for _,b in pairs(v.bttns) do
-
+                render.SetColorMaterial()
                 render.DrawSphere( b, 10, 30,50,color_white)
 
             end
@@ -49,14 +49,15 @@ function PLUGIN:CanClimbOnPole(ply)
     return false
 end
 
-local origin = Vector(-4607.3647460938,6932.2109375,335.25302124023)
+
 function PLUGIN:KeyPress(ply,key)
-    if(key==IN_ATTACK2 and ply:GetActiveWeapon():GetClass()=="ix_hands" and ( (ply.nextElectricJump or 0)<=CurTime() ) and !ply.failedHardkor and  PLUGIN:CanClimbOnPole(ply) ) then
-        print((ply.nextElectricJump or 0)<=CurTime())
+    if(key==IN_ATTACK2 and ply:GetActiveWeapon():GetClass()=="ix_hands" and ( (ply.nextElectricJump or 0)<=CurTime() )  and  PLUGIN:CanClimbOnPole(ply) ) then
+        
+        
         ply:SetLocalVelocity(ply:GetAimVector() * 400)
+    
         local Vel = ply:GetVelocity()
         ply:SetVelocity(Vector(0, 0, 240 - 15 * 1 - Vel.z))
-        ply.nextElectricJump = CurTime()+0.5
     end
 end
 
