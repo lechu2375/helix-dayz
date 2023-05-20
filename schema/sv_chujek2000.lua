@@ -14,14 +14,16 @@ end
 
 function Schema:ScalePlayerDamage( poszkodowany,hitgroup,dmginfo )
     local attacker = dmginfo:GetInflictor()
-    if(attacker:IsPlayer()) then return end
+
     local actable = attacker.ACTable
-    if(table.IsEmpty(attacker.ACTable)) then
-        attacker.ACTable.hits = {}
-    end
-    actable.hits[hitgroup] = (actable.hits[hitgroup] or 0) + 1 
-    if(attacker:GetAllHitsCount(false)>100 and attacker:GetHitPercByHitgroup(hitgroup)>0.8) then //sus?
-        print(attacker,"sus","hitgroup num", hitgroup,"ponad 80% trafień w tego samego hitgroupa")
+    if(IsValid(actable)) then
+        if(table.IsEmpty(attacker.ACTable)) then
+            attacker.ACTable.hits = {}
+        end
+        actable.hits[hitgroup] = (actable.hits[hitgroup] or 0) + 1 
+        if(attacker:GetAllHitsCount(false)>100 and attacker:GetHitPercByHitgroup(hitgroup)>0.8) then //sus?
+            print(attacker,"sus","hitgroup num", hitgroup,"ponad 80% trafień w tego samego hitgroupa")
+        end
     end
 end
 
