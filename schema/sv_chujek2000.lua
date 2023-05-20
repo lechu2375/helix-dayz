@@ -14,7 +14,7 @@ end
 
 function Schema:ScalePlayerDamage( poszkodowany,hitgroup,dmginfo )
     local attacker = dmginfo:GetInflictor()
-    if(!IsPlayer(attacker)) then return end
+    if(attacker:IsPlayer()) then return end
     local actable = attacker.ACTable
     if(table.IsEmpty(attacker.ACTable)) then
         attacker.ACTable.hits = {}
