@@ -26,3 +26,5 @@ function FACTION:OnSpawn(client)
 	
 end
 FACTION_SURVIVOR = FACTION.index
+
+

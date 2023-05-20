@@ -31,7 +31,6 @@ if(CLIENT) then
             for _,b in pairs(v.bttns) do
                 render.SetColorMaterial()
                 render.DrawSphere( b, 10, 30,50,color_white)
-
             end
         end
 
@@ -49,15 +48,15 @@ function PLUGIN:CanClimbOnPole(ply)
     return false
 end
 
-
-function PLUGIN:KeyPress(ply,key)
-    if(key==IN_ATTACK2 and ply:GetActiveWeapon():GetClass()=="ix_hands" and ( (ply.nextElectricJump or 0)<=CurTime() )  and  PLUGIN:CanClimbOnPole(ply) ) then
+if(CLIENT) then
+    function PLUGIN:KeyPress(ply,key)
+        if(key==IN_ATTACK2 and ply:GetActiveWeapon():GetClass()=="ix_hands" and ( (ply.nextElectricJump or 0)<=CurTime() )  and  PLUGIN:CanClimbOnPole(ply) ) then
+            
+            
+            ply:SetLocalVelocity(ply:GetAimVector() * 400)
         
-        
-        ply:SetLocalVelocity(ply:GetAimVector() * 400)
-    
-        local Vel = ply:GetVelocity()
-        ply:SetVelocity(Vector(0, 0, 240 - 15 * 1 - Vel.z))
+            local Vel = ply:GetVelocity()
+            ply:SetVelocity(Vector(0, 0, 240 - 15 * 1 - Vel.z))
+        end
     end
 end
-
