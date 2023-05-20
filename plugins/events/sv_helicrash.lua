@@ -80,7 +80,12 @@ function helicrash.TestCrash(pos)
                 for k,v in pairs(RandomItems) do
                     inv:Add(v.uniqueID, v.data.quantity)
                 end
-
+                timer.Simple(60*5, function()
+                    if(IsValid(heliContainer)) then
+                        heliContainer:SetHealth(100)
+                        heliContainer:Ignite()
+                    end      
+                end)
                 heliProp:Remove()
             end
             

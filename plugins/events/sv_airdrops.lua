@@ -32,6 +32,13 @@ function airdrops.SpawnAtPos(pos,itemsAmount)
         inv:Add(v.uniqueID, v.data.quantity)
     end
 
+    timer.Simple(60*5, function()
+        if(IsValid(supplyCrate)) then
+            supplyCrate:SetHealth(100)
+            supplyCrate:Ignite()
+        end      
+    end)
+
    local id = supplyCrate:GetCreationID()
     timer.Create("parachuteRemover"..id, 0.5, 0, function()
         if(!supplyCrate or !supplyCrate.parachute) then
