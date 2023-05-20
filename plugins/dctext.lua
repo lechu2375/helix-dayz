@@ -77,14 +77,3 @@ if(CLIENT) then
 
 
 end
-if(CLIENT) then
-
-    function PLUGIN:CreateClientsideRagdoll(entity,ragdoll )
-        timer.Simple(30, function()
-            if(IsValid(ragdoll)) then
-                ragdoll:Remove()
-            end
-        end)
-    end
-    
-end

@@ -79,7 +79,7 @@ function PANEL:Setup(item, index)
 
 	self.force.label = self.force:Add("DLabel")
 	self.force.label:DockMargin(5, 0, 0, 0)
-	self.force.label:SetText("Сила рандома")
+	self.force.label:SetText("Force")
 	self.force.label:Dock(LEFT)
 	self.force.label:SetFont("ixSmallFont")
 	self.force.label:SetContentAlignment(5)

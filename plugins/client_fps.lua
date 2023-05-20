@@ -110,3 +110,17 @@ toPrecache = "freshdead_0"
 for i=1,7 do
 	util.PrecacheModel(toPrecache..i..".mdl")
 end
+
+timer.Create( "removeRagdolls", 30, 0, function() game.RemoveRagdolls() end )
+/*
+if(CLIENT) then
+
+    function PLUGIN:CreateClientsideRagdoll(entity,ragdoll )
+        timer.Simple(30, function()
+            if(IsValid(ragdoll)) then
+                ragdoll:Remove()
+            end
+        end)
+    end
+    
+end*/
