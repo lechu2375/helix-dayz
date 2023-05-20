@@ -57,9 +57,9 @@ function TOOL:RightClick(trace)
 				net.WriteTable(PLUGIN.spawners)
 			net.Send(owner)
 
-			owner:Notify("Точка спавна была удалена.") -- The spawnpoint has been removed.
+			owner:Notify("The spawnpoint has been removed.") -- The spawnpoint has been removed.
 		else
-			owner:Notify("Нет точки спавна с таким именем.") -- No spawnpoint with that name.
+			owner:Notify("No spawnpoint with that name.") -- No spawnpoint with that name.
 		end
 	else
 		return false

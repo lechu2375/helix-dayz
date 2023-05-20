@@ -89,18 +89,18 @@ if (CLIENT) then
 			draw.SimpleTextOutlined(v.title, "DermaDefaultBold", a.x, a.y - space, col, 1, 1, 1, color_black)
 
 			space = space + 15
-			draw.SimpleTextOutlined(Format("Задержка: %d мин.", v.delay), "DermaDefaultBold", a.x, a.y - space, Color("yellow"), 1, 1, 1, color_black)
+			draw.SimpleTextOutlined(Format("Opóźnienie: %d min.", v.delay), "DermaDefaultBold", a.x, a.y - space, Color("yellow"), 1, 1, 1, color_black)
 
-			local chance = "Обычный"
+			local chance = "Zwykły"
 
 			if (v.chance_type == 1) then
-				chance = "Вещественный"
+				chance = "Ważony"
 			elseif (v.chance_type == 2) then
-				chance = "Линейный"
+				chance = "Liniowy"
 			end
 
 			space = space + 15
-			draw.SimpleTextOutlined("Рандом: " .. chance .. " (" .. (v.scale or 1) .. ")", "DermaDefaultBold", a.x, a.y - space, Color("yellow"), 1, 1, 1, color_black)
+			draw.SimpleTextOutlined("Typ Losowości: " .. chance .. " (" .. (v.scale or 1) .. ")", "DermaDefaultBold", a.x, a.y - space, Color("yellow"), 1, 1, 1, color_black)
 		end
 	end
 end
