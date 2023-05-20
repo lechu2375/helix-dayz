@@ -1,6 +1,6 @@
 ITEM.name = "Apteczka"
 ITEM.model = "models/illusion/eftcontainers/carmedkit.mdl"
-ITEM.description = "Uniwersalna apteczka jednorazowego użytku. Pozwala na radzenie sobie z obrażeniami różnego typu i stopnia skomplikowania. Apteczka leczy ~35% twojego życia i usuwa część krwawienia i nagromadzonego promieniowania."
+ITEM.description = "Uniwersalna apteczka jednorazowego użytku. Pozwala na radzenie sobie z obrażeniami różnego typu i stopnia skomplikowania. Apteczka leczy ~35 procent twojego życia i usuwa część krwawienia i nagromadzonego promieniowania."
 
 ITEM.healthAmount = 20
 ITEM.price = 2000
