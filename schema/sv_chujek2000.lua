@@ -81,8 +81,8 @@ ix.command.Add("Investigate", {
 	description = "Przejrzyj",
 	arguments = ix.type.character,
 	OnRun = function(self, client, target)
-        client:PrintMessage(HUD_PRINTTALK, target:GetPlayer():Name()..":"..target:GetName())
+        client:PrintMessage(HUD_PRINTTALK, target:GetPlayer():Nick()..":"..target:GetName())
 		client:PrintMessage(HUD_PRINTTALK, target:GetPlayer():GetInfoString())
-        client:PrintMessage(HUD_PRINTTALK, "Ta postać ma już:"..(target:GetPlaytime()/60).."godzin")
+        client:PrintMessage(HUD_PRINTTALK, "Ta postać ma już:"..(math.Round(target:GetPlaytime()/60, 2)).."godzin")
 	end
-})
+}) 
