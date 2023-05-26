@@ -48,7 +48,7 @@ function Schema:PrePlayerDraw(ply)
 end
 -- render.SetMaterial(ringMat)
 -- render.DrawQuadEasy(center, vector_up, sizeRing, sizeRing, Color(50, 200, 50))
-local ver = "DayZ Rozdział 1 wer. 0.70707a"
+local ver = "DayZ Rozdział 1 wer. 0.232605"
 local w = draw.GetFontHeight( "DebugFixedSmall")
 surface.SetFont("DebugFixedSmall")
 local h = surface.GetTextSize(ver)

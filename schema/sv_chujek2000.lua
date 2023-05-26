@@ -4,6 +4,9 @@ function Schema:PlayerInitialSpawn(ply)
     ply.ACTable = ply:GetData("actable", {})
     if(table.IsEmpty(ply.ACTable)) then
         ply.ACTable.hits = {}
+        for i=1,7 do
+            ply.ACTable.hits[i] = 0
+        end
     end
 end
 
@@ -54,3 +57,32 @@ function meta:GetHitPercByHitgroup(hitgroup)
     end
     return false //wrong hitgroup
 end
+
+
+local translateTable = {}
+translateTable[1] = "Głowa"
+translateTable[2] = "Klatka"
+translateTable[3] = "Brzuch"
+translateTable[4] = "Lewa ręka"
+translateTable[5] = "Prawa ręka"
+translateTable[6] = "Lewa noga"
+translateTable[7] = "Prawa noga"
+function meta:GetInfoString()
+    local str = ""
+    for i=1,7 do
+
+        str=str.."\n"..translateTable[i]..":"..self:GetAllHitsCount(i).."/"..self:GetHitPercByHitgroup(i).."%"
+    end
+    return str
+end
+
+
+ix.command.Add("Investigate", {
+	description = "Przejrzyj",
+	arguments = ix.type.character,
+	OnRun = function(self, client, target)
+        client:PrintMessage(HUD_PRINTTALK, target:GetPlayer():Name()..":"..target:GetName())
+		client:PrintMessage(HUD_PRINTTALK, target:GetPlayer():GetInfoString())
+        client:PrintMessage(HUD_PRINTTALK, "Ta postać ma już:"..(target:GetPlaytime()/60).."godzin")
+	end
+})
