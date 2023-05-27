@@ -1,11 +1,13 @@
 ITEM.name = "Plecak Black Jack"
 ITEM.description = "Plecak na długie, dalekie i udane wyprawy stworzony przez firmę Mystery Ranch."
-ITEM.model = Model("models/tankbags/small_bags/smallbag05.mdl")
+ITEM.model = Model("models/player/backpack_blackjack/blackjack.mdl")
 ITEM.pacmodel = "models/player/backpack_blackjack/bp_blackjack50_body_lod0.mdl"
 ITEM.category = "Użytkowe"
+ITEM.outfitCategory = "plecak"
 ITEM.price = 3500
 ITEM.invWidth = 5
 ITEM.invHeight = 7
+ITEM.price = ITEM.invWidth*ITEM.invHeight*10
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {
@@ -49,7 +51,7 @@ ITEM.pacData =  {
 				["Translucent"] = false,
 				["BlendMode"] = "",
 				["EyeTargetUID"] = "",
-				["Model"] = "models/player/backpack_baselardwild/bp_load_baselard_body_lod0.mdl",
+				["Model"] = ITEM.pacmodel,
 			},
 		},
 	},
@@ -75,7 +77,7 @@ ITEM.functions.Equip = {
 	tip = "equipTip",
 	icon = "icon16/tick.png",
 	OnRun = function(item)
-        item.player:AddPart("plecak", item)
+        item.player:AddPart(item.uniqueID, item)
 		return false
 	end,
 
@@ -86,7 +88,7 @@ ITEM.functions.UnEquip = {
 	tip = "unequipTip",
 	icon = "icon16/tick.png",
 	OnRun = function(item)
-        item.player:RemovePart("plecak")
+        item.player:RemovePart(item.uniqueID)
 		return false
 	end,
 
