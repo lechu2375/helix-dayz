@@ -232,8 +232,9 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 			end
 
 			local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
-			local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
-
+			//local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+			local npc = ents.Create(v.npc)
+			npc:SetPos(position)
 			if (!IsValid(npc)) then
 				v.lastSpawned = os.time() + 60
 				continue 
@@ -276,7 +277,7 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 
 			npc.KillReward = v.killreward
 			npc.SpawnerID = k
-
+			npc:Spawn()
 			if (v.decrease > 0 and v.totalSpawnedNPCs % v.maximum == 0) then
 				v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
 			end
@@ -311,7 +312,7 @@ end
 concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	local spawners = PLUGIN.spawners
 		for k, v in ipairs(PLUGIN.spawners) do
-			if (true) then
+
 				v.lastSpawned = os.time() + (v.delay * 60)
 	
 				if (v.totalSpawnedNPCs >= v.maximum) then
@@ -334,8 +335,11 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 				end
 	
 				local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
-				local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
-	
+				//PrintTable(v)
+				local npc = ents.Create(v.npc)
+				npc:SetPos(position)
+				//InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+				print("npc:",npc)
 				if (!IsValid(npc)) then
 					v.lastSpawned = os.time() + 60
 					continue 
@@ -378,11 +382,11 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	
 				npc.KillReward = v.killreward
 				npc.SpawnerID = k
-	
-				if (v.decrease > 0 and v.totalSpawnedNPCs % v.maximum == 0) then
+				npc:Spawn()
+
 					v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
-				end
-			end
+	
+
 		end
 
 end)

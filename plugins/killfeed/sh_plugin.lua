@@ -50,7 +50,7 @@ if (CLIENT) then
 			text = PLUGIN.DeathMsg[death_msg]
 		elseif (ent_class) then
 			text = weapons.Get(ent_class) or scripted_ents.Get(ent_class) or PLUGIN.WeaponsList[ent_class] or ent_class
-
+			PrintTable(text)
 			if (istable(text)) then
 				if (text.TrueName) then
 					text = text.TrueName
@@ -59,7 +59,7 @@ if (CLIENT) then
 				end
 			end
 		end
-
+		if(text=="") then text = "Zombie" end
 		if (attacker:IsNPC() or attacker:IsNextBot()) then
 			local copy_attacker = attacker:GetClass()
 			attacker = scripted_ents.Get(copy_attacker) and attacker.PrintName or nil
@@ -89,7 +89,6 @@ if (CLIENT) then
 		local attacker = net.ReadEntity()
 		local ent_class = net.ReadString()
 		local death_msg = net.ReadString()
-
 		local pnl = vgui.Create("GameNotice", PLUGIN.DeathNotify)
 
 		local clrAtt = hook.Run("GetKillfeedColor", attacker) or color_white
@@ -113,6 +112,8 @@ if (CLIENT) then
 			pnl:AddText(victim:GetName(), clrVic)
 			pnl:AddText("[crashed]", gray) -- разбился кароче
 		elseif (attacker:IsNPC() or attacker:IsNextBot()) then -- NPC убил игрока.
+			print("Tu lezy problem")
+			
 			KilledByWeapon(death_msg, ent_class, attacker, victim, clrAtt, clrVic, pnl)
 		end
 
