@@ -306,3 +306,83 @@ end
 function PLUGIN:SaveData()
 	self:SetData(PLUGIN.spawners)
 end
+
+
+concommand.Add("RunAllSpawners", function(ply,cmd,args)
+	local spawners = PLUGIN.spawners
+		for k, v in ipairs(PLUGIN.spawners) do
+			if (true) then
+				v.lastSpawned = os.time() + (v.delay * 60)
+	
+				if (v.totalSpawnedNPCs >= v.maximum) then
+					v.lastSpawned = os.time() + 90
+					continue
+				end
+	
+				local nearPlayer
+	
+				for _, v2 in ipairs(player.GetHumans()) do
+					if (IsValid(v2) and v2:GetMoveType() != MOVETYPE_NOCLIP and v2:Alive() and v2:GetPos():DistToSqr(v.position) < nearDist) then
+						nearPlayer = true
+						break
+					end
+				end
+	
+				if (nearPlayer) then
+					v.lastSpawned = os.time() + 60
+					continue
+				end
+	
+				local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
+				local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+	
+				if (!IsValid(npc)) then
+					v.lastSpawned = os.time() + 60
+					continue 
+				end
+	
+				npc:CallOnRemove("NPCSpawnPlatform", function(t, index)
+					index = index or t.SpawnerID
+	
+					if (PLUGIN.spawners[index] and PLUGIN.spawners[index].spawnedNPCs[t]) then
+						PLUGIN.spawners[index].spawnedNPCs[t] = nil
+						PLUGIN.spawners[index].totalSpawnedNPCs = math.max(0, PLUGIN.spawners[index].totalSpawnedNPCs - 1)
+					end
+				end, k)
+	
+				v.spawnedNPCs[npc] = true
+				v.totalSpawnedNPCs = (v.totalSpawnedNPCs or 0) + 1
+	
+				local hp = npc:GetMaxHealth()
+				local chp = npc:Health()
+	
+				-- Bug with nextbots
+				if (chp > hp) then
+					hp = chp
+				end
+	
+				hp = hp * v.healthmul
+				npc:SetMaxHealth(hp)
+				npc:SetHealth(hp)
+	
+				if (npc.SetCurrentWeaponProficiency) then
+					npc:SetCurrentWeaponProficiency(v.skill)
+				end
+	
+				if (v.nocollide == true) then
+					npc:SetCollisionGroup(COLLISION_GROUP_INTERACTIVE_DEBRIS)
+				end
+	
+				npc:SetSpawnEffect(true)
+				npc:DrawShadow(false)
+	
+				npc.KillReward = v.killreward
+				npc.SpawnerID = k
+	
+				if (v.decrease > 0 and v.totalSpawnedNPCs % v.maximum == 0) then
+					v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
+				end
+			end
+		end
+
+end)

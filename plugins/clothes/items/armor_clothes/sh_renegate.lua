@@ -1,6 +1,6 @@
-ITEM.name = "Czarnoruski mundur wojskowy"
-ITEM.desc = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi."
-ITEM.model = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.name = "Mundur wojskowy"
+ITEM.desc = "Mundur z odprutymi naszywkami, po obtarciach wygląda na to, że pierwotnie był w służbie."
+ITEM.model = "models/gmodz/npc/military_exp.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
@@ -12,7 +12,7 @@ ITEM.iconCam = {
 
 
 ITEM.defDurability = 2000
-ITEM.replacement = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.replacement = "models/gmodz/npc/military_exp.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 

@@ -1,6 +1,6 @@
-ITEM.name = "Czarnoruski mundur wojskowy"
-ITEM.desc = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi."
-ITEM.model = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.name = "Mundur najemnika"
+ITEM.desc = "Cały zestaw ubrań z którego korzystają najemnicy."
+ITEM.model = "models/ninja/mgs4_pieuvre_armament_merc.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
@@ -12,7 +12,7 @@ ITEM.iconCam = {
 
 
 ITEM.defDurability = 2000
-ITEM.replacement = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.replacement = "models/ninja/mgs4_pieuvre_armament_merc.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 

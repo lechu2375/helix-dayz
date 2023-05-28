@@ -14,13 +14,13 @@ ITEM.spawnDurability = {0.6, 1}
 ITEM.categoryKit = "armors"
 ITEM.isArmor = true
 
--- Модификатор скорости игрока (можно отрицательные значения).
+-- Modyfikator prędkości gracza (możliwe są wartości ujemne).
 -- ITEM.speedModify = 30
 
--- Модификатор прыжка.
+-- Modyfikator skoku.
 -- ITEM.jumpModify = 50
 
--- Запретить ли бегать (SHIFT)
+-- Czy zabronić biegania (SHIFT)
 -- ITEM.disableSprint = true
 
 -- Изменение звука шагов (всего 2 шага. 0 и 1)

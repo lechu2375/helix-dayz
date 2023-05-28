@@ -1,18 +1,19 @@
 ITEM.name = "Czarnoruski mundur wojskowy"
-ITEM.desc = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi."
-ITEM.model = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.desc = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi. Bez kominiarki."
+ITEM.model = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(46.71, 1.04, 60.73),
-	ang = Angle(-6.85, 181.77, -0.05),
-	fov = 34.68
+	pos = Vector(188.31, 8.57, 102.17),
+	ang = Angle(11.74, 182.62, 0),
+	fov = 5.96
 }
 
 
 
+
 ITEM.defDurability = 2000
-ITEM.replacement = "models/easterncrisis/cdf_infantry_mask.mdl"
+ITEM.replacement = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 

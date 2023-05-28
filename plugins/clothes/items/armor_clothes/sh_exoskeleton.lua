@@ -19,7 +19,7 @@ ITEM.speedModify = 25
 
 ITEM.disableSprint = true
 
-ITEM.rarity = { weight = 5 }
+ITEM.rarity = { weight = 1 }
 
 ix.anim.SetModelClass(ITEM.replacement, "player")
 
