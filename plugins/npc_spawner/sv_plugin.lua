@@ -388,5 +388,12 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	
 
 		end
-
+		local count = 0
+		for k,v in pairs(ents.GetAll()) do
+			if(v:IsNextBot()) then
+				print(v)
+				count=count+1
+			end
+		end
+		print("count:",count)
 end)

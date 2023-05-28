@@ -60,6 +60,7 @@ if (CLIENT) then
 			end
 		end
 		if(text=="") then text = "Zombie" end
+		if(text=="raygun") then text = "Uzbrojony npc" end
 		if (attacker:IsNPC() or attacker:IsNextBot()) then
 			local copy_attacker = attacker:GetClass()
 			attacker = scripted_ents.Get(copy_attacker) and attacker.PrintName or nil
