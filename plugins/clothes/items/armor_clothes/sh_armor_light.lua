@@ -1,6 +1,7 @@
 ITEM.name = "Light body armor"
 ITEM.desc = ""
 ITEM.model = "models/Items/BoxMRounds.mdl"
+ITEM.outfitCategory = "armorplate"
 
 ITEM.defDurability = 1000
 ITEM.damageReduction = 0.15
