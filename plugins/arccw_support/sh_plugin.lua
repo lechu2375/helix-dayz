@@ -195,6 +195,7 @@ function PLUGIN:InitHooks()
 	end
 
 	function ArcCW:PlayerCanAttach(client, wep, attname, slot, detach)
+		//if(slot==3) then return false end //no ammo changing ffs no working
 		-- The global variable takes priority over everything
 		if !ArcCW.EnableCustomization then return false end
 
