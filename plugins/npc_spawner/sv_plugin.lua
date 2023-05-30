@@ -289,9 +289,10 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 			npc.KillReward = v.killreward
 			npc.SpawnerID = k
 			npc:Spawn()
+			/*
 			if (v.decrease > 0 and v.totalSpawnedNPCs % v.maximum == 0) then
 				v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
-			end
+			end*/ //I dont need that
 		end
 	end
 end)
@@ -403,7 +404,7 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 				npc.SpawnerID = k
 				npc:Spawn()
 
-					v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
+				v.lastSpawned = v.lastSpawned - ( (math.max(0.1, v.delay - v.decrease) * 60 ) )
 	
 
 		end

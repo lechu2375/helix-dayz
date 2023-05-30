@@ -12,7 +12,7 @@ ITEM.useDurability = true
 ITEM.defDurability = 100
 -- 1 = full protection (0 - 1). 0.5 = 50% (half protection)
 ITEM.damageReduction = { [HITGROUP_HEAD] = 0 }
--- слетает предмет с головы когда durability = 0, но применимо лишь для outfitCategory = hat
+-- przedmiot spada z głowy, gdy wytrzymałość = 0, ale dotyczy tylko outfitCategory = kapelusz
 ITEM.dropHat = false
 
 -- Прочность с которой будет спавниться предмет (min-max)

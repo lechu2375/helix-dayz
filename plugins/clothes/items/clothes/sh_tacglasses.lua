@@ -1,26 +1,29 @@
-ITEM.name = "CVC Helmet (Black)"
-ITEM.description = ""
-ITEM.model = "models/gmodz/equipments/cvc_helmet.mdl"
+ITEM.name = "Okulary taktyczne"
+ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+
 ITEM.outfitCategory = "hat"
 
-ITEM.defDurability = 80
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.45 }
+
+
 ITEM.dropHat = true
 
 ITEM.categoryKit = "helmets"
-ITEM.skin = 2
 
+ITEM.defDurability = 60
+ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
 ITEM.rarity = { weight = 15 }
 
-ITEM.price = 30000
+ITEM.price = 5000
 
+ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
-	pos = Vector(-111.63, -117.18, 68.13),
-	ang = Angle(21.24, 404.54, 0),
-	fov = 4.46
+	pos = Vector(-7.82, -124.29, 7.36),
+	ang = Angle(1.7, 86.21, 0),
+	fov = 3.76
 }
+
 
 
 ITEM.pacData = {
@@ -35,7 +38,9 @@ ITEM.pacData = {
 					["ClassName"] = "model2",
 					["Size"] = 1,
 					["EditorExpand"] = true,
-					["Model"] = "models/gmodz/equipments/cvc_helmet.mdl",
+                    ["Bone"] = "head",
+                    ["BoneMerge"] = true,
+					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
 					["Skin"] = 2,
 					["Name"] = "helmet"
@@ -44,9 +49,9 @@ ITEM.pacData = {
 		},
 		["self"] = {
 			["EditorExpand"] = true,
-			["UniqueID"] = "77ac07882c81a8933c740be8ab3f91bcbe10e5a9d8415060adcec4cc101b235a",
+			["UniqueID"] = "243iun234bui234bdbhjkasdfafs21324324",
 			["ClassName"] = "group",
-			["Name"] = "cvc_helmet"
+			["Name"] = "taceyes"
 		},
 	},
 }
