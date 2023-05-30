@@ -2,6 +2,12 @@ PLUGIN.name = "Boost FPS"
 PLUGIN.author = "STEAM_0:1:29606990 && Lechu2375"
 PLUGIN.description = ""
 
+local fogCtrl = ents.FindByClass("env_fog_controller")
+if(fogCtrl[1]) then
+	fogCtrl[1]:Fire("SetFarZ", 3000)
+	fogCtrl[1]:Fire("SetStartDist",2500)
+	fogCtrl[1]:Fire("SetEndDist",2800)
+end
 do
 	local hooks = {
 		{'PostDrawEffects', 'RenderWidgets'},
@@ -63,8 +69,9 @@ if (CLIENT) then
 			end
 		end)
 	end
-	GetConVar( "cl_detaildist" ):SetInt(3000)
-	GetConVar( "cl_detailfade" ):SetInt(2800)
+	RunConsoleCommand( "cl_detaildist",3000)
+	RunConsoleCommand( "cl_detailfade",2800)
+
 	hook.Add("OnEntityCreated", "GmodZ.DisableShadows", function(entity)
 		if (ix.option.Get("entityShadows", true)) then
 			entity:DrawShadow(false)
