@@ -1,5 +1,6 @@
 ITEM.name = "Clothes"
 ITEM.description = "A Clothes Base."
+ITEM.description = ITEM.desc or "No description"
 ITEM.category = "Clothes"
 ITEM.model = "models/Gibs/HGIBS.mdl"
 ITEM.width = 1

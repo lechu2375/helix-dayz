@@ -208,7 +208,17 @@ end
 
 local nearDist = math.pow(3000, 2)
 timer.Create("ixNPCSpawner", 5, 0, function()
+
+	
 	for k, v in ipairs(PLUGIN.spawners) do
+		local count = 0
+		for k,v in pairs(ents.GetAll()) do
+			if(v:IsNextBot()) then
+				print(v)
+				count=count+1
+			end
+		end
+		if(count>=GetConVar("sbox_maxnpcs"):GetInt()) then print("Can't spawn more nextbots") break end
 		if (v.lastSpawned < os.time()) then
 			v.lastSpawned = os.time() + (v.delay * 60)
 
@@ -222,11 +232,13 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 			for _, v2 in ipairs(player.GetHumans()) do
 				if (IsValid(v2) and v2:GetMoveType() != MOVETYPE_NOCLIP and v2:Alive() and v2:GetPos():DistToSqr(v.position) < nearDist) then
 					nearPlayer = true
+					print("Someone is near! Spawning!!")
 					break
 				end
 			end
 
-			if (nearPlayer) then
+			if (!nearPlayer) then
+				print("No one nearby, not spawning.")
 				v.lastSpawned = os.time() + 60
 				continue
 			end
@@ -312,7 +324,14 @@ end
 concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	local spawners = PLUGIN.spawners
 		for k, v in ipairs(PLUGIN.spawners) do
-
+				/*local count = 0
+				for k,v in pairs(ents.GetAll()) do
+					if(v:IsNextBot()) then
+						print(v)
+						count=count+1
+					end
+				end
+				if(count>=GetConVar("sbox_maxnpcs"):GetInt()) then print("Can't spawn more nextbots") return end*/
 				v.lastSpawned = os.time() + (v.delay * 60)
 	
 				if (v.totalSpawnedNPCs >= v.maximum) then
@@ -324,12 +343,13 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	
 				for _, v2 in ipairs(player.GetHumans()) do
 					if (IsValid(v2) and v2:GetMoveType() != MOVETYPE_NOCLIP and v2:Alive() and v2:GetPos():DistToSqr(v.position) < nearDist) then
+						print("Someone is near!! Spawning!")
 						nearPlayer = true
 						break
 					end
 				end
 	
-				if (nearPlayer) then
+				if (!nearPlayer) then
 					v.lastSpawned = os.time() + 60
 					continue
 				end
@@ -396,4 +416,18 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 			end
 		end
 		print("count:",count)
+end)
+
+concommand.Add("nextbotcount", function()
+
+	local count = 0
+	for k,v in pairs(ents.GetAll()) do
+		if(v:IsNextBot()) then
+			print(v)
+			count=count+1
+		end
+	end
+	print("count:",count)
+
+
 end)

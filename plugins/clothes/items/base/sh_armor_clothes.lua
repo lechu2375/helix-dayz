@@ -6,7 +6,7 @@ ITEM.defDurability = 100
 ITEM.damageReduction = { [HITGROUP_HEAD] = 0 }
 
 ITEM.outfitCategory = "suit"
-
+ITEM.description = ITEM.desc or "No description"
 -- Прочность с которой будет спавниться предмет (min-max)
 ITEM.spawnDurability = {0.6, 1}
 
