@@ -1,5 +1,5 @@
 ITEM.name = "Mundur wojskowy"
-ITEM.desc = "Mundur z odprutymi naszywkami, po obtarciach wygląda na to, że pierwotnie był w służbie."
+ITEM.description = "Mundur z odprutymi naszywkami, po obtarciach wygląda na to, że pierwotnie był w służbie."
 ITEM.model = "models/gmodz/npc/military_exp.mdl"
 ITEM.width = 2
 ITEM.height = 2

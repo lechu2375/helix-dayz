@@ -1,5 +1,5 @@
 ITEM.name = "Łachy łobuza"
-ITEM.desc = "Skórzany płaszcz z kominiarką. Ubranie w których lubują się wszelakiej maści bandyci."
+ITEM.description = "Skórzany płaszcz z kominiarką. Ubranie w których lubują się wszelakiej maści bandyci."
 ITEM.model = "models/gmodz/npc/bandit_exp.mdl"
 ITEM.width = 2
 ITEM.height = 2

@@ -1,5 +1,5 @@
 ITEM.name = "Mundur rosyjskich służb specjalnych wer. Niebieska"
-ITEM.desc = "Mundur GORKA-4 wyprodukowany przez firmę BARS. Noszony głównie przez Specnaz."
+ITEM.description = "Mundur GORKA-4 wyprodukowany przez firmę BARS. Noszony głównie przez Specnaz."
 ITEM.model = "models/npc/tpamodern2_fnpc.mdl"
 ITEM.width = 2
 ITEM.height = 2

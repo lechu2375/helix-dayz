@@ -1,5 +1,5 @@
 ITEM.name = "Mundur rosyjskich służb specjalnych"
-ITEM.desc = "Mundur GORKA-4 wyprodukowany przez firmę BARS. Noszony głównie przez Specnaz."
+ITEM.description = "Mundur GORKA-4 wyprodukowany przez firmę BARS. Noszony głównie przez Specnaz."
 ITEM.model = "models/tpamodern_nutscript.mdl"
 ITEM.width = 2
 ITEM.height = 2

@@ -1,5 +1,5 @@
 ITEM.name = "Kamizelka klasy 2"
-ITEM.desc = "Lekki, ale wytrzymały i niezawodny pancerz chroniący tylko najważniejsze obszary ciała, wyposażony w płyty pancerne klasy II."
+ITEM.description = "Lekki, ale wytrzymały i niezawodny pancerz chroniący tylko najważniejsze obszary ciała, wyposażony w płyty pancerne klasy II."
 ITEM.model = "models/player/armor_paca/paca.mdl"
 ITEM.outfitCategory = "armorplate"
 

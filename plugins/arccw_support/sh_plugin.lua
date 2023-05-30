@@ -239,7 +239,7 @@ function PLUGIN:InitPostEntity()
 
 				if (item and item.isArcCW and item.isWeapon) then
 					item.class = class
-					item.description = SWEP.Trivia_Desc or ""
+					item.description = SWEP.Trivia_Desc or SWEP.Primary.Ammo or "Nic nie wiadomo na temat tej broni"
 					item.model = SWEP.WorldModel or "models/weapons/w_pistol.mdl"
 					item.name = SWEP.PrintName or SWEP.TrueName
 

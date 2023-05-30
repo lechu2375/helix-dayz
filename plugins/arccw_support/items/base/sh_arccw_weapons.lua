@@ -62,6 +62,7 @@ if (CLIENT) then
 	end
 
 	function ITEM:PopulateTooltip(tooltip)
+
 		if (self:GetData("equip")) then
 			local name = tooltip:GetRow("name")
 			name:SetBackgroundColor(derma.GetColor("Success", tooltip))

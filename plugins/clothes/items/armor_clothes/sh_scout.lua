@@ -1,5 +1,5 @@
 ITEM.name = "Scout suit"
-ITEM.desc = "The scout suit was built with the latest technology suitable for aggressive military action, mildly increasing ballistic protection while not greatly restricting mobility"
+ITEM.description = "The scout suit was built with the latest technology suitable for aggressive military action, mildly increasing ballistic protection while not greatly restricting mobility"
 ITEM.model = "models/gmodz/characters/scout.mdl"
 ITEM.width = 2
 ITEM.height = 2

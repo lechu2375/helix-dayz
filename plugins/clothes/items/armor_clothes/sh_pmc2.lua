@@ -1,5 +1,5 @@
 ITEM.name = "Czarny mundur najemnika"
-ITEM.desc = "Cały zestaw ubrań z którego korzystają najemnicy. Wersja czarna."
+ITEM.description = "Cały zestaw ubrań z którego korzystają najemnicy. Wersja czarna."
 ITEM.model = "models/ninja/mgs4_praying_mantis_merc.mdl"
 ITEM.width = 2
 ITEM.height = 2

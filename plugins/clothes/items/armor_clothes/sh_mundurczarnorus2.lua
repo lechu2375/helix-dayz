@@ -1,5 +1,5 @@
 ITEM.name = "Czarnoruski mundur wojskowy"
-ITEM.desc = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi. Bez kominiarki."
+ITEM.description = "Porządnie wykonany mundur wojskowy, na ramieniu posiada flagę Czarnorusi. Bez kominiarki."
 ITEM.model = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.width = 2
 ITEM.height = 2

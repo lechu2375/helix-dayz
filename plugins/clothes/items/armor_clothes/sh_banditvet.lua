@@ -1,5 +1,5 @@
 ITEM.name = "Mundur łajdaka"
-ITEM.desc = "Ciuchy wyglądające na mundur, prawdopodobnie należą do kogoś kto kiedyś należał do armii ale wszedł na złą ścieżkę."
+ITEM.description = "Ciuchy wyglądające na mundur, prawdopodobnie należą do kogoś kto kiedyś należał do armii ale wszedł na złą ścieżkę."
 ITEM.model = "models/gmodz/npc/bandit_veteran.mdl"
 ITEM.width = 2
 ITEM.height = 2

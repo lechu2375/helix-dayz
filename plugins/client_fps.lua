@@ -4,9 +4,11 @@ PLUGIN.description = ""
 
 local fogCtrl = ents.FindByClass("env_fog_controller")
 if(fogCtrl[1]) then
-	fogCtrl[1]:Fire("SetFarZ", 3000)
-	fogCtrl[1]:Fire("SetStartDist",2500)
-	fogCtrl[1]:Fire("SetEndDist",2800)
+	fogCtrl[1]:Fire("SetFarZ", 4000)
+	fogCtrl[1]:Fire("SetStartDist",0)
+	fogCtrl[1]:Fire("SetEndDist",3200)
+	fogCtrl[1]:Fire("SetMaxDensity",1.0)
+	//fogCtrl[1]:Fire("SetColor",22,28,31)
 end
 do
 	local hooks = {
@@ -69,8 +71,10 @@ if (CLIENT) then
 			end
 		end)
 	end
-	RunConsoleCommand( "cl_detaildist",3000)
-	RunConsoleCommand( "cl_detailfade",2800)
+	timer.Simple(10, function()
+		RunConsoleCommand( "cl_detaildist",3000)
+		RunConsoleCommand( "cl_detailfade",2800)	
+	end)
 
 	hook.Add("OnEntityCreated", "GmodZ.DisableShadows", function(entity)
 		if (ix.option.Get("entityShadows", true)) then

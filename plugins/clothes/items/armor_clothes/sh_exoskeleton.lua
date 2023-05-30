@@ -1,5 +1,5 @@
 ITEM.name = "Exoskeleton"
-ITEM.desc = ""
+ITEM.description = ""
 ITEM.model = "models/gmodz/characters/exoskeleton.mdl"
 ITEM.width = 3
 ITEM.height = 3

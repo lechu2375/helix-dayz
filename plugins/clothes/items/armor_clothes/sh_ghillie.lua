@@ -1,5 +1,5 @@
 ITEM.name = "Ghillie"
-ITEM.desc = "Strój maskujący używany głównie przez strzelców wyborowych."
+ITEM.description = "Strój maskujący używany głównie przez strzelców wyborowych."
 ITEM.model = "models/gmodz/characters/ghillie.mdl"
 ITEM.width = 2
 ITEM.height = 2
