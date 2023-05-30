@@ -162,7 +162,12 @@ function ix.bleeding.Timer(client, level, isRise)
 				client:KillFeed("bledout")
 				return
 			end
-
+			for _,v in pairs(ents.GetAll()) do
+				if(v.NEXTBOTZOMBIE and !self.Enemy and v:GetRangeSquaredTo(client)<300*300) then
+					print(v," has sniffed ",client)
+					v:SetEnemy(client)
+				end
+			end
 			client:SetHealth(amt)
 			if (client:GetLocalVar("extra_health")) then client:AddExtraHealth(-client.bleeding.loss) end
 
