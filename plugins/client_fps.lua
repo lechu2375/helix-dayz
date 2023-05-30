@@ -63,7 +63,8 @@ if (CLIENT) then
 			end
 		end)
 	end
-
+	GetConVar( "cl_detaildist" ):SetInt(3000)
+	GetConVar( "cl_detailfade" ):SetInt(2800)
 	hook.Add("OnEntityCreated", "GmodZ.DisableShadows", function(entity)
 		if (ix.option.Get("entityShadows", true)) then
 			entity:DrawShadow(false)
