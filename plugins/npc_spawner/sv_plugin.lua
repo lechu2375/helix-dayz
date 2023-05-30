@@ -214,7 +214,6 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 		local count = 0
 		for k,v in pairs(ents.GetAll()) do
 			if(v:IsNextBot()) then
-				print(v)
 				count=count+1
 			end
 		end
@@ -359,7 +358,7 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 				local npc = ents.Create(v.npc)
 				npc:SetPos(position)
 				//InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
-				print("npc:",npc)
+				//print("npc:",npc)
 				if (!IsValid(npc)) then
 					v.lastSpawned = os.time() + 60
 					continue 
