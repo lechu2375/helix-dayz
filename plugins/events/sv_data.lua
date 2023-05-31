@@ -166,7 +166,7 @@ function evci.StartEvent(waveSize, wavesAmount)
                 npc = ents.Create(class)
                 posPointer = posPointer + 1
                 if(#evci.NextBotsPositions<posPointer) then posPointer = 1 end
-
+                npc.nosleep = true
                 npc:SetPos(evci.NextBotsPositions[posPointer]+Vector(math.random(40,120),0,0))
                 npc:SetEnemy(evci.destination)
                 npc:SetSolid(SOLID_NONE)
@@ -198,6 +198,7 @@ function evci.StartEvent(waveSize, wavesAmount)
         npc:SetCollisionGroup(COLLISION_GROUP_NONE)
         npc:Spawn()
         npc:DropToFloor()
+        npc.nosleep = true
         evci.guards[k] = npc
     end
     
