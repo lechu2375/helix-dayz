@@ -237,8 +237,8 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 			end
 
 			if (!nearPlayer) then
-				print("No one nearby, not spawning.")
-				v.lastSpawned = os.time() + 60
+				//print("No one nearby, not spawning.")
+				v.lastSpawned = os.time() + math.random(10, 30)
 				continue
 			end
 
