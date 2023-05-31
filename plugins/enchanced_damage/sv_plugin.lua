@@ -163,7 +163,8 @@ function ix.bleeding.Timer(client, level, isRise)
 				return
 			end
 			for _,v in pairs(ents.GetAll()) do
-				if(v.NEXTBOTZOMBIE and !self.Enemy and v:GetRangeSquaredTo(client)<300*300) then
+
+				if(v.NEXTBOTZOMBIE and !IsValid(v.Enemy) and v:GetRangeSquaredTo(client)<900*900) then
 					print(v," has sniffed ",client)
 					v:SetEnemy(client)
 				end
