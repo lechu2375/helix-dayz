@@ -74,19 +74,22 @@ ENT.PistolClass = "wep_nb_pistol"
 ENT.PistolSound = "Weapon_Pistol.Single"
 
 --Model--
-ENT.Models = {"models/player/group03/male_01.mdl",
-"models/player/group03/male_01.mdl",
-"models/player/group03/male_03.mdl",
-"models/player/group03/male_04.mdl",
-"models/player/group03/male_05.mdl",
-"models/player/group03/male_06.mdl"}
+ENT.Models = {	"models/drem/cch/male_01.mdl",
+"models/drem/cch/male_02.mdl",
+"models/drem/cch/male_03.mdl",
+"models/drem/cch/male_04.mdl",
+"models/drem/cch/male_05.mdl",
+"models/drem/cch/male_06.mdl",
+"models/drem/cch/male_07.mdl",
+"models/drem/cch/male_08.mdl",
+"models/drem/cch/male_09.mdl"}
 
-ENT.FemaleModels = {"models/player/group03/female_01.mdl",
-"models/player/group03/female_02.mdl",
-"models/player/group03/female_03.mdl",
-"models/player/group03/female_04.mdl",
-"models/player/group03/female_05.mdl",
-"models/player/group03/female_06.mdl"}
+ENT.FemaleModels = {"models/drem/cch/female_01.mdl",
+"models/drem/cch/female_02.mdl",
+"models/drem/cch/female_03.mdl",
+"models/drem/cch/female_04.mdl",
+"models/drem/cch/female_05.mdl",
+"models/drem/cch/female_06.mdl"}
 
 ENT.WalkAnim = ACT_HL2MP_RUN_SHOTGUN  
 ENT.SprintingAnim = ACT_DOD_SPRINT_IDLE_MP40 
@@ -346,5 +349,9 @@ function ENT:CustomInitialize()
 			self:ChangeVoice()
 		end
 	end
-	
+	self:SetSkin(math.random(0, self:SkinCount()))
+	local bodyGroups = self:GetBodyGroups()
+	for k,v in pairs(bodyGroups) do
+		self:SetBodygroup(v.id, math.random(0, v.num))
+	end
 end

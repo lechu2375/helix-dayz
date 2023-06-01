@@ -81,10 +81,8 @@ ENT.Weapons = {"wep_nb_m3gauge",
 ENT.WeaponSound = "Weapon_Shotgun.Single"
 
 --Model--
-ENT.Models = {"models/player/gasmask.mdl",
-"models/player/riot.mdl",
-"models/player/swat.mdl",
-"models/player/urban.mdl"}
+ENT.Models = {"models/easterncrisis/cdf_infantry_mask.mdl",
+"models/easterncrisis/cdf_infantry_mask.mdl"}
 
 ENT.WalkAnim = ACT_HL2MP_RUN_AR2
 ENT.AimWalkAnim = ACT_HL2MP_RUN_RPG
@@ -370,7 +368,14 @@ function ENT:CustomInitialize()
 	
 	self.GrenadeThrowAnims = { ACT_GMOD_GESTURE_RANGE_THROW, ACT_GMOD_GESTURE_ITEM_DROP, ACT_GMOD_GESTURE_ITEM_GIVE }
 	self.ThrowingGrenade = false
-	
+	self:SetSkin(math.random(0, self:SkinCount()))
+	local bodyGroups = self:GetBodyGroups()
+	for k,v in pairs(bodyGroups) do
+		self:SetBodygroup(v.id, math.random(0, v.num))
+		if(v.name=="Trousers") then
+			self:SetBodygroup(v.id, math.random(0, 1))
+		end
+	end
 end
 
 function ENT:Melee( ent, type )

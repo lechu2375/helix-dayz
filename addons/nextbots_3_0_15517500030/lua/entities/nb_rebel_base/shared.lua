@@ -84,7 +84,7 @@ function ENT:Initialize()
 	
 		self:CollisionSetup( self.CollisionSide, self.CollisionHeight, COLLISION_GROUP_PLAYER )
 	
-		self.FriendlyToPlayers = true
+		self.FriendlyToPlayers = false
 		self.NEXTBOTFACTION = 'NEXTBOTREBEL'
 		self.NEXTBOTREBEL = true
 		self.NEXTBOT = true
@@ -404,92 +404,108 @@ function ENT:RunBehaviour()
 
 	while ( true ) do
 
-		if self:HaveEnemy() then
-			
-			local pos
-			
-			if !self.Reloading then
-	
-				if self.FollowingPlayer then
-	
-					pos = self.EntityFollowing:GetPos()	
+		if((self.nextActivationCheck or 0)<CurTime()) then
+			local isSleeping = true
+			for _,v in pairs(player.GetAll()) do
+				if(self:GetRangeSquaredTo(v)<=3411715) then
 					
-					if ( pos ) and self.EntityFollowing:IsValid() and self.EntityFollowing:Health() > 0 then
+					isSleeping = false
+					break
+				end
+			end
+			self.sleeping = isSleeping
+			if(SleepCheck) then
+				print(self,"is sleeping:",self.sleeping)
+			end
+			self.nextActivationCheck = CurTime()+math.random(5, 7)
+		end
+		if(!self.sleeping) then
+			if self:HaveEnemy() then
 				
-						self:MovementFunction()	
+				local pos
+				
+				if !self.Reloading then
+		
+					if self.FollowingPlayer then
+		
+						pos = self.EntityFollowing:GetPos()	
+						
+						if ( pos ) and self.EntityFollowing:IsValid() and self.EntityFollowing:Health() > 0 then
 					
-						local enemy = self.EntityFollowing
-						local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-						local opts = {	lookahead = 30,
-							tolerance = 20,
-							draw = false,
-							maxage = maxageScaled 
-							}
+							self:MovementFunction()	
+						
+							local enemy = self.EntityFollowing
+							local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+							local opts = {	lookahead = 30,
+								tolerance = 20,
+								draw = false,
+								maxage = maxageScaled 
+								}
+						
+							self:MoveToPos( pos, opts )
+						
+						end
+
+					else
+
+						pos = self:GetEnemy():GetPos()	
+						
+						if ( pos ) and self:GetEnemy():IsValid() and self:GetEnemy():Health() > 0 then
 					
-						self:MoveToPos( pos, opts )
+							self:MovementFunction()	
+						
+							local enemy = self:GetEnemy()
+							local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+							local opts = {	lookahead = 30,
+								tolerance = 20,
+								draw = false,
+								maxage = maxageScaled 
+								}
+						
+							self:ChaseEnemy( opts )
+						
+						end
 					
 					end
-
+						
 				else
 
-					pos = self:GetEnemy():GetPos()	
-					
-					if ( pos ) and self:GetEnemy():IsValid() and self:GetEnemy():Health() > 0 then
-				
-						self:MovementFunction()	
-					
-						local enemy = self:GetEnemy()
-						local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-						local opts = {	lookahead = 30,
-							tolerance = 20,
-							draw = false,
-							maxage = maxageScaled 
-							}
-					
-						self:ChaseEnemy( opts )
-					
-					end
-				
+					self:ReloadBehaviour()
+
 				end
 					
 			else
 
-				self:ReloadBehaviour()
+				if self.FollowingPlayer then
+		
+						pos = self.EntityFollowing:GetPos()	
+						
+						if ( pos ) and self.EntityFollowing:IsValid() and self.EntityFollowing:Health() > 0 then
+					
+							self:MovementFunction()	
+						
+							local enemy = self.EntityFollowing
+							local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+							local opts = {	lookahead = 30,
+								tolerance = 20,
+								draw = false,
+								maxage = maxageScaled 
+								}
+						
+							self:MoveToPos( pos, opts )
+						
+						end
+						
+				else
 
-			end
+					self:MovementFunction()
+
+				end
 				
-		else
-
-			if self.FollowingPlayer then
-	
-					pos = self.EntityFollowing:GetPos()	
-					
-					if ( pos ) and self.EntityFollowing:IsValid() and self.EntityFollowing:Health() > 0 then
+				self:PlayIdleSound()
 				
-						self:MovementFunction()	
-					
-						local enemy = self.EntityFollowing
-						local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-						local opts = {	lookahead = 30,
-							tolerance = 20,
-							draw = false,
-							maxage = maxageScaled 
-							}
-					
-						self:MoveToPos( pos, opts )
-					
-					end
-					
-			else
-
-				self:MovementFunction()
-
 			end
-			
-			self:PlayIdleSound()
-			
 		end
-			
 		coroutine.yield()
 
 
@@ -717,9 +733,13 @@ function ENT:FindEnemy()
 	
 	if #enemies > 0 then
 		for i=1,table.Count( enemies ) do -- Goal is to reduce amount of values to be sorted through in the table for better performance
+			
 			for k,v in pairs( enemies ) do
+
 				if v.BASENEXTBOT then --Remove base nextbot entities (eg. nb_deathanim_base)
+
 					table.remove( enemies, k )
+
 				end
 				if ( self.NEXTBOTFACTION == v.NEXTBOTFACTION ) then --Remove same faction from pool of enemies
 					table.remove( enemies, k )
@@ -728,10 +748,13 @@ function ENT:FindEnemy()
 					table.remove( enemies, k )
 				end
 				if v:Health() < 0 then --Remove dead targets from pool of enemies
+
 					table.remove( enemies, k )
 				end
+
+				
 				if ai_ignoreplayers:GetInt() == 0 then --Remove players from pool of enemies if ignore players is true
-					if v:IsPlayer() then --Remove players who are not zombies from pool of enemies
+					if v:IsPlayer() and !v:IsBandit()then --Remove players who are not zombies from pool of enemies
 						if !self:IsPlayerZombie( v ) then
 							table.remove( enemies, k )	
 						else
@@ -748,7 +771,7 @@ function ENT:FindEnemy()
 		function( a,b ) 
 			return self:GetRangeSquaredTo( a ) < self:GetRangeSquaredTo( b ) --Sort in order of closeness from pool of enemies
 		end )
-
+		
 		self:SearchForEnemy( enemies )
 		--PrintTable( enemies )
 	end
@@ -819,7 +842,7 @@ function ENT:BodyUpdate()
 
 	--end
 	
-	--self:FrameAdvance()
+	--self:FrameAdvance()wait
 
 end
 
@@ -853,6 +876,8 @@ function ENT:BackUp()
 end	
 
 function ENT:MoveToPos( pos, options )
+	
+
 
 	local options = options or {}
 

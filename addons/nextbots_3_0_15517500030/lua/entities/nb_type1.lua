@@ -30,8 +30,8 @@ ENT.CollisionSide = 7
 
 ENT.HealthAmount = 80
 
-ENT.Speed = 200
-ENT.SprintingSpeed = 200
+ENT.Speed = 300
+ENT.SprintingSpeed = 300
 ENT.FlinchWalkSpeed = 30
 ENT.CrouchSpeed = 40
 

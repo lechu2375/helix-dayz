@@ -30,8 +30,8 @@ ENT.CollisionSide = 7
 
 ENT.HealthAmount = 100
 
-ENT.Speed = 265
-ENT.SprintingSpeed = 265
+ENT.Speed = 280
+ENT.SprintingSpeed = 280
 ENT.FlinchWalkSpeed = 30
 ENT.CrouchSpeed = 40
 
@@ -232,7 +232,7 @@ function ENT:StartRoaming()
 				end
 			end
 			
-			self.NextSearch = SpawnTime + math.random(4,8)
+			self.NextSearch = SpawnTime + math.random(8,12)
 		end
 
 end
@@ -242,34 +242,54 @@ function ENT:RunBehaviour()
 	self:OnSpawn()
 
 	while ( true ) do
-	
-		if self:HaveEnemy() and self:CheckEnemyStatus( self.Enemy ) then
-			
-			pos = self:GetEnemy():GetPos()
-
-			if ( pos ) then
-				
-				self:MovementFunction()
-					
-				local enemy = self:GetEnemy()
-				local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-				local opts = {	lookahead = 30,
-						tolerance = 20,
-						draw = false,
-						maxage = maxageScaled 
-						}
-					
-				self:ChaseEnemy( opts )
-					
-			end
-			
+		if(self:HaveEnemy()) then	
+			self.nextActivationCheck = CurTime()+20 
 		else
-		
-			self:PlayIdleSound()
-			self:StartRoaming()
-			
+			if((self.nextActivationCheck or 0)<CurTime()) then
+				local isSleeping = true
+				for _,v in pairs(player.GetAll()) do
+					if(self:GetRangeSquaredTo(v)<=3411715) then
+						
+						isSleeping = false
+						break
+					end
+				end
+				self.sleeping = isSleeping
+				if(SleepCheck) then
+					print(self,"is sleeping:",self.sleeping)
+				end
+				self.nextActivationCheck = CurTime()+math.random(9, 13)
+			end
 		end
-		
+		if(!self.sleeping) then
+
+			if self:HaveEnemy() and self:CheckEnemyStatus( self.Enemy ) then
+				
+				pos = self:GetEnemy():GetPos()
+
+				if ( pos ) then
+					
+					self:MovementFunction()
+						
+					local enemy = self:GetEnemy()
+					local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+					local opts = {	lookahead = 30,
+							tolerance = 20,
+							draw = false,
+							maxage = maxageScaled 
+							}
+						
+					self:ChaseEnemy( opts )
+						
+				end
+				
+			else
+			
+				self:PlayIdleSound()
+				self:StartRoaming()
+				
+			end
+		end
 		coroutine.yield()
 	end
 	

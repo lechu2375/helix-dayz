@@ -21,7 +21,7 @@ ENT.AdminSpawnable   = false
 
 --Stats--
 ENT.ChaseDistance = 5000
-
+ENT.sleeping = false
 ENT.CollisionHeight = 64
 ENT.CollisionSide = 7
 
@@ -325,7 +325,7 @@ function ENT:PlayDownedAnimation()
 end
 
 function ENT:RunBehaviour()
-
+	
 	if self.GettingUp then
 		self.GettingUp = false
 		self.DownedOnGround = false
@@ -342,169 +342,184 @@ function ENT:RunBehaviour()
 	return end
 
 	while ( true ) do
-
-		self:GrenadeThrow()
-
-		if !self.Downed then
-	
-			if ( self.GoingToRevive and nb_allow_reviving:GetInt() == 1 ) then
-		
-				if self.RevivingEntity and ( IsValid( self.RevivingEntity ) and self.RevivingEntity:Health() > 0 ) and self.RevivingEntity:WOSGetIncapped() then
-			
-					local pos = self.RevivingEntity:GetPos()
-
-					if ( pos ) then
-							
-						self:MovementFunction()
-						
-						local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-						local opts = {	lookahead = 30,
-							tolerance = 50,
-							draw = false,
-							maxage = maxageScaled 
-							}
-						
-						self:MoveToPos( pos, opts )
-		
-						if self:GetRangeSquaredTo( pos ) < 50*50 then
-								
-							if self.RevivingEntity:WOSGetIncapped() then	
-								
-								local randomsound = table.Random( self.RevivingFriendlySounds )
-								self:EmitSound( Sound( randomsound ), 100, self.RevivingFriendlySoundsPitch or 100 )
-		
-								self.loco:SetDesiredSpeed( 0 )
-								self:PlaySequenceAndWait( "wos_l4d_heal_incap_crouching" )
-								
-								if self.RevivingEntity and ( IsValid( self.RevivingEntity ) and self.RevivingEntity:Health() > 0 ) then
-									self.RevivingEntity:WOSRevive()
-								end
-							
-							end
-							
-							self.GoingToRevive = false
-							self.RevivingEntity = nil
-							
-							self:MovementFunction()
-								
-						end
-		
-					end
-			
-				else
-				
-					self.GoingToRevive = false
-					self.RevivingEntity = nil
-							
-					self:MovementFunction()
-				
+		if((self.nextActivationCheck or 0)<CurTime()) then
+			local isSleeping = true
+			for _,v in pairs(player.GetAll()) do
+				if(self:GetRangeSquaredTo(v)<=3411715) then
+					
+					isSleeping = false
+					break
 				end
-			
-			else
-	
-				if self:HaveEnemy() then
-						
-					local enemy = self:GetEnemy()	
-						
-					self.Patrolling = false
-					
-					if !self.Reloading then
-					
-						pos = enemy:GetPos()	
-							
-						if ( pos ) and enemy:IsValid() and enemy:Health() > 0 then
-						
-							self:MovementFunction()	
+			end
+			self.sleeping = isSleeping
+			if(SleepCheck) then
+				print(self,"is sleeping:",self.sleeping)
+			end
+			self.nextActivationCheck = CurTime()+math.random(5, 9)
+		end
+		if(!self.sleeping) then
+			self:GrenadeThrow()
 
-							if ( self:GetRangeSquaredTo( enemy ) < self.StopRange*self.StopRange and self:GetRangeSquaredTo( enemy ) > self.BackupRange*self.BackupRange and self:Visible( self.Enemy ) and !self.Crouching ) then
+			if !self.Downed then
 		
-								if ( self.NextStrafeTimer or 0 ) < CurTime() then
-		
-									self.Strafing = true
-		
-									local sidetoside = ( self:GetPos() + self:GetAngles():Right() * ( 328 * math.random(-1,1) ) )
-		
-									self.loco:Approach(sidetoside, 75)
+				if ( self.GoingToRevive and nb_allow_reviving:GetInt() == 1 ) then
+			
+					if self.RevivingEntity and ( IsValid( self.RevivingEntity ) and self.RevivingEntity:Health() > 0 ) and self.RevivingEntity:WOSGetIncapped() then
+				
+						local pos = self.RevivingEntity:GetPos()
+
+						if ( pos ) then
 								
-									self.NextStrafeTimer = CurTime() + 0.2
-								
-								else
-								
-									self.Strafing = true
-								
-								end
-								
-							else
+							self:MovementFunction()
 							
-								local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-								local opts = {	lookahead = 30,
-									tolerance = 20,
-									draw = false,
-									maxage = maxageScaled 
+							local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+							local opts = {	lookahead = 30,
+								tolerance = 50,
+								draw = false,
+								maxage = maxageScaled 
 								}
 							
-								self:ChaseEnemy( opts )
-								self.Strafing = false
-							
+							self:MoveToPos( pos, opts )
+			
+							if self:GetRangeSquaredTo( pos ) < 50*50 then
+									
+								if self.RevivingEntity:WOSGetIncapped() then	
+									
+									local randomsound = table.Random( self.RevivingFriendlySounds )
+									self:EmitSound( Sound( randomsound ), 100, self.RevivingFriendlySoundsPitch or 100 )
+			
+									self.loco:SetDesiredSpeed( 0 )
+									self:PlaySequenceAndWait( "wos_l4d_heal_incap_crouching" )
+									
+									if self.RevivingEntity and ( IsValid( self.RevivingEntity ) and self.RevivingEntity:Health() > 0 ) then
+										self.RevivingEntity:WOSRevive()
+									end
+								
+								end
+								
+								self.GoingToRevive = false
+								self.RevivingEntity = nil
+								
+								self:MovementFunction()
+									
 							end
+			
+						end
+				
+					else
+					
+						self.GoingToRevive = false
+						self.RevivingEntity = nil
+								
+						self:MovementFunction()
+					
+					end
+				
+				else
+		
+					if self:HaveEnemy() then
+							
+						local enemy = self:GetEnemy()	
+							
+						self.Patrolling = false
+						
+						if !self.Reloading then
+						
+							pos = enemy:GetPos()	
+								
+							if ( pos ) and enemy:IsValid() and enemy:Health() > 0 then
+							
+								self:MovementFunction()	
+
+								if ( self:GetRangeSquaredTo( enemy ) < self.StopRange*self.StopRange and self:GetRangeSquaredTo( enemy ) > self.BackupRange*self.BackupRange and self:Visible( self.Enemy ) and !self.Crouching ) then
+			
+									if ( self.NextStrafeTimer or 0 ) < CurTime() then
+			
+										self.Strafing = true
+			
+										local sidetoside = ( self:GetPos() + self:GetAngles():Right() * ( 328 * math.random(-1,1) ) )
+			
+										self.loco:Approach(sidetoside, 75)
+									
+										self.NextStrafeTimer = CurTime() + 0.2
+									
+									else
+									
+										self.Strafing = true
+									
+									end
+									
+								else
+								
+									local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+									local opts = {	lookahead = 30,
+										tolerance = 20,
+										draw = false,
+										maxage = maxageScaled 
+									}
+								
+									self:ChaseEnemy( opts )
+									self.Strafing = false
+								
+								end
+								
+							end
+								
+						else
+							
+							self.Strafing = false
+							
+							self:ReloadBehaviour()
 							
 						end
-							
+					
 					else
 						
 						self.Strafing = false
-						
-						self:ReloadBehaviour()
-						
-					end
-				
-				else
-					
-					self.Strafing = false
-					self.Patrolling = true
+						self.Patrolling = true
 
-					if !self.Reloading and !self.ReloadAnimation and !self.GoingToRevive then
+						if !self.Reloading and !self.ReloadAnimation and !self.GoingToRevive then
 
-						if self.BulletsUsed != 0 then
+							if self.BulletsUsed != 0 then
+							
+								if math.random(1,2) == 1 then
+									self:ReloadWeapon( "running" )
+								elseif math.random(1,2) == 2 then
+									self:ReloadWeapon( "standing" )
+								end
+							
+							else
 						
-							if math.random(1,2) == 1 then
-								self:ReloadWeapon( "running" )
-							elseif math.random(1,2) == 2 then
-								self:ReloadWeapon( "standing" )
+								self:PlayIdleSound()
+						
+								self:MovementFunction()
+						
+								local pos = self:FindSpot( "random", { radius = 5000 } )
+
+								if ( pos ) then
+
+									self:MoveToPos( pos )
+
+								end
+						
 							end
-						
-						else
-					
-							self:PlayIdleSound()
-					
-							self:MovementFunction()
-					
-							local pos = self:FindSpot( "random", { radius = 5000 } )
 
-							if ( pos ) then
-
-								self:MoveToPos( pos )
-
-							end
-					
 						end
-
+						
 					end
-					
+		
 				end
-	
+		
+			else
+			
+				if self.Reloading and !self.GettingUp then
+			
+					self:ReloadWeapon( "running" )
+			
+				end
+			
 			end
-	
-		else
-		
-			if self.Reloading and !self.GettingUp then
-		
-				self:ReloadWeapon( "running" )
-		
-			end
-		
 		end
-		
 		coroutine.yield()
 		
 	end
@@ -646,7 +661,7 @@ function ENT:Think()
 	self:CustomOnThink()
 	
 	if SERVER then
-	
+
 		if self.IsAlerted then
 		
 			if self.AlertedEntity and ( IsValid( self.AlertedEntity ) and self.AlertedEntity:Health() > 0 ) then

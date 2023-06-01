@@ -15,7 +15,8 @@ ENT.Base = "nb_vehicle_hit_base"
 ENT.Spawnable = false
 ENT.AdminSpawnable = false
 
---Stats--
+--Stats--	
+
 ENT.ChaseDistance = 2000
 
 ENT.CollisionHeight = 64
@@ -208,35 +209,49 @@ function ENT:RunBehaviour()
 	self:OnSpawn()
 
 	while ( true ) do
-
-		if self:HaveEnemy() and self:CheckEnemyStatus( self.Enemy ) then
-				
-				pos = self:GetEnemy():GetPos()
-
-				if ( pos ) then
-					
-					self:MovementFunction()
-						
-					local enemy = self:GetEnemy()
-					local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
-					local opts = {	lookahead = 30,
-							tolerance = 20,
-							draw = false,
-							maxage = maxageScaled 
-							}
-						
-					self:ChaseEnemy( opts )
-						
+		if((self.nextActivationCheck or 0)<CurTime()) then
+			local isSleeping = true
+			for _,v in pairs(player.GetAll()) do
+				if(self:GetRangeSquaredTo(v)<=3411715) then
+					isSleeping = false
+					break
 				end
-
-					
-		else
-				
-			coroutine.wait( 1 )	
-			self:MovementFunction()
-					
+			end
+			self.sleeping = isSleeping
+			if(SleepCheck) then
+				print(self,"is sleeping:",self.sleeping)
+			end
+			self.nextActivationCheck = CurTime()+math.random(5, 7)
 		end
-			
+		if(self.nosleep or !self.sleeping) then
+			if self:HaveEnemy() and self:CheckEnemyStatus( self.Enemy ) then
+					
+					pos = self:GetEnemy():GetPos()
+
+					if ( pos ) then
+						
+						self:MovementFunction()
+							
+						local enemy = self:GetEnemy()
+						local maxageScaled=math.Clamp(pos:Distance(self:GetPos())/1000,0.1,3)	
+						local opts = {	lookahead = 30,
+								tolerance = 20,
+								draw = false,
+								maxage = maxageScaled 
+								}
+							
+						self:ChaseEnemy( opts )
+							
+					end
+
+						
+			else
+					
+				coroutine.wait( 1 )	
+				self:MovementFunction()
+						
+			end
+		end
 		self:PlayIdleSound()
 			
 		coroutine.yield()

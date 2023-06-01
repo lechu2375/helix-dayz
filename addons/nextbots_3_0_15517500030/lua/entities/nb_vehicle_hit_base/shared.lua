@@ -16,6 +16,7 @@ ENT.Base             = "base_nextbot"
 ENT.Spawnable        = false
 ENT.AdminSpawnable   = false
 ENT.AutomaticFrameAdvance = true 
+ENT.nosleep = false
 
 function ENT:DeathAnimation( anim, pos, activity, scale, weapon, dropwep, bosstype )
 	local human = ents.Create( anim )
@@ -114,7 +115,7 @@ function ENT:RiseAsZombie( ent, base, npc, wep, hp, dropwep )
 			ragdoll:SetBodygroup( 8, self:GetBodygroup(8) )
 			ragdoll:SetBodygroup( 9, self:GetBodygroup(9) )
 			
-			ragdoll:SetCollisionGroup( COLLISION_GROUP_DEBRIS )
+			ragdoll:SetCollisionGroup( COLLISION_GROUP_INTERACTIVE_DEBRIS )
 			
 			self:Reanimate( ragdoll, base, npc, wep, hp, true )
 			
@@ -341,6 +342,8 @@ function ENT:HandleStuck()
 end
 
 function ENT:MoveToPos( pos, options )
+	
+
 
 	local options = options or {}
 
@@ -596,6 +599,47 @@ function ENT:DoDamage( dmg, type, ent )
 	
 end
 
+function ENT:HaveEnemy()
+
+	local enemy = self:GetEnemy()
+
+	if ( enemy and IsValid( enemy ) ) then
+		if ( enemy:Health() < 0 ) then
+			return self:FindEnemy()
+		end
+		
+		if enemy:IsPlayer() and ai_ignoreplayers:GetInt() == 1 then 
+			return self:FindEnemy()
+		elseif enemy:IsPlayer() and self:IsPlayerZombie( enemy ) then
+			return self:FindEnemy()
+		end
+		
+		if ( self.NextCheckTimer or 0 ) < CurTime() then --Every 5-8 seconds, find new and best target
+			self:FindEnemy()
+			if nb_targetmethod:GetInt() == 1 then
+				self.LastEnemy = enemy
+				timer.Simple(math.random(0.1,1.5),function()
+					if IsValid( self ) and self:Health() > 0 then
+						if !self.Enemy and self.LastEnemy then
+							if IsValid( self.LastEnemy ) and self.LastEnemy:Health() > 0 then
+								self:SetEnemy( self.LastEnemy )
+							else
+								self.LastEnemy = nil
+							end
+						end
+					end
+				end)
+			end
+			self.NextCheckTimer = CurTime() + math.random(5,8)
+		end
+		
+		return true
+		
+	else
+		return self:FindEnemy()
+	end
+end
+
 function ENT:AlertNearby( ent )
 
 	if nb_targetmethod:GetInt() == 1 then
@@ -829,7 +873,6 @@ function ENT:CanTargetThisEnemy( ent )
 							if self.FriendlyToPlayers then
 								//print("p6")
 								if self:IsPlayerZombie( ent ) or ent:IsBandit() then
-									print(ent,"Can be attacked")
 									return true
 								end
 							elseif(self.NEXTBOTMERCENARY and ent:IsBandit()) then
