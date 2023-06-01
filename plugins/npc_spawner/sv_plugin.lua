@@ -244,9 +244,11 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 
 			local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
 			//local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+			print(v.lastSpawned < os.time())
 			local npc = ents.Create(v.npc)
 			npc:SetPos(position)
 			if (!IsValid(npc)) then
+
 				v.lastSpawned = os.time() + 60
 				continue 
 			end
@@ -288,6 +290,7 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 
 			npc.KillReward = v.killreward
 			npc.SpawnerID = k
+			npc.SpawnerPos = position
 			npc:Spawn()
 			/*
 			if (v.decrease > 0 and v.totalSpawnedNPCs % v.maximum == 0) then

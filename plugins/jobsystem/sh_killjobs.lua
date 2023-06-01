@@ -26,11 +26,11 @@ do
 
   tempJob.name = "Zabij %d zombie."
   tempJob.desc = "%d zombie."
-  tempJob.icon = "propic/event/mutanthunt"
+  tempJob.icon = "icon16/user_delete.png"
   tempJob.tier = 1
   tempJob.listenTrigger = "zombieKilled"
   tempJob.numberRec = 12
-  tempJob.reward = {{"545x39", { ["quantity"] = 30 }}, {"556x45", { ["quantity"] = 30 }}, {"9x18", { ["quantity"] = 40 }}, {"9x19", { ["quantity"] = 40 }}, {"762x39", { ["quantity"] = 25 }}}
+  tempJob.reward = {{"545x39", { ["quantity"] = 60 }}, {"556x45", { ["quantity"] = 60 }}, {"9x18", { ["quantity"] = 80 }}, {"9x19", { ["quantity"] = 80 }}, {"762x39", { ["quantity"] = 50 }}}
   tempJob.rewardCount = 2
   tempJob.repReward = 12
   tempJob.moneyReward = {750, 1100}
@@ -44,14 +44,14 @@ do
 
   tempJob.name = "Zabij %d zombie."
   tempJob.desc = "%d zombie."
-  tempJob.icon = "propic/event/mutanthunt"
+  tempJob.icon = "icon16/user_delete.png"
   tempJob.tier = 1
   tempJob.listenTrigger = "zombieKilled"
-  tempJob.numberRec = 5
+  tempJob.numberRec = 6
   tempJob.reward = {{"545x39", { ["quantity"] = 15 }}, {"556x45", { ["quantity"] = 15 }}, {"9x18", { ["quantity"] = 20 }}, {"9x19", { ["quantity"] = 20 }}, {"762x39", { ["quantity"] = 10 }}}
-  tempJob.rewardCount = 2
-  tempJob.repReward = 12
-  tempJob.moneyReward = {750, 1100}
+  tempJob.rewardCount = 1
+  tempJob.repReward = 6
+  tempJob.moneyReward = {450, 900}
   tempJob.categories = {"mutantkillgroupeasy"}
 
   ix.jobs.register(tempJob, "killMutants5")

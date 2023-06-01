@@ -235,8 +235,8 @@ function evci.StartEvent(waveSize, wavesAmount)
                 end
             else
                 evci.EventCleanup()
-                print("timer end")
-                PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
+                //print("timer end")
+                //PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")
             end
         end
     )
