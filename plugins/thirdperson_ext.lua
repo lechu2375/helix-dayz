@@ -7,6 +7,23 @@ ix.config.Add("thirdperson", false, "Allow Thirdperson in the server.", nil, {
 })
 
 if (SERVER) then return end
+local allowedClassess = {}
+allowedClassess["cross_arms_swep"] = true
+allowedClassess["cross_arms_infront_swep"] = true
+allowedClassess["comlink_swep"] = true
+allowedClassess["surrender_animation_swep"] = true
+allowedClassess["point_in_direction_swep"] = true
+allowedClassess["salute_swep"] = true
+allowedClassess["guitar_stalker"] = true
+
+ALWAYS_RAISED["cross_arms_swep"] = true
+ALWAYS_RAISED["cross_arms_infront_swep"] = true
+ALWAYS_RAISED["comlink_swep"] = true
+ALWAYS_RAISED["surrender_animation_swep"] = true
+ALWAYS_RAISED["point_in_direction_swep"] = true
+ALWAYS_RAISED["salute_swep"] = true
+ALWAYS_RAISED["guitar_stalker"] = true
+
 
 function PLUGIN:PlayerBindPress(_, bind, pressed)
 	if (bind and bind == "gm_showhelp" and pressed) then
@@ -23,12 +40,13 @@ do
 	local icon_size = 32
 	local dark_red = Color(200, 50, 50)
 
+
 	function PLUGIN:HUDPaint()
 		if (!LocalPlayer():GetCharacter()) then
 			return
 		end
-
-		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false)) then
+		
+		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false) and LocalPlayer():GetActiveWeapon() and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
 			surface.SetDrawColor(dark_red)
 			surface.SetMaterial(blocked_att)
 			surface.DrawTexturedRect(ScrW() / 2 - icon_size / 2, ScrH() / 2 - icon_size / 2, icon_size, icon_size)
@@ -40,7 +58,7 @@ do
 	local keyBlacklist = IN_ATTACK + IN_ATTACK2
 
 	function PLUGIN:StartCommand(client, command)
-		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false)) then
+		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false)  and LocalPlayer():GetActiveWeapon() and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
 			command:RemoveKey(keyBlacklist)
 		end
 	end
