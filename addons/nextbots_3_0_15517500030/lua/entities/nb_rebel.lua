@@ -88,8 +88,8 @@ ENT.FemaleModels = {"models/drem/cch/female_01.mdl",
 "models/drem/cch/female_02.mdl",
 "models/drem/cch/female_03.mdl",
 "models/drem/cch/female_04.mdl",
-"models/drem/cch/female_05.mdl",
-"models/drem/cch/female_06.mdl"}
+"models/drem/cch/female_06.mdl",
+"models/drem/cch/female_07.mdl"}
 
 ENT.WalkAnim = ACT_HL2MP_RUN_SHOTGUN  
 ENT.SprintingAnim = ACT_DOD_SPRINT_IDLE_MP40 

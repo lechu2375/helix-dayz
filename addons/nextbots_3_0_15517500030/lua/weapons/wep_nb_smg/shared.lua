@@ -1,14 +1,14 @@
 --STATS For NEXTBOT--
---sound.Add({
-	--name = 	"sean_wepnb_sound_smg", --Use this as the string for self.WeaponSound in nextbot
-	--channel = CHAN_WEAPON,
-	--volume = 1.0, --Can be put into table with only a minimum/maximum value {0,1.0}
-	--level =  --How far sound can be heard: Look up Soundstucture on wiki
-	--pitch = 100, --Can be put into table with only a minimum/maximum value {1,100}
-	--sound = {"weapons/tfa_mmod/ar3/ar3_fire1.wav","weapons/tfa_mmod/ar3/ar3_fire2.wav","weapons/tfa_mmod/ar3/ar3_fire3.wav"}
---})
+sound.Add({
+name = 	"sean_wepnb_sound_smg", --Use this as the string for self.WeaponSound in nextbot
+	channel = CHAN_WEAPON,
+	volume = 1.0, --Can be put into table with only a minimum/maximum value {0,1.0}
+	//level = 1 --How far sound can be heard: Look up Soundstucture on wiki
+	pitch = 100, --Can be put into table with only a minimum/maximum value {1,100}
+	sound = {"fas2/sterling_mk7a4/mk7a4_fire1.wav"}
+})
 
-SWEP.WorldModel = "models/weapons/w_smg1.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/smgs/mk7a4.mdl"
 SWEP.TypeClass = "smg"
 SWEP.WeaponType = 1
 SWEP.MuzzleAnim = "attack1"

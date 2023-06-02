@@ -8,7 +8,7 @@
 	--sound = {"weapons/tfa_mmod/ar3/ar3_fire1.wav","weapons/tfa_mmod/ar3/ar3_fire2.wav","weapons/tfa_mmod/ar3/ar3_fire3.wav"}
 --})
 
-SWEP.WorldModel = "models/weapons/w_shotgun.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/shotguns/ks23k.mdl"
 SWEP.TypeClass = "shotgun"
 SWEP.WeaponType = 1
 SWEP.MuzzleAnim = "fire"

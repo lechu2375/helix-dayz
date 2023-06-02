@@ -90,6 +90,7 @@ function ENT:Initialize()
 		
 		--Status
 		self.NextCheckTimer = CurTime() + 4
+		self.NextRotateTime = CurTime() + 5
 		self.LookForSpotCount = 0
 		self.StuckAttempts = 0
 		self.TotalTimesStuck = 0
@@ -758,6 +759,10 @@ function ENT:HaveEnemy()
 		return true
 		
 	else
+		if(self.NextRotateTime<CurTime()) then
+			self:SetAngles(Angle(0,self:GetAngles().y+math.random(-90, 90),0))
+			self.NextRotateTime = CurTime()+math.random(5, 10)
+		end
 		return self:FindEnemy()
 	end
 end

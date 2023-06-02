@@ -8,7 +8,7 @@ sound.Add({
 	sound = {"weapons/usp/usp_unsil-1.wav"}
 })
 
-SWEP.WorldModel = "models/weapons/css_nextbot_3.0/w_pist_usp.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/pistols/usp.mdl"
 SWEP.TypeClass = "pistol"
 SWEP.WeaponType = 1
 SWEP.MuzzleAnim = "attack_player"

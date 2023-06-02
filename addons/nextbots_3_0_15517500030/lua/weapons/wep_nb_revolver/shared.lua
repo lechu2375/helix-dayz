@@ -5,10 +5,10 @@ sound.Add({
 	volume = 1.0, --Can be put into table with only a minimum/maximum value {0,1.0}
 	--level =  --How far sound can be heard: Look up Soundstucture on wiki
 	pitch = 100, --Can be put into table with only a minimum/maximum value {1,100}
-	sound = {"weapons/357/357_fire2.wav"}
+	sound = {"fas2/ragingbull/ragingbull_fire1.wav"}
 })
 
-SWEP.WorldModel = "models/weapons/w_357.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/pistols/ragingbull.mdl"
 SWEP.TypeClass = "pistol"
 SWEP.WeaponType = 1
 SWEP.MuzzleAnim = "attack1"

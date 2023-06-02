@@ -5,10 +5,10 @@ sound.Add({
 	volume = 1.0, --Can be put into table with only a minimum/maximum value {0,1.0}
 	--level =  --How far sound can be heard: Look up Soundstucture on wiki
 	pitch = 100, --Can be put into table with only a minimum/maximum value {1,100}
-	sound = {"weapons/tfa_csgo/xm1014/xm1014-1.wav"}
+	sound = {"fas2/rem870/rem870_fire1.wav"}
 })
 
-SWEP.WorldModel = "models/weapons/css_nextbot_3.0/w_shot_xm1014.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/shotguns/remington870.mdl"
 SWEP.TypeClass = "shotgun"
 SWEP.WeaponType = 1
 SWEP.MuzzleAnim = "attack_player"
