@@ -20,7 +20,19 @@ SWEP.WorldModel = "models/weapons/fas2/world/machineguns/minigun.mdl"
 SWEP.ViewModelFOV = 60
 
 SWEP.DefaultBodygroups = "00000000"
-
+SWEP.ItemData = {
+    width = 3,
+    height = 2,
+    JamCapacity = 200,
+    DegradeRate = 0.02,
+    price = 200,
+    rarity = { weight = 1 },
+    iconCam = {
+        pos = Vector(0, 200, 0),
+        ang = Angle(-1.33, 270.01, 0),
+        fov = 13
+    }
+}
 SWEP.Damage = 37
 SWEP.DamageMin = 18 -- damage done at maximum range
 SWEP.Range = 200 -- in METRES

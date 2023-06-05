@@ -5,6 +5,7 @@ SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Firearms: Source 2" -- edit this if you like
 SWEP.AdminOnly = false
 SWEP.Slot = 4
+
 SWEP.ItemData = {
     width = 2,
     height = 1,
@@ -18,6 +19,7 @@ SWEP.ItemData = {
         fov = 13.6
     }
 }
+
 SWEP.PrintName = "RPG-26"
 SWEP.Trivia_Class = "Disposable Anti-Tank Rocket Launcher"
 SWEP.Trivia_Desc = ""

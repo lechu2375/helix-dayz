@@ -13,6 +13,19 @@ SWEP.Trivia_Calibre = "N/A"
 SWEP.Trivia_Mechanism = ""
 SWEP.Trivia_Country = ""
 SWEP.Trivia_Year = nil
+SWEP.ItemData = {
+    width = 1,
+    height = 1,
+    JamCapacity = 200,
+    DegradeRate = 0.02,
+    price = 200,
+    rarity = { weight = 1 },
+    iconCam = {
+        pos = Vector(0, 200, 0),
+        ang = Angle(-1.33, 270.01, 0),
+        fov = 13
+    }
+}
 
 SWEP.Slot = 0
 

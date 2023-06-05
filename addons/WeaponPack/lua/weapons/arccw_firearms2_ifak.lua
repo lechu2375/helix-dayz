@@ -15,6 +15,20 @@ SWEP.Trivia_Year = nil
 
 SWEP.Slot = 0
 
+SWEP.ItemData = {
+    width = 1,
+    height = 1,
+    JamCapacity = 200,
+    DegradeRate = 0.02,
+    price = 200,
+    rarity = { weight = 1 },
+    iconCam = {
+        pos = Vector(0, 200, 0),
+        ang = Angle(-1.33, 270.01, 0),
+        fov = 13
+    }
+}
+
 SWEP.NotForNPCs = true
 
 SWEP.UseHands = false

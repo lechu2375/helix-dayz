@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.Slot = 4
 
 SWEP.ItemData = {
-    width = 2,
+    width = 3,
     height = 1,
     JamCapacity = 200,
     DegradeRate = 0.02,

@@ -6,6 +6,20 @@ SWEP.Category = "ArcCW - Firearms: Source 2" -- edit this if you like
 SWEP.AdminOnly = false
 SWEP.Slot = 4
 
+SWEP.ItemData = {
+    width = 3,
+    height = 1,
+    JamCapacity = 200,
+    DegradeRate = 0.02,
+    price = 200,
+    rarity = { weight = 1 },
+    iconCam = {
+        pos = Vector(0, 200, 0),
+        ang = Angle(-1.33, 270.01, 0),
+        fov = 13
+    }
+}
+
 SWEP.PrintName = "Steyr Scout"
 SWEP.Trivia_Class = "Sniper Rifle"
 SWEP.Trivia_Desc = ""
