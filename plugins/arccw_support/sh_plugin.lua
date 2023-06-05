@@ -220,6 +220,9 @@ function PLUGIN:InitHooks()
 end
 
 PLUGIN:InitHooks()
+//rarity pistolety 70-dmg smg 60-dmg pompy 50-dmg karabiny 50-dmg snajpy 40-dmg
+local calcTable = {}
+calcTable["revolver"] = 70
 
 function PLUGIN:InitPostEntity()
 	self:InitHooks()
@@ -247,21 +250,16 @@ function PLUGIN:InitPostEntity()
 
 					item.model = SWEP.WorldModel or "models/weapons/w_pistol.mdl"
 					item.name = SWEP.PrintName or SWEP.TrueName
-					print(SWEP.ItemData)
 					if(SWEP.ItemData) then
-						PrintTable(SWEP.ItemData)
 						item.width = SWEP.ItemData.width or 2
 						item.height = SWEP.ItemData.height or 1
 						if(SWEP.ItemData.iconCam) then
 							item.iconCam = SWEP.ItemData.iconCam
 						end
-						item.price =  SWEP.ItemData.price or SWEP.Damage*SWEP.Penetration*1000
+						item.rarity = SWEP.ItemData.rarity
+						item.price =  math.abs((100-SWEP.ItemData.rarity.weight)*1000)
 					end
-					if(SWEP.Damage) then
-					
-					
-					item.rarity = { weight = math.abs(-100+SWEP.Damage*SWEP.Num+(SWEP.Penetration/2)) }
-					end
+
 					ix.arccw_support.atts_slots[item.uniqueID] = ix.arccw_support.atts_slots[item.uniqueID] or {}
 
 					item.attachments = {}
@@ -324,6 +322,7 @@ function PLUGIN:InitPostEntity()
 						for key, value in pairs(SWEP.ItemData) do
 							item[key] = value
 						end
+						item.price =  math.abs((100-SWEP.ItemData.rarity.weight)*1000)
 					end
 				end
 			end

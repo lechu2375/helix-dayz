@@ -12,7 +12,7 @@ SWEP.ItemData = {
     JamCapacity = 200,
     DegradeRate = 0.02,
     price = 200,
-    rarity = { weight = 1 },
+    rarity = { weight = 15 },
     iconCam = {
         pos = Vector(0, 200, 0),
         ang = Angle(-1.7, 269.3, 0),
