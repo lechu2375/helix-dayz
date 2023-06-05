@@ -83,7 +83,7 @@ function helicrash.TestCrash(pos)
                 timer.Simple(60*5, function()
                     if(IsValid(heliContainer)) then
                         heliContainer:SetHealth(100)
-                        heliContainer:Ignite()
+                        heliContainer:Ignite(200)
                     end      
                 end)
                 heliProp:Remove()
