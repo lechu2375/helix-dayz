@@ -35,7 +35,7 @@ function airdrops.SpawnAtPos(pos,itemsAmount)
     timer.Simple(60*5, function()
         if(IsValid(supplyCrate)) then
             supplyCrate:SetHealth(100)
-            supplyCrate:Ignite()
+            supplyCrate:Ignite(100)
         end      
     end)
 
