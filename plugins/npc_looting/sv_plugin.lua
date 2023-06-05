@@ -13,7 +13,7 @@ function PLUGIN:OnNPCKilled(npc, attacker, weapon)
 	inventory.noSave = true
 	inventory.isLoot = true
 
-	local maxItems = math.random(0, 3)
+	local maxItems = math.random(0, 10)
 	local has_item = nil
 	local money = math.random(2, config_rep)
 
