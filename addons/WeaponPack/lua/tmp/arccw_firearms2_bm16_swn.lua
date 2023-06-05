@@ -1,3 +1,5 @@
+include("arccw_firearms2_functions.lua")
+
 SWEP.Base = "arccw_base"
 SWEP.Spawnable = true -- this obviously has to be set to true
 SWEP.Category = "ArcCW - Firearms: Source 2" -- edit this if you like
@@ -18,7 +20,7 @@ SWEP.ItemData = {
     }
 }
 
-SWEP.PrintName = "BM-16 Short"
+SWEP.PrintName = "BM-16 Sawed-Off"
 SWEP.Trivia_Class = "Double-Barrel"
 SWEP.Trivia_Desc = ""
 SWEP.Trivia_Manufacturer = "N/A"
@@ -28,16 +30,16 @@ SWEP.Trivia_Year = "1956"
 
 SWEP.UseHands = false
 
-SWEP.ViewModel = "models/weapons/fas2/view/shotguns/bm16_short.mdl"
-SWEP.WorldModel = "models/weapons/fas2/world/shotguns/bm16_short.mdl"
+SWEP.ViewModel = "models/weapons/fas2/view/shotguns/bm16_swn.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/shotguns/bm16_swn.mdl"
 SWEP.ViewModelFOV = 60
 
 SWEP.DefaultBodygroups = "00000000"
 SWEP.DefaultSkin = 0
 
-SWEP.Damage = 10
-SWEP.DamageMin = 1 -- damage done at maximum range
-SWEP.Range = 40 -- in METRES
+SWEP.Damage = 6
+SWEP.DamageMin = 1.5 -- damage done at maximum range
+SWEP.Range = 20 -- in METRES
 SWEP.Penetration = 1
 SWEP.DamageType = DMG_BULLET
 SWEP.MuzzleVelocity = 650 -- projectile or phys bullet muzzle velocity
@@ -48,18 +50,29 @@ SWEP.ChamberSize = 0 -- how many rounds can be chambered.
 SWEP.Primary.ClipSize = 2 -- DefaultClip is automatically set.
 
 SWEP.Recoil = 4
-SWEP.RecoilSide = 0.2
-SWEP.RecoilRise = 0.1
-SWEP.RecoilPunch = 2.5
-SWEP.VisualRecoilMult = 0
+SWEP.RecoilSide = 0.25
+
+SWEP.RecoilRise = 0.05
+SWEP.RecoilPunch = 2
+SWEP.VisualRecoilMult = 1
+SWEP.MaxRecoilBlowback = 1
+SWEP.MaxRecoilPunch = 1
+SWEP.RecoilPunchBack = 1
 SWEP.RecoilVMShake = 0
 
-SWEP.Delay = 0.15 -- 60 / RPM.
+SWEP.Sway = 0.5
+
+SWEP.Delay = 0 -- 60 / RPM.
 SWEP.Num = 12 -- number of shots per trigger pull.
 SWEP.Firemodes = {
     {
         PrintName = "Double-Barrel",
         Mode = 1,
+    },
+    {
+        PrintName = "Douplet",
+        Mode = -2,
+        RunawayBurst = true,
     },
     {
         Mode = 0
@@ -68,13 +81,13 @@ SWEP.Firemodes = {
 
 SWEP.NotForNPCS = true
 
-SWEP.AccuracyMOA = 85 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
-SWEP.HipDispersion = 420 -- inaccuracy added by hip firing.
+SWEP.AccuracyMOA = 150 -- accuracy in Minutes of Angle. There are 60 MOA in a degree.
+SWEP.HipDispersion = 400 -- inaccuracy added by hip firing.
 SWEP.MoveDispersion = 150 -- inaccuracy added by moving. Applies in sights as well! Walking speed is considered as "maximum".
 SWEP.SightsDispersion = 0 -- dispersion that remains even in sights
 SWEP.JumpDispersion = 300 -- dispersion penalty when in the air
 
-SWEP.Primary.Ammo = "12 Gauge" -- what ammo type the gun uses
+SWEP.Primary.Ammo = "12gauge" -- what ammo type the gun uses
 SWEP.MagID = "" -- the magazine pool this gun draws from
 
 SWEP.ShootVol = 110 -- volume of shoot sound
@@ -97,29 +110,29 @@ SWEP.ShellTime = 1 -- add shell life time
 SWEP.MuzzleEffectAttachment = 1 -- which attachment to put the muzzle on
 SWEP.CaseEffectAttachment = 2 -- which attachment to put the case effect on
 
-SWEP.SpeedMult = 0.85
+SWEP.SpeedMult = 0.75
 SWEP.SightedSpeedMult = 0.75
 
 SWEP.IronSightStruct = {
-    Pos = Vector(-1.92, -2.721, 1.8),
-    Ang = Angle(0.8, 0, 0),
+    Pos = Vector(-1.921, -2.721, 1.8),
+    Ang = Angle(0.2, 0.01, 0),
     Magnification = 1.1,
     SwitchToSound = {"fas2/weapon_sightraise.wav", "fas2/weapon_sightraise2.wav"}, -- sound that plays when switching to this sight
     SwitchFromSound = {"fas2/weapon_sightlower.wav", "fas2/weapon_sightlower2.wav"},
 }
 
-SWEP.SightTime = 0.35
+SWEP.SightTime = 0.4
 
 SWEP.HoldtypeHolstered = "passive"
-SWEP.HoldtypeActive = "rpg"
-SWEP.HoldtypeSights = "rpg"
+SWEP.HoldtypeActive = "ar2"
+SWEP.HoldtypeSights = "ar2"
 SWEP.HoldtypeCustomize = "slam"
 
 SWEP.AnimShoot = ACT_HL2MP_GESTURE_RANGE_ATTACK_AR2
 
 SWEP.CanBash = false
 
-SWEP.ActivePos = Vector(0, 0, 1)
+SWEP.ActivePos = Vector(-0.4, 0, 1.2)
 SWEP.ActiveAng = Angle(0, 0, 0)
 
 SWEP.CrouchPos = Vector(-0.5, -2, -0.5)
@@ -137,7 +150,7 @@ SWEP.BarrelOffsetHip = Vector(3, 0, -3)
 SWEP.CustomizePos = Vector(5.824, 0, -1.897)
 SWEP.CustomizeAng = Angle(12.149, 30.547, 0)
 
-SWEP.BarrelLength = 22
+SWEP.BarrelLength = 30
 
 SWEP.AttachmentElements = {
     ["incendiary"] = {
@@ -151,7 +164,7 @@ SWEP.AttachmentElements = {
 SWEP.Attachments = {
     {
         PrintName = "Ammunition",
-        DefaultAttName = "Default Ammunition",
+        DefaultAttName = "12 Gauge",
         Slot = "fas2_ammo_shotgun",
     },
 }
@@ -220,31 +233,31 @@ SWEP.Animations = {
     },
     ["reload"] = {
         Source = "reload",
-        Time = 165/30,
+        Time = 165/40,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
 		{s = "Firearms2.Cloth_Movement", t = 0},
-		{s = "Firearms2.TOZ34_OpenStart", t = 0.3},
-		{s = "Firearms2.TOZ34_OpenFinish", t = 0.4},
-		{s = "Firearms2.M3S90_LoadEjectorPort", t = 1.7},
-		{s = "Firearms2.TOZ34_ShellIn", t = 2.2},
-		{s = "Firearms2.TOZ34_Close", t = 3.3},
-		{s = "Firearms2.TOZ34_HammerPull", t = 4.25}
+		{s = "Firearms2.TOZ34_OpenStart", t = 0.225},
+		{s = "Firearms2.TOZ34_OpenFinish", t = 0.3},
+		{s = "Firearms2.M3S90_LoadEjectorPort", t = 1.275},
+		{s = "Firearms2.TOZ34_ShellIn", t = 1.65},
+		{s = "Firearms2.TOZ34_Close", t = 2.475},
+		{s = "Firearms2.TOZ34_HammerPull", t = 3.1875}
         },
     },
     ["reload_empty"] = {
         Source = "reload_empty",
-        Time = 165/30,
+        Time = 165/40,
         TPAnim = ACT_HL2MP_GESTURE_RELOAD_AR2,
 		SoundTable = {
         {s = "Firearms2.Cloth_Movement", t = 0},
-        {s = "Firearms2.TOZ34_OpenStart", t = 0.3},
-        {s = "Firearms2.TOZ34_OpenFinish", t = 0.4},
-        {s = "Firearms2.M3S90_LoadEjectorPort", t = 1.7},
-        {s = "Firearms2.TOZ34_ShellIn", t = 2.2},
-        {s = "Firearms2.TOZ34_Close", t = 3.3},
-        {s = "Firearms2.TOZ34_HammerPull", t = 4.25},
-        {s = "Firearms2.TOZ34_HammerPull", t = 4.24}
+        {s = "Firearms2.TOZ34_OpenStart", t = 0.225},
+        {s = "Firearms2.TOZ34_OpenFinish", t = 0.3},
+        {s = "Firearms2.M3S90_LoadEjectorPort", t = 1.275},
+        {s = "Firearms2.TOZ34_ShellIn", t = 1.65},
+        {s = "Firearms2.TOZ34_Close", t = 2.475},
+        {s = "Firearms2.TOZ34_HammerPull", t = 3.1875},
+        {s = "Firearms2.TOZ34_HammerPull", t = 3.1875}
         },
     },
 }
