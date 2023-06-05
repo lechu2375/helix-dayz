@@ -49,6 +49,7 @@ end
 
 -- lua_run ix.plugin.Get("gmodz_stamina"):PostPlayerLoadout(Entity(1))
 function PLUGIN:PostPlayerLoadout(client)
+	client:SetLocalVar("stm", 100)
 	local uniqueID = "ixStam" .. client:SteamID()
 
 	timer.Create(uniqueID, 0.25, 0, function()

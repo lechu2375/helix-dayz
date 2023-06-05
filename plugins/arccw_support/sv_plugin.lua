@@ -272,11 +272,11 @@ end)
 
 -- HOOKS --
 function PLUGIN:ArcCW_PlayerCanAttach(client, weapon, attID, slot, detach)
-	//if(slot==3) then return false end //no ammo changing  doesnt work
+	
 	if (ix.arccw_support.free_atts[attID] or !weapon.isIxItem or (client.StopArcAttach or 0) > CurTime()) then
 		return
 	end
-
+	if(string.find(attID,"ammo")) then return false end 
 	local weaponItem = weapon.ixItem
 
 	if (weaponItem) then
