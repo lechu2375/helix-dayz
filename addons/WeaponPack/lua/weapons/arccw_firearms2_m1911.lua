@@ -7,7 +7,7 @@ SWEP.AdminOnly = false
 SWEP.Slot = 1
 
 SWEP.ItemData = {
-    width = 2,
+    width = 1,
     height = 1,
     JamCapacity = 200,
     DegradeRate = 0.02,
@@ -15,8 +15,8 @@ SWEP.ItemData = {
     rarity = { weight = 1 },
     iconCam = {
         pos = Vector(0, 200, 0),
-        ang = Angle(-1.65, 270.5, 0),
-        fov = 12.4
+        ang = Angle(-1.45, 271.8, 0),
+        fov = 4.5
     }
 }
 

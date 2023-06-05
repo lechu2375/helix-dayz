@@ -247,10 +247,20 @@ function PLUGIN:InitPostEntity()
 
 					item.model = SWEP.WorldModel or "models/weapons/w_pistol.mdl"
 					item.name = SWEP.PrintName or SWEP.TrueName
+					print(SWEP.ItemData)
+					if(SWEP.ItemData) then
+						PrintTable(SWEP.ItemData)
+						item.width = SWEP.ItemData.width or 2
+						item.height = SWEP.ItemData.height or 1
+						if(SWEP.ItemData.iconCam) then
+							item.iconCam = SWEP.ItemData.iconCam
+						end
+						item.price =  SWEP.ItemData.price or SWEP.Damage*SWEP.Penetration*1000
+					end
 					if(SWEP.Damage) then
-					item.price = SWEP.Price or SWEP.Damage*SWEP.Penetration*1000
 					
-					item.rarity = { weight = SWEP.rarity or math.abs(-100+SWEP.Damage*SWEP.Num+(SWEP.Penetration/2)) }
+					
+					item.rarity = { weight = math.abs(-100+SWEP.Damage*SWEP.Num+(SWEP.Penetration/2)) }
 					end
 					ix.arccw_support.atts_slots[item.uniqueID] = ix.arccw_support.atts_slots[item.uniqueID] or {}
 
@@ -290,6 +300,7 @@ function PLUGIN:InitPostEntity()
 							if ((itemAmmo.base == "base_ammo" or itemAmmo.base == "base_arccw_ammo") and itemAmmo.ammo == SWEP.Primary.Ammo) then
 								item.ammo = itemAmmo.ammo
 								item.ammoID = itemAmmo.uniqueID
+
 								-- ix.item.list[item.ammo].maxRounds = SWEP.Primary.ForceDefaultClip or SWEP.Primary.ClipSize
 								break
 							end

@@ -15,10 +15,11 @@ SWEP.ItemData = {
     rarity = { weight = 1 },
     iconCam = {
         pos = Vector(0, 200, 0),
-        ang = Angle(-1.65, 270.5, 0),
-        fov = 12.4
+        ang = Angle(-1.45, 271.8, 0),
+        fov = 4.5
     }
 }
+
 
 SWEP.PrintName = "OTs-14"
 SWEP.Trivia_Class = "Assault Rifle"
