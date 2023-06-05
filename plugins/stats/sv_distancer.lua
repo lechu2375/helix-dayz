@@ -37,7 +37,7 @@
             client.distanceCharID = character:GetID()
             timer.Create("distanceTimer"..client:SteamID64(),30,0, function()
                 updateDistance(client)
-                client.distancePos = client:GetPos()
+                
             end)
         end
     end

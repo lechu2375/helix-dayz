@@ -13,7 +13,7 @@ function PLUGIN:CharacterLoaded(character)
                 end
             else
                 //print("kurwoo nie ma chara")
-                timer.Destroy(cplaytime..id)
+                timer.Destroy("cplaytime"..player:SteamID64())
             end
         end)
     end
