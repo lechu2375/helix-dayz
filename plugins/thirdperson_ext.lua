@@ -46,7 +46,7 @@ do
 			return
 		end
 		
-		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false) and LocalPlayer():GetActiveWeapon() and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
+		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false) and IsValid(LocalPlayer():GetActiveWeapon()) and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
 			surface.SetDrawColor(dark_red)
 			surface.SetMaterial(blocked_att)
 			surface.DrawTexturedRect(ScrW() / 2 - icon_size / 2, ScrH() / 2 - icon_size / 2, icon_size, icon_size)
@@ -58,7 +58,7 @@ do
 	local keyBlacklist = IN_ATTACK + IN_ATTACK2
 
 	function PLUGIN:StartCommand(client, command)
-		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false)  and LocalPlayer():GetActiveWeapon() and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
+		if (ix.config.Get("thirdperson") and ix.option.Get("thirdpersonEnabled", false)  and IsValid(LocalPlayer():GetActiveWeapon()) and !allowedClassess[LocalPlayer():GetActiveWeapon():GetClass()]) then
 			command:RemoveKey(keyBlacklist)
 		end
 	end
