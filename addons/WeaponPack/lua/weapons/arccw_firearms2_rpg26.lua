@@ -20,7 +20,7 @@ SWEP.ViewModelFOV = 60
 
 SWEP.DefaultBodygroups = "0000000"
 SWEP.DefaultSkin = 0
-
+SWEP.AutoReload = true
 SWEP.Damage = 0
 SWEP.DamageMin = 0 -- damage done at maximum range
 SWEP.Range = 250 -- in METRES
@@ -151,23 +151,5 @@ SWEP.Animations = {
 
 function SWEP:Reload() //87	=	rpg26_rocket
 
-    if(SERVER) then
-
-        local owner = self:GetOwner()
-        local char = owner:GetCharacter()
-        if(char) then
-
-            local inv = char:GetInventory()
-            local item = inv:HasItem("arccw_firearms2_rpg26")
-
-            if(item) then
-                item:Remove()
-            end
-
-        else
-            owner:GetOwner():StripWeapon(wep:GetClass())
-        end
-
-    end
 end
 

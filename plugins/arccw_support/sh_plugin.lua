@@ -244,9 +244,14 @@ function PLUGIN:InitPostEntity()
 					else
 						item.description = SWEP.Trivia_Desc
 					end
+
 					item.model = SWEP.WorldModel or "models/weapons/w_pistol.mdl"
 					item.name = SWEP.PrintName or SWEP.TrueName
-
+					if(SWEP.Damage) then
+					item.price = SWEP.Price or SWEP.Damage*SWEP.Penetration*1000
+					
+					item.rarity = { weight = SWEP.rarity or math.abs(-100+SWEP.Damage*SWEP.Num+(SWEP.Penetration/2)) }
+					end
 					ix.arccw_support.atts_slots[item.uniqueID] = ix.arccw_support.atts_slots[item.uniqueID] or {}
 
 					item.attachments = {}
