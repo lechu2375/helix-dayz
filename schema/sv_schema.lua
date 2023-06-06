@@ -11,6 +11,11 @@ example:SetInt(1)
 example = GetConVar( "nb_allow_backingup" )
 example:SetInt(1)
 
+local workshop_items = engine.GetAddons()
+for i = 1, #workshop_items do
+	resource.AddWorkshop(workshop_items[i].wsid)
+end
+
 local entityMeta = FindMetaTable("Entity")
 
 --- Clears all of the networked variables.

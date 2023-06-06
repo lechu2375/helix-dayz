@@ -10,11 +10,14 @@ PLUGIN.author = "Bilwin"
 PLUGIN.schema = "Any"
 PLUGIN.version = 1.0
 PLUGIN.songs = {
-    {path = "music/hl2_song13.mp3", duration = 54},
-    {path = "music/hl2_song17.mp3", duration = 61},
-    {path = "music/hl2_song2.mp3", duration = 173},
-    {path = "music/hl2_song30.mp3", duration = 104},
-    {path = "music/hl2_song8.mp3", duration = 60},
+    {path = "gmodz/ambient/dawn.mp3", duration = (60*3)+12},
+    {path = "gmodz/ambient/coastday.mp3", duration = (60*3)+26},
+    {path = "gmodz/ambient/vorkutaday.mp3", duration = (60*3)+23},
+    {path = "gmodz/ambient/sebjan.mp3", duration = (60*2)+28},
+    {path = "gmodz/ambient/skat12.mp3", duration = (60*2)+36},
+    {path = "gmodz/ambient/athena.mp3", duration = (60*3)+19},
+    {path = "gmodz/ambient/polarday.mp3", duration = (60*3)+17},
+
 }
 
 ix.lang.AddTable("english", {
