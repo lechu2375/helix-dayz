@@ -9,7 +9,7 @@ math.randomseed(os.time())
 function Schema:GetGameDescription()
 	return self.name
 end
-
+ix.util.Include("sh_fog.lua")
 ix.util.Include("sh_configs.lua")
 ix.util.Include("sv_chujek2000.lua")
 ix.util.Include("cl_schema.lua")

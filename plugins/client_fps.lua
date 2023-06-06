@@ -2,14 +2,7 @@ PLUGIN.name = "Boost FPS"
 PLUGIN.author = "STEAM_0:1:29606990 && Lechu2375"
 PLUGIN.description = ""
 
-local fogCtrl = ents.FindByClass("env_fog_controller")
-if(fogCtrl[1]) then
-	fogCtrl[1]:Fire("SetFarZ", 4000)
-	fogCtrl[1]:Fire("SetStartDist",0)
-	fogCtrl[1]:Fire("SetEndDist",3200)
-	fogCtrl[1]:Fire("SetMaxDensity",1.0)
-	//fogCtrl[1]:Fire("SetColor",22,28,31)
-end
+
 do
 	local hooks = {
 		{'PostDrawEffects', 'RenderWidgets'},
@@ -56,6 +49,7 @@ do
 end
 
 if (CLIENT) then
+
 	ix.option.Add("entityShadows", ix.type.bool, false, {
 		category = "performance"
 	})

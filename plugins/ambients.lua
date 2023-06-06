@@ -84,7 +84,7 @@ if CLIENT then
                     radio:SetVolume(flVolume)
                     radio:Play()
                     self.ambient = radio
-
+                    print("Playing ambient...")
                     m_flAmbientCooldown = os.time() + _tonumber(mSongDuration) + 10
                 end
             end)
