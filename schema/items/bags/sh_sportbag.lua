@@ -3,11 +3,11 @@ ITEM.description = "Torba na siłownię, zwykle spotykana wcześniej u entuzjast
 ITEM.model = Model("models/player/backpack_sportbag/sportbag.mdl")
 ITEM.pacmodel = "models/player/backpack_sportbag/bp_forward_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 1200
+ITEM.price = 12000
 ITEM.invWidth = 4
 ITEM.invHeight = 3
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

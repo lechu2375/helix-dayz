@@ -4,10 +4,11 @@ ITEM.model = Model("models/player/backpack_blackjack/blackjack.mdl")
 ITEM.pacmodel = "models/player/backpack_blackjack/bp_blackjack50_body_lod0.mdl"
 ITEM.category = "Użytkowe"
 ITEM.outfitCategory = "plecak"
-ITEM.price = 3500
+ITEM.price = 35000
 ITEM.invWidth = 5
 ITEM.invHeight = 7
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

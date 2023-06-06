@@ -3,11 +3,11 @@ ITEM.description = "Tania replika jakiegoś 3-dniowego plecaka szturmowego z sys
 ITEM.model = Model("models/player/backpack_baselardwild/scavbp.mdl")
 ITEM.pacmodel = "models/player/backpack_baselardwild/bp_load_baselard_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 2000
+ITEM.price = 20000
 ITEM.invWidth = 4
 ITEM.invHeight = 5
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

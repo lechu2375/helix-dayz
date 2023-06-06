@@ -3,11 +3,11 @@ ITEM.description = "Uniwersalna torba na ramię do noszenia na co dzień lub pod
 ITEM.model = Model("models/player/backpack_molle/molle.mdl")
 ITEM.pacmodel = "models/player/backpack_molle/bp_max_fuchs_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 600
+ITEM.price = 6000
 ITEM.invWidth = 3
 ITEM.invHeight = 2
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

@@ -3,11 +3,11 @@ ITEM.description = "Modułowy plecak dla operatorów PMC ze specjalnymi możliwo
 ITEM.model = Model("models/player/backpack_pilgrim/pilgrim.mdl")
 ITEM.pacmodel = "models/player/backpack_pilgrim/bp_piligrimm_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 4200
+ITEM.price = 42000
 ITEM.invWidth = 6
 ITEM.invHeight = 7
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

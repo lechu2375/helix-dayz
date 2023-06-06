@@ -3,11 +3,11 @@ ITEM.description = "Zawarty w całorocznym zestawie wyposażenia podstawowego (V
 ITEM.model = Model("models/player/backpack_vkbo/vkbo.mdl")
 ITEM.pacmodel = "models/player/backpack_vkbo/bp_baul_vkbo_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 1200
+ITEM.price = 12000
 ITEM.invWidth = 4
 ITEM.invHeight = 3
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

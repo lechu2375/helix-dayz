@@ -3,11 +3,11 @@ ITEM.description = "Dość przestronna torba kurierska, wystarczająco duża, ab
 ITEM.model = Model("models/player/backpack_tactical/tactical.mdl")
 ITEM.pacmodel = "models/player/backpack_tactical/tactical_backpack_d.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 900
+ITEM.price = 9000
 ITEM.invWidth = 3
 ITEM.invHeight = 3
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

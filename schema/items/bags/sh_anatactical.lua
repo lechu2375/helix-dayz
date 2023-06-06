@@ -3,11 +3,11 @@ ITEM.description = "Lekki i pojemny plecak od ANA Tactical. Specjalnie zaprojekt
 ITEM.model = Model("models/player/backpack_betav2/betav2.mdl")
 ITEM.pacmodel = "models/player/backpack_betav2/bp_anatactical_beta_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 2500
+ITEM.price = 25000
 ITEM.invWidth = 5
 ITEM.invHeight = 5
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }//35
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {

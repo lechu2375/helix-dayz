@@ -3,11 +3,11 @@ ITEM.description = "Modułowy plecak dla operatorów PMC ze specjalnymi możliwo
 ITEM.model = Model("models/player/backpack_paratus_3_day/paratus.mdl")
 ITEM.pacmodel = "models/player/backpack_paratus_3_day/bp_paratus_3_day_body_lod0.mdl"
 ITEM.category = "Użytkowe"
-ITEM.price = 3600
+ITEM.price = 36000
 ITEM.invWidth = 6
 ITEM.invHeight = 6
-
-ITEM.price = ITEM.invWidth*ITEM.invHeight*10
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
 		[1] = {
