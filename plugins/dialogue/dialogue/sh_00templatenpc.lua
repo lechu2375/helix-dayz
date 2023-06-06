@@ -174,7 +174,7 @@ DIALOGUE.addTopic("ConfirmTask", {
 })
 
 DIALOGUE.addTopic("AboutWorkTopic", {
-	statement = "About work...",
+	statement = "Jeśli chodzi o pracę...",
 	response = "",
 	IsDynamic = true,
 	options = {
@@ -191,7 +191,7 @@ DIALOGUE.addTopic("AboutWorkTopic", {
 
 			if itemuid and not jobs[target:GetDisplayName()].isCompleted then
 				dynopts = {
-					{statement = string.format("Hand over 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
+					{statement = string.format("Dostarcz 1 %s", ix.item.list[itemuid].name), topicID = "AboutWorkTopic", dyndata = {identifier = itemuid}},
 				}
 			end
 		end
@@ -379,6 +379,35 @@ DIALOGUE.addTopic("InterestMoreTopic", {
     end,
 } )
 
+
+
 ----------------------------------------------------------------
 -----------------------END-INTEREST-END-------------------------
 ----------------------------------------------------------------
+local randomWep = {}
+randomWep["arccw_firearms2_an94"] = "545x39"
+randomWep["arccw_firearms2_fnfal"] = "762x51"
+randomWep["arccw_firearms2_lr300"] = "556x45"
+randomWep["arccw_firearms2_svd"] = "762x54"
+randomWep["arccw_firearms2_galil"] = "556x45"
+
+local items ={"plecakzbieracza","fas2_sight_compm4","fas2_muzzle_muzzlebrake","armor_medium","bandage","bandage","rushelmet2","drink_energy_drink","drink_energy_drink"}
+
+DIALOGUE.addTopic("DailyItems", {
+    statement = "Potrzebuję sprzętu, załatwisz mi coś na krechę??",
+    response = "Zobaczę, jak coś będę miał to Ci dam.",
+    preCallback = function(self, client, target)
+		if(SERVER) then
+			if(client:GetCharacter() and client:GetCharacter():GetData("nextFreeItems",os.time())<=os.time()) then
+				client:GetCharacter():SetData("nexFreeItems",os.time()+(60*60*24))
+				local inv = client:GetCharacter():GetInventory()
+				local k,v = table.Random(randomWep)
+				inv:Add(k,1)
+				inv:Add(v,10)
+				for _,v in pairs(items) do
+					inv:Add(v)
+				end
+        	end
+		end
+    end,
+} )

@@ -177,12 +177,36 @@ PLUGIN.SpecialCall =
 				panel.talking = false
 			end,
 		},
+		local randomWep = {}
+		randomWep["arccw_firearms2_an94"] = "545x39"
+		randomWep["arccw_firearms2_fnfal"] = "762x51"
+		randomWep["arccw_firearms2_lr300"] = "556x45"
+		randomWep["arccw_firearms2_svd"] = "762x54"
+		randomWep["arccw_firearms2_galil"] = "556x45"
 
-		["test2"] = {
+		local items ={"plecakzbieracza","fas2_sight_compm4","fas2_muzzle_muzzlebrake","armor_medium","bandage","bandage","rushelmet2","drink_energy_drink","drink_energy_drink"}
+
+		["dzienneItemki"] = {
 			sv = function( client, data )
+				if(client:GetCharacter() and client:GetCharacter():GetData("nextFreeItems",os.time())<=os.time()) then
+					client:GetCharacter():SetData("nexFreeItems",os.time()+(60*60*24))
+					local inv = client:GetCharacter():GetInventory()
+					local k,v = table.Random(randomWep)
+					inv:Add(k,1)
+					inv:Add(v,10)
+					for _,v in pairs(items) do
+						inv:Add(v)
+					end
+					data.success = true
+				end
 				return data -- MUST RETURN DATA
 			end,
 			cl = function( client, panel, data ) 
+				if(data.success) then
+					panel:AddChat("Mogę Ci dać to...")
+				else
+					panel:AddChat("Wróć później, dostałeś niedawno przedmioty")
+				end
 				panel.talking = false -- Ends the current conversation and allows player to talk about other topics.
 			end,
 		},
