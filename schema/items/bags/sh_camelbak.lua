@@ -6,7 +6,7 @@ ITEM.category = "Użytkowe"
 ITEM.price = 30000
 ITEM.invWidth = 5
 ITEM.invHeight = 6
-ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeight)) }
 ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {

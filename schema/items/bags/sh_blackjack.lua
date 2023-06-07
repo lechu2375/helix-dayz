@@ -7,7 +7,7 @@ ITEM.outfitCategory = "plecak"
 ITEM.price = 35000
 ITEM.invWidth = 5
 ITEM.invHeight = 7
-ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeigh)) }
+ITEM.rarity = { weight = math.abs(60-(ITEM.invWidth*ITEM.invHeight)) }
 ITEM.price = ITEM.invWidth*ITEM.invHeight*1000
 ITEM.pacData =  {
 	["children"] = {
