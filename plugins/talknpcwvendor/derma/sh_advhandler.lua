@@ -18,6 +18,15 @@ end
 
 -- You can call SpecialCall with !.
 -- example. when a player call dialouge that has uid "!quest_recieve_test" then it will call SpecialCall["quest_receive_test"].
+local randomWep = {}
+randomWep["arccw_firearms2_an94"] = "545x39"
+randomWep["arccw_firearms2_fnfal"] = "762x51"
+randomWep["arccw_firearms2_lr300"] = "556x45"
+randomWep["arccw_firearms2_svd"] = "762x54"
+randomWep["arccw_firearms2_galil"] = "556x45"
+local items ={"plecakzbieracza","fas2_sight_compm4","fas2_muzzle_muzzlebrake","armor_medium","bandage","bandage","rushelmet2","drink_energy_drink","drink_energy_drink"}
+
+
 PLUGIN.SpecialCall =
 {
 
@@ -117,83 +126,16 @@ PLUGIN.SpecialCall =
 				panel.talking = false
 			end,
 		},
- 		["molotov1"] = {
-			sv = function( client, data ) 
-				if client:HasQuest( "molotov1" ) then
-					-- questPLUGIN = from the "quests" plugin.
-					local pqst_dat = client:GetQuest( "molotov1" ) -- get player quest data
-					if client:CanCompleteQuest( "molotov1", pqst_dat ) then -- If see player can complete quest
-						client:GiveQuestReward( "molotov1", pqst_dat ) -- Give quest reward
-						client:RemoveQuest( "molotov1" ) -- and remove player quest.
-						data.done = true -- send client data.done. It will generate you're done text.
-					else
-						data.done = false
-					end
-				else
-					-- set quest and get quest.
-					data.gotquest = true -- Just got a quest!
-					local d_qst = questPLUGIN:GetQuest( "molotov1" )
-					client:AddQuest( "molotov1", d_qst:GenerateData( client ) ) -- Give a quest that has uniqueid 'honeya' and generates random data for quest.
-					-- Quest data generating function is in sh_quests.lua file.
-				end
 
-				return data -- MUST RETURN DATA
-			end,
-			cl = function( client, panel, data )
-
-				if data.gotquest then
-					local d_qst = questPLUGIN:GetQuest( "molotov1" )
-					local pqst_dat = LocalPlayer():GetQuest( "molotov1" ) 
-
-					if(ppst_dat)then
-						panel:AddChat( data.name, "연구에 필요한 표본들을 구해다주게 :" )
-						for k, v in pairs( pqst_dat ) do
-							panel:AddCustomText( Format( d_qst.desc, unpack( { v, ix.item.list[k].name } ) ), "ixChatFont" )
-						end
-					end
-					panel.talking = false -- Get quest and end the converstaion.
-					return
-				end
-				
-
-				if data.done then
-					panel:AddChat( data.name, "고맙네 젊은이, 보수를 받아가게.")
-				else
-					panel:AddChat( data.name, "표본이 부족하네 :")
-					local d_qst = questPLUGIN.curQuests[self:GetCharacter():GetID()]
-
-					if(d_qst)then
-						for k, v in pairs( pqst_dat ) do
-							local itemname
-							if(!ix.item.list[k])then
-								itemname = "Unregistered item"..k
-							else
-								itemname = ix.item.list[k].name
-							end
-							panel:AddCustomText( Format( d_qst.desc, unpack( { v, itemname } ) ), "ixChatFont" )
-						end
-					end
-				end
-				panel.talking = false
-			end,
-		},
-		local randomWep = {}
-		randomWep["arccw_firearms2_an94"] = "545x39"
-		randomWep["arccw_firearms2_fnfal"] = "762x51"
-		randomWep["arccw_firearms2_lr300"] = "556x45"
-		randomWep["arccw_firearms2_svd"] = "762x54"
-		randomWep["arccw_firearms2_galil"] = "556x45"
-
-		local items ={"plecakzbieracza","fas2_sight_compm4","fas2_muzzle_muzzlebrake","armor_medium","bandage","bandage","rushelmet2","drink_energy_drink","drink_energy_drink"}
-
-		["dzienneItemki"] = {
+		["dzienneitemki"] = {
 			sv = function( client, data )
+				print(client:GetCharacter():GetData("nextFreeItems"),os.time())
 				if(client:GetCharacter() and client:GetCharacter():GetData("nextFreeItems",os.time())<=os.time()) then
-					client:GetCharacter():SetData("nexFreeItems",os.time()+(60*60*24))
+					client:GetCharacter():SetData("nextFreeItems",os.time()+(60*60*24))
 					local inv = client:GetCharacter():GetInventory()
 					local k,v = table.Random(randomWep)
-					inv:Add(k,1)
-					inv:Add(v,10)
+					inv:Add(v,1)
+					inv:Add(k,10)
 					for _,v in pairs(items) do
 						inv:Add(v)
 					end
@@ -203,9 +145,9 @@ PLUGIN.SpecialCall =
 			end,
 			cl = function( client, panel, data ) 
 				if(data.success) then
-					panel:AddChat("Mogę Ci dać to...")
+					panel:AddChat(data.name,"Mogę Ci dać to...")
 				else
-					panel:AddChat("Wróć później, dostałeś niedawno przedmioty")
+					panel:AddChat(data.name,"Wróć później, dostałeś niedawno przedmioty.")
 				end
 				panel.talking = false -- Ends the current conversation and allows player to talk about other topics.
 			end,

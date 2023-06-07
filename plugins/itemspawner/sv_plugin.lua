@@ -129,7 +129,7 @@ function PLUGIN:AddSpawner(client, position)
 		["delay"] = math.random(respawnTime - offsetTime, respawnTime + offsetTime),
 		["author"] = client:SteamID64(),
 		["position"] = position,
-		["chance_type"] = 3
+		["chance_type"] = 1
 	}
 
 	data["lastSpawned"] = os.time() + (data["delay"] * 60)
