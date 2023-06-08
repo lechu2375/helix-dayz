@@ -126,27 +126,6 @@ end
 function PLUGIN:PostPlayerLoadout(client)
 	local repPerc = client:GetReputation() / ix.config.Get("maxReputation", 1500)
 
-	if (client.ResetPlayerModel) then
-		if (repPerc <= -0.6) then -- bandit
-			client:SetModel(Schema.BanditModels[ math.random( #Schema.BanditModels ) ])
-		elseif (repPerc >= 0.6) then
-			client:SetModel(Schema.HeroModels[ math.random( #Schema.HeroModels ) ])
-		else
-			local model = client:GetCharacter():GetData("permament_model")
-
-			if (!model) then
-				local faction = ix.faction.teams[client:Team()]
-
-				if (faction) then
-					client:SetModel(faction.models[ math.random( #faction.models ) ])
-				end
-			elseif (model and model != client:GetModel()) then
-				client:SetModel(model)
-			end
-		end
-
-		client.ResetPlayerModel = nil
-	end
 
 	if (repPerc <= -0.6) then
 		client.IsBandit = true
