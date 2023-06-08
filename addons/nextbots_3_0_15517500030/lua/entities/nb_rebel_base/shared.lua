@@ -708,6 +708,7 @@ end
 
 function ENT:SetEnemy( ent )
 	
+
 	self.Enemy = ent
 
 	if ent and ent:IsValid() and ent:Health() > 0 then
@@ -1368,4 +1369,51 @@ function ENT:PlayReloadingSound( type )
 	
 		self.NextReloadVoiceTimer = CurTime() + math.random(8,12)
 	end
+end
+
+
+function ENT:CanTargetThisEnemy( ent )
+	if ent then
+
+		if ent.BASENEXTBOT then return false end
+		if IsValid( ent ) and ent:Health() > 0 then
+			if ent.NEXTBOT then
+				if ent.NEXTBOTFACTION != self.NEXTBOTFACTION then
+					return true	
+				end
+			else
+				if ai_ignoreplayers:GetInt() == 0 then
+					if ent:IsPlayer() then
+						if ent:Alive() then
+							if(!ent:IsBandit()) then
+								return false
+							end
+							if self.FriendlyToPlayers then
+								if self:IsPlayerZombie( ent ) or ent:IsBandit() then
+									return true
+								end
+							elseif(self.NEXTBOTMERCENARY and ent:IsBandit()) then
+
+								return false
+							
+							else
+								
+								if self.NEXTBOTFACTION == 'NEXTBOTZOMBIE' then
+									if !self:IsPlayerZombie( ent ) then
+										return true
+									end
+								else
+									return true
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+		
+	end
+
+	return false
+	
 end

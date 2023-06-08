@@ -28,7 +28,7 @@ ENT.Spawnable = true
 ENT.CollisionHeight = 68
 ENT.CollisionSide = 7
 
-ENT.HealthAmount = 90
+ENT.HealthAmount = 80
 
 ENT.Speed = 305
 ENT.SprintingSpeed = 305

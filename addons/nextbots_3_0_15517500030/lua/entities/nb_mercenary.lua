@@ -29,7 +29,7 @@ ENT.Spawnable = true
 ENT.CollisionHeight = 68
 ENT.CollisionSide = 7
 
-ENT.HealthAmount = 150
+ENT.HealthAmount = 130
 
 ENT.Speed = 180
 ENT.SprintingSpeed = 300
@@ -93,38 +93,33 @@ ENT.AttackSounds = {"nextbots/mercenary/attack1.wav", --Melee Sounds
 "nextbots/mercenary/attack5.wav",
 "nextbots/mercenary/attack6.wav",
 "nextbots/mercenary/attack7.wav"}
-ENT.AttackSounds2 = {"nextbots/mercenary/attack1.wav", --Shooting Sounds
-"nextbots/mercenary/attack2.wav",
-"nextbots/mercenary/attack3.wav",
-"nextbots/mercenary/attack4.wav",
-"nextbots/mercenary/attack5.wav",
-"nextbots/mercenary/attack6.wav",
-"nextbots/mercenary/attack7.wav"}
 
-ENT.PainSounds = {"nextbots/mercenary/pain1.wav",
-"nextbots/mercenary/pain2.wav",
-"nextbots/mercenary/pain3.wav",
-"nextbots/mercenary/pain4.wav",
-"nextbots/mercenary/pain5.wav",
-"nextbots/mercenary/pain6.wav"}
+ENT.AttackSounds2 = {}
+
+local str = "gmodz/npc/bandit/attack_"
+for i=1,11 do
+	ENT.AttackSounds2[#ENT.AttackSounds2+1] = str..i..".ogg"
+end
+
+ENT.PainSounds = {}
+local str = "gmodz/npc/bandit/hit_"
+for i=1,7 do
+	ENT.PainSounds[#ENT.PainSounds+1] = str..i..".ogg"
+end
 
 ENT.AlertSounds = {""}
 
-ENT.DeathSounds = {"nextbots/mercenary/death1.wav",
-"nextbots/mercenary/death2.wav",
-"nextbots/mercenary/death3.wav",
-"nextbots/mercenary/death4.wav",
-"nextbots/mercenary/death5.wav",
-"nextbots/mercenary/death6.wav",
-"nextbots/mercenary/death7.wav"}
+ENT.DeathSounds = {}
+local str = "gmodz/npc/bandit/death_"
+for i=1,7 do
+	ENT.DeathSounds[#ENT.DeathSounds+1] = str..i..".ogg"
+end
 
-ENT.IdleSounds = {"nextbots/mercenary/idle1.wav",
-"nextbots/mercenary/idle2.wav",
-"nextbots/mercenary/idle3.wav",
-"nextbots/mercenary/idle4.wav",
-"nextbots/mercenary/idle5.wav",
-"nextbots/mercenary/idle6.wav"}
-
+ENT.IdleSounds = {}
+local str = "gmodz/npc/bandit/idle_"
+for i=1,35 do
+	ENT.IdleSounds[#ENT.IdleSounds+1] = str..i..".ogg"
+end
 ENT.ReloadingSounds = {"nextbots/mercenary/reload1.wav", --Standing reloading sounds 
 "nextbots/mercenary/reload2.wav",
 "nextbots/mercenary/reload3.wav",
