@@ -1,21 +1,16 @@
-ITEM.name = "Okulary taktyczne"
-ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+ITEM.name = "Bandaż"
+ITEM.description = "Został użyty do tamowania krwowotoku z łuku brwiowego.."
 
 ITEM.outfitCategory = "hat"
 
 
 
-ITEM.dropHat = true
 
-ITEM.categoryKit = "helmets"
+ITEM.rarity = { weight = 22 }
 
-ITEM.defDurability = 60
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
-ITEM.rarity = { weight = 15 }
+ITEM.price = 200
 
-ITEM.price = 5000
-
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_bandage.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -40,7 +35,7 @@ ITEM.pacData = {
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_headwear_bandage.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
 					["Skin"] = 1,
 					["Name"] = "helmet"

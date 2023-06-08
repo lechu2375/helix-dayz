@@ -15,7 +15,7 @@ ITEM.rarity = { weight = 10 }
 
 ITEM.price = 15000
 
-ITEM.model = "models/shtokerbox/ground_headgear_operatorhelmet9.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_operatorhelmet3.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -40,7 +40,7 @@ ITEM.pacData = {
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_headwear_operatorhelmet9.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_headwear_operatorhelmet3.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
 					["Name"] = "helmet"
 				},

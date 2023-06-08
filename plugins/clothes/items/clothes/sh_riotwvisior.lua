@@ -1,5 +1,9 @@
-ITEM.name = "Okulary taktyczne"
-ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+ITEM.name = "Hełm KZ SZZPU"
+ITEM.description = [[Hełm OMON skonstruowany i wyprodukowany zgodnie z technicznymi wymogami TU 7399-112-29211456-2012.
+
+Przeznaczony jest do ochrony głowy przed uderzeniami pałką, kamieniami, butelkami itd., ochrona przed odkrytym ogniem i niebezpiecznymi sytuacjami klimatycznymi.
+
+Wytrzymuje uderzenie tępym narzędziem o sile 80 J."]]
 
 ITEM.outfitCategory = "hat"
 
@@ -9,13 +13,13 @@ ITEM.dropHat = true
 
 ITEM.categoryKit = "helmets"
 
-ITEM.defDurability = 60
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
+ITEM.defDurability = 100
+ITEM.damageReduction = { [HITGROUP_HEAD] = 0.2 }
 ITEM.rarity = { weight = 15 }
 
-ITEM.price = 5000
+ITEM.price = 10000
 
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_riothelmet2.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -40,9 +44,8 @@ ITEM.pacData = {
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_headwear_riothelmet2.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
-					["Skin"] = 1,
 					["Name"] = "helmet"
 				},
 			},
@@ -51,7 +54,7 @@ ITEM.pacData = {
 			["EditorExpand"] = true,
 			["UniqueID"] = "243iun234bui234bdbhjkasdfafs21324324",
 			["ClassName"] = "group",
-			["Name"] = "taceyes"
+			["Name"] = "tachelmet"
 		},
 	},
 }

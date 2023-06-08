@@ -1,21 +1,16 @@
-ITEM.name = "Okulary taktyczne"
+ITEM.name = "Arabski Beret"
 ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
 
 ITEM.outfitCategory = "hat"
 
 
 
-ITEM.dropHat = true
 
-ITEM.categoryKit = "helmets"
-
-ITEM.defDurability = 60
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
-ITEM.rarity = { weight = 15 }
+ITEM.rarity = { weight = 20 }
 
 ITEM.price = 5000
 
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_arab_beret.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -40,9 +35,9 @@ ITEM.pacData = {
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/ground_headgear_bandana_arab1.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
-					["Skin"] = 1,
+					["Skin"] = 2,
 					["Name"] = "helmet"
 				},
 			},

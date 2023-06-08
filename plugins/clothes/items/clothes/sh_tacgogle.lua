@@ -1,5 +1,5 @@
-ITEM.name = "Okulary taktyczne"
-ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+ITEM.name = "Gogle taktyczne"
+ITEM.description = "Para zwykłych gogli taktycznych z ochroną przed odblaskami i uderzeniami."
 
 ITEM.outfitCategory = "hat"
 
@@ -15,7 +15,7 @@ ITEM.rarity = { weight = 15 }
 
 ITEM.price = 5000
 
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/ground_eyewear_goggles.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -34,15 +34,15 @@ ITEM.pacData = {
 				},
 				["self"] = {
 					["Angles"] = Angle(0, -90, -90),
-					["UniqueID"] = "4eeab4e570878434914441326f6dea3e835fc2f88b8cebe7f995ca56de477b43",
+					["UniqueID"] = "4eeab23e570878434914441326f6dea3e835fc2f88b8cebe7f995ca56de477b43",
 					["ClassName"] = "model2",
 					["Size"] = 1,
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_eyewear_goggles.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
-					["Skin"] = 1,
+					["Skin"] = 2,
 					["Name"] = "helmet"
 				},
 			},

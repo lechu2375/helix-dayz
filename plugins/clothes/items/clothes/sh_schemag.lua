@@ -1,21 +1,17 @@
-ITEM.name = "Okulary taktyczne"
-ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+
+ITEM.name = "Shemag"
+ITEM.description = "Zasłania całą głowę."
 
 ITEM.outfitCategory = "hat"
 
 
 
-ITEM.dropHat = true
 
-ITEM.categoryKit = "helmets"
-
-ITEM.defDurability = 60
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
 ITEM.rarity = { weight = 15 }
 
 ITEM.price = 5000
 
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/headgear/ground_mask_shemagh.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -34,15 +30,14 @@ ITEM.pacData = {
 				},
 				["self"] = {
 					["Angles"] = Angle(0, -90, -90),
-					["UniqueID"] = "4eeab4e570878434914441326f6dea3e835fc2f88b8cebe7f995ca56de477b43",
+					["UniqueID"] = "12weadshujek",
 					["ClassName"] = "model2",
 					["Size"] = 1,
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_mask_shemagh.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
-					["Skin"] = 1,
 					["Name"] = "helmet"
 				},
 			},
@@ -51,7 +46,7 @@ ITEM.pacData = {
 			["EditorExpand"] = true,
 			["UniqueID"] = "243iun234bui234bdbhjkasdfafs21324324",
 			["ClassName"] = "group",
-			["Name"] = "taceyes"
+			["Name"] = "tachelmet"
 		},
 	},
 }

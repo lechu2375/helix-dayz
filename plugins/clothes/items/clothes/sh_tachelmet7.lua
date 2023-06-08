@@ -1,5 +1,5 @@
-ITEM.name = "Okulary taktyczne"
-ITEM.description = "Para zwykłych okularów taktycznych z ochroną przed odblaskami i uderzeniami."
+ITEM.name = "Hełm ACH"
+ITEM.description = "Advanced Combat Helmet (ACH) to obecny hełm bojowy armii Stanów Zjednoczonych, używany od początku XXI wieku."
 
 ITEM.outfitCategory = "hat"
 
@@ -9,13 +9,13 @@ ITEM.dropHat = true
 
 ITEM.categoryKit = "helmets"
 
-ITEM.defDurability = 60
-ITEM.damageReduction = { [HITGROUP_HEAD] = 0.1 }
-ITEM.rarity = { weight = 15 }
+ITEM.defDurability = 100
+ITEM.damageReduction = { [HITGROUP_HEAD] = 0.3 }
+ITEM.rarity = { weight = 10 }
 
-ITEM.price = 5000
+ITEM.price = 15000
 
-ITEM.model = "models/shtokerbox/ground_eyewear_tactical_shades.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_operatorhelmet7.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
@@ -40,9 +40,8 @@ ITEM.pacData = {
 					["EditorExpand"] = true,
                     ["Bone"] = "head",
                     ["BoneMerge"] = true,
-					["Model"] = "models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl",
+					["Model"] = "models/shtokerbox/headgear/male_headwear_operatorhelmet7.mdl",
 					["Position"] = Vector(-0.9, -1, 0),
-					["Skin"] = 1,
 					["Name"] = "helmet"
 				},
 			},
@@ -51,7 +50,7 @@ ITEM.pacData = {
 			["EditorExpand"] = true,
 			["UniqueID"] = "243iun234bui234bdbhjkasdfafs21324324",
 			["ClassName"] = "group",
-			["Name"] = "taceyes"
+			["Name"] = "tachelmet"
 		},
 	},
 }
