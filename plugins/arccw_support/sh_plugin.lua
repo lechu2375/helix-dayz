@@ -257,7 +257,8 @@ function PLUGIN:InitPostEntity()
 							item.iconCam = SWEP.ItemData.iconCam
 						end
 						item.rarity = SWEP.ItemData.rarity
-						item.rarity.weight = math.max(1,item.rarity.weight*0.6)
+						PrintTable(item.rarity)
+						//item.rarity.weight = math.max(1,item.rarity.weight*0.6)
 						item.price =  math.abs((100-SWEP.ItemData.rarity.weight)*1000)
 					end
 

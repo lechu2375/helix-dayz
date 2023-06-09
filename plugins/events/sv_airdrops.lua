@@ -25,17 +25,16 @@ function airdrops.SpawnAtPos(pos,itemsAmount)
             ix.plugin.list.containers:SaveContainer()
         end
     end)
+    //itemID = Schema.GetRandomWeightedItem(v.scale, true)
 
-    local RandomItems = ix.plugin.list.merchant:SetRandomItems(itemsAmount)
     local inv = supplyCrate:GetInventory()
-    for k,v in pairs(RandomItems) do
-        inv:Add(v.uniqueID, v.data.quantity)
+    for i=1,itemsAmount do
+        inv:Add(Schema.GetRandomWeightedItem(0.01, true), 1)
     end
 
-    timer.Simple(60*5, function()
+    timer.Simple(60*60*3, function()
         if(IsValid(supplyCrate)) then
-            supplyCrate:SetHealth(100)
-            supplyCrate:Ignite(100)
+            supplyCrate:Remove()
         end      
     end)
 

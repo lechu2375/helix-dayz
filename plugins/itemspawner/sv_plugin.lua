@@ -8,6 +8,14 @@ PLUGIN.chance_type = {
 
 Schema.weightedItems = Schema.weightedItems or {}
 
+function Schema.GetRandomWeightedWeapon()
+
+
+end
+
+function Schema.GetRandomWeightedAmmo()
+
+end
 function Schema.GetRandomWeightedItem(scale, shuffle)
 	if (shuffle) then
 		table.shuffle(Schema.weightedItems)
