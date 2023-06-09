@@ -4,10 +4,11 @@ ITEM.model = "models/tpamodern_nutscript.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(199.4, 3.02, 86.56),
-	ang = Angle(6.6, 180.75, 0),
+	pos = Vector(225.92, 9.78, 78.01),
+	ang = Angle(4.03, 182.34, 0),
 	fov = 5.96
 }
+
 
 
 
@@ -17,7 +18,7 @@ ITEM.replacement = "models/tpamodern_nutscript.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 
-ITEM.rarity = { weight = 10 }
+ITEM.rarity = { weight = 5 }
 
 
 

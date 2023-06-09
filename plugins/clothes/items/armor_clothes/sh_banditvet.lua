@@ -4,9 +4,9 @@ ITEM.model = "models/gmodz/npc/bandit_veteran.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(46.71, 1.04, 60.73),
-	ang = Angle(-6.85, 181.77, -0.05),
-	fov = 34.68
+	pos = Vector(220.8, 16.18, 67.83),
+	ang = Angle(2.08, 184.44, 0),
+	fov = 5.96
 }
 
 
@@ -16,7 +16,7 @@ ITEM.replacement = "models/gmodz/npc/bandit_veteran.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 
-ITEM.rarity = { weight = 10 }
+ITEM.rarity = { weight = 8 }
 
 
 
@@ -25,3 +25,5 @@ ix.anim.SetModelClass(ITEM.replacement, "player")
 function ITEM:OnGetDropModel(entity)
     return "models/gmodz/misc/backpack.mdl"
 end
+
+

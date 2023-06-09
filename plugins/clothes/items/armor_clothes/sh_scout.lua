@@ -1,6 +1,6 @@
 ITEM.name = "Scout suit"
 ITEM.description = "The scout suit was built with the latest technology suitable for aggressive military action, mildly increasing ballistic protection while not greatly restricting mobility"
-ITEM.model = "models/gmodz/characters/scout.mdl"
+ITEM.model = "models/fear3/player/soldier_1.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
@@ -11,13 +11,13 @@ ITEM.iconCam = {
 
 ITEM.defDurability = 2000
 ITEM.damageReduction = 0.3
-ITEM.replacement = "models/gmodz/characters/scout.mdl"
+ITEM.replacement = "models/fear3/player/soldier_1.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 
 ITEM.rarity = { weight = 10 }
 
-ITEM.speedModify = -25
+ITEM.speedModify = 25
 
 ITEM.runSounds = {[0] = "NPC_MetroPolice.RunFootstepLeft", [1] = "NPC_MetroPolice.RunFootstepRight"}
 

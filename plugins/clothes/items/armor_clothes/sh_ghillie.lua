@@ -8,8 +8,8 @@ ITEM.iconCam = {
 	ang = Angle(-5.74, 351.56, -0.03),
 	fov = 20.07
 }
+ITEM.defDurability = 4000
 ITEM.onlyvip = true
-ITEM.useDurability = nil
 ITEM.replacement = "models/gmodz/characters/ghillie.mdl"
 ITEM.noCollisionGroup = true
 ITEM.speedModify = 10

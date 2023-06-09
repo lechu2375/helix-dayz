@@ -4,10 +4,11 @@ ITEM.model = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(188.31, 8.57, 102.17),
-	ang = Angle(11.74, 182.62, 0),
-	fov = 5.96
+	pos = Vector(308.6, -2.9, 137.03),
+	ang = Angle(13.5, 179.54, 0),
+	fov = 3.36
 }
+
 
 
 
@@ -17,7 +18,7 @@ ITEM.replacement = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 
-ITEM.rarity = { weight = 10 }
+ITEM.rarity = { weight = 8 }
 
 
 

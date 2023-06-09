@@ -4,9 +4,9 @@ ITEM.model = "models/gmodz/characters/exoskeleton.mdl"
 ITEM.width = 3
 ITEM.height = 3
 ITEM.iconCam = {
-	pos = Vector(-59.44, 26.67, 57.97),
-	ang = Angle(-4.25, 335.31, 0),
-	fov = 18.67
+	pos = Vector(220.8, 16.18, 67.83),
+	ang = Angle(2.08, 184.44, 0),
+	fov = 5.96
 }
 
 ITEM.defDurability = 5000
@@ -15,7 +15,7 @@ ITEM.replacement = "models/gmodz/characters/exoskeleton.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 350000
 
-ITEM.speedModify = 25
+ITEM.speedModify = -5
 
 ITEM.disableSprint = true
 

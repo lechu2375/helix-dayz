@@ -4,9 +4,9 @@ ITEM.model = "models/ninja/mgs4_praying_mantis_merc.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(46.71, 1.04, 60.73),
-	ang = Angle(-6.85, 181.77, -0.05),
-	fov = 34.68
+	pos = Vector(140.94, -3.21, 67.18),
+	ang = Angle(1.09, 178.88, 0),
+	fov = 5.96
 }
 
 
@@ -16,7 +16,7 @@ ITEM.replacement = "models/ninja/mgs4_praying_mantis_merc.mdl"
 ITEM.noCollisionGroup = true
 ITEM.price = 120000
 
-ITEM.rarity = { weight = 10 }
+ITEM.rarity = { weight = 5 }
 
 
 
