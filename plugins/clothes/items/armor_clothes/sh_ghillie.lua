@@ -14,6 +14,7 @@ ITEM.replacement = "models/gmodz/characters/ghillie.mdl"
 ITEM.noCollisionGroup = true
 ITEM.speedModify = 10
 ITEM.price = 80000
+ITEM.vip = true
 
 ITEM.rarity = { weight = 2 }
 
