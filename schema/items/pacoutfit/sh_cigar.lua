@@ -4,6 +4,7 @@ ITEM.category = "Outfit"
 ITEM.model = "models/unconid/props_pack/cigarette.mdl"
 ITEM.width = 1
 ITEM.height = 1
+ITEM.vip = true
 ITEM.outfitCategory = "papieros"
 ITEM.pacData = {
 

@@ -11,7 +11,7 @@ ITEM.rarity = { weight = 15 }
 
 ITEM.price = 5000
 
-ITEM.model = "models/shtokerbox/headgear/ground_mask_shemagh.mdl"
+ITEM.model = "models/shtokerbox/ground_mask_shemagh.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {

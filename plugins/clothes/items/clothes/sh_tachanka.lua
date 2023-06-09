@@ -15,7 +15,7 @@ ITEM.rarity = { weight = 2 }
 
 ITEM.price = 19000
 
-ITEM.model = "models/shtokerbox/headgear/ground_headwear_tchanka.mdl"
+ITEM.model = "models/shtokerbox/ground_headgear_arab_helmet.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {

@@ -11,7 +11,7 @@ ITEM.rarity = { weight = 20 }
 
 ITEM.price = 2000
 
-ITEM.model = "models/shtokerbox/headgear/ground_headwear_rus_beanie1.mdl"
+ITEM.model = "models/shtokerbox/ground_headwear_rus_beanie1.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {

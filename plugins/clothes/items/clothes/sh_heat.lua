@@ -10,7 +10,7 @@ ITEM.rarity = { weight = 5 }
 
 ITEM.price = 20000
 
-ITEM.model = "models/shtokerbox/headgear/ground_mask_heat.mdl"
+ITEM.model = "models/shtokerbox/ground_mask_heat.mdl"
 ITEM.width = 1
 ITEM.height = 1
 ITEM.iconCam = {
