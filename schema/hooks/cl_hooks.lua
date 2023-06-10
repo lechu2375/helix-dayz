@@ -388,7 +388,6 @@ end
 
 
 
-
 function Schema:OnCharacterMenuCreated(menu)
 
 	local extraButton = menu.mainPanel.mainButtonList:Add("ixMenuButton")

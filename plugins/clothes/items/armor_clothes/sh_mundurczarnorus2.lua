@@ -4,10 +4,11 @@ ITEM.model = "models/easterncrisis/cdf_infantry.mdl"
 ITEM.width = 2
 ITEM.height = 2
 ITEM.iconCam = {
-	pos = Vector(308.6, -2.9, 137.03),
-	ang = Angle(13.5, 179.54, 0),
-	fov = 3.36
+	pos = Vector(-29.32, -0.61, 68.38),
+	ang = Angle(8.63, -360.25, 0),
+	fov = 45
 }
+
 
 
 
