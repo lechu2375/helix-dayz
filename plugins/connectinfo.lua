@@ -22,7 +22,7 @@ if(CLIENT) then
             frame:DockPadding(0,0,0,0)
             frame:Center()
             frame:MakePopup()
-    
+            frame:SetZPos(32700)
             local DLabel = vgui.Create( "DLabel", frame )
             DLabel:SetText( tekst)
             DLabel:SetFont("ixMediumLightFont")
