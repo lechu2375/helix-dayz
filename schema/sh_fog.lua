@@ -316,7 +316,7 @@ if(SERVER) then
         RunConsoleCommand("fpsfog_active",1)
         RunConsoleCommand("fpsfog_distance",2700)
         RunConsoleCommand("fpsfog_thickness",100)
-        RunConsoleCommand("fpsfog_skybox",0)
+        RunConsoleCommand("fpsfog_skybox",1)
         
     end)
 end
