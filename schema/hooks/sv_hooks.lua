@@ -50,11 +50,25 @@ end
 function Schema:PlayerSpray(client)
 	return true
 end
-
+local melee = {"arccw_firearms2_m9_bayonet","arccw_firearms2_dv2","arccw_firearms2_machete"}
+local energol = "drink_energy_drink"
 function Schema:PostPlayerLoadout(client)
 	client:AllowFlashlight(true)
 	client:SetJumpPower(ix.config.Get("jumpPower", 200))
 	client:SetExtraHealth(nil)
+
+	if(math.random(1, 3)==3) then
+		client:GetInventory():Add("flashlight")
+	end
+
+	if(math.random(1, 4)==4) then
+		client:GetInventory():Add(melee[math.random(1, #melee)])
+	end
+
+	if(math.random(1, 2)==2) then
+		client:GetInventory():Add(energol)
+	end
+
 end
 
 function Schema:CanPlayerJoinClass(client, class, classData)
