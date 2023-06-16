@@ -56,17 +56,17 @@ function Schema:PostPlayerLoadout(client)
 	client:AllowFlashlight(true)
 	client:SetJumpPower(ix.config.Get("jumpPower", 200))
 	client:SetExtraHealth(nil)
-
+	local inv = client:GetCharacter():GetInventory()
 	if(math.random(1, 3)==3) then
-		client:GetInventory():Add("flashlight")
+		inv:Add("flashlight",1)
 	end
 
 	if(math.random(1, 4)==4) then
-		client:GetInventory():Add(melee[math.random(1, #melee)])
+		inv:Add(melee[math.random(1, #melee)],1)
 	end
 
 	if(math.random(1, 2)==2) then
-		client:GetInventory():Add(energol)
+		inv:Add(energol,1)
 	end
 
 end
