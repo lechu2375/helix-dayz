@@ -25,7 +25,7 @@ if (CLIENT) then
 	local GM = GM or GAMEMODE
 	GM.PopulateCharacterInfo = nil
 	GM.PopulateImportantCharacterInfo = nil
-	hook.Remove("CreateMenuButtons", "ixCharInfo")
+	//hook.Remove("CreateMenuButtons", "ixCharInfo")
 
 	function Schema:CanCreateCharacterInfo(suppress)
 		suppress.name = true
