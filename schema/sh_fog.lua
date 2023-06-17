@@ -6,7 +6,7 @@ end
 
 if CLIENT then LocalPlayer().fpsfog_3dsky = GetConVar("r_3dsky"):GetFloat() end
 
-CreateConVar( "fpsfog_active", 0, 8192 + 128, "enables fps saving fog", 0, 1 )
+CreateConVar( "fpsfog_active", 1, 8192 + 128, "enables fps saving fog", 0, 1 )
 CreateConVar( "fpsfog_skybox", 1, 8192 + 128, "disables skybox", 0, 1 )
 CreateConVar( "fpsfog_distance", 6500, 8192 + 128, "distance at which fog becomes opaque", 0, 20000 )
 CreateConVar( "fpsfog_thickness", 50, 8192 + 128, "distance at which fog starts", 0, 100 )
