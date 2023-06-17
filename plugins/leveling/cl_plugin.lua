@@ -15,7 +15,7 @@ function PLUGIN:CreateCharacterInfoCategory(panel)
 	panel.xp:Dock(TOP)
 
 	panel.xp:SetLabelText("Experience")
-	panel.xp:SetText(character:GetData("XP", 0).."/"..requiredXP)
+	panel.xp:SetText(character:GetData("XP", 0).."/"..reqXP)
 	panel.xp:SizeToContents()
 end
 
