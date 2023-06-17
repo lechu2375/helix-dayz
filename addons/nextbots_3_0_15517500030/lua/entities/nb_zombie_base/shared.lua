@@ -585,13 +585,15 @@ function ENT:ChaseEnemy( options )
 
 	local enemy = self:GetEnemy()
 	local pos = enemy:GetPos()
-	
+	local enemynav = navmesh.GetNearestNavArea( pos,false,100,false,false)
 	local options = options or {}
 	
 	local path = Path( "Follow" )
 	path:SetMinLookAheadDistance( options.lookahead or 30 )
 	path:SetGoalTolerance( options.tolerance or 20 )
-	path:Compute( self, pos )
+	if(enemynav) then
+		path:Compute( self, pos )
+	end
 
 	if (!path:IsValid() ) then return "failed" end
 	
@@ -621,7 +623,17 @@ function ENT:ChaseEnemy( options )
 		if ( !self.Reloading and !self.loco:IsStuck() and ( enemy and enemy:IsValid() and enemy:Health() > 0) ) then
 			if ( path:GetAge() > options.maxage ) then	
 			--if ( path:GetAge() > ( self:CheckPathAge( path ) ) ) then
-				path:Compute( self, enemy:GetPos() )
+				local enemynav = navmesh.GetNearestNavArea( enemy:GetPos(),false,100,false,false)
+				//print(enemynav)
+				if(!enemynav) then
+					self.Enemy = nil
+					print("Enemy has no navmesh")
+				else
+					path:Compute( self, enemy:GetPos() )
+					
+				end
+				
+				
 			end
 			
 		end

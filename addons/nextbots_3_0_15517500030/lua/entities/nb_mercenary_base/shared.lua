@@ -902,13 +902,15 @@ function ENT:ChaseEnemy( options )
 
 	local enemy = self:GetEnemy()
 	local pos = enemy:GetPos()
-	
+	local enemynav = navmesh.GetNearestNavArea( pos,false,100,false,false)
 	local options = options or {}
 	
 	local path = Path( "Follow" )
 	path:SetMinLookAheadDistance( options.lookahead or 30 )
 	path:SetGoalTolerance( options.tolerance or 20 )
-	path:Compute( self, pos )
+	if(enemynav) then
+		path:Compute( self, pos )
+	end
 
 	if (  !path:IsValid() ) then return "failed" end
 	
@@ -947,38 +949,40 @@ function ENT:ChaseEnemy( options )
 		if ( !self.Reloading and !self.loco:IsStuck() and ( enemy and enemy:IsValid() and enemy:Health() > 0) ) then
 		
 				if ( path:GetAge() > options.maxage ) then	
+					enemynav = navmesh.GetNearestNavArea( enemy:GetPos(),false,100,false,false)
+					if(enemynav) then
+						path:Compute( self, enemy:GetPos(), function( area, fromArea, ladder, elevator, length )
+						if ( !IsValid( fromArea ) ) then
+							return 0
+						else
 
-					path:Compute( self, enemy:GetPos(), function( area, fromArea, ladder, elevator, length )
-					if ( !IsValid( fromArea ) ) then
-						return 0
-					else
-
-						if ( !self.loco:IsAreaTraversable( area ) ) then
-							return -1
-						end
-
-						local dist = 0
-
-						local cost = dist + fromArea:GetCostSoFar()
-
-						local deltaZ = fromArea:ComputeAdjacentConnectionHeightChange( area )
-						if ( deltaZ >= self.loco:GetStepHeight() ) then
-					
-							if ( deltaZ >= self.loco:GetMaxJumpHeight() ) then
+							if ( !self.loco:IsAreaTraversable( area ) ) then
 								return -1
 							end
 
-							local jumpPenalty = 5
-							cost = cost + jumpPenalty * dist
-							
-						elseif ( deltaZ < -self.loco:GetDeathDropHeight() ) then
-							return -1
-						end
+							local dist = 0
 
-					return cost
-					
+							local cost = dist + fromArea:GetCostSoFar()
+
+							local deltaZ = fromArea:ComputeAdjacentConnectionHeightChange( area )
+							if ( deltaZ >= self.loco:GetStepHeight() ) then
+						
+								if ( deltaZ >= self.loco:GetMaxJumpHeight() ) then
+									return -1
+								end
+
+								local jumpPenalty = 5
+								cost = cost + jumpPenalty * dist
+								
+							elseif ( deltaZ < -self.loco:GetDeathDropHeight() ) then
+								return -1
+							end
+
+						return cost
+						
+						end
+						end)
 					end
-					end)
 
 				end
 

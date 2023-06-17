@@ -352,6 +352,9 @@ function ENT:MoveToPos( pos, options )
 	path:SetGoalTolerance( options.tolerance or 20 )
 	path:Compute( self, pos )
 
+
+
+
 	if ( !path:IsValid() ) then return "failed" end
 
 	while ( path:IsValid() ) do
