@@ -317,17 +317,24 @@ function pace.IsFocused()
 	return pace.Focused
 end
 
+local fade_time = 0.1
+
 function pace.GainFocus(show_editor)
 	local self = pace.Editor
 	if self:IsValid() then
 		if self.allowclick ~= false then
 			self:MakePopup()
 			pace.Focused = true
-			if not show_editor then
-				self:AlphaTo(255, 0.1, 0)
-				self.exit_button:AlphaTo(255, 0.1, 0)
-				self.zoomframe:AlphaTo(255, 0.1, 0)
-			end
+
+			timer.Remove("pac_editor_visibility")
+
+			self:SetVisible(true)
+			self.exit_button:SetVisible(true)
+			self.zoomframe:SetVisible(true)
+
+			self:AlphaTo(255, fade_time, 0)
+			self.exit_button:AlphaTo(255, fade_time, 0)
+			self.zoomframe:AlphaTo(255, fade_time, 0)
 		end
 	end
 end
@@ -342,9 +349,15 @@ function pace.KillFocus(show_editor)
 		pace.Focused = false
 
 		if not show_editor then
-			self:AlphaTo(0, 0.1, 0)
-			self.exit_button:AlphaTo(0, 0.1, 0)
-			self.zoomframe:AlphaTo(0, 0.1, 0)
+			self:AlphaTo(0, fade_time, 0)
+			self.exit_button:AlphaTo(0, fade_time, 0)
+			self.zoomframe:AlphaTo(0, fade_time, 0)
+
+			timer.Create("pac_editor_visibility", fade_time, 1, function()
+				self:SetVisible(false)
+				self.exit_button:SetVisible(false)
+				self.zoomframe:SetVisible(false)
+			end)
 		end
 
 		self.allowclick = false
@@ -379,10 +392,8 @@ pac.AddHook('PostRenderVGUI', 'pac_DrawProfileInfos', PostRenderVGUI)
 function PANEL:PaintOver(w, h)
 	if not self.okay then return end
 	textCol = self:GetSkin().Colours.Category.Line.Text
-	local info = _G.PAC_VERSION and PAC_VERSION()
-	if info then
-		local text = info.addon.version_name
-
+	local text = _G.PAC_VERSION and PAC_VERSION()
+	if text then
 		surface.SetFont("DermaDefault")
 		local x, y = self:LocalToScreen()
 		local w, h = surface.GetTextSize(text)
@@ -397,7 +408,7 @@ function PANEL:PaintOver(w, h)
 
 		if mx > x and mx < x + w and my > y and my < y + h then
 			hovering = true
-			text = "pac version: " .. info.addon.version_name
+			text = "pac version: " .. text
 			w, h = surface.GetTextSize(text)
 
 			surface.SetDrawColor(0,0,0,255)

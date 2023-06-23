@@ -68,8 +68,8 @@ do
 		}
 	end
 
-	def_color1 = Color(255, 255, 255, 255)
-	def_color2 = Color(0, 0, 0, 255)
+	local def_color1 = Color(255, 255, 255, 255)
+	local def_color2 = Color(0, 0, 0, 255)
 
 	local surface_SetFont = surface.SetFont
 	local surface_SetTextColor = surface.SetTextColor
@@ -202,7 +202,7 @@ end
 surface.CreateFont("pace_about_1", {font = "Roboto Bold", size = 512, weight = 800, additive = false, antialias = true})
 
 local credits = {}
-local A = function(str, size, ...) table.insert(credits, {str, size or type(str) == "string" and 1 or nil, ...}) end
+local A = function(str, size, ...) table.insert(credits, {str, size or isstring(str) and 1 or nil, ...}) end
 
 local cast = {
 	"morshmellow",
@@ -554,7 +554,7 @@ function pace.ShowAbout()
 
 		first = false
 
-		quit = input.IsKeyDown(KEY_SPACE) or input.IsKeyDown(KEY_ESCAPE) or not ok
+		local quit = input.IsKeyDown(KEY_SPACE) or input.IsKeyDown(KEY_ESCAPE) or not ok
 
 		if quit then
 			if not ok then print(err) end

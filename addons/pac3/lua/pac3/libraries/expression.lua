@@ -34,6 +34,7 @@ local lib = {
 	sgn = function(n) return n>0 and 1 or n<0 and -1 or 0 end,
 
 	clamp = math.Clamp,
+	round = math.Round,
 }
 
 local blacklist = {"repeat", "until", "function", "end"}
@@ -58,7 +59,7 @@ local function compile_expression(str, extra_lib)
 
 	local func = CompileString(str, "pac_expression", false)
 
-	if type(func) == "string" then
+	if isstring(func) then
 		return false, func
 	else
 		setfenv(func, functions)

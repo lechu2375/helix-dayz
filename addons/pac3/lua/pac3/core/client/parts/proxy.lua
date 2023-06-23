@@ -8,9 +8,9 @@ PART.Icon = 'icon16/calculator.png'
 
 BUILDER:StartStorableVars()
 
-	BUILDER:SetPropertyGroup()
+	BUILDER:SetPropertyGroup("generic")
 		BUILDER:GetSet("VariableName", "", {enums = function(part)
-			local part = part:GetOutputTarget()
+			local part = part:GetTarget()
 			if not part:IsValid() then return end
 			local tbl = {}
 			for _, info in pairs(part:GetProperties()) do
@@ -28,7 +28,7 @@ BUILDER:StartStorableVars()
 
 		BUILDER:GetSet("RootOwner", false)
 		BUILDER:GetSetPart("TargetPart")
-		BUILDER:GetSetPart("OutputTargetPart")
+		BUILDER:GetSetPart("OutputTargetPart", {hide_in_editor = true})
 		BUILDER:GetSet("AffectChildren", false)
 		BUILDER:GetSet("Expression", "")
 
@@ -52,12 +52,11 @@ BUILDER:StartStorableVars()
 
 BUILDER:EndStorableVars()
 
-function PART:GetOutputTarget()
-	local part = self:GetOutputTargetPart()
-	if part:IsValid() then
-		return part
-	end
-	return self:GetTarget()
+-- redirect
+function PART:SetOutputTargetPart(part)
+	if not part:IsValid() then return end
+	self.SetOutputTargetPartUID = ""
+	self:SetTargetPart(part)
 end
 
 function PART:GetPhysicalTarget()
@@ -108,15 +107,18 @@ function PART:GetNiceName()
 	if self.AffectChildren then
 		target = "children"
 	else
-		local part = self.debug_target or self:GetOutputTarget()
-		if false and part == self.Parent then
-			target = "parent"
-		else
+		local part = self:GetTarget()
+		if part:IsValid() then
 			target = part:GetName()
 		end
 	end
 
-	return (target or "?") .. "." .. pac.PrettifyName(self:GetVariableName()) .. " = " .. (self.debug_var or "?")
+	local axis = self:GetAxis()
+	if axis ~= "" then
+		axis = "." .. axis
+	end
+
+	return (target or "?") .. "." .. pac.PrettifyName(self:GetVariableName()) .. axis .. " = " .. (self.debug_var or "?")
 end
 
 function PART:Initialize()
@@ -191,6 +193,30 @@ local function get_owner(self)
 end
 
 PART.Inputs = {}
+
+PART.Inputs.property = function(self, property_name, field)
+	local part = self:GetTarget()
+
+	if part:IsValid() and property_name then
+		local v = part:GetProperty(property_name)
+
+		local T = type(v)
+
+		if T == "Vector" or T == "Angle" then
+			if field and v[field] then
+				return v[field]
+			else
+				return v[1],v[2],v[3]
+			end
+		elseif T == "boolean" then
+			return v and 1 or 0
+		elseif T == "number" then
+			return v
+		end
+	end
+
+	return 0
+end
 
 PART.Inputs.owner_position = function(self)
 	local owner = get_owner(self)
@@ -323,7 +349,7 @@ do
 	local function get_scale(self, field)
 		local owner = get_owner(self)
 
-		if owner:IsValid() then return 1 end
+		if not owner:IsValid() then return 1 end
 
 		return owner.pac_model_scale and owner.pac_model_scale[field] or (owner.GetModelScale and owner:GetModelScale()) or 1
 	end
@@ -484,9 +510,9 @@ end
 PART.Inputs.pose_parameter = function(self, name)
 	if not name then return 0 end
 	local owner = get_owner(self)
-	if owner:IsValid() and owner.GetPoseParameter then return 0 end
+	if owner:IsValid() and owner.GetPoseParameter then return owner:GetPoseParameter(name) end
 
-	return owner:GetPoseParameter(name)
+	return 0
 end
 
 PART.Inputs.command = function(self)
@@ -510,6 +536,11 @@ PART.Inputs.voice_volume = function(self)
 	return ply:VoiceVolume()
 end
 
+PART.Inputs.voice_volume_scale = function(self)
+	local ply = self:GetPlayerOwner()
+	return ply:GetVoiceVolumeScale()
+end
+
 do -- light amount
 	local ColorToHSV = ColorToHSV
 	local render = render
@@ -517,16 +548,16 @@ do -- light amount
 		local part = self:GetPhysicalTarget()
 		if not part:IsValid() then return 0 end
 		if not part.GetWorldPosition then return 0 end
-		local v = render.GetLightColor(part:GetWorldPosition()):ToColor()[field]
-		print(v, field)
+		local v = field and render.GetLightColor(part:GetWorldPosition()):ToColor()[field] or render.GetLightColor(part:GetWorldPosition()):ToColor()
 
 		if part.ProperColorRange then
-			return v / 255
+			if field then return v / 255 else return v['r']/255, v['g']/255, v['b']/255 end
 		end
 
-		return v
+		if field then return v else return v['r'], v['g'], v['b'] end
 	end
 
+	PART.Inputs.light_amount = function(self) return get_color(self) end
 	PART.Inputs.light_amount_r = function(self) return get_color(self, "r") end
 	PART.Inputs.light_amount_g = function(self) return get_color(self, "g") end
 	PART.Inputs.light_amount_b = function(self) return get_color(self, "b") end
@@ -544,18 +575,19 @@ end
 do -- ambient light
 	local render = render
 	local function get_color(self, field)
-		local part = self:GetOutputTarget()
+		local part = self:GetTarget()
 		if not part:IsValid() then return 0 end
 
-		local v = render.GetAmbientLightColor():ToColor()[field]
+		local v = field and render.GetAmbientLightColor():ToColor()[field] or render.GetAmbientLightColor():ToColor()
 
 		if part.ProperColorRange then
-			return v / 255
+			if field then return v / 255 else return v['r']/255, v['g']/255, v['b']/255 end
 		end
 
-		return v
+		if field then return v else return v['r'], v['g'], v['b'] end
 	end
 
+	PART.Inputs.ambient_light = function(self) return get_color(self) end
 	PART.Inputs.ambient_light_r = function(self) return get_color(self, "r") end
 	PART.Inputs.ambient_light_g = function(self) return get_color(self, "g") end
 	PART.Inputs.ambient_light_b = function(self) return get_color(self, "b") end
@@ -586,25 +618,26 @@ end
 do -- weapon and player color
 	local Color = Color
 	local function get_color(self, get, field)
-		local color = get(self)[field]
-		local part = self:GetOutputTarget()
+		local color = field and get(self)[field] or get(self)
+		local part = self:GetTarget()
 
 		if part.ProperColorRange then
-			return color / 255
+			if field then return color else return color[1], color[2], color[3] end
 		end
 
-		return color
+		if field then return color*255 else return color[1]*255, color[2]*255, color[3]*255 end
 	end
 
 	do
 		local function get_player_color(self)
 			local owner = self:GetPlayerOwner()
 
-			if owner:IsValid() then return Color(255, 255, 255) end
+			if not owner:IsValid() then return Vector(1,1,1) end
 
 			return owner:GetPlayerColor()
 		end
 
+		PART.Inputs.player_color = function(self) return get_color(self, get_player_color) end
 		PART.Inputs.player_color_r = function(self) return get_color(self, get_player_color, "r") end
 		PART.Inputs.player_color_g = function(self) return get_color(self, get_player_color, "g") end
 		PART.Inputs.player_color_b = function(self) return get_color(self, get_player_color, "b") end
@@ -614,11 +647,12 @@ do -- weapon and player color
 		local function get_weapon_color(self)
 			local owner = self:GetPlayerOwner()
 
-			if owner:IsValid() then return Color(255, 255, 255) end
+			if not owner:IsValid() then return Vector(1,1,1) end
 
 			return owner:GetWeaponColor()
 		end
 
+		PART.Inputs.weapon_color = function(self) return get_color(self, get_weapon_color) end
 		PART.Inputs.weapon_color_r = function(self) return get_color(self, get_weapon_color, "r") end
 		PART.Inputs.weapon_color_g = function(self) return get_color(self, get_weapon_color, "g") end
 		PART.Inputs.weapon_color_b = function(self) return get_color(self, get_weapon_color, "b") end
@@ -682,7 +716,7 @@ end
 
 PART.Inputs.hsv_to_color = function(self, h, s, v)
 
-	local part = self:GetOutputTarget()
+	local part = self:GetTarget()
 	if not part:IsValid() then return end
 
 	h = tonumber(h) or 0
@@ -766,9 +800,11 @@ function PART:SetExpression(str)
 		if ok then
 			self.ExpressionFunc = res
 			self.ExpressionError = nil
+			self:SetError()
 		else
 			self.ExpressionFunc = true
 			self.ExpressionError = res
+			self:SetError(res)
 		end
 	end
 end
@@ -781,6 +817,20 @@ function PART:OnHide()
 		self.last_vel = nil
 		self.last_pos = nil
 		self.last_vel_smooth = nil
+	end
+
+	if self.VariableName == "Hide" then
+		-- cleanup event triggers on hide
+		local part = self:GetTarget()
+		if self.AffectChildren then
+			for _, part in ipairs(self:GetChildren()) do
+				part:SetEventTrigger(self, false)
+				part.proxy_hide = nil
+			end
+		elseif part:IsValid() then
+			part:SetEventTrigger(self, false)
+			part.proxy_hide = nil
+		end
 	end
 end
 
@@ -798,23 +848,29 @@ local function set(self, part, x, y, z, children)
 			x = x or val == true and 1 or 0
 			local b = tonumber(x) > 0
 
+
+			-- special case for hide to make it behave like events
 			if self.VariableName == "Hide" then
-				part.set_hide_from_proxy = self
-				part:SetEventTrigger(self, b)
-			end
 
-			part:SetProperty(self.VariableName, b)
+				if part.proxy_hide ~= b then
 
-			if self.VariableName == "Hide" then
-				part.set_hide_from_proxy = nil
+					-- in case parts start as hidden
+					if b == false then
+						part:SetKeyValueRecursive("Hide", b)
+					end
 
-				-- SetHide side effects takes care of unhiding the other parts
+					-- we want any nested proxies to think twice before they decide to enable themselves
+					part:CallRecursiveOnClassName("proxy", "OnThink")
 
-				-- in case parts start as hidden
-				for _, part in ipairs(part:GetChildrenList()) do
-					part.Hide = b
+					part:SetEventTrigger(self, b)
+
+					part.proxy_hide = b
 				end
+
+				-- don't apply anything to children
 				return
+			else
+				part:SetProperty(self.VariableName, b)
 			end
 		elseif T == "number" then
 			x = x or val
@@ -856,7 +912,7 @@ function PART:RunExpression(ExpressionFunc)
 end
 
 function PART:OnThink()
-	local part = self:GetOutputTarget()
+	local part = self:GetTarget()
 	if not part:IsValid() then return end
 	if part.ClassName == 'woohoo' then return end
 
@@ -881,9 +937,10 @@ function PART:OnThink()
 			return
 		end
 
-		if x and type(x) ~= "number" then x = 0 end
-		if y and type(y) ~= "number" then y = 0 end
-		if z and type(z) ~= "number" then z = 0 end
+		if x and not isnumber(x) then x = 0 end
+		if y and not isnumber(y) then y = 0 end
+		if z and not isnumber(z) then z = 0 end
+
 
 		if self.Additive then
 			if x then
@@ -923,6 +980,17 @@ function PART:OnThink()
 			if y then str = str .. ", " .. math.Round(y, 3) end
 			if z then str = str .. ", " .. math.Round(z, 3) end
 
+			local val = part:GetProperty(self.VariableName)
+			local T = type(val)
+
+			if T == "boolean" then
+				str = tonumber(x) > 0 and "true" or "false"
+			elseif T == "Vector" then
+				str = "Vector(" .. str .. ")"
+			elseif T == "Angle" then
+				str = "Angle(" .. str .. ")"
+			end
+
 			self.debug_var = str
 
 			if self.Name == "" and pace.current_part == self and self.pace_properties and IsValid(self.pace_properties["Name"]) then
@@ -937,7 +1005,7 @@ function PART:OnThink()
 		if post_function and input_function then
 			local input_number = input_function(self)
 
-			if type(input_number) ~= "number" then
+			if not isnumber(input_number) then
 				error("proxy function " .. self.Input .. " does not return a number!")
 			end
 

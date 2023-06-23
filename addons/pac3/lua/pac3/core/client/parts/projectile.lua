@@ -82,6 +82,7 @@ BUILDER:StartStorableVars()
 	BUILDER:GetSetPart("OutfitPart")
 	BUILDER:GetSet("Physical", false)
 	BUILDER:GetSet("CollideWithOwner", false)
+	BUILDER:GetSet("CollideWithSelf", false)
 	BUILDER:GetSet("RemoveOnCollide", false)
 BUILDER:EndStorableVars()
 
@@ -291,10 +292,7 @@ function PART:Shoot(pos, ang)
 end
 
 function PART:OnRemove()
-	if self.Physical then
-		net.Start("pac_projectile_remove_all")
-		net.SendToServer()
-	elseif self.projectiles then
+	if not self.Physical and self.projectiles then
 		for key, ent in pairs(self.projectiles) do
 			SafeRemoveEntity(ent)
 		end

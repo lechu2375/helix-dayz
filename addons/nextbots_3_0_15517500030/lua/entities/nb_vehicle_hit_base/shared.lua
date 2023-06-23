@@ -588,7 +588,7 @@ function ENT:DoDamage( dmg, type, ent )
 	if ent:Health() > 0 then
 		if ent:IsPlayer() or ( ent.NEXTBOT ) then
 			if ent:IsPlayer() then
-				if string.find(ent:GetActiveWeapon():GetClass(), "wep_nb_k_*") then
+				if ent:GetActiveWeapon() and string.find(ent:GetActiveWeapon():GetClass(), "wep_nb_k_*") then
 					if ent:Alive() and ent:IsValid() then
 						ent:GetActiveWeapon():Block()
 					end
@@ -625,6 +625,7 @@ function ENT:HaveEnemy()
 					if IsValid( self ) and self:Health() > 0 then
 						if !self.Enemy and self.LastEnemy then
 							if IsValid( self.LastEnemy ) and self.LastEnemy:Health() > 0 then
+								//print("here2")
 								self:SetEnemy( self.LastEnemy )
 							else
 								self.LastEnemy = nil
@@ -662,7 +663,7 @@ function ENT:AlertNearby( ent )
 							if self:GetRangeSquaredTo( v ) < disttocheck*disttocheck and self:Visible( v ) then
 								
 								if ( IsValid( v ) and v:Health() > 0 ) then
-									
+									print("alert")
 									v:SetEnemy( ent )
 									v:BehaveStart()
 
@@ -795,7 +796,7 @@ function ENT:CheckEnemyPosition( dmginfo )
 					if !self:HaveEnemy() then
 					
 						if ( ( self:GetRangeSquaredTo( enemy ) < ( self.ChaseDistance*self.ChaseDistance ) or 3000*3000 ) and self:Visible( enemy ) ) then
-							
+							//print("check en pos")
 							self:SetEnemy( enemy )
 							self:BehaveStart()
 								
@@ -823,9 +824,8 @@ function ENT:SearchForEnemy( ents )
 	if #ents > 0 then
 	
 		local bestenemy = self:FirstValueTable( ents )
-		if self:CheckTargetMethod( bestenemy ) then
-			--print( bestenemy, "nb: ", self )
-			self:SetEnemy( bestenemy )
+		if self:CheckTargetMethod( bestenemy ) and self:CanTargetThisEnemy( bestenemy )then
+				self:SetEnemy( bestenemy )
 			return true
 		else
 			self:SetEnemy( nil )

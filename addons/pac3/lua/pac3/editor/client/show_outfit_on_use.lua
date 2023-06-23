@@ -91,14 +91,8 @@ timer.Create('pac3_transmissions_ttl', 1, 0, function()
 end)
 
 function pace.HandleOnUseReceivedData(data)
-	local validTransmission = type(data.partID) == 'number' and
-		type(data.totalParts) == 'number' and
-		type(data.transmissionID) == 'number'
-
-	if not validTransmission then
-		pace.HandleReceiveData(data)
-		return
-	end
+	local validTransmission = isnumber(data.partID) and
+		isnumber(data.totalParts) and isnumber(data.transmissionID)
 
 	if not data.owner.pac_onuse_only then
 		data.owner.pac_onuse_only = true
@@ -121,6 +115,22 @@ function pace.HandleOnUseReceivedData(data)
 			pac.ToggleIgnoreEntity(data.owner, false, 'pac_onuse_only')
 		end
 	end)
+
+	if not validTransmission then
+		local func = pace.HandleReceiveData(data)
+
+		local part_uid
+
+		if istable(data.part) and istable(data.part.self) then
+			part_uid = data.part.self.UniqueID
+		end
+
+		if isfunction(func) then
+			pac.EntityIgnoreBound(data.owner, func, part_uid)
+		end
+
+		return
+	end
 
 	local trData = transmissions[data.transmissionID]
 
@@ -148,7 +158,7 @@ function pace.HandleOnUseReceivedData(data)
 		for i, part in ipairs(trData.list) do
 			local func = pace.HandleReceiveData(part)
 
-			if type(func) == 'function' then
+			if isfunction(func) then
 				table.insert(funcs, func)
 			end
 		end

@@ -60,7 +60,7 @@ local function install_click(icon, path, pattern, on_menu, pathid)
 			local menu = DermaMenu()
 			menu:AddOption(L"copy path", function()
 				if pattern then
-					for _, pattern in ipairs(type(pattern) == "string" and {pattern} or pattern) do
+					for _, pattern in ipairs(isstring(pattern) and {pattern} or pattern) do
 						local test = path:match(pattern)
 						if test then
 							path = test
@@ -632,13 +632,14 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 	local last_w
 	local last_h
 	local div_x
+	local last_div_x
 
 	local old_think = frame.Think
 	frame.Think = function(...)
 		local x,y = frame:GetPos()
 		local w,h = frame:GetSize()
 
-		local div_x = divider:GetLeftWidth()
+		div_x = divider:GetLeftWidth()
 
 		if x ~= last_x then frame:SetCookie("x", x) last_x = x end
 		if y ~= last_y then frame:SetCookie("y", y) last_y = y end
@@ -946,7 +947,7 @@ function pace.AssetBrowser(callback, browse_types_str, part_key)
 								if object.type == "model" then
 									node.propPanel:Add(create_model_icon(object.model))
 								elseif object.type == "header" then
-									if not object.text or type(object.text) ~= "string" then return end
+									if not object.text or not isstring(object.text) then return end
 
 									local label = vgui.Create("ContentHeader", node.propPanel)
 									label:SetText(object.text)

@@ -1,3 +1,14 @@
+local ipairs = ipairs
+local table_insert = table.insert
+local isnumber = isnumber
+local tonumber = tonumber
+local isstring = isstring
+local tostring = tostring
+local table_Merge = table.Merge
+local istable = istable
+local pac = pac
+local setmetatable = setmetatable
+
 pac.PartTemplates = pac.PartTemplates or {}
 pac.VariableOrder = {}
 pac.GroupOrder = pac.GroupOrder or {}
@@ -52,7 +63,7 @@ do
 			end
 		end
 
-		table.insert(tbl, key)
+		table_insert(tbl, key)
 	end
 
 	function META:SetPropertyGroup(name)
@@ -91,10 +102,10 @@ do
 		pac.VariableOrder[tbl.ClassName] = pac.VariableOrder[tbl.ClassName] or {}
 		insert_key(pac.VariableOrder[tbl.ClassName], key)
 
-		if type(def) == "number" then
+		if isnumber(def) then
 			tbl["Set" .. key] = tbl["Set" .. key] or function(self, var) self[key] = tonumber(var) end
 			tbl["Get" .. key] = tbl["Get" .. key] or function(self) return tonumber(self[key]) end
-		elseif type(def) == "string" then
+		elseif isstring(def) then
 			tbl["Set" .. key] = tbl["Set" .. key] or function(self, var) self[key] = tostring(var) end
 			tbl["Get" .. key] = tbl["Get" .. key] or function(self) return tostring(self[key]) end
 		else
@@ -105,7 +116,7 @@ do
 		tbl[key] = def
 
 		if udata then
-			table.Merge(self:PropData(key), udata)
+			table_Merge(self:PropData(key), udata)
 		end
 
 		if self.store then
@@ -135,7 +146,7 @@ do
 				return
 			end
 
-			if type(uid) == "table" then
+			if istable(uid) then
 				uid = uid.UniqueID
 			end
 
@@ -159,7 +170,14 @@ do
 			end
 		end
 
-		PART["Set" .. key] = PART["Set" .. key] or function(self, var) self[key] = var end
+		PART["Set" .. key] = PART["Set" .. key] or function(self, var)
+			self[key] = var
+			if var and var:IsValid() then
+				self[key.."UID"] = var:GetUniqueID()
+			else
+				self[key.."UID"] = ""
+			end
+		end
 		PART["Get" .. key] = PART["Get" .. key] or function(self) return self[key] end
 		PART[key] = NULL
 

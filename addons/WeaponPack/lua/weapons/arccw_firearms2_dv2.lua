@@ -19,7 +19,7 @@ SWEP.ItemData = {
     JamCapacity = 200,
     DegradeRate = 0.02,
     price = 200,
-    rarity = { weight = 30 },
+    rarity = { weight = 50 },
     iconCam = {
         pos = Vector(0, 200, 0),
         ang = Angle(-1.33, 270.01, 0),
@@ -46,7 +46,7 @@ SWEP.PrimaryBash = true
 
 SWEP.Primary.Ammo = nil
 
-SWEP.MeleeDamage = 30
+SWEP.MeleeDamage = 40
 SWEP.MeleeRange = 2
 SWEP.MeleeDamageType = DMG_SLASH
 SWEP.MeleeTime = 1
@@ -54,7 +54,7 @@ SWEP.MeleeGesture = ACT_HL2MP_GESTURE_RANGE_ATTACK_KNIFE
 SWEP.MeleeAttackTime = 0.1
 
 SWEP.Melee2 = true
-SWEP.Melee2Damage = 70
+SWEP.Melee2Damage = 80
 SWEP.Melee2Range = 2
 SWEP.MeleeDamageType = DMG_SLASH
 SWEP.Melee2Time = 1.5

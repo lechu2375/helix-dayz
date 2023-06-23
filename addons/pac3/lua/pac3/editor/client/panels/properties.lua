@@ -83,7 +83,7 @@ function pace.CreateSearchList(property, key, name, add_columns, get_list, get_c
 
 		for i, data in ipairs(newList) do
 			local key, val, keyFriendly, valFriendly = data[1], data[2], data[3], data[4]
-			if (not find or find == "") or tostring(select_value_search(valFriendly, keyFriendly)):lower():find(find) then
+			if (not find or find == "") or tostring(select_value_search(valFriendly, keyFriendly)):lower():find(find, nil, true) then
 
 				local pnl = add_line(list, key, val)
 				pnl.list_key = key
@@ -208,6 +208,8 @@ do -- list
 			if pattern == "" and search.searched_something then
 				search:Kill()
 				search:KillFocus()
+				pace.Editor:KillFocus()
+				pace.Editor:MakePopup()
 			else
 				search.searched_something = true
 				local group
@@ -413,7 +415,7 @@ do -- list
 		pnl.alt_line = #self.List%2 == 1
 		btn.alt_line = pnl.alt_line
 
-		if type(var) == "Panel" then
+		if ispanel(var) then
 			pnl:SetContent(var)
 		end
 
@@ -505,6 +507,11 @@ do -- list
 		for _, data in ipairs(SortGroups(FlatListToGroups(flat_list))) do
 			self:AddCollapser(data.group or "generic")
 			for pos, prop in ipairs(data.props) do
+
+				if prop.udata and prop.udata.hide_in_editor then
+					continue
+				end
+
 				local val = prop.get()
 				local T = type(val):lower()
 
@@ -548,7 +555,7 @@ do -- list
 							function()
 								local tbl
 
-								if type(prop.udata.enums) == "function" then
+								if isfunction(prop.udata.enums) then
 									if pace.current_part:IsValid() then
 										tbl = prop.udata.enums(pace.current_part)
 									end
@@ -560,11 +567,11 @@ do -- list
 
 								if tbl then
 									for k, v in pairs(tbl) do
-										if type(v) ~= "string" then
+										if not isstring(v) then
 											v = k
 										end
 
-										if type(k) ~= "string" then
+										if not isstring(k) then
 											k = v
 										end
 
@@ -757,7 +764,7 @@ do -- base editable
 		if self.editing then return end
 
 		local value = skip_encode and var or self:Encode(var)
-		if type(value) == "number" then
+		if isnumber(value) then
 			-- visually round numbers so 0.6 doesn't show up as 0.600000000001231231 on wear
 			value = math.Round(value, 7)
 		end
@@ -770,6 +777,8 @@ do -- base editable
 
 		if #str > 10 then
 			self:SetTooltip(str)
+		else
+			self:SetTooltip()
 		end
 
 		self.original_str = str
@@ -823,6 +832,47 @@ do -- base editable
 			self:SetValue(pac.CopyValue(pace.clipboard))
 			self.OnValueChanged(self:GetValue())
 		end):SetImage(pace.MiscIcons.paste)
+
+		--left right swap available on strings (and parts)
+		if type(self:GetValue()) == 'string' then
+			menu:AddSpacer()
+			menu:AddOption(L"change sides", function()
+				local var
+				local part
+				if self.udata and self.udata.editor_panel == "part" then
+					part = pac.GetPartFromUniqueID(pac.Hash(pac.LocalPlayer), self:GetValue())
+					var = part:IsValid() and part:GetName()
+				else
+					var = self:GetValue()
+				end
+
+				local var_flip
+				if string.match(var, "left") != nil then
+					var_flip = string.gsub(var,"left","right")
+				elseif string.match(var, "right") != nil then
+					var_flip = string.gsub(var,"right","left")
+				end
+
+				if self.udata and self.udata.editor_panel == "part" then
+					local target = pac.FindPartByName(pac.Hash(pac.LocalPlayer), var_flip or var, pace.current_part)
+					self:SetValue(target or part)
+					self.OnValueChanged(target or part)
+				else
+                self:SetValue(var_flip or var)
+                self.OnValueChanged(var_flip or var)
+            end
+		end):SetImage("icon16/arrow_switch.png")
+
+		--numeric sign flip available on numbers
+		elseif type(self:GetValue()) == 'number' then
+			menu:AddSpacer()
+			menu:AddOption(L"flip sign (+/-)", function()
+				local val = self:GetValue()
+				self:SetValue(-val)
+				self.OnValueChanged(self:GetValue())
+			end):SetImage("icon16/arrow_switch.png")
+		end
+
 		menu:AddSpacer()
 		menu:AddOption(L"reset", function()
 			if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
@@ -1028,71 +1078,45 @@ do -- vector
 				right.sens = sens
 			end
 
-			left:SetMouseInputEnabled(true)
-			left.OnValueChanged = function(num)
-				self.vector[arg1] = num
+			local function on_change(arg1, arg2, arg3)
+				local restart = 0
 
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					middle:SetValue(num)
-					self.vector[arg2] = num
+				return function(num)
+					self.vector[arg1] = num
 
-					right:SetValue(num)
-					self.vector[arg3] = num
-				end
+					if input.IsKeyDown(KEY_R) then
+						self:Restart()
+						restart = os.clock() + 0.1
+					elseif input.IsKeyDown(KEY_LSHIFT) then
+						middle:SetValue(num)
+						self.vector[arg2] = num
 
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
+						right:SetValue(num)
+						self.vector[arg3] = num
+					end
 
-				if self.OnValueSet then
-					self:OnValueSet(self.vector)
+					if restart > os.clock() then
+						self:Restart()
+						return
+					end
+
+					self.OnValueChanged(self.vector * 1)
+					self:InvalidateLayout()
+
+					if self.OnValueSet then
+						self:OnValueSet(self.vector * 1)
+					end
 				end
 			end
+
+			left:SetMouseInputEnabled(true)
+			left.OnValueChanged = on_change(arg1, arg2, arg3)
 
 			middle:SetMouseInputEnabled(true)
-			middle.OnValueChanged = function(num)
-				self.vector[arg2] = num
-
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					left:SetValue(num)
-					self.vector[arg1] = num
-
-					right:SetValue(num)
-					self.vector[arg3] = num
-				end
-
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
-
-				if self.OnValueSet then
-					self:OnValueSet(self.vector)
-				end
-			end
+			middle.OnValueChanged = on_change(arg2, arg1, arg3)
 
 			right:SetMouseInputEnabled(true)
-			right.OnValueChanged = function(num)
-				self.vector[arg3] = num
-
-				if input.IsKeyDown(KEY_R) then
-					self:Restart()
-				elseif input.IsKeyDown(KEY_LSHIFT) then
-					middle:SetValue(num)
-					self.vector[arg2] = num
-
-					left:SetValue(num)
-					self.vector[arg1] = num
-				end
-
-				self.OnValueChanged(self.vector)
-				self:InvalidateLayout()
-
-				if self.OnValueSet then
-					self:OnValueSet(self.vector)
-				end
-			end
+			right.OnValueChanged = on_change(arg3, arg2, arg1)
 
 			self.left = left
 			self.middle = middle
@@ -1127,11 +1151,17 @@ do -- vector
 		PANEL.MoreOptionsLeftClick = special_callback
 
 		function PANEL:Restart()
-			self.left:SetValue(0)
-			self.middle:SetValue(0)
-			self.right:SetValue(0)
+			if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
+				self.vector = pac.CopyValue(pace.current_part.DefaultVars[self.CurrentKey])
+			else
+				self.vector = ctor(0,0,0)
+			end
 
-			self.OnValueChanged(self.vector)
+			self.left:SetValue(self.vector[arg1])
+			self.middle:SetValue(self.vector[arg2])
+			self.right:SetValue(self.vector[arg3])
+
+			self.OnValueChanged(self.vector * 1)
 		end
 
 		function PANEL:PopulateContextMenu(menu)
@@ -1140,18 +1170,18 @@ do -- vector
 			end):SetImage(pace.MiscIcons.copy)
 			menu:AddOption(L"paste", function()
 				local val = pac.CopyValue(pace.clipboard)
-				if _G.type(val) == "number" then
+				if isnumber(val) then
 					val = ctor(val, val, val)
-				elseif _G.type(val) == "Vector" and type == "angle" then
+				elseif isvector(val) and type == "angle" then
 					val = ctor(val.x, val.y, val.z)
-				elseif _G.type(val) == "Angle" and type == "vector" then
+				elseif isangle(val) and type == "vector" then
 					val = ctor(val.p, val.y, val.r)
 				end
 
 				if _G.type(val):lower() == type or type == "color" then
 					self:SetValue(val)
 
-					self.OnValueChanged(self.vector)
+					self.OnValueChanged(self.vector * 1)
 				end
 			end):SetImage(pace.MiscIcons.paste)
 			menu:AddSpacer()
@@ -1165,7 +1195,7 @@ do -- vector
 		end
 
 		function PANEL:SetValue(vec)
-			self.vector = vec
+			self.vector = vec * 1
 
 			self.left:SetValue(math.Round(vec[arg1], 4))
 			self.middle:SetValue(math.Round(vec[arg2], 4))
@@ -1195,8 +1225,8 @@ do -- vector
 	VECTOR(Vector, "vector", "x", "y", "z")
 	VECTOR(Angle, "angle", "p", "y", "r")
 
-	local function tohex(vec)
-		return ("#%.2X%.2X%.2X"):format(vec.x, vec.y, vec.z)
+	local function tohex(vec, color2)
+		return color2 and ("#%.2X%.2X%.2X"):format(vec.x * 255, vec.y * 255, vec.z * 255) or ("#%.2X%.2X%.2X"):format(vec.x, vec.y, vec.z)
 	end
 
 	local function fromhex(str)
@@ -1346,23 +1376,17 @@ do -- vector
 			local html_color
 
 			if not dlibbased then
-				local function tohex(vec)
-					return ("#%X%X%X"):format(vec.x * 255, vec.y * 255, vec.z * 255)
-				end
-
-				local function fromhex(str)
-					local x,y,z = str:match("#?(..)(..)(..)")
-					return Vector(tonumber("0x" .. x), tonumber("0x" .. y), tonumber("0x" .. z)) / 255
-				end
-
 				html_color = vgui.Create("DTextEntry", frm)
 				html_color:Dock(BOTTOM)
-				html_color:SetText(tohex(self.vector))
+				html_color:SetText(tohex(self.vector, true))
 				html_color.OnEnter = function()
-					local vec = fromhex(html_color:GetValue())
-					clr:SetColor(Color(vec.x * 255, vec.y * 255, vec.z * 255))
-					self.OnValueChanged(vec)
-					self:SetValue(vec)
+					local col = uncodeValue(html_color:GetValue())
+					if col then
+						local vec = col:ToVector()
+						clr:SetColor(col)
+						self.OnValueChanged(vec)
+						self:SetValue(vec)
+					end
 				end
 			end
 
@@ -1372,7 +1396,7 @@ do -- vector
 				self:SetValue(vec)
 
 				if not dlibbased then
-					html_color:SetText(tohex(vec))
+					html_color:SetText(tohex(vec, true))
 				end
 			end
 
@@ -1435,6 +1459,12 @@ do -- number
 			local delta = (self.mousey - gui.MouseY()) / 10
 			local val = (self.oldval or 0) + (delta * sens)
 
+			if input.IsKeyDown(KEY_R) then
+				if pace.current_part and pace.current_part.DefaultVars[self.CurrentKey] then
+					val = pace.current_part.DefaultVars[self.CurrentKey]
+				end
+			end
+
 			self:SetNumberValue(val)
 
 			if gui.MouseY()+1 >= ScrH() then
@@ -1462,7 +1492,10 @@ do -- number
 		if self:IsMouseDown() then
 			if input.IsKeyDown(KEY_LCONTROL) then
 				num = math.Round(num)
+			elseif input.IsKeyDown(KEY_PAD_MINUS) or input.IsKeyDown(KEY_MINUS) then
+				num = -num
 			end
+
 
 			if input.IsKeyDown(KEY_LALT) then
 				num = math.Round(num, 5)

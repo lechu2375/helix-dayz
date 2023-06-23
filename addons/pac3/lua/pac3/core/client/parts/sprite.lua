@@ -11,7 +11,7 @@ PART.Group = 'effects'
 PART.Icon = 'icon16/layers.png'
 
 BUILDER:StartStorableVars()
-	BUILDER:SetPropertyGroup()
+	BUILDER:SetPropertyGroup("generic")
 		BUILDER:GetSet("IgnoreZ", false)
 		BUILDER:GetSet("SizeX", 1, {editor_sensitivity = 0.25})
 		BUILDER:GetSet("SizeY", 1, {editor_sensitivity = 0.25})
@@ -88,7 +88,7 @@ function PART:SetMaterial(var)
 	var = var or ""
 
 	if not pac.Handleurltex(self, var, nil, "UnlitGeneric", {["$translucent"] = "1"}) then
-		if type(var) == "string" then
+		if isstring(var) then
 			self.Materialm = pac.Material(var, self)
 			self:CallRecursive("OnMaterialChanged")
 		elseif type(var) == "IMaterial" then

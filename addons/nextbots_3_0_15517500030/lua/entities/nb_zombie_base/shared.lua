@@ -627,7 +627,7 @@ function ENT:ChaseEnemy( options )
 				//print(enemynav)
 				if(!enemynav) then
 					self.Enemy = nil
-					print("Enemy has no navmesh")
+					//print("Enemy has no navmesh")
 				else
 					path:Compute( self, enemy:GetPos() )
 					

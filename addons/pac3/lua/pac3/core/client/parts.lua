@@ -22,7 +22,8 @@ local function initialize(part, owner)
 	part:Initialize()
 end
 
-function pac.CreatePart(name, owner, tbl, make_copy)
+function pac.CreatePart(name, owner, tbl, make_copy, level)
+	level = level or 0
 	name = name or "base"
 	owner = owner or pac.LocalPlayer
 
@@ -59,13 +60,14 @@ function pac.CreatePart(name, owner, tbl, make_copy)
 
 	if not ok then
 		part:Remove()
+
 		if part.ClassName ~= "base" then
 			return pac.CreatePart("base", owner, tbl)
 		end
 	end
 
 	if tbl then
-		part:SetTable(tbl, make_copy)
+		part:SetTable(tbl, make_copy, level)
 	end
 
 	if not META.GloballyEnabled then
@@ -80,8 +82,12 @@ end
 local reloading = false
 
 function pac.RegisterPart(META)
+	assert(isstring(META.ClassName), "Part has no classname")
+	assert(istable(META.StorableVars), "Part " .. META.ClassName .. " has no StorableVars")
+
 	do
 		local cvar = CreateClientConVar("pac_enable_" .. META.ClassName, "1", true)
+
 		cvars.AddChangeCallback("pac_enable_" .. META.ClassName, function(name, old, new)
 			local enable = tobool(new)
 			META.GloballyEnabled = enable
@@ -92,6 +98,7 @@ function pac.RegisterPart(META)
 			end
 			pac.EnablePartsByClass(META.ClassName, enable)
 		end)
+
 		META.GloballyEnabled = cvar:GetBool()
 	end
 

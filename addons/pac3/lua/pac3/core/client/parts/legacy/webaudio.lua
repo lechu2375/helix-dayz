@@ -173,9 +173,12 @@ function PART:SetupURLStreamsNow(URL)
 
 			if not channel or not channel:IsValid() then
 				pac.Message("Failed to load ", url, " (" .. flags .. ") - " .. (errorString or errorCode or "UNKNOWN"))
+				self:SetError("Failed to load " .. url .. " (" .. flags .. ") - " .. (errorString or errorCode or "UNKNOWN"))
 
 				if errorCode == -1 then
-					pac.Message('GMOD BUG: WAVe and Vorbis files are known to be not working with 3D flag, recode file into MPEG-3 format!')
+					local msg = 'GMOD BUG: WAVe and Vorbis files are known to be not working with 3D flag, recode file into MPEG-3 format!'
+					pac.Message(msg)
+					self:SetError(msg)
 				end
 
 				self.streams[url] = nil
@@ -249,8 +252,12 @@ function PART:PlaySound()
 	self:SetRandomPitch(self.RandomPitch)
 
 	if IsValid(self.last_stream) and not self.Overlapping and self.last_stream ~= stream then
-		self.last_stream:SetTime(0)
-		self.last_stream:Pause()
+		pcall(function()
+			-- this is erroring with noblock flag not being set, but we are doing that
+			-- maybe the stream could be partially invalid
+			self.last_stream:SetTime(0)
+			self.last_stream:Pause()
+		end)
 	end
 
 	streamdata.StartPlaying = true

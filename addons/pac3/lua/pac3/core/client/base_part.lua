@@ -1,18 +1,24 @@
+local string_format = string.format
+local tostring = tostring
+local pace = pace
+local assert = assert
+local debug_traceback = debug.traceback
+local math_random = math.random
+local xpcall = xpcall
 local pac = pac
 local pairs = pairs
 local ipairs = ipairs
 local table = table
 local Color = Color
 local NULL = NULL
-local IsValid = IsValid
-local ErrorNoHalt = ErrorNoHalt
+local table_insert = table.insert
 
 local BUILDER, PART = pac.PartTemplate()
 
 PART.ClassName = "base"
 
 function PART:__tostring()
-	return string.format("part[%s][%s][%i]", self.ClassName, self:GetName(), self.Id)
+	return string_format("part[%s][%s][%i]", self.ClassName, self:GetName(), self.Id)
 end
 
 BUILDER
@@ -28,9 +34,14 @@ BUILDER
 			:GetSet("EditorExpand", false, {hidden = true})
 			:GetSet("UniqueID", "", {hidden = true})
 			:GetSetPart("Parent")
+			:GetSetPart("TargetEntity", {description = "allows you to change which entity this part targets"})
 			-- this is an unfortunate name, it controls the order in which the scene related functions iterate over children
 			-- in practice it's often used to make something draw above something else in translucent rendering
 			:GetSet("DrawOrder", 0)
+			:GetSet("IsDisturbing", false, {
+				editor_friendly = "IsExplicit",
+				description = "Marks this content as NSFW, and makes it hidden for most of players who have pac_hide_disturbing set to 1"
+			})
 	:EndStorableVars()
 
 
@@ -46,6 +57,7 @@ function PART:PreInitialize()
 	self.modifiers = {}
 	self.RootPart = NULL
 	self.DrawOrder = 0
+	self.hide_disturbing = false
 	self.active_events = {}
 	self.active_events_ref_count = 0
 end
@@ -126,11 +138,35 @@ function PART:SetUniqueID(id)
 	end
 end
 
+local function set_info(msg, info_type)
+	if not msg then return nil end
+	local msg = tostring(msg)
+	return {
+		message = msg,
+		type = info_type or 1
+	}
+end
+
+function PART:SetInfo(message)
+	self.Info = set_info(message, 1)
+end
+function PART:SetWarning(message)
+	self.Info = set_info(message, 2)
+end
+function PART:SetError(message)
+	self.Info = set_info(message, 3)
+end
 
 do -- owner
 	function PART:SetPlayerOwner(ply)
 		local owner_id = self:GetPlayerOwnerId()
 		self.PlayerOwner = ply
+
+		if ply and ply:IsValid() then
+			self.PlayerOwnerHash = pac.Hash(ply)
+		else
+			self.PlayerOwnerHash = nil
+		end
 
 		if owner_id then
 			pac.RemoveUniqueIDPart(owner_id, self.UniqueID)
@@ -143,24 +179,36 @@ do -- owner
 		end
 	end
 
-	function PART:GetPlayerOwnerId()
-		local owner = self:GetPlayerOwner()
-		if not owner:IsValid() then return end
-
-		return pac.Hash(owner)
-	end
-
-
 	-- always return the root owner
 	function PART:GetPlayerOwner()
 		return self:GetRootPart().PlayerOwner
 	end
 
+	function PART:GetPlayerOwnerId()
+		return self:GetRootPart().PlayerOwnerHash
+	end
+
+	function PART:SetRootOwnerDeprecated(b)
+		if b then
+			self:SetTargetEntity(self:GetRootPart())
+			self.RootOwner = false
+			if pace then
+				pace.Call("VariableChanged", self, "TargetEntityUID", self:GetTargetEntityUID(), 0.25)
+			end
+		end
+	end
+
 	function PART:GetParentOwner()
+
+		if self.TargetEntity:IsValid() and self.TargetEntity ~= self then
+			return self.TargetEntity:GetOwner()
+		end
+
+
 		for _, parent in ipairs(self:GetParentList()) do
 
 			-- legacy behavior
-			if parent.ClassName == "event" then
+			if parent.ClassName == "event" and not parent.RootOwner then
 				local parent = parent:GetParent()
 				if parent:IsValid() then
 					local parent = parent:GetParent()
@@ -235,18 +283,23 @@ do -- scene graph
 			return self.Children
 		end
 
-		local function add_recursive(part, tbl)
-			for _, child in ipairs(part.Children) do
-				table.insert(tbl, child)
-				add_recursive(child, tbl)
+		local function add_recursive(part, tbl, index)
+			local source = part.Children
+
+			for i = 1, #source do
+				tbl[index] = source[i]
+				index = index + 1
+				index = add_recursive(source[i], tbl, index)
 			end
+
+			return index
 		end
 
 		function PART:GetChildrenList()
 			if not self.children_list then
 				local tbl = {}
 
-				add_recursive(self, tbl)
+				add_recursive(self, tbl, 1)
 
 				self.children_list = tbl
 			end
@@ -273,20 +326,20 @@ do -- scene graph
 			end
 		end
 
+		local function quick_copy(input)
+			local output = {}
+			for i = 1, #input do output[i + 1] = input[i] end
+			return output
+		end
+
 		function PART:GetParentList()
 			if not self.parent_list then
-				local tbl = {}
-
-				local part = self.Parent
-				local i = 1
-
-				while part:IsValid() do
-					tbl[i] = part
-					part = part.Parent
-					i = i + 1
+				if self.Parent and self.Parent:IsValid() then
+					self.parent_list = quick_copy(self.Parent:GetParentList())
+					self.parent_list[1] = self.Parent
+				else
+					self.parent_list = {}
 				end
-
-				self.parent_list = tbl
 			end
 
 			return self.parent_list
@@ -299,9 +352,18 @@ do -- scene graph
 				child.parent_list = nil
 			end
 		end
+
+		function PART:InvalidateParentListPartial(parent_list, parent)
+			self.parent_list = quick_copy(parent_list)
+			self.parent_list[1] = parent
+
+			for _, child in ipairs(self:GetChildren()) do
+				child:InvalidateParentListPartial(self.parent_list, self)
+			end
+		end
 	end
 
-	function PART:AddChild(part)
+	function PART:AddChild(part, ignore_show_hide)
 		if not part or not part:IsValid() then
 			self:UnParent()
 			return
@@ -319,7 +381,7 @@ do -- scene graph
 
 		if not part:HasChild(self) then
 			self.ChildrenMap[part] = part
-			table.insert(self.Children, part)
+			table_insert(self.Children, part)
 		end
 
 		self:InvalidateChildrenList()
@@ -333,22 +395,26 @@ do -- scene graph
 			self:GetParent():SortChildren()
 		end
 
+		-- why would we need to sort part's children
+		-- if it is completely unmodified?
 		part:SortChildren()
 		self:SortChildren()
 
-		part:InvalidateParentList()
+		part:InvalidateParentListPartial(self:GetParentList(), self)
 
 		if self:GetPlayerOwner() == pac.LocalPlayer then
 			pac.CallHook("OnPartParent", self, part)
 		end
 
-		part:CallRecursive("CalcShowHide", true)
+		if not ignore_show_hide then
+			part:CallRecursive("CalcShowHide", true)
+		end
 
 		return part.Id
 	end
 
 	do
-		local sort = function(a, b)
+		local function sort(a, b)
 			return a.DrawOrder < b.DrawOrder
 		end
 
@@ -385,9 +451,7 @@ do -- scene graph
 
 	function PART:GetRootPart()
 		local list = self:GetParentList()
-		if list[1] then
-			return list[#list]
-		end
+		if list[1] then return list[#list] end
 		return self
 	end
 
@@ -399,6 +463,19 @@ do -- scene graph
 
 		for _, child in ipairs(self:GetChildrenList()) do
 			if child[func] then
+				child[func](child, a,b,c)
+			end
+		end
+	end
+
+	function PART:CallRecursiveOnClassName(class_name, func, a,b,c)
+		assert(c == nil, "EXTEND ME")
+		if self[func] and self.ClassName == class_name then
+			self[func](self, a,b,c)
+		end
+
+		for _, child in ipairs(self:GetChildrenList()) do
+			if child[func] and self.ClassName == class_name then
 				child[func](child, a,b,c)
 			end
 		end
@@ -484,6 +561,23 @@ do -- scene graph
 end
 
 do -- hidden / events
+	local pac_hide_disturbing = CreateClientConVar("pac_hide_disturbing", "1", true, true, "Hide parts which outfit creators marked as 'nsfw' (e.g. gore or explicit content)")
+
+	function PART:SetIsDisturbing(val)
+		self.IsDisturbing = val
+		self.hide_disturbing = pac_hide_disturbing:GetBool() and val
+
+		self:CallRecursive("CalcShowHide", true)
+	end
+
+	function PART:UpdateIsDisturbing()
+		local new_value = pac_hide_disturbing:GetBool() and self.IsDisturbing
+		if new_value == self.hide_disturbing then return end
+		self.hide_disturbing = new_value
+
+		self:CallRecursive("CalcShowHide", true)
+	end
+
 	function PART:OnHide() end
 	function PART:OnShow() end
 
@@ -500,27 +594,16 @@ do -- hidden / events
 	function PART:SetHide(val)
 		self.Hide = val
 
-		if self.set_hide_from_proxy then
-			self:SetEventTrigger(self.set_hide_from_proxy, val)
-			self:SetKeyValueRecursive("last_hidden", val)
+		-- so that IsHiddenCached works in OnHide/OnShow events
+		self:SetKeyValueRecursive("last_hidden", val)
 
-			if val then
-				self:CallRecursive("OnHide", false)
-			else
-				self:CallRecursive("OnShow", false)
-			end
+		if val then
+			self:CallRecursive("OnHide", true)
 		else
-			-- so that IsHiddenCached works in OnHide/OnShow events
-			self:SetKeyValueRecursive("last_hidden", val)
-
-			if val then
-				self:CallRecursive("OnHide", true)
-			else
-				self:CallRecursive("OnShow", true)
-			end
-
-			self:CallRecursive("CalcShowHide", true)
+			self:CallRecursive("OnShow", true)
 		end
+
+		self:CallRecursive("CalcShowHide", true)
 	end
 
 	function PART:IsDrawHidden()
@@ -557,7 +640,7 @@ do -- hidden / events
 			return true
 		end
 
-		return part.Hide
+		return part.Hide or part.hide_disturbing
 	end
 
 	function PART:IsHidden()
@@ -588,6 +671,28 @@ do -- hidden / events
 				self:CallRecursive("CalcShowHide", false)
 			end
 		end
+	end
+
+	function PART:GetReasonHidden()
+		local found = {}
+
+		for part in pairs(self.active_events) do
+			table_insert(found, tostring(part) .. " is event hiding")
+		end
+
+		if found[1] then
+			return table.concat(found, "\n")
+		end
+
+		if self.Hide then
+			return "hide enabled"
+		end
+
+		if self.hide_disturbing then
+			return "pac_hide_disturbing is set to 1"
+		end
+
+		return ""
 	end
 
 	function PART:CalcShowHide(from_rendering)
@@ -648,11 +753,6 @@ do -- serializing
 		self:RemoveChildren()
 	end
 
-	function PART:SetIsBeingWorn(status)
-		self.isBeingWorn = status
-		return self
-	end
-
 	function PART:OnWorn()
 		-- override
 	end
@@ -700,15 +800,17 @@ do -- serializing
 
 			for _, key in pairs(self:GetStorableVars()) do
 				if self.PropertyWhitelist and not self.PropertyWhitelist[key] then
-					continue
+					goto CONTINUE
 				end
 
-				table.insert(out, {
+				table_insert(out, {
 					key = key,
 					set = function(v) self["Set" .. key](self, v) end,
 					get = function() return self["Get" .. key](self) end,
 					udata = pac.GetPropertyUserdata(self, key) or {},
 				})
+
+				::CONTINUE::
 			end
 
 			if self.GetDynamicProperties then
@@ -716,10 +818,9 @@ do -- serializing
 
 				if props then
 					for _, info in pairs(props) do
-						if self.PropertyWhitelist and not self.PropertyWhitelist[info.key] then
-							continue
+						if not self.PropertyWhitelist or self.PropertyWhitelist[info.key] then
+							table_insert(out, info)
 						end
-						table.insert(out, info)
 					end
 				end
 			end
@@ -731,7 +832,7 @@ do -- serializing
 				for _, prop in ipairs(out) do
 					if key == prop.key then
 						if not done[key] then
-							table.insert(sorted, prop)
+							table_insert(sorted, prop)
 							done[key] = true
 							break
 						end
@@ -744,7 +845,7 @@ do -- serializing
 					for _, prop in ipairs(out) do
 						if key == prop.key then
 							if not done[key] then
-								table.insert(sorted, prop)
+								table_insert(sorted, prop)
 								done[key] = true
 								break
 							end
@@ -758,7 +859,7 @@ do -- serializing
 					for _, prop in ipairs(out) do
 						if key == prop.key then
 							if not done[key] then
-								table.insert(sorted, prop)
+								table_insert(sorted, prop)
 								done[key] = true
 								break
 							end
@@ -769,7 +870,7 @@ do -- serializing
 
 			for _, prop in ipairs(out) do
 				if not done[prop.key] then
-					table.insert(sorted, prop)
+					table_insert(sorted, prop)
 				end
 			end
 
@@ -778,20 +879,20 @@ do -- serializing
 	end
 
 	local function on_error(msg)
-		ErrorNoHalt(debug.traceback(msg))
+		ErrorNoHalt(debug_traceback(msg))
 	end
 
 	do
-		local function SetTable(self, tbl)
+		local function SetTable(self, tbl, level)
 			self:SetUniqueID(tbl.self.UniqueID)
 			self.delayed_variables = self.delayed_variables or {}
 
-			for key, value in pairs(tbl.self) do
+			for key, value in next, tbl.self do
 				if key == "UniqueID" then goto CONTINUE end
 
 				if self["Set" .. key] then
 					if key == "Material" then
-						table.insert(self.delayed_variables, {key = key, val = value})
+						table_insert(self.delayed_variables, {key = key, val = value})
 					end
 					self["Set" .. key](self, value)
 				elseif key ~= "ClassName" then
@@ -802,14 +903,14 @@ do -- serializing
 			end
 
 			for _, value in pairs(tbl.children) do
-				local part = pac.CreatePart(value.self.ClassName, self:GetPlayerOwner(), value)
-				self:AddChild(part)
+				local part = pac.CreatePart(value.self.ClassName, self:GetPlayerOwner(), value, nil --[[make_copy]], level + 1)
+				self:AddChild(part, true)
 			end
 		end
 
 		local function make_copy(tbl, pepper)
 			if pepper == true then
-				pepper = tostring(math.random())
+				pepper = tostring(math_random()) .. tostring(math_random())
 			end
 
 			for key, val in pairs(tbl.self) do
@@ -821,22 +922,27 @@ do -- serializing
 			for _, child in ipairs(tbl.children) do
 				make_copy(child, pepper)
 			end
+
 			return tbl
 		end
 
-		function PART:SetTable(tbl, copy_id)
+		function PART:SetTable(tbl, copy_id, level)
+			level = level or 0
 
 			if copy_id then
 				tbl = make_copy(table.Copy(tbl), copy_id)
 			end
 
-			local ok, err = xpcall(SetTable, on_error, self, tbl)
+			local ok, err = xpcall(SetTable, on_error, self, tbl, level)
+
 			if not ok then
 				pac.Message(Color(255, 50, 50), "SetTable failed: ", err)
 			end
 
 			-- figure out if children needs to be hidden
-			self:CallRecursive("CalcShowHide", true)
+			if level == 0 then
+				self:CallRecursive("CalcShowHide", true)
+			end
 		end
 	end
 
@@ -865,7 +971,7 @@ do -- serializing
 			if not self.is_valid or self.is_deattached then
 
 			else
-				table.insert(tbl.children, part:ToTable())
+				table_insert(tbl.children, part:ToTable())
 			end
 		end
 
@@ -895,7 +1001,7 @@ do -- serializing
 			if not self.is_valid or self.is_deattached then
 
 			else
-				table.insert(tbl.children, part:ToSaveTable())
+				table_insert(tbl.children, part:ToSaveTable())
 			end
 		end
 
@@ -913,7 +1019,7 @@ do -- serializing
 
 					if self["Set" .. key] then
 						if key == "Material" then
-							table.insert(self.delayed_variables, {key = key, val = value})
+							table_insert(self.delayed_variables, {key = key, val = value})
 						end
 						self["Set" .. key](self, value)
 					elseif key ~= "ClassName" then
@@ -957,7 +1063,7 @@ do -- serializing
 				if not self.is_valid or self.is_deattached then
 
 				else
-					table.insert(tbl.children, part:ToUndoTable())
+					table_insert(tbl.children, part:ToUndoTable())
 				end
 			end
 
@@ -986,7 +1092,10 @@ do -- serializing
 		end
 
 		part:SetTable(self:ToTable(), true)
-		part:SetParent(self:GetParent())
+
+		if self:GetParent():IsValid() then
+			part:SetParent(self:GetParent())
+		end
 
 		return part
 	end
@@ -997,8 +1106,12 @@ do
 		if not self.Enabled then return end
 		if self.ThinkTime ~= 0 and self.last_think and self.last_think > pac.RealTime then return end
 
-
-		if not self.AlwaysThink and self:IsHiddenCached() then return end
+		if not self.AlwaysThink and self:IsHiddenCached() then
+			self:AlwaysOnThink() -- for things that drive general logic
+			-- such as processing outfit URL downloads
+			-- without calling probably expensive self:OnThink()
+			return
+		end
 
 		if self.delayed_variables then
 
@@ -1009,10 +1122,14 @@ do
 			self.delayed_variables = nil
 		end
 
+		self:AlwaysOnThink() -- for things that drive general logic
+		-- such as processing outfit URL downloads
+		-- without calling probably expensive self:OnThink()
 		self:OnThink()
 	end
 
 	function PART:OnThink() end
+	function PART:AlwaysOnThink() end
 end
 
 BUILDER:Register()

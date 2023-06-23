@@ -218,83 +218,79 @@ function PART:OnShow()
 	end
 end
 
+
 function PART:OnThink()
 	local ent = self:GetOwner()
 	if not ent:IsPlayer() then
-		self:OnUpdateAnimation()
+		self:OnUpdateAnimation(nil)
 	end
 end
 
-function PART:OnUpdateAnimation()
-	local ent = self:GetOwner()
-
+function PART:OnUpdateAnimation(ply)
 	if self:IsHiddenCached() then return end
 
-	if ent:IsValid() then
-		if not self.random_seqname then return end
+	local ent = self:GetOwner()
+	if not ent:IsValid() then return end
 
-		local seq = ent:LookupSequence(self.random_seqname) or 0
+	-- from UpdateAnimation hook
+	if ply and ent ~= ply then return end
 
-		local duration = 0
-		local count = ent:GetSequenceCount() or 0
-		if seq >= 0 and seq < count and count > 0 then
-			duration = ent:SequenceDuration(seq)
-		else
-			-- It's an invalid sequence. Don't bother
-			return
+	if not self.random_seqname then return end
+
+	local seq, duration = ent:LookupSequence(self.random_seqname)
+
+	local count = ent:GetSequenceCount() or 0
+	if seq < 0 or seq >= count then
+		-- It's an invalid sequence. Don't bother
+		return
+	end
+
+	if self.OwnerCycle then
+		local owner = self:GetRootPart():GetOwner()
+
+		if IsValid(owner) then
+			ent:SetCycle(owner:GetCycle())
 		end
 
-		if self.OwnerCycle then
-			local owner = self:GetRootPart():GetOwner()
+		return
+	end
 
-			if IsValid(owner) then
-				ent:SetCycle(owner:GetCycle())
-			end
+	local min = self.Min
+	local max = self.Max
+	local maxmin = max - min
 
-			return
+	if min == max then
+		local cycle = min
+
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
 		end
+		return
+	end
 
-		local rate = math.min(self.Rate * duration, 1)
+	local rate = (duration == 0) and 0 or (self.Rate / duration / math.abs(maxmin) * FrameTime())
 
-		if seq ~= -1 then
-
-			if rate == 0 then
-				ent:SetCycle(self.Offset % 1)
-				return
-			end
+	if self.PingPongLoop then
+		if self.Loop then
+			self.frame = (self.frame + rate) % 2
 		else
-			seq = tonumber(self.random_seqname) or -1
-
-			if seq ~= -1 then
-				if rate == 0 then
-					ent:SetCycle(self.Offset % 1)
-					return
-				end
-			else
-				return
-			end
+			self.frame = math.max(math.min(self.frame + rate, 2), 0)
 		end
+		local cycle = min + math.abs(1 - (self.frame + 1 + self.Offset) % 2) * maxmin
 
-		rate = rate / math.abs(self.Min - self.Max)
-		rate = rate * FrameTime()
-
-		local min = self.Min
-		local max = self.Max
-
-		if self.PingPongLoop then
-			self.frame = self.frame + rate / 2
-			local cycle = min + math.abs(math.Round((self.frame + self.Offset) * 0.5) - (self.frame + self.Offset) * 0.5) * 2 * (max - min)
-
-			if pac.IsNumberValid(cycle) then
-				ent:SetCycle(not self.InvertFrames and cycle or (1 - cycle))
-			end
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
+		end
+	else
+		if self.Loop then
+			self.frame = (self.frame + rate) % 2
 		else
-			self.frame = self.frame + rate
-			local cycle = min + ((self.frame + self.Offset) * 0.5) % 1 * (max - min)
+			self.frame = math.max(math.min(self.frame + rate, 1), 0)
+		end
+		local cycle = min + (self.frame + self.Offset) % 1 * maxmin
 
-			if pac.IsNumberValid(cycle) then
-				ent:SetCycle(not self.InvertFrames and cycle or (1 - cycle))
-			end
+		if pac.IsNumberValid(cycle) then
+			ent:SetCycle(self.InvertFrames and (1 - cycle) or cycle)
 		end
 	end
 end

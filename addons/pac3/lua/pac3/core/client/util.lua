@@ -90,6 +90,12 @@ do --dev util
 		end
 	end
 
+	local _part
+
+	local function nuke_part()
+		_part:Remove()
+	end
+
 	function pac.Panic()
 		pac.RemoveAllParts()
 		pac.RemoveAllPACEntities()
@@ -99,6 +105,36 @@ do --dev util
 			ent.pac_ignored_data = nil
 			ent.pac_drawing = nil
 			ent.pac_shouldnotdraw = nil
+			ent.pac_onuse_only = nil
+			ent.pac_onuse_only_check = nil
+			ent.pac_ignored_callbacks = nil
+
+			if ent.pac_bones_once then
+				pac.ResetBones(ent)
+				ent.pac_bones_once = nil
+			end
+
+			if istable(ent.pac_animation_sequences) then
+				for part in next, ent.pac_animation_sequences do
+					if part:IsValid() then
+						_part = part
+						ProtectedCall(nuke_part)
+					end
+				end
+
+				ent.pac_animation_sequences = nil
+			end
+
+			if istable(ent.pac_bone_parts) then
+				for part in next, ent.pac_bone_parts do
+					if part:IsValid() then
+						_part = part
+						ProtectedCall(nuke_part)
+					end
+				end
+
+				ent.pac_bone_parts = nil
+			end
 		end
 	end
 
@@ -394,9 +430,7 @@ function pac.Handleurltex(part, url, callback, shader, additionalData)
 	if not url or not pac.urltex or not url:find("http") then return false end
 	local skip_cache = url:sub(1,1) == "_"
 
-	local urlMatch = url:match("http[s]-://.+/.-%.%a+")
-
-	if not urlMatch then return false end
+	if not url:match("https?://.+/%S*") then return false end
 
 	pac.urltex.GetMaterialFromURL(
 		pac.FixUrl(url),

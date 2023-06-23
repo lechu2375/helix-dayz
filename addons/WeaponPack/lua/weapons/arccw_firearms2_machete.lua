@@ -22,7 +22,7 @@ SWEP.ItemData = {
     JamCapacity = 200,
     DegradeRate = 0.02,
     price = 200,
-    rarity = { weight = 30 },
+    rarity = { weight = 50 },
     iconCam = {
         pos = Vector(0, 200, 0),
         ang = Angle(-1.33, 270.01, 0),
@@ -47,7 +47,7 @@ SWEP.PrimaryBash = true
 
 SWEP.Primary.Ammo = nil
 
-SWEP.MeleeDamage = 40
+SWEP.MeleeDamage = 50
 SWEP.MeleeRange = 4
 SWEP.MeleeDamageType = DMG_SLASH
 SWEP.MeleeTime = 0.7

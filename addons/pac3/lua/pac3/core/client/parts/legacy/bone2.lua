@@ -11,6 +11,7 @@ PART.FriendlyName = "legacy experimental bone"
 PART.ClassName = "bone2"
 PART.Group = "legacy"
 PART.Icon = 'icon16/connect.png'
+PART.is_bone_part = true
 
 BUILDER:StartStorableVars()
 	BUILDER:SetPropertyGroup("generic")
@@ -253,7 +254,7 @@ function PART:OnBuildBonePositions()
 		end
 	end
 
-	owner:ManipulateBoneJiggle(index, type(self.Jiggle) == "number" and self.Jiggle or (self.Jiggle and 1 or 0)) -- afaik anything but 1 is not doing anything at all
+	owner:ManipulateBoneJiggle(index, isnumber(self.Jiggle) and self.Jiggle or (self.Jiggle and 1 or 0)) -- afaik anything but 1 is not doing anything at all
 
 	local scale
 
@@ -280,7 +281,7 @@ function PART:OnBuildBonePositions()
 
 	manscale(owner, index, scale, self)
 
-	pac.SetupBones(owner)
+	owner.needs_setupbones_from_legacy_bone_parts = true
 end
 
 BUILDER:Register()

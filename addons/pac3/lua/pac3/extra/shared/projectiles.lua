@@ -1,4 +1,6 @@
 local enable = CreateConVar("pac_sv_projectiles", 0, CLIENT and {FCVAR_REPLICATED} or {FCVAR_ARCHIVE, FCVAR_REPLICATED})
+local pac_sv_projectile_max_attract_radius = CreateConVar("pac_sv_projectile_max_attract_radius", 300, CLIENT and {FCVAR_REPLICATED} or {FCVAR_ARCHIVE, FCVAR_REPLICATED})
+local pac_sv_projectile_max_damage_radius = CreateConVar("pac_sv_projectile_max_damage_radius", 100, CLIENT and {FCVAR_REPLICATED} or {FCVAR_ARCHIVE, FCVAR_REPLICATED})
 
 do -- projectile entity
 	local ENT = {}
@@ -58,7 +60,7 @@ do -- projectile entity
 
 			self.projectile_owner = ply
 
-			local radius = math.Clamp(part.Radius, 1, 100)
+			local radius = math.Clamp(part.Radius, 1, pac_sv_projectile_max_damage_radius:GetFloat())
 
 			if part.Sphere then
 				self:PhysicsInitSphere(radius)
@@ -73,7 +75,10 @@ do -- projectile entity
 				phys:AddVelocity(ply:GetVelocity())
 			end
 			phys:EnableCollisions(part.Collisions)
-			if not part.Collisions then
+
+			if part.CollideWithSelf then
+				self:SetCollisionGroup(COLLISION_GROUP_NONE)
+			elseif not part.Collisions then
 				self:SetCollisionGroup(COLLISION_GROUP_DEBRIS)
 			end
 
@@ -174,7 +179,7 @@ do -- projectile entity
 					phys:SetVelocity(phys:GetVelocity() + dir)
 				elseif self.part_data.AttractMode == "closest_to_projectile" or self.part_data.AttractMode == "closest_to_hitpos" then
 					if self.next_target < CurTime() then
-						local radius = math.Clamp(self.part_data.AttractRadius, 0, 300)
+						local radius = math.Clamp(self.part_data.AttractRadius, 0, pac_sv_projectile_max_attract_radius:GetFloat())
 						local pos
 
 						if self.part_data.AttractMode == "closest_to_projectile" then
@@ -398,15 +403,6 @@ if SERVER then
 
 	util.AddNetworkString("pac_projectile")
 	util.AddNetworkString("pac_projectile_attach")
-	util.AddNetworkString("pac_projectile_remove_all")
-
-	net.Receive("pac_projectile_remove_all", function(len, ply)
-		ply.pac_projectiles = ply.pac_projectiles or {}
-		for k,v in pairs(ply.pac_projectiles) do
-			SafeRemoveEntity(v)
-		end
-		ply.pac_projectiles = {}
-	end)
 
 	net.Receive("pac_projectile", function(len, ply)
 		if not enable:GetBool() then return end
@@ -444,15 +440,33 @@ if SERVER then
 
 			ply.pac_projectiles = ply.pac_projectiles or {}
 
-			if part.Maximum > 0 and table.Count(ply.pac_projectiles) >= part.Maximum then
+			local projectile_count = 0
+			for ent in pairs(ply.pac_projectiles) do
+				if ent:IsValid() then
+					projectile_count = projectile_count + 1
+				else
+					ply.pac_projectiles[ent] = nil
+				end
+			end
+
+			if projectile_count > 50 then
+				pac.Message("Player ", ply, " has more than 50 projectiles spawned!")
+				return
+			end
+
+			if part.Maximum > 0 and projectile_count >= part.Maximum then
 				return
 			end
 
 			local ent = ents.Create("pac_projectile")
-			SafeRemoveEntityDelayed(ent,math.Clamp(part.LifeTime, 0, 10))
+			SafeRemoveEntityDelayed(ent,math.Clamp(part.LifeTime, 0, 50))
 
 			ent:SetModel("models/props_junk/popcan01a.mdl")
-			ent:SetCollisionGroup(COLLISION_GROUP_INTERACTIVE_DEBRIS)
+			if part.CollideWithSelf then
+				ent:SetCollisionGroup(COLLISION_GROUP_NONE)
+			elseif not part.Collisions then
+				ent:SetCollisionGroup(COLLISION_GROUP_INTERACTIVE_DEBRIS)
+			end
 			ent:SetPos(pos)
 			ent:SetAngles(ang)
 			ent:Spawn()
@@ -474,6 +488,8 @@ if SERVER then
 				net.WriteInt(ent:EntIndex(), 16)
 				net.WriteString(part.UniqueID)
 			net.Broadcast()
+
+			ent.pac_projectile_uid = part.UniqueID
 
 			ply.pac_projectiles[ent] = ent
 

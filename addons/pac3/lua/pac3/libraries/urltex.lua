@@ -60,7 +60,7 @@ function urltex.GetMaterialFromURL(url, callback, skip_cache, shader, size, size
 		noclamp or
 		noclampT
 
-	if type(callback) == "function" and not skip_cache and urltex.Cache[urlIndex] then
+	if isfunction(callback) and not skip_cache and urltex.Cache[urlIndex] then
 		local tex = urltex.Cache[urlIndex]
 		local mat = CreateMaterial("pac3_urltex_" .. pac.Hash(), shader, additionalData)
 		mat:SetTexture("$basetexture", tex)
@@ -114,7 +114,7 @@ function urltex.StartDownload(url, data)
 	end
 
 	url = pac.FixUrl(url)
-	local size = data.size or urltex.TextureSize
+	local size = tonumber(data.size or urltex.TextureSize)
 	local id = "urltex_download_" .. url
 	local pnl
 	local frames_passed = 0

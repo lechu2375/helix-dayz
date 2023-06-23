@@ -49,6 +49,7 @@ BUILDER:StartStorableVars()
 	end})
 	:GetSet("FlexWeights", "", {hidden = true})
 	:GetSet("Scale", 1)
+	:GetSet("Additive", false)
 :EndStorableVars()
 
 
@@ -154,12 +155,24 @@ function PART:UpdateFlex()
 	if not ent:IsValid() then return end
 
 	ent:SetFlexScale(self.Scale)
+	ent.pac_touching_flexes = ent.pac_touching_flexes or {}
 
 	for name, weight in pairs(self:GetWeightMap()) do
 		local id = ent:GetFlexIDByName(name)
 		if id then
-			ent:SetFlexWeight(id, ent:GetFlexWeight(id) + weight)
+			if self.Additive then
+				weight = ent:GetFlexWeight(id) + weight
+			end
+			ent:SetFlexWeight(id, weight)
+			ent.pac_touching_flexes[id] = pac.RealTime + 0.1
 		end
+	end
+end
+
+function PART:OnThink()
+	local ent = self:GetOwner()
+	if not ent:IsPlayer() then
+		self:UpdateFlex()
 	end
 end
 

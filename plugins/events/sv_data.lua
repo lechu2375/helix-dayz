@@ -144,18 +144,14 @@ function evci.StartEvent(waveSize, wavesAmount)
                         return 
                     end
                     evci.destination = nextTarget
-                    for k,v in pairs(evci.zombies) do
-                        if(IsValid(v)) then
-                            
-                            v:SetEnemy(evci.destination)
-                        else
-                            evci.zombies[k] = nil
-                        end
+                end
+                for k,v in pairs(evci.zombies) do
+                    if(IsValid(v)) then    
+                        if(!v:HaveEnemy()) then v:SetEnemy(evci.destination) end //no enemy then set another civilian
+                    else
+                        evci.zombies[k] = nil
                     end
                 end
-                
-
-                return
             end
         end)
         for i=1,waveSize do //zombie spawner
@@ -247,7 +243,7 @@ end
 function PLUGIN:OnNextbotDeath(npc)
 
     local nextTarget = evci.GetFirstAliveHostage()
-    PrintTable(evci.hostages)
+    //PrintTable(evci.hostages)
     if(!IsValid(evci.destination) and !IsValid(nextTarget) and evci.IsRunning) then
         evci.EventCleanup()
         PrintMessage(HUD_PRINTTALK, "Cywile zostali pożarci przez zombie!")

@@ -34,35 +34,59 @@ do -- bones
 	end
 
 	function PART:GetBonePosition()
-		local bone = self.BoneOverride or self.Bone
-
 		local parent = self:GetParent()
-		if parent:IsValid() and parent.ClassName == "jiggle" then
-			return parent.pos, parent.ang
+		if parent:IsValid() then
+			if parent.ClassName == "jiggle" then
+				return parent.pos, parent.ang
+			elseif
+				not parent.is_model_part and
+				not parent.is_entity_part and
+				not parent.is_bone_part and
+				not self.is_bone_part and
+				parent.WorldMatrix
+			then
+				return parent:GetWorldPosition(), parent:GetWorldAngles()
+			end
 		end
 
 		local owner = self:GetParentOwner()
-
 		if owner:IsValid() then
 			-- if there is no parent, default to owner bones
-			return pac.GetBonePosAng(owner, bone)
+			return pac.GetBonePosAng(owner, self.BoneOverride or self.Bone)
 		end
 
 		return Vector(), Angle()
 	end
 
-	do
+	function PART:GetBoneMatrix()
+		local parent = self:GetParent()
+		if parent:IsValid() then
+			if parent.ClassName == "jiggle" then
+				local bone_matrix = Matrix()
+				bone_matrix:SetTranslation(parent.pos)
+				bone_matrix:SetAngles(parent.ang)
+				return bone_matrix
+			elseif
+				not parent.is_model_part and
+				not parent.is_entity_part and
+				not parent.is_bone_part and
+				not self.is_bone_part and
+				parent.WorldMatrix
+			then
+				return parent.WorldMatrix
+			end
+		end
+
 		local bone_matrix = Matrix()
-
-		function PART:GetBoneMatrix()
-			local pos, ang = self:GetBonePosition()
-
-			bone_matrix:Identity()
+		local owner = self:GetParentOwner()
+		if owner:IsValid() then
+			-- if there is no parent, default to owner bones
+			local pos, ang = pac.GetBonePosAng(owner, self.BoneOverride or self.Bone)
 			bone_matrix:SetTranslation(pos)
 			bone_matrix:SetAngles(ang)
-
-			return bone_matrix
 		end
+
+		return bone_matrix
 	end
 
 	function PART:GetModelBones()
@@ -84,25 +108,21 @@ do -- bones
 	end
 end
 
-do
+function PART:BuildWorldMatrix(with_offsets)
 	local local_matrix = Matrix()
+	local_matrix:SetTranslation(self.Position)
+	local_matrix:SetAngles(self.Angles)
 
-	function PART:BuildWorldMatrix(with_offsets)
-		local_matrix:Identity()
-		local_matrix:SetTranslation(self.Position)
-		local_matrix:SetAngles(self.Angles)
+	local m = self:GetBoneMatrix() * local_matrix
 
-		local m = self:GetBoneMatrix() * local_matrix
+	m:SetAngles(self:CalcAngles(m:GetAngles(), m:GetTranslation()))
 
-		m:SetAngles(self:CalcAngles(m:GetAngles(), m:GetTranslation()))
-
-		if with_offsets then
-			m:Translate(self.PositionOffset)
-			m:Rotate(self.AngleOffset)
-		end
-
-		return m
+	if with_offsets then
+		m:Translate(self.PositionOffset)
+		m:Rotate(self.AngleOffset)
 	end
+
+	return m
 end
 
 function PART:GetWorldMatrixWithoutOffsets()

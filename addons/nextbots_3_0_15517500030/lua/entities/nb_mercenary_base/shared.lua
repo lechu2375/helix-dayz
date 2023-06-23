@@ -665,7 +665,7 @@ function ENT:GetEnemy()
 end
 
 function ENT:SetEnemy( ent )
-	
+	//print("set Enemy")
 	self.Enemy = ent
 
 	if ent and ent:IsValid() and ent:Health() > 0 then
@@ -745,6 +745,7 @@ function ENT:HaveEnemy()
 					if IsValid( self ) and self:Health() > 0 then
 						if !self.Enemy and self.LastEnemy then
 							if IsValid( self.LastEnemy ) and self.LastEnemy:Health() > 0 then
+								//print("here")
 								self:SetEnemy( self.LastEnemy )
 							else
 								self.LastEnemy = nil

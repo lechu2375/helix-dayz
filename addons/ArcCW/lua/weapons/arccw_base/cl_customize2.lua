@@ -2001,17 +2001,7 @@ function SWEP:CreateCustomize2HUD()
                 end
 
                 -- ammo type
-                local ammo = string.lower(self:GetBuff_Override("Override_Ammo", self.Primary.Ammo))
-                if (ammo or "") != "" and ammo != "none" then
-                    local ammotype = ArcCW.TranslateAmmo(ammo) --language.GetPhrase(self.Primary.Ammo .. "_ammo")
-                    if ammotype then
-                        table.insert(self.Infos_Stats, {
-                            title = translate("trivia.ammo"),
-                            value = ammotype,
-                            --unit = " (" .. ammo .. ")",
-                        })
-                    end
-                end
+
 
                 -- penetration
                 local shootent = self:GetBuff("ShootEntity", true)

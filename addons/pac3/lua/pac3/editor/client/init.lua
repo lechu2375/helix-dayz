@@ -16,7 +16,6 @@ include("saved_parts.lua")
 include("logic.lua")
 include("undo.lua")
 include("fonts.lua")
-include("basic_mode.lua")
 include("settings.lua")
 include("shortcuts.lua")
 include("asset_browser.lua")
@@ -161,6 +160,7 @@ function pace.CloseEditor()
 
 		pace.Editor:Remove()
 		pace.Active = false
+		pace.Focused = false
 		pace.Call("CloseEditor")
 
 		if pace.timeline.IsActive() then
@@ -203,10 +203,14 @@ function pace.Panic()
 		end
 	end
 
+	pace.SafeRemoveSpecialPanel()
+
 	for i, ent in ipairs(ents.GetAll()) do
-		ent.pac_onuse_only = nil
-		ent.pac_onuse_only_check = nil
-		hook.Remove('pace_OnUseOnlyUpdates', ent)
+		if ent:IsValid() then
+			ent.pac_onuse_only = nil
+			ent.pac_onuse_only_check = nil
+			hook.Remove('pace_OnUseOnlyUpdates', ent)
+		end
 	end
 end
 
@@ -229,7 +233,7 @@ do -- forcing hooks
 				pace.OldHooks[event] = table.Copy(hooks)
 
 				for name in pairs(hooks) do
-					if type(name) == "string" and name:sub(1, 4) ~= "pace_" then
+					if isstring(name) and name:sub(1, 4) ~= "pace_" then
 						hook.Remove(event, name)
 					end
 				end
@@ -243,7 +247,7 @@ do -- forcing hooks
 		if pace.OldHooks then
 			for event, hooks in pairs(pace.OldHooks) do
 				for name, func in pairs(hooks) do
-					if type(name) == "string" and name:sub(1, 4) ~= "pace_" then
+					if isstring(name) and name:sub(1, 4) ~= "pace_" then
 						hook.Add(event, name, func)
 					end
 				end
@@ -359,6 +363,7 @@ do
 		local lastViewPos, lastViewAngle, lastTargetPos
 
 		timer.Create("pac_in_editor", 0.25, 0, function()
+			if not pace.Active then return end
 			if not pace.current_part:IsValid() then return end
 			local pos, ang = pace.GetViewPos(), pace.GetViewAngles()
 			local target_pos = pace.mctrl.GetWorldPosition()
@@ -378,7 +383,7 @@ do
 
 	net.Receive("pac_in_editor_posang", function()
 		local ply = net.ReadEntity()
-		if not ply:IsValid() then return end
+		if not IsValid( ply ) then return end
 
 		local pos = net.ReadVector()
 		local ang = net.ReadAngle()

@@ -33,6 +33,10 @@ local function populate_pac(menu)
 	end
 
 	do
+		menu:AddOption(L"request", function() RunConsoleCommand("pac_request_outfits") pac.Message('Requesting outfits.') end):SetImage(pace.MiscIcons.replace)
+	end
+
+	do
 		local menu, icon = menu:AddSubMenu(L"clear", function() end)
 		icon:SetImage(pace.MiscIcons.clear)
 		menu.GetDeleteSelf = function() return false end
@@ -64,15 +68,13 @@ local function populate_pac(menu)
 			end
 		end
 
-		local info = _G.PAC_VERSION and PAC_VERSION()
-		if info then
+		local version_string = _G.PAC_VERSION and PAC_VERSION()
+		if version_string then
 			local version, version_pnl = help:AddSubMenu(L"Version", function() pace.ShowWiki() end)
 			version.GetDeleteSelf = function() return false end
 			version_pnl:SetImage(pace.MiscIcons.info)
 
-			version:AddOption("Addon: " .. info.addon.version_name)
-			version:AddOption("Editor: " .. info.editor.version_name)
-			version:AddOption("Core: " .. info.core.version_name)
+			version:AddOption(version_string)
 		end
 
 		help:AddOption(
@@ -98,7 +100,6 @@ end
 
 local function populate_options(menu)
 	menu:AddOption(L"settings", function() pace.OpenSettings() end)
-	menu:AddCVar(L"advanced mode", "pac_basic_mode", "0", "1").DoClick = function() pace.ToggleBasicMode() end
 	menu:AddCVar(L"inverse collapse/expand controls", "pac_reverse_collapse", "1", "0")
 	menu:AddCVar(L"enable shift+move/rotate clone", "pac_grab_clone", "1", "0")
 	menu:AddCVar(L"remember editor position", "pac_editor_remember_position", "1", "0")
@@ -127,7 +128,7 @@ local function populate_options(menu)
 	local rendering, pnl = menu:AddSubMenu(L"rendering", function() end)
 		rendering.GetDeleteSelf = function() return false end
 		pnl:SetImage("icon16/camera_edit.png")
-		rendering:AddCVar(L"no outfit reflections", "pac_suppress_frames", "1", "0")
+		rendering:AddCVar(L"no outfit reflections", "pac_optimization_render_once_per_frame", "1", "0")
 end
 
 local function populate_player(menu)

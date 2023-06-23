@@ -4,7 +4,6 @@ local L = pace.LanguageString
 function pace.IsPartSendable(part)
 
 	if part:HasParent() then return false end
-	if part.ClassName == "group" and not part:HasChildren() then return false end
 	if not part:GetShowInEditor() then return false end
 
 	return true
@@ -142,7 +141,7 @@ do -- from server
 			end
 		end
 
-		local func = function()
+		local function load_outfit()
 			if dupeEnt and not dupeEnt:IsValid() then return end
 
 			dupepart = pac.GetPartFromUniqueID(data.player_uid, part_data.self.UniqueID)
@@ -154,13 +153,12 @@ do -- from server
 
 			owner.pac_render_time_exceeded = false
 
-			local part = pac.CreatePart(part_data.self.ClassName, owner, part_data)
+			-- specify "level" as 1 so we can delay CalcShowHide recursive call until we are ready
+			local part = pac.CreatePart(part_data.self.ClassName, owner, part_data, false, 1)
 
 			if data.is_dupe then
 				part.dupe_remove = true
 			end
-
-			part:CallRecursive('SetIsBeingWorn', false)
 
 			if owner == pac.LocalPlayer then
 				pace.CallHook("OnWoreOutfit", part)
@@ -168,13 +166,20 @@ do -- from server
 
 			part:CallRecursive('OnWorn')
 			part:CallRecursive('PostApplyFixes')
+
+			if part.UpdateOwnerName then
+				part:UpdateOwnerName(true)
+				part:CallRecursive("CalcShowHide", true)
+			end
+
+			owner.pac_fix_show_from_render = SysTime() + 1
 		end
 
 		if doItNow then
-			func()
+			load_outfit()
 		end
 
-		return func
+		return load_outfit
 	end
 
 	function pace.RemovePartFromServer(owner, part_name, data)

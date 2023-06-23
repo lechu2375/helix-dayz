@@ -561,6 +561,9 @@ open();
 	file.Write("pac_webaudio2_blankhtml.txt", "<html></html>")
 	webaudio.browser_panel:OpenURL("asset://garrysmod/data/pac_webaudio2_blankhtml.txt")
 
+	webaudio.eye_pos = Vector()
+	webaudio.eye_ang = Angle()
+
 	hook.Add("RenderScene", "pac_webaudio2", function(pos, ang)
 		webaudio.eye_pos = pos
 		webaudio.eye_ang = ang
@@ -573,7 +576,7 @@ end
 function webaudio.SetVolume(vol)
 	if webaudio.volume ~= vol then
 		webaudio.volume = vol
-		run_javascript(string.format("gain.gain.value = %f", vol), self)
+		run_javascript(string.format("gain.gain.value = %f", vol))
 	end
 end
 
@@ -959,7 +962,7 @@ do
 
 	function META:__newindex(key, val)
 		if key == "OnFFT" then
-			if type(val) == "function" then
+			if isfunction(val) then
 				self:Call(".usefft(true)")
 			else
 				self:Call(".usefft(false)")

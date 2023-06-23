@@ -212,7 +212,7 @@ function PANEL:SyntaxColorLine(row)
 	self.str = ""
 
 	-- TODO: Color customization?
-	colors = {
+	local colors = {
 		["none"] =  { Color(200, 200, 200, 255), false},
 		["number"] =    { Color(218, 165, 32, 255), false},
 		["function"] =  { Color(100, 100, 255, 255), false},
@@ -229,7 +229,7 @@ function PANEL:SyntaxColorLine(row)
 	self:NextChar();
 
 	while self.char do
-		token = "";
+		local token = "";
 		self.str = "";
 
 		while self.char and self.char == " " do self:NextChar() end
@@ -253,11 +253,11 @@ function PANEL:SyntaxColorLine(row)
 
 				token = "expression"
 
-			elseif(self:CheckGlobal(sstr)  and  (type(self:CheckGlobal(sstr)) == "function" or self:CheckGlobal(sstr) == "f"
-			or self:CheckGlobal(sstr) == "e" or self:CheckGlobal(sstr) == "m" or type(self:CheckGlobal(sstr)) == "table")
+			elseif(self:CheckGlobal(sstr)  and  (isfunction(self:CheckGlobal(sstr)) or self:CheckGlobal(sstr) == "f"
+			or self:CheckGlobal(sstr) == "e" or self:CheckGlobal(sstr) == "m" or istable(self:CheckGlobal(sstr)))
 			or (lasttable  and  lasttable[sstr])) then -- Could be better code, but what the hell; it works
 
-				if(type(self:CheckGlobal(sstr)) == "table") then
+				if(istable(self:CheckGlobal(sstr))) then
 					lasttable = self:CheckGlobal(sstr);
 				end
 
@@ -275,7 +275,7 @@ function PANEL:SyntaxColorLine(row)
 				token = "none"
 
 			end
-		elseif(self.char == "\"") then -- TODO: Fix multiline strings, and add support for [[stuff]] not 
+		elseif(self.char == "\"") then -- TODO: Fix multiline strings, and add support for [[stuff]] not
 
 			self:NextChar()
 			while self.char and self.char ~= "\"" do
@@ -318,7 +318,7 @@ function PANEL:SyntaxColorLine(row)
 
 		end
 
-		color = colors[token]
+		local color = colors[token]
 		if(#cols > 1 and color == cols[#cols][2]) then
 			cols[#cols][1] = cols[#cols][1] .. self.str
 		else
@@ -377,7 +377,7 @@ function PANEL:PaintLine(row)
 	for i,cell in ipairs(self.PaintRows[row]) do
 		if(offset < 0) then
 			if(string.len(cell[1]) > -offset) then
-				line = string.sub(cell[1], -offset + 1)
+				local line = string.sub(cell[1], -offset + 1)
 				offset = string.len(line)
 
 				if(cell[2][2]) then
@@ -702,7 +702,7 @@ function PANEL:ScrollCaret()
 	self.ScrollBar:SetScroll(self.Scroll[1] - 1)
 end
 
-function unindent(line)
+local function unindent(line)
 	local i = line:find("%S")
 	if(i == nil or i > 5) then i = 5 end
 	return line:sub(i)

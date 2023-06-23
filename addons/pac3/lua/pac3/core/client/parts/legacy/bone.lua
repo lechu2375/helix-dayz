@@ -10,6 +10,7 @@ local BUILDER, PART = pac.PartTemplate("base_movable")
 PART.FriendlyName = "legacy bone"
 PART.ClassName = "bone"
 PART.Group = "legacy"
+PART.is_bone_part = true
 
 PART.Icon = 'icon16/connect.png'
 
@@ -223,7 +224,14 @@ function PART:OnBuildBonePositions()
 
 	if not owner.pac_follow_bones_function then
 		owner.pac_follow_bones_function = pac.build_bone_callback
-		owner:AddCallback("BuildBonePositions", function(ent) pac.build_bone_callback(ent) end)
+		local id
+		id = owner:AddCallback("BuildBonePositions", function(ent)
+			if not self:IsValid() then
+				owner:RemoveCallback("BuildBonePositions", id)
+				return
+			end
+			pac.build_bone_callback(ent)
+		end)
 	end
 
 	if not self.FollowPart:IsValid() then
@@ -244,7 +252,7 @@ function PART:OnBuildBonePositions()
 		end
 	end
 
-	owner:ManipulateBoneJiggle(index, type(self.Jiggle) == "number" and self.Jiggle or (self.Jiggle and 1 or 0)) -- afaik anything but 1 is not doing anything at all
+	owner:ManipulateBoneJiggle(index, isnumber(self.Jiggle) and self.Jiggle or (self.Jiggle and 1 or 0)) -- afaik anything but 1 is not doing anything at all
 
 	local scale
 
@@ -273,7 +281,7 @@ function PART:OnBuildBonePositions()
 
 	manscale(owner, index, scale, self)
 
-	pac.SetupBones(owner)
+	owner.needs_setupbones_from_legacy_bone_parts = true
 end
 
 BUILDER:Register()

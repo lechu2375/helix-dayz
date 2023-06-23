@@ -28,8 +28,8 @@ SWEP.Trivia_Year = "1956"
 
 SWEP.UseHands = false
 
-SWEP.ViewModel = "models/weapons/fas2/view/shotguns/bm16_short.mdl"
-SWEP.WorldModel = "models/weapons/fas2/world/shotguns/bm16_short.mdl"
+SWEP.ViewModel = "models/weapons/fas2/view/shotguns/bm16_swn.mdl"
+SWEP.WorldModel = "models/weapons/fas2/world/shotguns/bm16_swn.mdl"
 SWEP.ViewModelFOV = 60
 
 SWEP.DefaultBodygroups = "00000000"

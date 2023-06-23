@@ -37,7 +37,7 @@ local material_flags = {
 }
 
 local function TableToFlags(flags, valid_flags)
-	if type(flags) == "string" then
+	if isstring(flags) then
 		flags = {flags}
 	end
 
@@ -82,7 +82,9 @@ for shader_name, groups in pairs(shader_params.shaders) do
 	for group_name, base_group in pairs(shader_params.base) do
 		if groups[group_name] then
 			for k,v in pairs(base_group) do
-				groups[group_name][k] = v
+				if not groups[group_name][k] then
+					groups[group_name][k] = v
+				end
 			end
 		else
 			groups[group_name] = base_group
@@ -128,10 +130,15 @@ for shader_name, groups in pairs(shader_params.shaders) do
 
 
 		for k,v in pairs(self:GetVars()) do
-			if PART.ShaderParams[k] and PART.ShaderParams[k].default ~= nil then
-				self["Set" .. k](self, PART.ShaderParams[k].default)
+			local param = PART.ShaderParams[k]
+			if param and param.default ~= nil then
+				self["Set" .. k](self, param.default)
+			end
+			if param and param.type == "texture" then
+				self["Set" .. k](self, "")
 			end
 		end
+
 		print(str)
 		print("======")
 		PrintTable(vmt)
@@ -142,20 +149,25 @@ for shader_name, groups in pairs(shader_params.shaders) do
 
 			local func = self["Set" .. k]
 			if func then
-				local t = type(v)
 				local info = PART.ShaderParams[k]
 
-				if type(v) == "string" then
+				if isstring(v) then
 					if v:find("[", nil, true) then
 						v = Vector(v:gsub("[%[%]]", ""):gsub("%s+", " "):Trim())
 
-						if type(info.default) == "number" then
+						if isnumber(info.default) then
 							v = v.x
+						end
+					elseif v:find("{", nil, true) then
+						v = Vector(v:gsub("[%{%}]", ""):gsub("%s+", " "):Trim())
+
+						if info.type == "color" then
+							v = v / 255
 						end
 					end
 				end
 
-				if type(v) == "number" then
+				if isnumber(v) then
 					if info.type == "bool" or info.is_flag then
 						v = v == 1
 					end
@@ -248,15 +260,27 @@ for shader_name, groups in pairs(shader_params.shaders) do
 
 
 	function PART:GetNiceName()
-		local path = self:Getbasetexture()
+		local path = ""
+
+		if shader_name == "refract" then
+			path = self:Getnormalmap()
+		elseif shader_name == "eyerefract" then
+			path = self:Getiris()
+		else
+			path = self:Getbasetexture()
+		end
+
 		path = path:gsub("%%(..)", function(char)
 			local num = tonumber("0x" .. char)
 			if num then
 				return string.char(num)
 			end
 		end)
+
 		local name = ("/".. path):match(".+/(.-)%.") or ("/".. path):match(".+/(.+)")
-		return pac.PrettifyName(name) or "?"
+		local nice_name = (pac.PrettifyName(name) or "no texture") .. " | " .. shader_name
+
+		return nice_name
 	end
 
 	function PART:SetMaterialOverride(num)
@@ -424,11 +448,18 @@ for shader_name, groups in pairs(shader_params.shaders) do
 						if not pac.resource.DownloadTexture(val, function(tex, frames)
 							if frames then
 								self.vtf_frame_limit = self.vtf_frame_limit or {}
-								self.vtf_frame_limit[group] = frames
+								self.vtf_frame_limit[property_name] = frames
 							end
 							self:GetRawMaterial():SetTexture(key, tex)
 						end, self:GetPlayerOwner()) then
 							self:GetRawMaterial():SetTexture(key, val)
+
+							local texture = self:GetRawMaterial():GetTexture(key)
+
+							if texture then
+								self.vtf_frame_limit = self.vtf_frame_limit or {}
+								self.vtf_frame_limit[property_name] = texture:GetNumAnimationFrames()
+							end
 						end
 					end
 				end
@@ -445,7 +476,7 @@ for shader_name, groups in pairs(shader_params.shaders) do
 				local flag_key = key
 				local key = "$" .. key
 
-				if type(info.default) == "number" then
+				if isnumber(info.default) then
 					PART["Set" .. property_name] = function(self, val)
 						self[property_name] = val
 						local mat = self:GetRawMaterial()
@@ -457,12 +488,14 @@ for shader_name, groups in pairs(shader_params.shaders) do
 					if property_name:lower():find("frame") then
 						PART["Set" .. property_name] = function(self, val)
 							self[property_name] = val
-							if self.vtf_frame_limit and self.vtf_frame_limit[group] then
-								self:GetRawMaterial():SetInt(key, math.abs(val)%self.vtf_frame_limit[group])
+							if self.vtf_frame_limit and info.linked and self.vtf_frame_limit[info.linked] then
+								self:GetRawMaterial():SetInt(key, math.abs(val)%self.vtf_frame_limit[info.linked])
+							else
+								self:GetRawMaterial():SetInt(key, val)
 							end
 						end
 					end
-				elseif type(info.default) == "boolean" then
+				elseif isbool(info.default) then
 					if info.is_flag then
 						PART["Set" .. property_name] = function(self, val)
 							self[property_name] = val
@@ -477,15 +510,20 @@ for shader_name, groups in pairs(shader_params.shaders) do
 						end
 					else
 						PART["Set" .. property_name] = function(self, val)
+							if isvector(val) then
+								val = (val == Vector(1,1,1)) and true or false
+							end
+
 							self[property_name] = val
 							local mat = self:GetRawMaterial()
+
 							mat:SetInt(key, val and 1 or 0)
 							if info.recompute then mat:Recompute() end
 						end
 					end
-				elseif type(info.default) == "Vector" or info.type == "vec3" or info.type == "vec2" then
+				elseif isvector(info.default) or info.type == "vec3" or info.type == "vec2" then
 					PART["Set" .. property_name] = function(self, val)
-						if type(val) == "string" then val = Vector() end
+						if isstring(val) then val = Vector() end
 						self[property_name] = val
 						local mat = self:GetRawMaterial()
 						mat:SetVector(key, val)
@@ -496,13 +534,13 @@ for shader_name, groups in pairs(shader_params.shaders) do
 					PART["Set" .. property_name] = function(self, val)
 
 						local x,y,z,w
-						if type(val) == "string" then
+						if isstring(val) then
 							x,y,z,w = unpack(val:Split(" "))
 							x = tonumber(x) or 0
 							y = tonumber(y) or 0
 							z = tonumber(z) or 0
 							w = tonumber(w) or 0
-						elseif type(val) == "Vector" then
+						elseif isvector(val) then
 							x,y,z = val.x, val.y, val.z
 							w = 0
 						else
@@ -534,7 +572,6 @@ for shader_name, groups in pairs(shader_params.shaders) do
 				end
 			end
 		end
-
 		return self.Materialm
 	end
 

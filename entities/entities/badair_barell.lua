@@ -39,7 +39,7 @@ if (SERVER) then
 			ix.area.Remove(self.UniqueID)
 			local pos = self:GetPos()
 			ix.area.Create(self.UniqueID, "gas", pos+startPosition, pos-endPosition, false, {color = color_white,display = false})
-			print("updated area")
+			//print("updated area")
         end
     
         self:NextThink( CurTime()+1) 

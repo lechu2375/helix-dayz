@@ -1,3 +1,11 @@
+local pairs = pairs
+local IsValid = IsValid
+local unpack = unpack
+local LocalToWorld = LocalToWorld
+local math_sin = math.sin
+local RealTime = RealTime
+local Entity = Entity
+local ipairs = ipairs
 local NULL = NULL
 local LerpVector = LerpVector
 local LerpAngle = LerpAngle
@@ -33,7 +41,7 @@ function pac.GetAllBones(ent)
 
 	if ent:IsValid() then
 		ent:InvalidateBoneCache()
-		ent:SetupBones()
+		pac.SetupBones(ent)
 
 		local count = ent:GetBoneCount() or 0
 
@@ -121,7 +129,7 @@ function pac.GetModelBones(ent)
 
 	if not ent.pac_bones or ent:GetModel() ~= ent.pac_last_model then
 		ent:InvalidateBoneCache()
-		ent:SetupBones()
+		pac.SetupBones(ent)
 
 		if ent.pac_holdtypes then
 			ent.pac_holdtypes = {}
@@ -134,12 +142,35 @@ function pac.GetModelBones(ent)
 	return ent.pac_bones
 end
 
+function pac.GetAllFlexes(ent)
+	local out = {}
+	if ent.GetFlexNum and ent:GetFlexNum() > 0 then
+		for i = 0, ent:GetFlexNum() - 1 do
+			local name = ent:GetFlexName(i)
+			out[name:lower()] = {i = i, name = name}
+		end
+	end
+	return out
+end
+
+function pac.GetFlexMap(ent)
+	if not ent or not ent:IsValid() then return {} end
+
+	if not ent.pac_flex_map or ent:GetModel() ~= ent.pac_last_model_flex then
+		ent.pac_flex_map = pac.GetAllFlexes(ent)
+		ent.pac_last_model_flex = ent:GetModel()
+	end
+
+	return ent.pac_flex_map
+end
+
 function pac.ResetBoneCache(ent)
 	if not IsValid(ent) then return end
 
 	ent.pac_last_model = nil
 	ent.pac_bones = nil
 	ent.pac_cached_child_bones = nil
+	ent.pac_flex_map = nil
 
 	if ent.pac_holdtypes then
 		ent.pac_holdtypes = {}
@@ -149,7 +180,7 @@ end
 local UP = Vector(0,0,1):Angle()
 
 local function GetBonePosition(ent, id)
-	local pos, ang, mat = ent:GetBonePosition(id)
+	local pos, ang = ent:GetBonePosition(id)
 
 	if not pos then return end
 
@@ -158,7 +189,7 @@ local function GetBonePosition(ent, id)
 	if ang.r ~= ang.r then ang.r = 0 end
 
 	if pos == ent:GetPos() then
-		mat = ent:GetBoneMatrix(id)
+		local mat = ent:GetBoneMatrix(id)
 		if mat then
 			pos = mat:GetTranslation()
 			ang = mat:GetAngles()
@@ -200,17 +231,13 @@ function pac.GetBonePosAng(ent, id, parent)
 
 			return endpos, Angle()
 		end
-	end
-
-	if id == "camera" then
+	elseif id == "camera" then
 		if pac_isCameraAllowed() then
 			return pac.EyePos, pac.EyeAng
 		else
 			return ent:EyePos(), ent:EyeAngles()
 		end
-	end
-
-	if id == "player_eyes" then
+	elseif id == "player_eyes" then
 		local oldEnt = ent -- Track reference to the original entity in case we aren't allowed to draw here
 		local ent = ent.pac_traceres and ent.pac_traceres.Entity or util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetParent()}).Entity
 		local allowed = pac_isCameraAllowed()
@@ -224,74 +251,52 @@ function pac.GetBonePosAng(ent, id, parent)
 		else
 			return oldEnt:EyePos(), oldEnt:EyeAngles()
 		end
-	end
-
-	if id == "pos_ang" then
+	elseif id == "pos_ang" then
 		return ent:GetPos(), ent:GetAngles()
-	end
-
-	if id == "pos_noang" then
+	elseif id == "pos_noang" then
 		return ent:GetPos(), angle_origin
-	end
-
-	if id == "pos_eyeang" then
+	elseif id == "pos_eyeang" then
 		return ent:GetPos(), ent:EyeAngles()
-	end
-
-	if id == "eyepos_eyeang" then
+	elseif id == "eyepos_eyeang" then
 		return ent:EyePos(), ent:EyeAngles()
-	end
-
-	if id == "eyepos_ang" then
+	elseif id == "eyepos_ang" then
 		return ent:EyePos(), ent:GetAngles()
-	end
-
-	if id == "hitpos" or id == "hit position" then
+	elseif id == "hitpos" or id == "hit position" then
 		if ent.pac_traceres then
 			return ent.pac_traceres.HitPos, ent.pac_traceres.HitNormal:Angle()
 		else
-			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetParent()})
+			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetOwner()})
 
 			return res.HitPos, res.HitNormal:Angle()
 		end
-	end
-
-	if id == "hitpos_ent_ang" then
+	elseif id == "hitpos_ent_ang" then
 		if ent.pac_traceres then
 			return ent.pac_traceres.HitPos, ent:EyeAngles()
 		else
-			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetParent()})
+			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetOwner()})
 
 			return res.HitPos, ent:EyeAngles()
 		end
-	end
-
-	if id == "hitpos_ent_ang_zero_pitch" then
+	elseif id == "hitpos_ent_ang_zero_pitch" then
 		if ent.pac_traceres then
 			local ang = ent:EyeAngles()
 			ang.p = 0
 			return ent.pac_traceres.HitPos, ang
 		else
-			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetParent()})
+			local res = util_QuickTrace(ent:EyePos(), ent:EyeAngles():Forward() * 16000, {ent, ent:GetOwner()})
 
 			return res.HitPos, ent:EyeAngles()
 		end
-	end
-
-	if id == "footstep" then
+	elseif id == "footstep" then
 		if ent.pac_last_footstep_pos then
 			return ent.pac_last_footstep_pos, UP
 		end
-	end
-
-	if id == "skirt" then
+	elseif id == "skirt" then
 		local apos, aang = pac.GetBonePosAng(ent, "left thigh", parent)
 		local bpos, bang = pac.GetBonePosAng(ent, "right thigh", parent)
 
 		return LerpVector(0.5, apos, bpos), LerpAngle(0.5, aang, bang)
-	end
-
-	if id == "skirt2" then
+	elseif id == "skirt2" then
 		local apos, aang = pac.GetBonePosAng(ent, "left calf", parent)
 		local bpos, bang = pac.GetBonePosAng(ent, "right calf", parent)
 
@@ -324,6 +329,7 @@ function pac.GetBonePosAng(ent, id, parent)
 		else
 			if parent and data.parent_i then
 				pos, ang = GetBonePosition(ent, data.parent_i)
+
 				if not pos or not ang then
 					pos, ang = GetBonePosition(ent, data.bone)
 				end
@@ -333,6 +339,7 @@ function pac.GetBonePosAng(ent, id, parent)
 		end
 	else
 		local bone_id = id and ent:LookupBone(id) or nil
+
 		if bone_id then
 			pos, ang = GetBonePosition(ent, bone_id)
 		end
@@ -367,6 +374,8 @@ do -- bone manipulation for boneanimlib
 	local ManipulateBoneJiggle = entmeta.ManipulateBoneJiggle
 
 	function pac.ResetBones(ent)
+		ent.pac_bones_once = true
+
 		local pac_boneanim = ent.pac_boneanim
 		local count = (ent:GetBoneCount() or 0) - 1
 
@@ -388,14 +397,27 @@ do -- bone manipulation for boneanimlib
 
 		local i = ent.pac_bones_select_target
 		if i and count >= i then
-			ManipulateBoneScale(ent, i, ent:GetManipulateBoneScale(i) * (1 + math.sin(RealTime() * 4) * 0.1))
+			ManipulateBoneScale(ent, i, ent:GetManipulateBoneScale(i) * (1 + math_sin(RealTime() * 4) * 0.1))
 			ent.pac_bones_select_target = nil
 		end
 
-		ent:SetFlexScale(1)
+		if ent.pac_touching_flexes then
+			local reset_scale = false
+			for id, time in pairs(ent.pac_touching_flexes) do
 
-		for i = 0, ent:GetFlexNum() - 1 do
-			ent:SetFlexWeight(i, 0)
+				if not reset_scale then
+					ent:SetFlexScale(1)
+					reset_scale = true
+				end
+
+				if time < pac.RealTime then
+					ent:SetFlexWeight(id, 0)
+				else
+					if ent:GetFlexWeight(id) == 0 then
+						ent.pac_touching_flexes[id] = nil
+					end
+				end
+			end
 		end
 
 		hook.Call("PAC3ResetBones", nil, ent)
