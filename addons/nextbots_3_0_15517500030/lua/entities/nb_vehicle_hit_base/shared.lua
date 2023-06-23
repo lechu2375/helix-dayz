@@ -871,7 +871,7 @@ function ENT:CanTargetThisEnemy( ent )
 						if ent:Alive() then
 							if(self.NEXTBOTMERCENARY) then
 								//print("is",ent,"bandit?",ent:IsBandit())
-								return ent:IsBandit()
+								return !ent:IsBandit()
 							end
 
 

@@ -71,10 +71,7 @@ ENT.WeaponModel = "models/weapons/w_rif_ak47.mdl"
 ENT.WeaponSound = "sean_wepnb_sound_ak47"
 
 --Model--
-ENT.Models = {"models/player/t_phoenix.mdl",
-"models/player/t_guerilla.mdl",
-"models/player/t_leet.mdl",
-"models//player/t_arctic.mdl" }
+ENT.Models = {"models/gmodz/npc/bandit_exp.mdl","models/gmodz/npc/bandit_exp.mdl"}
 
 ENT.WalkAnim = ACT_RUN
 ENT.PatrolWalkAnim = ACT_WALK
