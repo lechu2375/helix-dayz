@@ -1,8 +1,10 @@
 ITEM.name = "Czekolada"
 ITEM.model = Model("models/illusion/eftcontainers/alyonka.mdl")
-ITEM.description = "Papierek po czekoladzie, odziwo zostały jakieś resztki oraz zapach."
-ITEM.category = "Śmieci"
+ITEM.description = "Alyonka. Czekoladka."
+
+ITEM.hungerAmount = 0.3
+ITEM.thirstAmount = -0.05
 ITEM.price = 26500
 ITEM.rarity = { weight = 100-(ITEM.price/1000)} 
 ITEM.width = 1
-ITEM.height = 0
+ITEM.height = 1

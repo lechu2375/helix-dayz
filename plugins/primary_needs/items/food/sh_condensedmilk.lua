@@ -1,7 +1,9 @@
 ITEM.name = "Skondensowane mleko"
 ITEM.model = Model("models/illusion/eftcontainers/condensedmilk.mdl")
-ITEM.description = "Niestety ale nic już nie ma w tej puszce..."
-ITEM.category = "Śmieci"
+ITEM.description = "Skondensowane mleko, mega duża dawka węglowodanów prostych."
+
+ITEM.hungerAmount = 0.9
+ITEM.thirstAmount = -0.6
 ITEM.price = 16000
 ITEM.rarity = { weight = 100-(ITEM.price/1000)} 
 ITEM.width = 2
