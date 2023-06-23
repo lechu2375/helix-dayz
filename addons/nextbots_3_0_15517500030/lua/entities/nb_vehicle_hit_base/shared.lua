@@ -663,7 +663,7 @@ function ENT:AlertNearby( ent )
 							if self:GetRangeSquaredTo( v ) < disttocheck*disttocheck and self:Visible( v ) then
 								
 								if ( IsValid( v ) and v:Health() > 0 ) then
-									print("alert")
+									//print("alert")
 									v:SetEnemy( ent )
 									v:BehaveStart()
 
@@ -855,7 +855,7 @@ end
 function ENT:CanTargetThisEnemy( ent )
 	//print(ent)
 	if ent then
-	
+		
 		if ent.BASENEXTBOT then return false end
 		//print("p1")
 		if IsValid( ent ) and ent:Health() > 0 then
@@ -868,22 +868,21 @@ function ENT:CanTargetThisEnemy( ent )
 				//print("p3")
 				if ai_ignoreplayers:GetInt() == 0 then
 					if ent:IsPlayer() then
-						//print("p4")
 						if ent:Alive() then
-							//print("p5")
+							if(self.NEXTBOTMERCENARY) then
+								//print("is",ent,"bandit?",ent:IsBandit())
+								return ent:IsBandit()
+							end
+
 
 
 							if self.FriendlyToPlayers then
-								//print("p6")
-								if self:IsPlayerZombie( ent ) or ent:IsBandit() then
+						
+								if self:IsPlayerZombie( ent )  then
 									return true
 								end
-							elseif(self.NEXTBOTMERCENARY and ent:IsBandit()) then
 
-								return false
-							
 							else
-								
 								if self.NEXTBOTFACTION == 'NEXTBOTZOMBIE' then
 									if !self:IsPlayerZombie( ent ) then
 										return true

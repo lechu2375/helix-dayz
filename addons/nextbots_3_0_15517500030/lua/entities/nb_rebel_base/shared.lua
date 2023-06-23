@@ -109,7 +109,7 @@ function ENT:Initialize()
 	end
 	
 	if CLIENT then
-		self.FriendlyToPlayers = true
+		self.FriendlyToPlayers = false
 		self.NEXTBOTFACTION = 'NEXTBOTREBEL'
 		self.NEXTBOTREBEL = true
 		self.NEXTBOT = true
@@ -1391,11 +1391,7 @@ function ENT:CanTargetThisEnemy( ent )
 							if self.FriendlyToPlayers then
 								if self:IsPlayerZombie( ent ) or ent:IsBandit() then
 									return true
-								end
-							elseif(self.NEXTBOTMERCENARY and ent:IsBandit()) then
-
-								return false
-							
+								end					
 							else
 								
 								if self.NEXTBOTFACTION == 'NEXTBOTZOMBIE' then

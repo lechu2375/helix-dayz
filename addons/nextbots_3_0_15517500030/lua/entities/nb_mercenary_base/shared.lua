@@ -17,6 +17,7 @@ ENT.Spawnable        = false
 ENT.AdminSpawnable   = false
 
 --Stats--
+ENT.NEXTBOTMERCENARY = true
 ENT.ChaseDistance = 3000
 
 ENT.CollisionHeight = 64
