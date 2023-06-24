@@ -938,7 +938,12 @@ function ENT:CheckTargetMethod( ent )
 		local canSee = dir:Dot( self:GetForward() ) > 0.5; -- -1 is directly opposite, 1 is self:GetForward(), 0 is orthogonal		
 							
 		if self:Visible( ent ) and canSee then 
-
+			local fogctrl = ents.FindByClass("env_fog_controller")
+			if(fogctrl[1]) then
+				local farz= fogctrl[1]:GetKeyValues().farz
+				farz = farz*farz
+				return self:GetRangeSquaredTo(ent:GetPos())<=farz
+			end
 			return true
 				
 		else

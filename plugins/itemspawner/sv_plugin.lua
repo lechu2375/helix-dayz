@@ -7,7 +7,7 @@ PLUGIN.chance_type = {
 }
 
 Schema.weightedItems = Schema.weightedItems or {}
-Schema.weightedWeapons = Schema.weightedWeapons = {}
+Schema.weightedWeapons = Schema.weightedWeapons or {}
 
 function Schema.GetRandomWeightedWeapon(scale, shuffle)
 

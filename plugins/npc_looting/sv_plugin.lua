@@ -32,7 +32,7 @@ function PLUGIN:OnNPCKilled(npc, attacker, weapon)
 		end
 
 		for i = 1, maxItems do
-			local itemID = Schema.GetRandomWeightedItem(3)
+			local itemID = Schema.GetRandomWeightedItem(3,true)
 			if (!itemID) then continue end
 
 			inventory:Add(itemID, 1, nil, nil, nil, true)
