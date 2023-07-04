@@ -137,7 +137,7 @@ function SWEP:NPC_Shoot()
     local num = self:GetBuff("Num")
 
     if num > 0 then
-        local spread = ArcCW.MOAToAcc * self:GetBuff("AccuracyMOA")
+        local spread = self:GetOwner().WeaponAccuracy or ArcCW.MOAToAcc * self:GetBuff("AccuracyMOA")
 
         local btabl = {
             Attacker = self:GetOwner(),
@@ -284,6 +284,7 @@ function SWEP:NPC_Shoot()
     end
     ]]
 
+    
     self:DoShootSound()
 
     self:SetClip1(self:Clip1() - 1)

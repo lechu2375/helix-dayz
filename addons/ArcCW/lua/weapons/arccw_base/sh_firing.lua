@@ -38,7 +38,7 @@ function SWEP:CanPrimaryAttack()
     end
 
     -- If we are an NPC, do our own little methods
-    if owner:IsNPC() then self:NPC_Shoot() return end
+    if owner:IsNPC() or owner:IsNextBot() then self:NPC_Shoot() return end
 
     -- If we are in a UBGL, shoot the UBGL, not the gun
     if self:GetInUBGL() then self:ShootUBGL() return end
@@ -432,16 +432,16 @@ function SWEP:DoShootSound(sndoverride, dsndoverride, voloverride, pitchoverride
     if    voloverride        then    volume    = voloverride end
     if    pitchoverride    then    pitch    = pitchoverride end
 
-    if distancesound then self:MyEmitSound(distancesound, 149, pitch, 0.5, CHAN_WEAPON + 1) end
+    if distancesound then print("snd1") self:MyEmitSound(distancesound, 149, pitch, 0.5, CHAN_WEAPON + 1) end
 
-    if fsound then self:MyEmitSound(fsound, volume, pitch, 1, CHAN_WEAPON) end
+    if fsound then print("snd2") self:MyEmitSound(fsound, volume, pitch, 1, CHAN_WEAPON) end
 
     local data = {
         sound   = fsound,
         volume  = volume,
         pitch   = pitch,
     }
-
+    
     self:GetBuff_Hook("Hook_AddShootSound", data)
 end
 
@@ -560,7 +560,7 @@ function SWEP:GetShootSrc()
     local owner = self:GetOwner()
 
     if !IsValid(owner) then return self:GetPos() end
-    if owner:IsNPC() then return owner:GetShootPos() end
+    if owner:IsNPC() or owner:IsNextBot() then return owner:GetShootPos() end
 
     local dir    = owner:EyeAngles()
     local offset = Vector(0, 0, 0)
@@ -669,7 +669,7 @@ function SWEP:DoShellEject(atti)
 
     local vm = self
 
-    if !owner:IsNPC() then owner:GetViewModel() end
+    if !owner:IsNPC() and !owner:IsNextBot() then owner:GetViewModel() end
 
     local att = vm:GetAttachment(atti or self:GetBuff_Override("Override_CaseEffectAttachment") or self.CaseEffectAttachment or 2)
 

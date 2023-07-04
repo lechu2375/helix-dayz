@@ -251,7 +251,7 @@ function SWEP:GetAnimKeyTime(key, min)
 
     if !anim then return 1 end
 
-    if self:GetOwner():IsNPC() then return anim.Time or 1 end
+    if self:GetOwner():IsNPC() or self:GetOwner():IsNextBot()then return anim.Time or 1 end
 
     local vm = self:GetOwner():GetViewModel()
 
