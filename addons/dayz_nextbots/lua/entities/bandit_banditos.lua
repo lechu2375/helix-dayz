@@ -28,7 +28,7 @@ ENT.OnDamageSounds = {"gmodz/npc/bandit/hit_1.ogg","gmodz/npc/bandit/hit_2.ogg",
 ENT.DamageSoundDelay = 0.25
 
 ENT.WeaponAccuracy = 0.15
-
+ENT.WeaponAccuracyBase = ENT.WeaponAccuracy
 if SERVER then
 
 
@@ -70,7 +70,7 @@ if SERVER then
 		if GetConVar("bwa_friends"):GetBool() then
 			self:AddRelationship("player D_LI 99")
 		end
-      	self:SetHealth(math.random(150,200))
+		self:SetHealth(math.random(100,145))
       	self:WeaponReload()
 		self:SetSkin(math.random(0,12))
         local bodygroups = self:GetBodyGroups()
@@ -357,7 +357,7 @@ if SERVER then
 					grenade:Use(self)
 				end
 			end)
-			self:PlaySequenceAndMove('seq_throw', 1.5)
+			self:PlaySequenceAndMove('seq_throw', 1.6)
 			self.melee = false
 		end)
 	end
@@ -443,6 +443,11 @@ if SERVER then
 		if self:IsStuck() and self:GetCooldown("stuck") == 0 then
 			self:SetCooldown("stuck", 1)
 			self:SetPos(self:RandomPos(256,512))
+		end
+		if(self:IsCrouching()) then
+			self.WeaponAccuracy = self.WeaponAccuracyBase*.86
+		else
+			self.WeaponAccuracy = self.WeaponAccuracyBase
 		end
 		self:CoverThink()
 		if IsValid(self.FollowTarget) then

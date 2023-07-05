@@ -118,15 +118,17 @@ for i=1,7 do
 end
 
 timer.Create( "removeRagdolls", 30, 0, function() game.RemoveRagdolls() end )
-/*
-if(CLIENT) then
 
-    function PLUGIN:CreateClientsideRagdoll(entity,ragdoll )
-        timer.Simple(30, function()
-            if(IsValid(ragdoll)) then
-                ragdoll:Remove()
-            end
-        end)
+if(SERVER) then
+
+    function PLUGIN:OnEntityCreated(ent)
+		if(ent:GetClass()=="prop_ragdoll") then
+			timer.Simple(30, function()
+				if(IsValid(ragdoll)) then
+					ragdoll:Remove()
+				end
+			end)
+		end
     end
     
-end*/
+end

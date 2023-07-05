@@ -31,19 +31,19 @@ ENT.WeaponAccuracy = 0.20
 if SERVER then
 
 	-- Init/Think --
-
+    
 	function ENT:CustomInitialize()
+        self.WeaponAccuracy = math.Rand(0.15, 0.22)
+        self:SetHealth(math.random(100,125))
 		self:SetDefaultRelationship(D_HT)
         self:SetFactionRelationship("FACTION_BANDITS", D_NU,2)
 		self:SetFactionRelationship("FACTION_CIVIL", D_NU,2)
 		self:SetFactionRelationship("FACTION_CDF", D_NU,2)
 
 	end
-    function ENT:OnTookDamage(dmg, hitgroup) 
+    function ENT:OnTookDamage(dmg) 
         local inflictor = dmg:GetInflictor()
         self:SetEntityRelationship(inflictor, D_HT,10)
-    
-    
     end
 end
 

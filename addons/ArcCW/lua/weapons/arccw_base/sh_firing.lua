@@ -432,9 +432,9 @@ function SWEP:DoShootSound(sndoverride, dsndoverride, voloverride, pitchoverride
     if    voloverride        then    volume    = voloverride end
     if    pitchoverride    then    pitch    = pitchoverride end
 
-    if distancesound then print("snd1") self:MyEmitSound(distancesound, 149, pitch, 0.5, CHAN_WEAPON + 1) end
+    if distancesound then  self:MyEmitSound(distancesound, 149, pitch, 0.5, CHAN_WEAPON + 1) end
 
-    if fsound then print("snd2") self:MyEmitSound(fsound, volume, pitch, 1, CHAN_WEAPON) end
+    if fsound then  self:MyEmitSound(fsound, volume, pitch, 1, CHAN_WEAPON) end
 
     local data = {
         sound   = fsound,

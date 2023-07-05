@@ -8,15 +8,15 @@ ENT.Models = {"models/bloocobalt/infected_citizens/male_06.mdl"}
 ENT.BloodColor = BLOOD_COLOR_RED
 
 -- Sounds --
-ENT.OnDamageSounds = {"Zombie.Pain"}
-ENT.OnDeathSounds = {"Zombie.Die"}
+ENT.OnDamageSounds = {"nextbots/seeker/pain1.wav","nextbots/seeker/pain2.wav","nextbots/seeker/pain3.wav","nextbots/seeker/pain4.wav"}
+ENT.OnDeathSounds = {"nextbots/seeker/death1.wav","nextbots/seeker/death2.wav","nextbots/seeker/death3.wav","nextbots/seeker/death4.wav"}
 
 -- Stats --
 ENT.SpawnHealth = 200
 
 -- AI --
 ENT.RangeAttackRange = 0
-ENT.MeleeAttackRange = 50
+ENT.MeleeAttackRange = 150
 ENT.ReachEnemyRange = 30
 ENT.AvoidEnemyRange = 0
 
@@ -28,6 +28,7 @@ ENT.UseWalkframes = false
 ENT.RunAnimation = ACT_RUN 
 ENT.WalkAnimation = ACT_WALK
 ENT.WalkSpeed = 20
+ENT.WalkAnimRate = 1.2
 ENT.RunSpeed = 250
 -- Detection --
 ENT.EyeBone = "ValveBiped.Bip01_Spine4"
@@ -51,8 +52,8 @@ ENT.PossessionBinds = {
 	[IN_ATTACK] = {{
 		coroutine = true,
 		onkeydown = function(self)
-			self:EmitSound("Zombie.Attack")
-			self:PlayActivityAndMove(ACT_MELEE_ATTACK1, 1, self.PossessionFaceForward)
+			self:EmitSound("nextbots/seeker/attack"..math.random(1,4)..".wav")
+			self:PlayActivityAndMove(ACT_MELEE_ATTACK1, 1.5, self.PossessionFaceForward)
 		end
 	}}
 }
@@ -63,17 +64,17 @@ if SERVER then
 
 	function ENT:CustomInitialize()
 		self:SetDefaultRelationship(D_HT)
-		self:SetBodygroup(1, 1)
 	end
 
 	-- AI --
 
 	function ENT:OnMeleeAttack(enemy)
-		self:EmitSound("Zombie.Attack")
-		self:PlayActivityAndMove(ACT_MELEE_ATTACK1, 1, self.FaceEnemy)
+		self:EmitSound("nextbots/seeker/attack"..math.random(1,4)..".wav")
+		self:PlayActivityAndMove(ACT_MELEE_ATTACK1, 1.5, self.FaceEnemy)
 	end
 
 	function ENT:OnReachedPatrol()
+		self:EmitSound("nextbots/seeker/idle"..math.random(1,4)..".wav")
 		self:Wait(math.random(3, 7))
 	end
 	function ENT:OnIdle()
@@ -89,7 +90,7 @@ if SERVER then
 	-- Animations/Sounds --
 
 	function ENT:OnNewEnemy()
-		self:EmitSound("Zombie.Alert")
+		self:EmitSound("nextbots/seeker/alert"..math.random(1,4)..".wav")
 	end
 
 	function ENT:OnAnimEvent()

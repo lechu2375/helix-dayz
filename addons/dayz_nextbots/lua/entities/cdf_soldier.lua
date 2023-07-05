@@ -67,7 +67,7 @@ if SERVER then
 		if GetConVar("bwa_friends"):GetBool() then
 			self:AddRelationship("player D_LI 99")
 		end
-      	self:SetHealth(math.random(150,200))
+		self:SetHealth(math.random(100,145))
       	self:WeaponReload()
 		self:SetSkin(math.random(0,12))
         local bodygroups = self:GetBodyGroups()
@@ -443,6 +443,7 @@ if SERVER then
 			self:SetCooldown("stuck", 1)
 			self:SetPos(self:RandomPos(256,512))
 		end
+
 		self:CoverThink()
 		if IsValid(self.FollowTarget) then
 			self:ReactInCoroutine(function(self)

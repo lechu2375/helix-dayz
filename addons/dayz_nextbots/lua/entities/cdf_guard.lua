@@ -69,7 +69,7 @@ if SERVER then
 		if GetConVar("bwa_friends"):GetBool() then
 			self:AddRelationship("player D_LI 99")
 		end
-      	self:SetHealth(math.random(150,200))
+		self:SetHealth(math.random(100,125))
       	self:WeaponReload()
 		self:SetSkin(math.random(0,12))
         local bodygroups = self:GetBodyGroups()
@@ -385,7 +385,7 @@ if SERVER then
 		elseif type == "follow" then
 			sounds = 'gmodz/npc/military/search_'..math.random(1,5)..'.ogg'
 		end
-		print(type,sounds)
+		//print(type,sounds)
 		self:EmitSound(sounds,90)
 		self.currentsound = sounds
 	end
@@ -446,6 +446,11 @@ if SERVER then
 			self:SetCooldown("stuck", 1)
 			self:SetPos(self:RandomPos(256,512))
 		end
+		if(self:IsCrouching()) then
+			self.WeaponAccuracy = self.WeaponAccuracyBase*.86
+		else
+			self.WeaponAccuracy = self.WeaponAccuracyBase
+		end
 		self:CoverThink()
 		if IsValid(self.FollowTarget) then
 			self:ReactInCoroutine(function(self)
@@ -487,7 +492,7 @@ if SERVER then
 	function ENT:OnIdle()
 		if not IsValid(self.FollowTarget) then
             local pos = self:GetPos()
-            print(pos:Distance(self.SpawnPoint))
+           // print(pos:Distance(self.SpawnPoint))
             if(pos:Distance(self.SpawnPoint)>2000) then
                 self:AddPatrolPos(self.SpawnPoint)
             else
