@@ -1,0 +1,12 @@
+[13:50:28]	⭐ lechu2375 ⭐ has connected.
+[13:51:07]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) deleted character 'Nikolay Smith'
+[13:54:15]	⭐ lechu2375 ⭐ created the character 'CT1371'
+[13:54:15]	⭐ lechu2375 ⭐ loaded the character 'CT-table: 0x020c58b31178table: 0x020c58b31178table: 0x020c58b31178table: 0x020c58b31178 CT1371'
+[13:55:59]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) deleted character 'CT-table: 0x020c58b31178table: 0x020c58b31178table: 0x020c58b31178table: 0x020c58b31178 CT1371'
+[13:56:05]	⭐ lechu2375 ⭐ created the character 'CT2826'
+[13:56:05]	⭐ lechu2375 ⭐ loaded the character 'CT-3930 CT2826'
+[13:56:22]	CT-3930 CT2826 used command '/MapRestart 1'.
+[13:56:59]	⭐ lechu2375 ⭐ has connected.
+[13:57:32]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) deleted character 'CT-3930 CT2826'
+[13:57:39]	⭐ lechu2375 ⭐ created the character 'Lechu'
+[13:57:39]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'

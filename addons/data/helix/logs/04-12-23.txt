@@ -1,0 +1,67 @@
+[17:24:51]	⭐ lechu2375 ⭐ has connected.
+[17:25:51]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[17:33:21]	Nikolay Smith has spawned a 'Entity [388][radio_receiver]'.
+[17:48:44]	Nikolay Smith entered observer.
+[18:01:20]	Nikolay Smith has spawned 'models/props_lab/citizenradio.mdl'.
+[18:01:25]	Nikolay Smith exited observer.
+[18:01:31]	Nikolay Smith has spawned 'models/props_lab/partsbin01.mdl'.
+[18:01:33]	Nikolay Smith has spawned 'models/props_lab/reciever01b.mdl'.
+[18:03:35]	Nikolay Smith entered observer.
+[18:03:46]	Nikolay Smith opened the 'Crate' #69 container.
+[18:03:48]	Nikolay Smith closed the 'Crate' #69 container.
+[18:06:03]	Nikolay Smith has spawned a 'Entity [380][radio_microphone]'.
+[18:17:13]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[18:18:21]	Nikolay Smith entered observer.
+[18:18:31]	Nikolay Smith exited observer.
+[18:19:13]	Nikolay Smith entered observer.
+[18:19:16]	Nikolay Smith exited observer.
+[18:20:07]	⭐ lechu2375 ⭐ has connected.
+[18:20:23]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:20:36]	Nikolay Smith has spawned a 'Entity [392][radio_receiver]'.
+[18:20:50]	Nikolay Smith entered observer.
+[18:23:16]	⭐ lechu2375 ⭐ has connected.
+[18:23:53]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:24:41]	Nikolay Smith entered observer.
+[18:30:25]	⭐ lechu2375 ⭐ has connected.
+[18:31:03]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:31:45]	Nikolay Smith has spawned a 'Entity [388][radio_receiver]'.
+[18:31:49]	Nikolay Smith has spawned a 'Entity [388][radio_receiver]'.
+[18:33:41]	Nikolay Smith has spawned a 'Entity [392][radio_receiver]'.
+[18:33:42]	Nikolay Smith has spawned a 'Entity [393][radio_receiver]'.
+[18:34:01]	Nikolay Smith has spawned 'models/props_wasteland/speakercluster01a.mdl'.
+[18:35:33]	Nikolay Smith entered observer.
+[18:35:45]	Nikolay Smith exited observer.
+[18:36:10]	Nikolay Smith entered observer.
+[18:36:11]	Nikolay Smith exited observer.
+[18:36:46]	⭐ lechu2375 ⭐ has connected.
+[18:38:08]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:38:21]	Nikolay Smith used command '/saccept'.
+[18:38:31]	Nikolay Smith has spawned a 'Entity [392][radio_microphone]'.
+[18:38:33]	Nikolay Smith has spawned a 'Entity [393][radio_receiver]'.
+[18:38:44]	Nikolay Smith entered observer.
+[18:39:05]	Nikolay Smith has spawned a 'Entity [392][radio_receiver]'.
+[18:39:36]	Nikolay Smith exited observer.
+[18:43:02]	Nikolay Smith entered observer.
+[19:14:57]	Nikolay Smith exited observer.
+[19:14:58]	Nikolay Smith entered observer.
+[19:15:10]	Nikolay Smith exited observer.
+[19:16:20]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[19:36:02]	Nikolay Smith entered observer.
+[19:36:19]	Nikolay Smith exited observer.
+[20:17:38]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[20:31:31]	⭐ lechu2375 ⭐ has connected.
+[20:31:51]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[20:45:34]	Nikolay Smith entered observer.
+[20:51:05]	Nikolay Smith has spawned 'models/props_c17/canister01a.mdl'.
+[20:53:54]	Nikolay Smith entered observer.
+[21:08:54]	Nikolay Smith exited observer.
+[21:26:37]	Nikolay Smith entered observer.
+[21:26:38]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[21:33:26]	Nikolay Smith used command '/MapRestart 1'.
+[21:34:13]	⭐ lechu2375 ⭐ has connected.
+[21:34:27]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[21:55:41]	Nikolay Smith has taken 29 damage from worldspawn.
+[21:55:45]	Nikolay Smith entered observer.
+[21:55:48]	Nikolay Smith exited observer.
+[21:58:27]	Nikolay Smith has taken 82 damage from worldspawn.
+[21:58:27]	worldspawn has killed Nikolay Smith.

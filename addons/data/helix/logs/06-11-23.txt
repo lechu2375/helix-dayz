@@ -1,0 +1,19 @@
+[08:59:10]	⭐ lechu2375 ⭐ has connected.
+[09:04:04]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[09:04:13]	Mike Zastava used command '/MapRestart 1'.
+[09:05:42]	⭐ lechu2375 ⭐ has connected.
+[09:06:26]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[09:20:27]	⭐ lechu2375 ⭐ has connected.
+[09:20:53]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[09:21:03]	Mike Zastava has taken 34 damage from worldspawn.
+[09:21:10]	Mike Zastava has taken 34 damage from worldspawn.
+[09:21:17]	Mike Zastava has taken 34 damage from worldspawn.
+[09:21:17]	worldspawn has killed Mike Zastava.
+[09:22:01]	⭐ lechu2375 ⭐ has killed Mike Zastava.
+[09:22:11]	Mike Zastava entered observer.
+[09:22:12]	Mike Zastava exited observer at their location.
+[09:22:14]	Mike Zastava entered observer.
+[09:22:15]	Mike Zastava exited observer at their location.
+[09:22:27]	Mike Zastava ran 'take' on item 'Złoty łańcuch' (#3849)
+[09:22:27]	Mike Zastava has gained a 'Złoty łańcuch' #3849.
+[09:22:29]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.

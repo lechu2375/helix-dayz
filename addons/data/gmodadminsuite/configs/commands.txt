@@ -1,0 +1,1 @@
+~'Commands":{~'!blogs":{~'help":'Opens GmodAdminSuite module Billy's Logs"'action":{~'type":n7;'module_name":'logging"}'hide_command":b1}}'ModuleCommands":{~'logging":b1}

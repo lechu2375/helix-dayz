@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[8 1 -11]",
+		"{-175 0 -0}"
+	],
+	"Bone": "ValveBiped.Bip01_Spine2",
+	"Model": "models/props_c17/SuitCase_Passenger_Physics.mdl"
+}

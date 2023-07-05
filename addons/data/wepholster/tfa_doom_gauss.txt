@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[7.5 -4 -3.6]",
+		"{90 0 -0}"
+	],
+	"Bone": "ValveBiped.Bip01_Spine2",
+	"Model": "models/weapons/tfa_doom/w_gauss.mdl"
+}

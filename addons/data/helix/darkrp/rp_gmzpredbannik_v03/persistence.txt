@@ -1,0 +1,1 @@
+[[{"Skin":0.0,"Movable":false,"SubMaterial":[],"BodyGroups":[],"Pos":"[-11550.1104 12364.0996 94.8987]","Angle":"{-0.0801 90.4781 -0.0462}","Class":"prop_physics","Color":{"r":255.0,"b":255.0,"a":255.0,"g":255.0},"Material":"","Model":"models/props_wasteland/laundry_washer001a.mdl","bNoCollision":false}]]

@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[0 7 -3.8]",
+		"{95 1 -90}"
+	],
+	"Bone": "ValveBiped.Bip01_R_Thigh",
+	"Model": "models/weapons/tfa_nmrih/w_tool_barricade.mdl"
+}

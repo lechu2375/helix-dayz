@@ -1,0 +1,1 @@
+[{"day":5.0,"genericFont":"Jura Light","year":2023.0,"month":7.0,"webUrl":"https://discord.com/api/webhooks/1093903360958136370/wFUbzg7XY8eigF4G-gRgNpgwxRpwIwwB4uDHysnokyU0w-kYAX47DS2ed-LXbv_Zgu0Y"}]

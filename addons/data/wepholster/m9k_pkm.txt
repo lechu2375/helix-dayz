@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[1 5 4.2]",
+		"{265 25 230}"
+	],
+	"Bone": "ValveBiped.Bip01_R_Clavicle",
+	"Model": "models/weapons/w_mach_russ_pkm.mdl"
+}

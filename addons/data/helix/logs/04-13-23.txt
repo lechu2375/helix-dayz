@@ -1,0 +1,81 @@
+[14:12:56]	⭐ lechu2375 ⭐ has connected.
+[14:13:35]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[14:28:26]	Nikolay Smith used command '/MapRestart 1'.
+[14:29:11]	⭐ lechu2375 ⭐ has connected.
+[14:30:11]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[14:32:17]	Nikolay Smith entered observer.
+[14:38:45]	Nikolay Smith entered observer.
+[14:38:46]	Nikolay Smith exited observer.
+[14:38:54]	Nikolay Smith has taken 61 damage from worldspawn.
+[14:39:00]	Nikolay Smith entered observer.
+[14:39:00]	Nikolay Smith exited observer.
+[14:42:05]	Nikolay Smith has taken 24 damage from worldspawn.
+[14:44:07]	Nikolay Smith used command '/MapRestart 1'.
+[14:44:53]	⭐ lechu2375 ⭐ has connected.
+[14:46:25]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[14:54:48]	Nikolay Smith entered observer.
+[14:54:49]	Nikolay Smith exited observer.
+[14:54:49]	Nikolay Smith entered observer.
+[14:54:49]	Nikolay Smith exited observer.
+[14:54:58]	Nikolay Smith has spawned 'models/hunter/blocks/cube025x025x025.mdl'.
+[14:55:09]	Nikolay Smith has spawned 'models/hunter/blocks/cube025x025x025.mdl'.
+[14:55:10]	Nikolay Smith entered observer.
+[14:55:15]	Nikolay Smith has spawned 'models/hunter/blocks/cube025x05x025.mdl'.
+[14:57:47]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[14:58:29]	Nikolay Smith entered observer.
+[14:58:57]	Nikolay Smith entered observer.
+[15:05:32]	Nikolay Smith exited observer.
+[15:08:03]	Nikolay Smith entered observer.
+[15:08:05]	Nikolay Smith exited observer.
+[15:08:06]	Nikolay Smith entered observer.
+[15:08:06]	Nikolay Smith exited observer.
+[15:08:08]	Nikolay Smith entered observer.
+[15:08:10]	Nikolay Smith exited observer.
+[15:14:27]	Nikolay Smith used command '/MapRestart 1'.
+[15:15:07]	⭐ lechu2375 ⭐ has connected.
+[15:15:53]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[15:18:29]	Nikolay Smith entered observer.
+[15:53:24]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[15:57:47]	Nikolay Smith entered observer.
+[15:58:37]	Nikolay Smith entered observer.
+[16:22:08]	Nikolay Smith exited observer.
+[16:22:12]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[16:22:28]	Nikolay Smith used command '/MapRestart 1'.
+[16:23:21]	⭐ lechu2375 ⭐ has connected.
+[16:24:06]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[16:24:15]	Nikolay Smith has taken 1 damage from trigger_hurt.
+[16:29:53]	⭐ lechu2375 ⭐ has connected.
+[16:30:07]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[16:34:15]	⭐ lechu2375 ⭐ has connected.
+[16:34:33]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[16:37:08]	⭐ lechu2375 ⭐ has connected.
+[16:37:22]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[16:52:00]	⭐ lechu2375 ⭐ has connected.
+[16:52:15]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[16:52:35]	Nikolay Smith has taken 9 damage from worldspawn.
+[16:53:04]	Nikolay Smith entered observer.
+[18:02:26]	⭐ lechu2375 ⭐ has connected.
+[18:03:24]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:03:26]	Nikolay Smith entered observer.
+[18:03:27]	Nikolay Smith exited observer.
+[18:12:09]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[18:16:32]	⭐ lechu2375 ⭐ has connected.
+[18:16:47]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:23:47]	Nikolay Smith entered observer.
+[18:23:53]	Nikolay Smith exited observer.
+[18:23:59]	Nikolay Smith used command '/MapRestart 1'.
+[18:24:33]	⭐ lechu2375 ⭐ has connected.
+[18:25:15]	⭐ lechu2375 ⭐ loaded the character 'Nikolay Smith'
+[18:29:23]	Nikolay Smith entered observer.
+[18:29:24]	Nikolay Smith exited observer.
+[18:29:39]	Nikolay Smith entered observer.
+[18:29:41]	Nikolay Smith exited observer.
+[18:30:25]	Nikolay Smith has taken 26 damage from worldspawn.
+[18:47:41]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[18:48:20]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[18:55:28]	Nikolay Smith has taken 24 damage from worldspawn.
+[18:57:25]	Nikolay Smith entered observer.
+[18:57:25]	Nikolay Smith exited observer.
+[18:58:05]	Nikolay Smith has taken 35 damage from worldspawn.
+[19:00:27]	⭐ lechu2375 ⭐ has killed Nikolay Smith.
+[19:00:59]	⭐ lechu2375 ⭐ has killed Nikolay Smith.

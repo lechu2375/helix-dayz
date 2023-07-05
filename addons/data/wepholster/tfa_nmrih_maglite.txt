@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[0 12 3.8]",
+		"{-95 0 0}"
+	],
+	"Bone": "ValveBiped.Bip01_L_Thigh",
+	"Model": "models/weapons/tfa_nmrih/w_item_maglite.mdl"
+}

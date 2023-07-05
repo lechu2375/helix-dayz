@@ -1,0 +1,256 @@
+[13:31:23]	lechu2375 has connected.
+[13:32:42]	lechu2375 loaded the character 'lechu2375'
+[13:32:58]	lechu2375 used command '/SafezoneEdit'.
+[13:47:35]	lechu2375 has connected.
+[13:47:47]	lechu2375 loaded the character 'lechu2375'
+[13:51:17]	lechu2375 has connected.
+[13:51:31]	lechu2375 loaded the character 'lechu2375'
+[14:06:18]	lechu2375 has connected.
+[14:07:07]	lechu2375 loaded the character 'lechu2375'
+[14:08:10]	lechu2375 has gained a 'IMI Galil' #24702.
+[14:08:10]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_galil'.
+[14:08:24]	lechu2375 has spawned a 'Entity [222][gmodz_merchant]'.
+[14:09:05]	lechu2375 used command '/CharSetRU lechu 900000'.
+[14:09:09]	lechu2375 has gained a '7.62x51 Ammo' #24703.
+[14:09:09]	lechu2375 has lost 45000 RU.
+[14:09:17]	lechu2375 has gained a '12.7x55 Ammo' #24704.
+[14:09:17]	lechu2375 has lost 90000 RU.
+[14:09:26]	lechu2375 ran 'Equip' on item 'IMI Galil' (#24702)
+[14:09:44]	lechu2375 ran 'combine' on item 'IMI Galil' (#24702)
+[14:09:45]	lechu2375 ran 'combine' on item 'IMI Galil' (#24702)
+[14:09:46]	lechu2375 ran 'combine' on item 'IMI Galil' (#24702)
+[14:09:46]	lechu2375 ran 'combine' on item 'IMI Galil' (#24702)
+[14:10:10]	lechu2375 has gained a 'Blueberry Soda' #24705.
+[14:10:10]	lechu2375 has lost 150 RU.
+[14:10:16]	lechu2375 ran 'use' on item 'Blueberry Soda' (#24705)
+[14:10:32]	lechu2375 has gained a 'M16A2' #24705.
+[14:10:32]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_m16a2'.
+[14:10:36]	lechu2375 ran 'Equip' on item 'M16A2' (#24705)
+[14:10:41]	lechu2375 ran 'combine' on item 'M16A2' (#24705)
+[14:10:41]	lechu2375 ran 'combine' on item 'M16A2' (#24705)
+[14:10:43]	lechu2375 ran 'combine' on item 'M16A2' (#24705)
+[14:10:44]	lechu2375 ran 'combine' on item 'M16A2' (#24705)
+[14:10:52]	lechu2375 has gained a 'AKS-74U' #24706.
+[14:10:52]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_aks74u'.
+[14:10:54]	lechu2375 ran 'Equip' on item 'AKS-74U' (#24706)
+[14:10:55]	lechu2375 ran 'combine' on item 'AKS-74U' (#24706)
+[14:10:57]	lechu2375 ran 'combine' on item 'AKS-74U' (#24706)
+[14:11:11]	lechu2375 has gained a 'RPK-47' #24707.
+[14:11:11]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_rpk47'.
+[14:11:13]	lechu2375 ran 'Equip' on item 'RPK-47' (#24707)
+[14:11:21]	lechu2375 ran 'combine' on item 'RPK-47' (#24707)
+[14:11:22]	lechu2375 ran 'combine' on item 'RPK-47' (#24707)
+[14:11:24]	lechu2375 ran 'combine' on item 'RPK-47' (#24707)
+[14:11:41]	lechu2375 has gained a 'SVD' #24708.
+[14:11:41]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_svd'.
+[14:11:43]	lechu2375 ran 'Equip' on item 'SVD' (#24708)
+[14:11:49]	lechu2375 ran 'combine' on item 'SVD' (#24708)
+[14:11:51]	lechu2375 ran 'drop' on item 'AKS-74U' (#24706)
+[14:11:51]	lechu2375 has lost a 'AKS-74U' #24706.
+[14:11:54]	lechu2375 ran 'drop' on item 'IMI Galil' (#24702)
+[14:11:54]	lechu2375 has lost a 'IMI Galil' #24702.
+[14:12:13]	lechu2375 has gained a 'M110' #24709.
+[14:12:13]	lechu2375 used command '/CharGiveItem lechu arccw_firearms2_m110'.
+[14:12:22]	lechu2375 ran 'Equip' on item 'M110' (#24709)
+[14:12:34]	lechu2375 ran 'empty_clip' on item 'M110' (#24709)
+[14:12:34]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[14:12:43]	lechu2375 ran 'EquipUn' on item 'M110' (#24709)
+[14:12:45]	lechu2375 ran 'empty_clip' on item 'M110' (#24709)
+[14:12:45]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[14:12:46]	lechu2375 ran 'combine' on item '7.62x51 Ammo' (#24703)
+[14:12:49]	lechu2375 ran 'combine' on item 'M110' (#24709)
+[14:12:53]	lechu2375 ran 'combine' on item 'M110' (#24709)
+[14:12:54]	lechu2375 ran 'Equip' on item 'M110' (#24709)
+[14:13:55]	lechu2375 ran 'EquipUn' on item 'M110' (#24709)
+[14:13:57]	lechu2375 ran 'Equip' on item 'M110' (#24709)
+[14:14:17]	lechu2375 ran 'EquipUn' on item 'M110' (#24709)
+[14:14:18]	lechu2375 ran 'drop' on item 'M110' (#24709)
+[14:14:18]	lechu2375 has lost a 'M110' #24709.
+[14:22:22]	lechu2375 ran 'take' on item 'IMI Galil' (#24702)
+[14:22:22]	lechu2375 has gained a 'IMI Galil' #24702.
+[14:22:23]	lechu2375 ran 'take' on item 'M110' (#24709)
+[14:22:23]	lechu2375 has gained a 'M110' #24709.
+[14:22:24]	lechu2375 ran 'take' on item 'AKS-74U' (#24706)
+[14:22:24]	lechu2375 has gained a 'AKS-74U' #24706.
+[14:24:01]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[14:24:01]	lechu2375 has lost 45000 RU.
+[14:24:03]	lechu2375 has gained a '7.62x51 Ammo' #24711.
+[14:24:03]	lechu2375 has lost 45000 RU.
+[14:24:11]	lechu2375 ran 'Equip' on item 'M110' (#24709)
+[14:24:44]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[14:24:44]	lechu2375 has lost 45000 RU.
+[14:24:46]	lechu2375 has gained a '7.62x51 Ammo' #24711.
+[14:24:46]	lechu2375 has lost 45000 RU.
+[14:24:47]	lechu2375 has gained a '7.62x51 Ammo' #24712.
+[14:24:47]	lechu2375 has lost 45000 RU.
+[14:24:49]	lechu2375 has gained a '7.62x51 Ammo' #24713.
+[14:24:49]	lechu2375 has lost 45000 RU.
+[20:30:30]	lechu2375 has connected.
+[20:30:44]	lechu2375 loaded the character 'lechu2375'
+[20:30:53]	lechu2375 ran 'take' on item '7.62x54 Ammo' (#24714)
+[20:30:53]	lechu2375 has gained a '7.62x54 Ammo' #24714.
+[20:31:05]	lechu2375 ran 'take' on item 'Light body armor' (#24715)
+[20:31:05]	lechu2375 has gained a 'Light body armor' #24715.
+[20:31:07]	lechu2375 ran 'Equip' on item 'Light body armor' (#24715)
+[20:31:20]	lechu2375 has spawned a 'NPC [223][npc_zombie]'.
+[20:31:22]	lechu2375 has taken 8 damage from npc_zombie.
+[20:31:24]	lechu2375 has taken 8 damage from npc_zombie.
+[20:31:34]	lechu2375 ran 'Equip' on item 'AKS-74U' (#24706)
+[20:31:43]	lechu2375 ran 'EquipUn' on item 'AKS-74U' (#24706)
+[20:31:44]	lechu2375 ran 'Equip' on item 'IMI Galil' (#24702)
+[20:31:49]	lechu2375 ran 'Equip' on item 'SVD' (#24708)
+[20:32:21]	lechu2375 ran 'take' on item 'PSO-1' (#24716)
+[20:32:28]	lechu2375 ran 'drop' on item 'M110' (#24709)
+[20:32:28]	lechu2375 has lost a 'M110' #24709.
+[20:32:31]	lechu2375 ran 'take' on item 'PSO-1' (#24716)
+[20:32:31]	lechu2375 has gained a 'PSO-1' #24716.
+[20:33:20]	lechu2375 ran 'Detach' on item 'SVD' (#24708)
+[20:33:20]	lechu2375 has gained a 'PSO-1' #24716.
+[20:34:02]	lechu2375 has spawned a 'Entity [295][ix_vendor]'.
+[20:34:03]	lechu2375 used the 'John Doe' vendor.
+[20:34:16]	lechu2375 has spawned a 'Entity [295][gmodz_stash]'.
+[20:35:34]	lechu2375 has spawned 'models/props_lab/filecabinet02.mdl'.
+[20:35:35]	lechu2375 opened the 'File Cabinet' #67 container.
+[20:35:37]	lechu2375 closed the 'File Cabinet' #67 container.
+[20:35:45]	lechu2375 has spawned 'models/props_c17/furnitureStove001a.mdl'.
+[20:35:53]	lechu2375 has spawned a 'Entity [296][gmodz_stash]'.
+[20:36:44]	lechu2375 ran 'take' on item 'CVC Helmet (Green)' (#24717)
+[20:36:44]	lechu2375 has gained a 'CVC Helmet (Green)' #24717.
+[20:36:55]	lechu2375 ran 'Equip' on item 'CVC Helmet (Green)' (#24717)
+[20:40:26]	lechu2375 used command '/CharGiveFlag lec'.
+[20:40:27]	lechu2375 used command '/CharGiveFlag lechu2375 Ccenprt'.
+[20:52:03]	lechu2375 has connected.
+[20:52:33]	lechu2375 loaded the character 'lechu2375'
+[21:03:29]	lechu2375 ran 'Equip' on item 'AKS-74U' (#24706)
+[21:03:45]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24721)
+[21:03:45]	lechu2375 has gained a '5.45x39 Ammo' #24721.
+[21:03:45]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24720)
+[21:03:45]	lechu2375 has gained a '5.45x39 Ammo' #24720.
+[21:03:46]	lechu2375 ran 'take' on item '5.56x45 Ammo' (#24719)
+[21:03:46]	lechu2375 ran 'take' on item '5.56x45 Ammo' (#24719)
+[21:03:46]	lechu2375 ran 'take' on item '5.56x45 Ammo' (#24718)
+[21:03:49]	lechu2375 ran 'drop' on item 'SVD' (#24708)
+[21:03:49]	lechu2375 has lost a 'SVD' #24708.
+[21:03:49]	lechu2375 ran 'take' on item '5.56x45 Ammo' (#24719)
+[21:03:49]	lechu2375 has gained a '5.56x45 Ammo' #24719.
+[21:03:50]	lechu2375 ran 'take' on item '5.56x45 Ammo' (#24718)
+[21:03:50]	lechu2375 has gained a '5.56x45 Ammo' #24718.
+[21:04:02]	lechu2375 has gained a 'Lemonade' #24721.
+[21:04:02]	lechu2375 has lost 750 RU.
+[21:04:04]	lechu2375 ran 'use' on item 'Lemonade' (#24721)
+[21:06:02]	lechu2375 has killed lechu2375.
+[21:06:44]	lechu2375 has taken 494100 RU from '' #1676664363 (0 RU left).
+[21:06:44]	lechu2375 has gained a 'PSO-1' #24716.
+[21:06:44]	lechu2375 has gained a 'Light body armor' #24715.
+[21:06:44]	lechu2375 has gained a 'CVC Helmet (Green)' #24717.
+[21:06:44]	lechu2375 has gained a '5.56x45 Ammo' #24718.
+[21:06:44]	lechu2375 has gained a '7.62x51 Ammo' #24713.
+[21:06:44]	lechu2375 has gained a 'IMI Galil' #24702.
+[21:06:44]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[21:06:44]	lechu2375 has gained a '5.56x45 Ammo' #24719.
+[21:06:44]	lechu2375 has gained a 'M16A2' #24705.
+[21:06:44]	lechu2375 has gained a '7.62x54 Ammo' #24714.
+[21:06:44]	lechu2375 has gained a '7.62x51 Ammo' #24711.
+[21:06:44]	lechu2375 has gained a 'AKS-74U' #24706.
+[21:06:44]	lechu2375 has gained a 'RPK-47' #24707.
+[21:06:44]	lechu2375 has gained a '12.7x55 Ammo' #24704.
+[21:07:15]	lechu2375 ran 'Equip' on item 'AKS-74U' (#24706)
+[21:07:21]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24720)
+[21:07:21]	lechu2375 has gained a '5.45x39 Ammo' #24720.
+[21:07:22]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24721)
+[21:07:22]	lechu2375 has gained a '5.45x39 Ammo' #24721.
+[21:07:24]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24723)
+[21:07:24]	lechu2375 has gained a '5.45x39 Ammo' #24723.
+[21:07:25]	lechu2375 ran 'take' on item '5.45x39 Ammo' (#24722)
+[21:07:25]	lechu2375 has gained a '5.45x39 Ammo' #24722.
+[21:08:47]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_demolisher]'.
+[21:08:48]	lechu2375 has taken 30 damage from Demolisher.
+[21:13:35]	lechu2375 has spawned 'models/gmodz/npc/bandit_veteran.mdl'.
+[21:13:44]	lechu2375 has spawned 'models/gmodz/characters/ghillie.mdl'.
+[21:13:55]	lechu2375 has spawned 'models/gmodz/npc/bandit_exp.mdl'.
+[21:13:58]	lechu2375 has spawned 'models/gmodz/npc/military_exp.mdl'.
+[21:14:15]	lechu2375 has spawned 'models/gmodz/airdrops/supplycrate.mdl'.
+[21:14:17]	lechu2375 has spawned 'models/gmodz/airdrops/supplycrate_med.mdl'.
+[21:21:56]	lechu2375 has connected.
+[21:22:09]	lechu2375 loaded the character 'lechu2375'
+[21:22:21]	lechu2375 ran 'EquipUn' on item 'AKS-74U' (#24706)
+[21:22:22]	lechu2375 ran 'Equip' on item 'AKS-74U' (#24706)
+[21:22:34]	lechu2375 ran 'Equip' on item 'CVC Helmet (Green)' (#24717)
+[21:22:58]	lechu2375 has gained 200 RU.
+[21:23:02]	lechu2375 has gained a 'M16A2' #24720.
+[21:23:02]	lechu2375 has lost 300 RU.
+[21:23:05]	lechu2375 has gained 200 RU.
+[21:23:07]	lechu2375 has gained a 'M16A2' #24720.
+[21:23:07]	lechu2375 has lost 300 RU.
+[21:23:38]	lechu2375 has gained 200 RU.
+[21:26:28]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_otsurvivor]'.
+[21:26:30]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_otsurvivor]'.
+[21:26:38]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_biter]'.
+[21:27:20]	lechu2375 entered observer.
+[21:27:30]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_biter]'.
+[21:27:47]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_biter]'.
+[21:27:55]	lechu2375 exited observer.
+[21:29:34]	lechu2375 has gained a '5.7x28 Ammo' #24720.
+[21:30:42]	lechu2375 has taken 5 damage from npc_headcrab.
+[21:30:45]	lechu2375 has gained 2 RU.
+[21:31:02]	lechu2375 entered observer.
+[21:32:02]	lechu2375 exited observer.
+[21:32:13]	lechu2375 has gained 24000 RU.
+[21:32:25]	lechu2375 has gained 8250 RU.
+[21:32:37]	lechu2375 has spawned a 'NPC [226][sent_vj_test]'.
+[21:32:40]	lechu2375 has spawned a 'NPC [226][npc_vj_dyinglight_viralm]'.
+[21:32:55]	lechu2375 has taken 20 damage from Viral.
+[21:33:05]	lechu2375 has taken 20 damage from Viral.
+[21:33:06]	lechu2375 has taken 20 damage from Viral.
+[21:33:09]	lechu2375 has taken 20 damage from Viral.
+[21:33:24]	lechu2375 entered observer.
+[21:33:25]	lechu2375 exited observer.
+[21:33:46]	lechu2375 ran 'take' on item 'Bottled Water' (#24721)
+[21:33:46]	lechu2375 has gained a 'Bottled Water' #24721.
+[21:34:10]	lechu2375 ran 'take' on item 'Beer' (#24722)
+[21:34:10]	lechu2375 has gained a 'Beer' #24722.
+[21:34:58]	lechu2375 ran 'take' on item 'Morphine injector' (#24723)
+[21:34:58]	lechu2375 has gained a 'Morphine injector' #24723.
+[21:35:29]	lechu2375 has spawned 'models/gmodz/medical/medkit3.mdl'.
+[21:37:01]	lechu2375 has spawned 'models/z-o-m-b-i-e/st/vehicles/cars/st_ekskavator_01.mdl'.
+[21:37:06]	lechu2375 has spawned 'models/eft_modular/gear/armor/redut_t5.mdl'.
+[21:37:10]	lechu2375 has spawned 'models/eft_modular/gear/armor/paca.mdl'.
+[21:37:12]	lechu2375 has spawned 'models/eft_modular/gear/armor/cr/tv110_nopouch.mdl'.
+[21:37:18]	lechu2375 has spawned 'models/easterncrisis/reinforcements/chernarus_infantry.mdl'.
+[21:37:32]	lechu2375 has gained 40 RU.
+[21:37:33]	lechu2375 has gained 9 RU.
+[21:38:45]	lechu2375 has spawned a 'Entity [224][gmodz_stash]'.
+[21:38:47]	lechu2375 has spawned a 'Entity [224][gmodz_stash]'.
+[21:40:26]	lechu2375 has spawned a 'NPC [224][npc_vj_dyinglight_demolisher]'.
+[21:40:27]	lechu2375 has taken 30 damage from Demolisher.
+[21:40:27]	Demolisher has killed lechu2375.
+[21:40:39]	lechu2375 has taken 30 damage from Demolisher.
+[21:41:08]	lechu2375 has taken 30 damage from Demolisher.
+[21:41:09]	lechu2375 has taken 30 damage from Demolisher.
+[21:41:19]	lechu2375 has taken 30 damage from Demolisher.
+[21:41:19]	Demolisher has killed lechu2375.
+[21:41:30]	lechu2375 has taken 30 damage from Demolisher.
+[21:41:43]	lechu2375 has taken 526401 RU from '' #1676666428 (0 RU left).
+[21:41:43]	lechu2375 has gained a 'PSO-1' #24716.
+[21:41:43]	lechu2375 has gained a '12.7x55 Ammo' #24704.
+[21:41:43]	lechu2375 has gained a '7.62x54 Ammo' #24714.
+[21:41:43]	lechu2375 has gained a 'Bottled Water' #24721.
+[21:41:43]	lechu2375 has gained a '7.62x51 Ammo' #24710.
+[21:41:43]	lechu2375 has gained a '7.62x51 Ammo' #24713.
+[21:41:43]	lechu2375 has gained a 'IMI Galil' #24702.
+[21:41:43]	lechu2375 has gained a 'AKS-74U' #24706.
+[21:41:43]	lechu2375 has gained a 'RPK-47' #24707.
+[21:41:43]	lechu2375 has gained a '5.56x45 Ammo' #24718.
+[21:41:43]	lechu2375 has gained a 'Beer' #24722.
+[21:41:43]	lechu2375 has gained a 'Morphine injector' #24723.
+[21:41:43]	lechu2375 has gained a '5.7x28 Ammo' #24720.
+[21:41:43]	lechu2375 has gained a 'Light body armor' #24715.
+[21:41:43]	lechu2375 has gained a '7.62x51 Ammo' #24711.
+[21:42:21]	lechu2375 ran 'take' on item 'Scout suit' (#24724)
+[21:42:25]	lechu2375 ran 'drop' on item 'RPK-47' (#24707)
+[21:42:25]	lechu2375 has lost a 'RPK-47' #24707.
+[21:42:27]	lechu2375 ran 'take' on item 'Scout suit' (#24724)
+[21:42:27]	lechu2375 has gained a 'Scout suit' #24724.
+[21:42:28]	lechu2375 ran 'Equip' on item 'Scout suit' (#24724)
+[21:42:46]	lechu2375 ran 'EquipUn' on item 'Scout suit' (#24724)
+[21:42:53]	lechu2375 ran 'Equip' on item 'Scout suit' (#24724)

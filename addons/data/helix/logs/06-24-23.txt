@@ -1,0 +1,16 @@
+[21:31:31]	⭐ lechu2375 ⭐ has connected.
+[21:32:08]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[21:33:24]	Mike Zastava used command '/MapRestart 1'.
+[21:34:41]	⭐ lechu2375 ⭐ has connected.
+[21:35:21]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[21:35:21]	Mike Zastava has gained a 'Latarka' #3949.
+[21:35:21]	Mike Zastava has gained a 'DV2' #3950.
+[21:35:34]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[21:37:48]	⭐ lechu2375 ⭐ has connected.
+[21:38:09]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[21:38:09]	Mike Zastava has gained a 'M9 Bayonet' #3975.
+[21:39:04]	Mike Zastava entered observer.
+[21:39:17]	Mike Zastava exited observer at their location.
+[21:39:33]	Mike Zastava entered observer.
+[21:39:35]	Mike Zastava exited observer at their location.
+[21:40:07]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.

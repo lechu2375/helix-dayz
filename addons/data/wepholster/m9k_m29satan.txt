@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[6 6.2 -2.5]",
+		"{0 0 -10}"
+	],
+	"Bone": "ValveBiped.Bip01_R_Clavicle",
+	"Model": "models/weapons/w_m29_satan.mdl"
+}

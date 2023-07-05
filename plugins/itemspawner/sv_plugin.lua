@@ -342,3 +342,9 @@ net.Receive("ixItemSpawnerChanges", function(_, client)
 		net.WriteTable(PLUGIN.spawners)
 	net.Send(client)
 end)
+
+concommand.Add("PrintItemSpawners", function()
+PrintTable(PLUGIN.spawners)
+
+
+end)

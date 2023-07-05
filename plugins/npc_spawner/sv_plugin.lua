@@ -243,10 +243,10 @@ timer.Create("ixNPCSpawner", 5, 0, function()
 			end
 
 			local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
-			//local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+			local npc = InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
 			print(v.lastSpawned < os.time())
-			local npc = ents.Create(v.npc)
-			npc:SetPos(position)
+			//local npc = ents.Create(v.npc)
+			//npc:SetPos(position)
 			if (!IsValid(npc)) then
 
 				v.lastSpawned = os.time() + 60
@@ -323,7 +323,6 @@ function PLUGIN:SaveData()
 	self:SetData(PLUGIN.spawners)
 end
 
-
 concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	local spawners = PLUGIN.spawners
 		for k, v in ipairs(PLUGIN.spawners) do
@@ -359,9 +358,10 @@ concommand.Add("RunAllSpawners", function(ply,cmd,args)
 	
 				local position = ENT:GetSpawnLocation(v.position, v.spawnradius)
 				//PrintTable(v)
-				local npc = ents.Create(v.npc)
-				npc:SetPos(position)
-				//InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
+				//local npc = ents.Create(v.npc)
+				//print(npc)
+				//npc:SetPos(position)
+				InternalSpawnNPC(position, v, ENT:GetSpawnWeapon(v.weapon, v.npc))
 				//print("npc:",npc)
 				if (!IsValid(npc)) then
 					v.lastSpawned = os.time() + 60

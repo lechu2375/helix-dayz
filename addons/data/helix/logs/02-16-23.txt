@@ -1,0 +1,23 @@
+[10:22:09]	lechu2375 has connected.
+[10:27:48]	lechu2375 has connected.
+[10:28:34]	lechu2375 (STEAM_0:1:64107678) deleted character 'lechu2375'
+[10:28:41]	lechu2375 created the character 'lechu2375'
+[10:28:41]	lechu2375 loaded the character 'lechu2375'
+[10:29:42]	lechu2375 has spawned a 'Entity [84][gmodz_stash]'.
+[10:29:45]	lechu2375 has spawned a 'Entity [84][gmodz_stash]'.
+[10:29:53]	lechu2375 has spawned a 'Entity [84][gmodz_merchant]'.
+[18:42:49]	lechu2375 has connected.
+[18:43:03]	lechu2375 loaded the character 'lechu2375'
+[18:43:54]	lechu2375 entered observer.
+[18:48:19]	lechu2375 has spawned a 'Entity [223][acwatt_fas2_mag_ash12_20rnd]'.
+[18:52:32]	lechu2375 has connected.
+[18:55:14]	lechu2375 has connected.
+[18:55:28]	lechu2375 loaded the character 'lechu2375'
+[18:55:43]	lechu2375 has spawned a 'NextBot [222][sb_advanced_nextbot_military_veteran]'.
+[18:55:43]	lechu2375 has taken 30 damage from sb_advanced_nextbot_military_veteran.
+[18:55:43]	lechu2375 has taken 30 damage from sb_advanced_nextbot_military_veteran.
+[18:55:44]	lechu2375 has taken 60 damage from sb_advanced_nextbot_military_veteran.
+[18:55:44]	sb_advanced_nextbot_military_veteran has killed lechu2375.
+[18:56:03]	lechu2375 has spawned a 'NextBot [224][sb_advanced_nextbot_military_veteran]'.
+[18:59:11]	lechu2375 has spawned a 'NextBot [226][sb_advanced_nextbot_bandit_veteran]'.
+[19:00:49]	lechu2375 has spawned a 'NextBot [226][npc_tf2_ghost]'.

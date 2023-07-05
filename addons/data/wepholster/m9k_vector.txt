@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[0 4.5 4.2]",
+		"{90 0 100}"
+	],
+	"Bone": "ValveBiped.Bip01_R_Clavicle",
+	"Model": "models/weapons/w_kriss_vector.mdl"
+}

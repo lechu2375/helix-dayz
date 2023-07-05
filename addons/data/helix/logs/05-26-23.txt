@@ -1,0 +1,33 @@
+[19:18:58]	⭐ lechu2375 ⭐ has connected.
+[19:27:23]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[19:39:14]	Bot01 has connected.
+[19:39:14]	Bot01 loaded the character 'Bot01'
+[19:40:42]	Bot01 (BOT) has disconnected.
+[19:54:29]	CT-2894 Lechu used command '/MapRestart 1'.
+[19:59:59]	⭐ lechu2375 ⭐ has connected.
+[20:01:14]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[20:01:18]	CT-2894 Lechu used command '/Investigate lechu'.
+[20:10:05]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[20:10:32]	CT-2894 Lechu used command '/Investigate lechu'.
+[20:11:06]	CT-2894 Lechu used command '/Investigate lechu'.
+[20:11:33]	CT-2894 Lechu used command '/Investigate lechu'.
+[22:25:44]	⭐ lechu2375 ⭐ has connected.
+[22:26:27]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[22:26:39]	CT-2894 Lechu has spawned 'models/unconid/props_pack/cigarette.mdl'.
+[22:41:03]	CT-2894 Lechu has spawned 'models/weapons/arccw/atts/charmbase.mdl'.
+[22:41:05]	CT-2894 Lechu has spawned 'models/weapons/arccw/atts/stock_fab.mdl'.
+[22:41:27]	CT-2894 Lechu has spawned 'models/tankbags/small_bags/smallbag02.mdl'.
+[22:47:12]	CT-2894 Lechu used command '/MapRestart 1'.
+[22:52:22]	⭐ lechu2375 ⭐ has connected.
+[22:54:26]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[22:54:35]	CT-2894 Lechu has spawned 'models/player/backpack_baselardwild/bp_load_baselard_body_lod0.mdl'.
+[22:58:03]	CT-2894 Lechu has spawned 'models/player/backpack_betav2/bp_anatactical_beta_body_lod0.mdl'.
+[22:58:18]	CT-2894 Lechu has spawned 'models/eft_modular/gear/armor/6b2.mdl'.
+[22:58:27]	CT-2894 Lechu has spawned 'models/tankbags/small_bags/smallbag02.mdl'.
+[22:58:29]	CT-2894 Lechu has spawned 'models/tankbags/small_bags/smallbag05.mdl'.
+[23:01:50]	CT-2894 Lechu has spawned 'models/eft_modular/gear/armor/paca.mdl'.
+[23:10:47]	CT-2894 Lechu has spawned 'models/player/backpack_baselardwild/bp_load_baselard_body_lod0.mdl'.
+[23:12:32]	CT-2894 Lechu has spawned 'models/player/backpack_betav2/bp_anatactical_beta_body_lod0.mdl'.
+[23:15:26]	CT-2894 Lechu has spawned 'models/player/backpack_blackjack/bp_blackjack50_body_lod0.mdl'.
+[23:17:00]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[23:19:06]	CT-2894 Lechu has spawned 'models/player/backpack_molle/bp_max_fuchs_body_lod0.mdl'.

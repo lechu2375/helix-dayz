@@ -1,0 +1,551 @@
+[16:58:20]	⭐ lechu2375 ⭐ has connected.
+[16:59:36]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[16:59:45]	Marek Sewczuk opened the 'Zrzut' #64 container.
+[16:59:48]	Marek Sewczuk closed the 'Zrzut' #64 container.
+[16:59:50]	Marek Sewczuk entered observer.
+[17:00:06]	Marek Sewczuk used command '/AreaEdit'.
+[17:00:30]	Marek Sewczuk has added area "Wysypisko".
+[17:00:32]	Marek Sewczuk used command '/AreaEdit'.
+[17:00:33]	Marek Sewczuk exited observer at their location.
+[17:00:35]	Marek Sewczuk used command '/AreaEdit'.
+[17:01:09]	Marek Sewczuk used command '/AreaEdit'.
+[17:01:15]	Marek Sewczuk entered observer.
+[17:01:51]	Marek Sewczuk has added area "Terytorium Renegatów".
+[17:02:00]	Marek Sewczuk exited observer at their location.
+[17:02:05]	Marek Sewczuk opened the 'Zrzut' #72 container.
+[17:02:07]	Marek Sewczuk closed the 'Zrzut' #72 container.
+[17:02:11]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[17:02:15]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[17:04:37]	Marek Sewczuk opened the 'Zrzut' #74 container.
+[17:04:38]	Marek Sewczuk closed the 'Zrzut' #74 container.
+[17:06:43]	Marek Sewczuk opened the 'Zrzut' #74 container.
+[17:06:44]	Marek Sewczuk closed the 'Zrzut' #74 container.
+[17:06:48]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[17:06:54]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[17:06:57]	Marek Sewczuk entered observer.
+[17:07:09]	Marek Sewczuk exited observer at their location.
+[17:13:43]	Marek Sewczuk entered observer.
+[17:13:52]	Marek Sewczuk exited observer at their location.
+[17:14:53]	Marek Sewczuk has spawned 'models/weapons/tayley/v_guitar.mdl'.
+[17:15:04]	Marek Sewczuk has spawned 'models/uaz_469_gascan.mdl'.
+[17:15:15]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_hunter.mdl'.
+[17:15:23]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_firefighter.mdl'.
+[17:15:24]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_flamer.mdl'.
+[17:15:26]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_pgac.mdl'.
+[17:15:29]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_hunter.mdl'.
+[17:15:31]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_back_rucksack.mdl'.
+[17:15:32]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_backpack_czech1.mdl'.
+[17:15:33]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_backpack_fast.mdl'.
+[17:15:35]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_jacket_belt_heavy.mdl'.
+[17:15:43]	Marek Sewczuk has spawned 'models/shtokerbox/outfits/male_jacket_lower_heavy.mdl'.
+[17:16:51]	Marek Sewczuk has spawned 'models/shtokerbox/headgear/male_headwear_rus_ww2.mdl'.
+[17:17:01]	Marek Sewczuk ran 'take' on item 'Karton' (#3704)
+[17:17:01]	Marek Sewczuk has gained a 'Karton' #3704.
+[17:17:30]	Marek Sewczuk used command '/cityinvasion1 20 2'.
+[17:17:53]	Marek Sewczuk has spawned a 'Entity [558][arccw_ammo_smg1_large]'.
+[17:17:53]	Marek Sewczuk has spawned a 'Entity [559][arccw_ammo_smg1_large]'.
+[17:17:59]	Marek Sewczuk has spawned a 'Entity [555][arccw_firearms2_ammo_556x45]'.
+[17:17:59]	Marek Sewczuk has spawned a 'Entity [556][arccw_firearms2_ammo_556x45]'.
+[17:17:59]	Marek Sewczuk has spawned a 'Entity [558][arccw_firearms2_ammo_556x45]'.
+[17:21:33]	⭐ lechu2375 ⭐ destroyed a 'Amunicja 12' #3698.
+[17:22:33]	Marek Sewczuk used command '/cityinvasion1 30 2'.
+[17:22:40]	Marek Sewczuk entered observer.
+[17:22:41]	Marek Sewczuk exited observer at their location.
+[17:22:57]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:57]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:57]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:57]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:58]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:58]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:58]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:58]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:59]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:59]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:59]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:59]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:22:59]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:00]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:00]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:00]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:17]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:18]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:23:18]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:24:23]	Marek Sewczuk has taken 12 damage from nb_swat.
+[17:24:23]	Marek Sewczuk has taken 6 damage from nb_swat.
+[17:24:56]	Marek Sewczuk has taken 45 damage from nb_zombine.
+[17:24:58]	Marek Sewczuk has taken 45 damage from nb_zombine.
+[17:25:06]	Marek Sewczuk has taken 45 damage from nb_zombine.
+[17:25:11]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:25:11]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:25:12]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:25:12]	Marek Sewczuk has taken 2 damage from nb_type1.
+[17:25:22]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:24]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:26]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:28]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:30]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:35]	Marek Sewczuk has taken 30 damage from nb_zombine.
+[17:25:37]	Marek Sewczuk has taken 20 damage from nb_seeker.
+[17:25:39]	Marek Sewczuk has taken 20 damage from nb_seeker.
+[17:25:41]	Marek Sewczuk has taken 35 damage from nb_type3.
+[17:25:41]	nb_type3 has killed Marek Sewczuk.
+[17:25:45]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[20:34:39]	⭐ lechu2375 ⭐ has connected.
+[20:36:18]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[20:36:38]	Marek Sewczuk ran 'take' on item 'Wódka' (#3680)
+[20:36:38]	Marek Sewczuk has gained a 'Wódka' #3680.
+[20:36:45]	Marek Sewczuk ran 'take' on item 'Kondycjoner paliwa' (#3679)
+[20:36:45]	Marek Sewczuk has gained a 'Kondycjoner paliwa' #3679.
+[20:36:49]	Marek Sewczuk ran 'take' on item 'Amunicja 12' (#3705)
+[20:36:49]	Marek Sewczuk has gained a 'Amunicja 12' #3705.
+[20:37:39]	Marek Sewczuk ran 'take' on item 'Bandaż wojskowy' (#3678)
+[20:37:39]	Marek Sewczuk has gained a 'Bandaż wojskowy' #3678.
+[20:38:12]	Marek Sewczuk has gained 18 RU.
+[20:38:30]	Marek Sewczuk ran 'take' on item 'Mundur łajdaka' (#3648)
+[20:38:30]	Marek Sewczuk has gained a 'Mundur łajdaka' #3648.
+[20:38:32]	Marek Sewczuk ran 'take' on item 'Cukier' (#3647)
+[20:38:32]	Marek Sewczuk has gained a 'Cukier' #3647.
+[20:38:33]	Marek Sewczuk ran 'Equip' on item 'Mundur łajdaka' (#3648)
+[20:38:37]	Marek Sewczuk ran 'take' on item 'Amunicja 9x19' (#3676)
+[20:38:37]	Marek Sewczuk has gained a 'Amunicja 9x19' #3676.
+[20:38:49]	Marek Sewczuk ran 'take' on item 'Rolex' (#3675)
+[20:38:49]	Marek Sewczuk has gained a 'Rolex' #3675.
+[20:38:51]	Marek Sewczuk ran 'take' on item 'Garść śrób' (#3654)
+[20:38:51]	Marek Sewczuk has gained a 'Garść śrób' #3654.
+[20:38:53]	Marek Sewczuk ran 'take' on item 'Vicasol' (#3740)
+[20:38:53]	Marek Sewczuk has gained a 'Vicasol' #3740.
+[20:39:11]	Marek Sewczuk ran 'take' on item 'Antirad' (#3631)
+[20:39:11]	Marek Sewczuk has gained a 'Antirad' #3631.
+[20:39:31]	Marek Sewczuk ran 'take' on item 'Amunicja 9x18' (#3632)
+[20:39:31]	Marek Sewczuk has gained a 'Amunicja 9x18' #3632.
+[20:39:33]	⭐ lechu2375 ⭐ has taken 23 RU from '' #1686170777 (0 RU left).
+[20:39:33]	Marek Sewczuk has gained a 'Karta graficzna' #3746.
+[20:39:33]	Marek Sewczuk has gained a 'Karton' #3744.
+[20:40:19]	Marek Sewczuk opened the 'Zrzut' #85 container.
+[20:40:27]	Marek Sewczuk closed the 'Zrzut' #85 container.
+[20:40:32]	Marek Sewczuk opened the 'Zrzut' #69 container.
+[20:40:49]	Marek Sewczuk has gained a 'Glock-20' #2543.
+[20:40:51]	Marek Sewczuk closed the 'Zrzut' #69 container.
+[20:40:53]	Marek Sewczuk ran 'Equip' on item 'Glock-20' (#2543)
+[20:41:01]	Marek Sewczuk has gained 14 RU.
+[20:41:29]	Marek Sewczuk ran 'take' on item 'Kondensatory' (#3630)
+[20:41:29]	Marek Sewczuk has gained a 'Kondensatory' #3630.
+[20:41:45]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:46]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:49]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:41:50]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:51]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:52]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:41:52]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:54]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:41:54]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:54]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:55]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:41:55]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:42:06]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:42:08]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:42:08]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:42:09]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:42:09]	Marek Sewczuk has taken 5 damage from nb_mercenary.
+[20:42:09]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[20:42:33]	Marek Sewczuk has taken 115 damage from nb_mercenary_melee.
+[20:42:33]	nb_mercenary_melee has killed Marek Sewczuk.
+[20:44:45]	Marek Sewczuk opened the 'Wrak' #53 container.
+[20:44:47]	Marek Sewczuk closed the 'Wrak' #53 container.
+[20:45:33]	Marek Sewczuk opened the 'Zrzut' #61 container.
+[20:45:36]	Marek Sewczuk ran 'drop' on item 'Kamizelka klasy 2' (#2317)
+[20:45:37]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:37]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:38]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:38]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:38]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:39]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:39]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:39]	Marek Sewczuk has gained a 'Machete' #2335.
+[20:45:39]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:39]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:39]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:40]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:40]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:40]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:40]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:40]	Marek Sewczuk closed the 'Zrzut' #61 container.
+[20:45:41]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:41]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:41]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:41]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:42]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:42]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:42]	Marek Sewczuk ran 'take' on item 'Kamizelka klasy 2' (#2317)
+[20:45:42]	Marek Sewczuk has gained a 'Kamizelka klasy 2' #2317.
+[20:45:42]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:42]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:44]	Marek Sewczuk ran 'Equip' on item 'Kamizelka klasy 2' (#2317)
+[20:45:45]	Marek Sewczuk ran 'Equip' on item 'Machete' (#2335)
+[20:45:47]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:47]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:52]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:52]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:53]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:53]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:53]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:53]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:45:56]	Marek Sewczuk opened the 'Zrzut' #61 container.
+[20:46:00]	Marek Sewczuk has gained a 'Amunicja .454 Casull' #1943.
+[20:46:01]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2334.
+[20:46:03]	Marek Sewczuk has gained a 'Amunicja 23x75MMR' #1964.
+[20:46:06]	Marek Sewczuk closed the 'Zrzut' #61 container.
+[20:46:21]	Marek Sewczuk opened the 'Zrzut' #63 container.
+[20:46:25]	Marek Sewczuk has gained a 'Amunicja 9x39' #2374.
+[20:46:28]	Marek Sewczuk has gained a 'Amunicja 9x18' #2371.
+[20:46:33]	Marek Sewczuk has gained a 'PP-19 Bizon' #2373.
+[20:46:38]	Marek Sewczuk has gained a 'Paczka amunicji .50 BMG' #2387.
+[20:46:40]	Marek Sewczuk has gained a 'Zestaw szwalniczy' #2395.
+[20:46:42]	Marek Sewczuk has gained a 'Owsianka' #2380.
+[20:46:47]	Marek Sewczuk has gained a 'RAD-X' #2386.
+[20:46:49]	Marek Sewczuk has gained a 'Antirad' #2369.
+[20:46:50]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2383.
+[20:46:53]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2334)
+[20:46:57]	Marek Sewczuk closed the 'Zrzut' #63 container.
+[20:46:59]	Marek Sewczuk ran 'Equip' on item 'PP-19 Bizon' (#2373)
+[20:47:03]	Marek Sewczuk ran 'take' on item 'Amunicja .357 Magnum' (#3674)
+[20:47:03]	Marek Sewczuk has gained a 'Amunicja .357 Magnum' #3674.
+[20:47:05]	Marek Sewczuk opened the 'Zrzut' #62 container.
+[20:47:10]	Marek Sewczuk has gained a '.45 ACP Ammo' #2362.
+[20:47:14]	Marek Sewczuk has gained a 'Amunicja .454 Casull' #2357.
+[20:47:15]	Marek Sewczuk ran 'combine' on item 'Amunicja .454 Casull' (#1943)
+[20:47:26]	Marek Sewczuk has gained a 'M1911' #2355.
+[20:47:29]	Marek Sewczuk closed the 'Zrzut' #62 container.
+[20:47:32]	Marek Sewczuk opened the 'Zrzut' #63 container.
+[20:47:34]	Marek Sewczuk closed the 'Zrzut' #63 container.
+[20:47:52]	Marek Sewczuk ran 'take' on item 'Antirad' (#3697)
+[20:47:57]	Marek Sewczuk ran 'take' on item 'Powerbank' (#3673)
+[20:47:57]	Marek Sewczuk has gained a 'Powerbank' #3673.
+[20:48:18]	Marek Sewczuk ran 'take' on item 'Pendrak' (#3646)
+[20:48:18]	Marek Sewczuk has gained a 'Pendrak' #3646.
+[20:48:49]	Marek Sewczuk opened the 'Zrzut' #66 container.
+[20:49:02]	Marek Sewczuk has gained a 'CVC Helmet (Desert)' #2472.
+[20:49:06]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2457.
+[20:49:15]	Marek Sewczuk closed the 'Zrzut' #66 container.
+[20:49:47]	Marek Sewczuk opened the 'Zrzut' #42 container.
+[20:49:50]	Marek Sewczuk has gained a 'Amunicja .50 AE' #1234.
+[20:49:55]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #1251.
+[20:49:55]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2457)
+[20:49:56]	Marek Sewczuk closed the 'Zrzut' #42 container.
+[20:49:58]	Marek Sewczuk ran 'Equip' on item 'CVC Helmet (Desert)' (#2472)
+[20:50:02]	Marek Sewczuk opened the 'Zrzut' #67 container.
+[20:50:10]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2509.
+[20:50:11]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.45x39' (#2509)
+[20:50:14]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2504.
+[20:50:27]	Marek Sewczuk ran 'combine' on item 'PP-19 Bizon' (#2373)
+[20:50:36]	Marek Sewczuk has gained a 'Amunicja 9x18' #2493.
+[20:50:42]	Marek Sewczuk closed the 'Zrzut' #67 container.
+[20:50:49]	Marek Sewczuk opened the 'Zrzut' #67 container.
+[20:50:59]	Marek Sewczuk closed the 'Zrzut' #67 container.
+[20:53:00]	Marek Sewczuk opened the 'Zrzut' #68 container.
+[20:53:03]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2526.
+[20:53:04]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2457)
+[20:53:07]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2334)
+[20:53:18]	Marek Sewczuk ran 'use' on item 'Woda' (#2514)
+[20:53:22]	Marek Sewczuk ran 'use' on item 'Puree z warzyw' (#2510)
+[20:53:25]	Marek Sewczuk ran 'use' on item 'Groszek' (#2536)
+[20:53:26]	Marek Sewczuk ran 'use' on item 'Groszek' (#2536)
+[20:53:36]	Marek Sewczuk has lost a 'RAD-X' #2386.
+[20:53:45]	Marek Sewczuk has gained a 'UMP-45' #2535.
+[20:53:48]	Marek Sewczuk closed the 'Zrzut' #68 container.
+[20:54:51]	Marek Sewczuk opened the 'Zrzut' #34 container.
+[20:54:55]	Marek Sewczuk ran 'combine' on item 'Amunicja .454 Casull' (#1943)
+[20:54:57]	Marek Sewczuk closed the 'Zrzut' #34 container.
+[20:55:09]	Marek Sewczuk opened the 'Zrzut' #69 container.
+[20:55:23]	Marek Sewczuk has gained a 'AK-12' #2563.
+[20:55:26]	Marek Sewczuk closed the 'Zrzut' #69 container.
+[20:55:27]	Marek Sewczuk ran 'Equip' on item 'AK-12' (#2563)
+[20:55:42]	Marek Sewczuk ran 'take' on item 'Cao Sao Vang' (#3700)
+[20:55:42]	Marek Sewczuk has gained a 'Cao Sao Vang' #3700.
+[20:57:12]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:12]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:14]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:15]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:15]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:15]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:15]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:15]	Marek Sewczuk has taken 2 damage from nb_type1.
+[20:57:20]	Michałek has connected.
+[20:57:32]	Marek Sewczuk opened the 'Zrzut' #54 container.
+[20:57:37]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2526)
+[20:57:38]	Marek Sewczuk closed the 'Zrzut' #54 container.
+[20:57:44]	Marek Sewczuk opened the 'Zrzut' #54 container.
+[20:57:55]	Marek Sewczuk closed the 'Zrzut' #54 container.
+[20:57:58]	Marek Sewczuk opened the 'Zrzut' #70 container.
+[20:58:06]	Marek Sewczuk closed the 'Zrzut' #70 container.
+[20:58:12]	Marek Sewczuk ran 'take' on item 'Torba sportowa' (#3633)
+[20:58:16]	Marek Sewczuk ran 'drop' on item 'Zestaw szwalniczy' (#2395)
+[20:58:16]	Marek Sewczuk has lost a 'Zestaw szwalniczy' #2395.
+[20:58:20]	Marek Sewczuk ran 'drop' on item 'Paczka amunicji .50 BMG' (#2387)
+[20:58:20]	Marek Sewczuk has lost a 'Paczka amunicji .50 BMG' #2387.
+[20:58:21]	Marek Sewczuk ran 'drop' on item 'Amunicja 23x75MMR' (#1964)
+[20:58:21]	Marek Sewczuk has lost a 'Amunicja 23x75MMR' #1964.
+[20:58:27]	Marek Sewczuk ran 'take' on item 'Torba sportowa' (#3633)
+[20:58:27]	Marek Sewczuk has gained a 'Torba sportowa' #3633.
+[20:58:29]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:29]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:29]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:32]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:33]	Marek Sewczuk ran 'take' on item 'Paczka amunicji .50 BMG' (#2387)
+[20:58:33]	Marek Sewczuk has gained a 'Paczka amunicji .50 BMG' #2387.
+[20:58:33]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:33]	Marek Sewczuk ran 'take' on item 'Amunicja 23x75MMR' (#1964)
+[20:58:33]	Marek Sewczuk has gained a 'Amunicja 23x75MMR' #1964.
+[20:58:34]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:54]	Marek Sewczuk ran 'take' on item 'Zestaw szwalniczy' (#2395)
+[20:58:54]	Marek Sewczuk has gained a 'Zestaw szwalniczy' #2395.
+[20:59:40]	Marek Sewczuk opened the 'Zrzut' #71 container.
+[20:59:41]	Marek Sewczuk closed the 'Zrzut' #71 container.
+[20:59:49]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[20:59:52]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[21:00:12]	Marek Sewczuk has gained 18000 RU.
+[21:00:15]	Marek Sewczuk has gained 20000 RU.
+[21:00:18]	Marek Sewczuk has gained 18000 RU.
+[21:00:21]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2526)
+[21:00:22]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2526)
+[21:00:23]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.7x28' (#2526)
+[21:00:32]	Marek Sewczuk has gained 500 RU.
+[21:00:37]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:37]	Marek Sewczuk has gained a 'Amunicja 9x18' #3799.
+[21:00:38]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:40]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:41]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:47]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:49]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:50]	Marek Sewczuk ran 'Equip' on item 'PP-19 Bizon' (#2373)
+[21:00:56]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:00:56]	Marek Sewczuk has gained a 'Amunicja 9x18' #3799.
+[21:01:06]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:01:06]	Marek Sewczuk has gained a 'Amunicja 9x18' #3799.
+[21:01:07]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:01:20]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:01:20]	Marek Sewczuk has gained a 'Amunicja 9x18' #3799.
+[21:01:25]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:01:45]	Marek Sewczuk ran 'empty_clip' on item 'PP-19 Bizon' (#2373)
+[21:01:45]	Marek Sewczuk has gained a 'Amunicja 9x18' #3799.
+[21:01:48]	Marek Sewczuk ran 'EquipUn' on item 'PP-19 Bizon' (#2373)
+[21:01:52]	Marek Sewczuk has gained 59796 RU.
+[21:02:56]	Marek Sewczuk has gained a 'Muzzlebrake' #3799.
+[21:03:00]	Marek Sewczuk has gained a 'Aimpoint CompM4' #3800.
+[21:03:04]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #3801.
+[21:03:07]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #3802.
+[21:03:08]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #3803.
+[21:03:14]	Marek Sewczuk ran 'combine' on item 'AK-12' (#2563)
+[21:03:15]	Marek Sewczuk ran 'combine' on item 'AK-12' (#2563)
+[21:03:17]	Marek Sewczuk ran 'Equip' on item 'AK-12' (#2563)
+[21:04:00]	Michałek created the character 'Krzychu Sborodo'
+[21:04:00]	Michałek loaded the character 'Krzychu Sborodo'
+[21:04:45]	Krzychu Sborodo has taken 30 damage from nb_zombine.
+[21:04:48]	Krzychu Sborodo has taken 30 damage from nb_zombine.
+[21:04:50]	Krzychu Sborodo has taken 30 damage from nb_zombine.
+[21:04:52]	Krzychu Sborodo has taken 30 damage from nb_zombine.
+[21:04:52]	nb_zombine has killed Krzychu Sborodo.
+[21:05:07]	Marek Sewczuk entered observer.
+[21:05:11]	Marek Sewczuk exited observer at their location.
+[21:05:13]	Marek Sewczuk entered observer.
+[21:05:15]	Marek Sewczuk exited observer at their location.
+[21:06:10]	Krzychu Sborodo has gained a 'IMI Galil' #3804.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3805.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3806.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3807.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3808.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3809.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3810.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3811.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3812.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3813.
+[21:06:10]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3814.
+[21:06:10]	Krzychu Sborodo has gained a 'Plecak zbieracza' #3815.
+[21:06:10]	Krzychu Sborodo has gained a 'Aimpoint CompM4' #3816.
+[21:06:10]	Krzychu Sborodo has gained a 'Muzzlebrake' #3817.
+[21:06:10]	Krzychu Sborodo has gained a 'Kamizelka klasy 3' #3818.
+[21:06:10]	Krzychu Sborodo has gained a 'Bandaż' #3819.
+[21:06:10]	Krzychu Sborodo has gained a 'Hełm 6B47' #3820.
+[21:06:10]	Krzychu Sborodo has gained a 'Energetyk' #3821.
+[21:06:40]	Krzychu Sborodo ran 'Equip' on item 'IMI Galil' (#3804)
+[21:06:44]	Krzychu Sborodo ran 'Equip' on item 'Hełm 6B47' (#3820)
+[21:06:47]	Krzychu Sborodo ran 'Attach' on item 'Aimpoint CompM4' (#3816)
+[21:06:49]	Krzychu Sborodo ran 'Equip' on item 'Kamizelka klasy 3' (#3818)
+[21:07:04]	Krzychu Sborodo ran 'combine' on item 'IMI Galil' (#3804)
+[21:07:08]	Krzychu Sborodo ran 'EquipUn' on item 'IMI Galil' (#3804)
+[21:07:09]	Krzychu Sborodo ran 'Equip' on item 'IMI Galil' (#3804)
+[21:08:06]	[OOC] Marek Sewczuk: ix_togglethirdperson 
+[21:08:47]	Marek Sewczuk ran 'drop' on item 'Torba sportowa' (#3633)
+[21:08:47]	Marek Sewczuk has lost a 'Torba sportowa' #3633.
+[21:08:48]	Marek Sewczuk ran 'take' on item 'Plecak zbieracza' (#3798)
+[21:08:48]	Marek Sewczuk has gained a 'Plecak zbieracza' #3798.
+[21:08:51]	Marek Sewczuk ran 'take' on item 'Szampon' (#3634)
+[21:08:51]	Marek Sewczuk has gained a 'Szampon' #3634.
+[21:08:56]	Marek Sewczuk opened the 'Zrzut' #70 container.
+[21:08:57]	Krzychu Sborodo opened the 'Zrzut' #70 container.
+[21:08:58]	Marek Sewczuk closed the 'Zrzut' #70 container.
+[21:09:04]	Krzychu Sborodo opened the 'Zrzut' #54 container.
+[21:09:15]	Krzychu Sborodo has gained a 'Amunicja 12' #2124.
+[21:09:25]	Krzychu Sborodo ran 'combine' on item 'Amunicja 12' (#2129)
+[21:09:28]	Krzychu Sborodo has gained a 'Amunicja 12' #2129.
+[21:09:34]	Krzychu Sborodo has gained a 'TOZ-34' #2131.
+[21:09:35]	Krzychu Sborodo closed the 'Zrzut' #54 container.
+[21:09:40]	Krzychu Sborodo ran 'Equip' on item 'TOZ-34' (#2131)
+[21:09:48]	Krzychu Sborodo ran 'combine' on item 'TOZ-34' (#2131)
+[21:09:49]	Krzychu Sborodo ran 'Equip' on item 'IMI Galil' (#3804)
+[21:10:00]	Krzychu Sborodo ran 'Detach' on item 'IMI Galil' (#3804)
+[21:10:00]	Krzychu Sborodo has gained a 'Aimpoint CompM4' #3824.
+[21:10:12]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:13]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:13]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:13]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:13]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:14]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:14]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:14]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:14]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:14]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:15]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:15]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:16]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:16]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:10:17]	Krzychu Sborodo has taken 2 damage from nb_type1.
+[21:11:41]	Krzychu Sborodo ran 'take' on item 'Sok' (#3699)
+[21:11:41]	Krzychu Sborodo has gained a 'Sok' #3699.
+[21:11:44]	Krzychu Sborodo ran 'use' on item 'Sok' (#3699)
+[21:11:53]	Marek Sewczuk ran 'take' on item 'Amunicja 5.7x28' (#3752)
+[21:11:53]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #3752.
+[21:12:06]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:12:06]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:12:06]	Krzychu Sborodo has taken 8 damage from nb_mercenary.
+[21:12:07]	Krzychu Sborodo has taken 6 damage from nb_mercenary.
+[21:12:07]	Krzychu Sborodo has taken 8 damage from nb_mercenary.
+[21:12:07]	Krzychu Sborodo has taken 11 damage from nb_mercenary.
+[21:12:08]	Krzychu Sborodo has taken 8 damage from nb_mercenary.
+[21:12:13]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:12:19]	Krzychu Sborodo ran 'use' on item 'Bandaż' (#3819)
+[21:12:20]	Krzychu Sborodo ran 'use' on item 'Bandaż' (#3819)
+[21:13:01]	Krzychu Sborodo ran 'take' on item 'Bandaż wojskowy' (#3652)
+[21:13:01]	Krzychu Sborodo has gained a 'Bandaż wojskowy' #3652.
+[21:13:04]	Marek Sewczuk has taken 21 damage from nb_mercenary.
+[21:13:07]	Krzychu Sborodo ran 'drop' on item 'Bandaż wojskowy' (#3652)
+[21:13:07]	Krzychu Sborodo has lost a 'Bandaż wojskowy' #3652.
+[21:13:11]	Marek Sewczuk ran 'take' on item 'Bandaż wojskowy' (#3652)
+[21:13:11]	Marek Sewczuk has gained a 'Bandaż wojskowy' #3652.
+[21:13:13]	Marek Sewczuk ran 'drop' on item 'Bandaż wojskowy' (#3652)
+[21:13:13]	Marek Sewczuk has lost a 'Bandaż wojskowy' #3652.
+[21:14:11]	Marek Sewczuk opened the 'Zrzut' #85 container.
+[21:14:17]	Marek Sewczuk has gained a 'Sok' #3628.
+[21:14:18]	Marek Sewczuk has gained a 'Slickers' #3615.
+[21:14:19]	Marek Sewczuk has gained a 'Paczka amunicji .50 BMG' #3614.
+[21:14:20]	Marek Sewczuk closed the 'Zrzut' #85 container.
+[21:14:30]	Krzychu Sborodo has gained 8 RU.
+[21:14:31]	Krzychu Sborodo has gained 6 RU.
+[21:14:33]	Krzychu Sborodo has gained 10 RU.
+[21:14:39]	Marek Sewczuk opened the 'Zrzut' #69 container.
+[21:14:45]	Marek Sewczuk closed the 'Zrzut' #69 container.
+[21:15:14]	Marek Sewczuk ran 'take' on item 'Apteczka wojskowa' (#3836)
+[21:15:14]	Marek Sewczuk has gained a 'Apteczka wojskowa' #3836.
+[21:15:16]	Marek Sewczuk ran 'use' on item 'Apteczka wojskowa' (#3836)
+[21:15:22]	Krzychu Sborodo opened the 'Zrzut' #85 container.
+[21:15:26]	Krzychu Sborodo has gained a 'Dolar' #3599.
+[21:15:46]	Krzychu Sborodo has gained a 'Licznik geigera' #3609.
+[21:15:47]	Krzychu Sborodo closed the 'Zrzut' #85 container.
+[21:15:54]	Krzychu Sborodo ran 'take' on item 'Apteczka wojskowa' (#3835)
+[21:15:54]	Krzychu Sborodo has gained a 'Apteczka wojskowa' #3835.
+[21:15:57]	Krzychu Sborodo ran 'use' on item 'Apteczka wojskowa' (#3835)
+[21:16:03]	Krzychu Sborodo opened the 'Zrzut' #69 container.
+[21:16:15]	Krzychu Sborodo has gained a 'Canted Ironsights ''Tiss''' #2550.
+[21:16:15]	Krzychu Sborodo closed the 'Zrzut' #69 container.
+[21:16:16]	Marek Sewczuk entered observer.
+[21:16:18]	Marek Sewczuk exited observer at their location.
+[21:16:20]	Krzychu Sborodo ran 'Attach' on item 'Canted Ironsights ''Tiss''' (#2550)
+[21:16:23]	Krzychu Sborodo ran 'Attach' on item 'Canted Ironsights ''Tiss''' (#2550)
+[21:16:27]	Krzychu Sborodo ran 'drop' on item 'Canted Ironsights ''Tiss''' (#2550)
+[21:16:27]	Krzychu Sborodo has lost a 'Canted Ironsights ''Tiss''' #2550.
+[21:16:29]	Krzychu Sborodo ran 'drop' on item 'Licznik geigera' (#3609)
+[21:16:29]	Krzychu Sborodo has lost a 'Licznik geigera' #3609.
+[21:16:31]	Krzychu Sborodo opened the 'Zrzut' #69 container.
+[21:16:35]	Krzychu Sborodo has gained a 'DV2' #2553.
+[21:16:38]	Krzychu Sborodo closed the 'Zrzut' #69 container.
+[21:16:40]	Krzychu Sborodo ran 'Equip' on item 'DV2' (#2553)
+[21:16:46]	Krzychu Sborodo ran 'Detach' on item 'IMI Galil' (#3804)
+[21:16:48]	Krzychu Sborodo ran 'Equip' on item 'IMI Galil' (#3804)
+[21:17:55]	Marek Sewczuk opened the 'Zrzut' #67 container.
+[21:17:56]	Krzychu Sborodo opened the 'Zrzut' #67 container.
+[21:17:58]	Krzychu Sborodo opened the 'Zrzut' #67 container.
+[21:17:59]	Marek Sewczuk closed the 'Zrzut' #67 container.
+[21:18:01]	Krzychu Sborodo opened the 'Zrzut' #67 container.
+[21:18:04]	Marek Sewczuk opened the 'Zrzut' #42 container.
+[21:18:07]	Marek Sewczuk closed the 'Zrzut' #42 container.
+[21:18:10]	Krzychu Sborodo has gained a 'RAD-X' #2508.
+[21:18:14]	Krzychu Sborodo has gained a 'Owsianka' #2380.
+[21:18:16]	Krzychu Sborodo ran 'use' on item 'Owsianka' (#2380)
+[21:18:22]	Marek Sewczuk opened the 'Zrzut' #66 container.
+[21:18:26]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2469.
+[21:18:35]	Krzychu Sborodo ran 'Equip' on item 'DV2' (#2553)
+[21:18:37]	Marek Sewczuk ran 'combine' on item 'Amunicja 5.45x39' (#2509)
+[21:18:37]	Krzychu Sborodo ran 'Equip' on item 'IMI Galil' (#3804)
+[21:18:38]	Krzychu Sborodo ran 'drop' on item 'DV2' (#2553)
+[21:18:38]	Krzychu Sborodo has lost a 'DV2' #2553.
+[21:18:41]	Krzychu Sborodo ran 'drop' on item 'TOZ-34' (#2131)
+[21:18:41]	Krzychu Sborodo has lost a 'TOZ-34' #2131.
+[21:18:45]	Marek Sewczuk closed the 'Zrzut' #66 container.
+[21:18:45]	Krzychu Sborodo has gained a 'M249' #2501.
+[21:18:47]	Krzychu Sborodo closed the 'Zrzut' #67 container.
+[21:18:50]	Krzychu Sborodo ran 'Detach' on item 'IMI Galil' (#3804)
+[21:18:50]	Krzychu Sborodo has gained a 'Muzzlebrake' #3835.
+[21:18:53]	Krzychu Sborodo ran 'empty_clip' on item 'IMI Galil' (#3804)
+[21:18:53]	Krzychu Sborodo has gained a 'Amunicja 5.56x45' #3836.
+[21:18:57]	Krzychu Sborodo ran 'Equip' on item 'M249' (#2501)
+[21:19:03]	Krzychu Sborodo ran 'Attach' on item 'Aimpoint CompM4' (#3824)
+[21:19:10]	Krzychu Sborodo opened the 'Zrzut' #42 container.
+[21:19:16]	Krzychu Sborodo has gained a 'Szal terrorysty' #1250.
+[21:19:17]	Krzychu Sborodo closed the 'Zrzut' #42 container.
+[21:19:19]	Krzychu Sborodo ran 'Equip' on item 'Szal terrorysty' (#1250)
+[21:19:41]	Krzychu Sborodo ran 'Detach' on item 'M249' (#2501)
+[21:19:41]	Krzychu Sborodo has gained a 'Aimpoint CompM4' #3841.
+[21:20:01]	Krzychu Sborodo ran 'use' on item 'Energetyk' (#3821)
+[21:20:10]	Marek Sewczuk has taken 2 damage from nb_type1.
+[21:20:10]	Marek Sewczuk has taken 2 damage from nb_type1.
+[21:20:46]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:20:47]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:47]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:20:52]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:53]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:53]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:53]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:54]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:20:54]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:20:54]	Krzychu Sborodo has taken 2 damage from nb_mercenary.
+[21:20:54]	Krzychu Sborodo has taken 4 damage from nb_mercenary.
+[21:21:13]	Krzychu Sborodo has gained 13 RU.
+[21:22:12]	Krzychu Sborodo ran 'Attach' on item 'Muzzlebrake' (#3835)
+[21:22:41]	Krzychu Sborodo has gained a 'Zestaw narzędzi' #3859.
+[21:22:45]	Krzychu Sborodo ran 'combine' on item 'IMI Galil' (#3804)
+[21:22:48]	Krzychu Sborodo ran 'drop' on item 'Zestaw narzędzi' (#3859)
+[21:22:48]	Krzychu Sborodo has lost a 'Zestaw narzędzi' #3859.
+[21:22:58]	Krzychu Sborodo ran 'drop' on item 'Amunicja 12' (#2129)
+[21:22:58]	Krzychu Sborodo has lost a 'Amunicja 12' #2129.
+[21:23:03]	Krzychu Sborodo ran 'take' on item 'Bandaż' (#3685)
+[21:23:03]	Krzychu Sborodo has gained a 'Bandaż' #3685.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 2 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:08]	Krzychu Sborodo has taken 2 damage from nb_soldier.
+[21:23:11]	Krzychu Sborodo has taken 22 damage from nb_soldier.
+[21:23:12]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:12]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:12]	Krzychu Sborodo has taken 2 damage from nb_soldier.
+[21:23:12]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:12]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:13]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:13]	Krzychu Sborodo has taken 4 damage from nb_soldier.
+[21:23:15]	Krzychu Sborodo has taken 30 damage from nb_soldier.
+[21:23:15]	nb_soldier has killed Krzychu Sborodo.
+[21:23:22]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[21:23:31]	Michałek (STEAM_0:0:72590234) has disconnected.

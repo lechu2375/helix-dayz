@@ -1,0 +1,524 @@
+[15:09:00]	⭐ lechu2375 ⭐ has connected.
+[15:09:21]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[15:09:27]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[15:22:46]	CT-2894 Lechu entered observer.
+[15:22:47]	CT-2894 Lechu exited observer at their location.
+[15:26:38]	CT-2894 Lechu entered observer.
+[15:26:41]	CT-2894 Lechu exited observer at their location.
+[15:27:30]	CT-2894 Lechu entered observer.
+[15:27:30]	CT-2894 Lechu exited observer at their location.
+[15:27:31]	CT-2894 Lechu entered observer.
+[15:27:31]	CT-2894 Lechu exited observer at their location.
+[15:27:49]	CT-2894 Lechu entered observer.
+[15:27:49]	CT-2894 Lechu exited observer at their location.
+[15:27:50]	CT-2894 Lechu entered observer.
+[15:27:50]	CT-2894 Lechu exited observer at their location.
+[15:30:23]	CT-2894 Lechu entered observer.
+[15:30:43]	CT-2894 Lechu exited observer at their location.
+[15:30:47]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[15:30:57]	CT-2894 Lechu has gained a 'Czarnoruski mundur wojskowy' #24709.
+[15:31:02]	CT-2894 Lechu has gained a 'GSH-18' #24721.
+[15:31:06]	CT-2894 Lechu has gained a 'Herkules' #24722.
+[15:31:12]	CT-2894 Lechu has gained a 'Groszek' #24731.
+[15:31:14]	CT-2894 Lechu has gained a 'Gasmask' #24711.
+[15:31:15]	CT-2894 Lechu has gained a 'Apteczka' #24703.
+[15:31:20]	CT-2894 Lechu has gained a 'Amunicja 5.56x45' #24723.
+[15:31:31]	CT-2894 Lechu has gained a 'Tuńczyk w puszce' #24706.
+[15:31:32]	CT-2894 Lechu has gained a 'Sok' #24720.
+[15:31:33]	CT-2894 Lechu has gained a 'Adrenalina' #24713.
+[15:31:36]	CT-2894 Lechu has gained a 'Cheek Pad' #24726.
+[15:31:37]	CT-2894 Lechu has gained a 'Morfina' #24733.
+[15:31:39]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[15:31:47]	CT-2894 Lechu entered observer.
+[15:31:47]	CT-2894 Lechu exited observer at their location.
+[15:31:59]	CT-2894 Lechu ran 'Equip' on item 'Czarnoruski mundur wojskowy' (#24709)
+[15:32:00]	CT-2894 Lechu ran 'Equip' on item 'Gasmask' (#24711)
+[15:32:41]	CT-2894 Lechu ran 'Equip' on item 'GSH-18' (#24721)
+[15:33:27]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[15:33:27]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[15:33:31]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[15:33:42]	CT-2894 Lechu has gained a 'Amunicja .50 AE' #24725.
+[15:33:43]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[15:33:52]	CT-2894 Lechu ran 'use' on item 'Sok' (#24720)
+[15:34:08]	CT-2894 Lechu ran 'use' on item 'Adrenalina' (#24713)
+[15:38:25]	CT-2894 Lechu has taken 8 damage from worldspawn.
+[15:39:48]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[15:39:50]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[15:40:47]	[OOC] CT-2894 Lechu: kurwa pomocy
+[15:40:58]	CT-2894 Lechu has gained a 'Epinephrine' #24849.
+[15:41:03]	CT-2894 Lechu has gained a 'CVC Helmet (Green)' #24847.
+[15:41:08]	⭐ lechu2375 ⭐ has taken 15 RU from '' #1685454403 (0 RU left).
+[15:48:23]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[15:48:25]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[15:48:46]	⭐ lechu2375 ⭐ has taken 8 RU from '' #1685454932 (0 RU left).
+[15:48:46]	CT-2894 Lechu has gained a 'Slickers' #24850.
+[15:48:54]	CT-2894 Lechu entered observer.
+[15:48:54]	CT-2894 Lechu exited observer at their location.
+[15:48:59]	CT-2894 Lechu entered observer.
+[15:49:15]	CT-2894 Lechu exited observer at their location.
+[15:49:21]	CT-2894 Lechu ran 'EquipUn' on item 'Gasmask' (#24711)
+[15:49:26]	CT-2894 Lechu ran 'use' on item 'Apteczka' (#24703)
+[15:51:27]	CT-2894 Lechu has gained 11 RU.
+[15:53:15]	⭐ lechu2375 ⭐ has taken 25 RU from '' #1685455195 (0 RU left).
+[15:53:15]	CT-2894 Lechu has gained a 'Amunicja .50 AE' #24852.
+[15:57:02]	CT-2894 Lechu entered observer.
+[15:57:02]	CT-2894 Lechu exited observer at their location.
+[15:57:02]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[15:57:03]	CT-2894 Lechu entered observer.
+[15:57:03]	CT-2894 Lechu exited observer at their location.
+[15:57:13]	CT-2894 Lechu entered observer.
+[15:57:15]	CT-2894 Lechu exited observer at their location.
+[15:57:20]	CT-2894 Lechu entered observer.
+[15:57:21]	CT-2894 Lechu exited observer at their location.
+[15:58:16]	CT-2894 Lechu has gained 10 RU.
+[15:59:56]	CT-2894 Lechu entered observer.
+[15:59:56]	CT-2894 Lechu exited observer at their location.
+[16:00:28]	CT-2894 Lechu entered observer.
+[16:02:44]	CT-2894 Lechu exited observer at their location.
+[16:02:53]	CT-2894 Lechu entered observer.
+[16:03:49]	CT-2894 Lechu exited observer at their location.
+[16:04:03]	CT-2894 Lechu entered observer.
+[16:04:06]	CT-2894 Lechu exited observer at their location.
+[16:11:54]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[16:24:40]	⭐ lechu2375 ⭐ has connected.
+[16:24:53]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[16:25:17]	CT-2894 Lechu has gained a 'Wojskowa racja żywnościowa' #24845.
+[16:25:19]	CT-2894 Lechu ran 'use' on item 'Wojskowa racja żywnościowa' (#24845)
+[16:26:27]	⭐ lechu2375 ⭐ has connected.
+[16:26:42]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[16:32:57]	CT-2894 Lechu entered observer.
+[16:32:58]	CT-2894 Lechu exited observer at their location.
+[16:32:59]	CT-2894 Lechu entered observer.
+[16:32:59]	CT-2894 Lechu exited observer at their location.
+[16:36:30]	CT-2894 Lechu opened the 'Zrzut' #76 container.
+[16:36:37]	CT-2894 Lechu closed the 'Zrzut' #76 container.
+[16:36:59]	CT-2894 Lechu has gained a 'Mundur najemnika' #24845.
+[16:37:02]	CT-2894 Lechu ran 'Equip' on item 'Mundur najemnika' (#24845)
+[16:37:07]	CT-2894 Lechu ran 'EquipUn' on item 'Mundur najemnika' (#24845)
+[16:37:23]	CT-2894 Lechu entered observer.
+[16:37:23]	CT-2894 Lechu exited observer at their location.
+[16:37:52]	CT-2894 Lechu opened the 'Wrak' #71 container.
+[16:38:00]	CT-2894 Lechu has gained a 'CVC Helmet (Green)' #24751.
+[16:38:01]	CT-2894 Lechu closed the 'Wrak' #71 container.
+[16:38:03]	CT-2894 Lechu ran 'Equip' on item 'CVC Helmet (Green)' (#24751)
+[16:44:14]	CT-2894 Lechu has gained a 'M18A1 Claymore' #24846.
+[16:44:16]	CT-2894 Lechu ran 'Equip' on item 'M18A1 Claymore' (#24846)
+[16:44:38]	CT-2894 Lechu has taken 78 damage from ⭐ lechu2375 ⭐.
+[16:44:38]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[16:44:47]	CT-2894 Lechu entered observer.
+[16:44:51]	CT-2894 Lechu exited observer at their location.
+[16:46:23]	CT-2894 Lechu has gained a 'Plecak ANA 2' #24846.
+[16:46:26]	CT-2894 Lechu ran 'drop' on item 'Plecak ANA 2' (#24846)
+[16:46:26]	CT-2894 Lechu has lost a 'Plecak ANA 2' #24846.
+[16:46:28]	CT-2894 Lechu ran 'take' on item 'Plecak ANA 2' (#24846)
+[16:46:28]	CT-2894 Lechu has gained a 'Plecak ANA 2' #24846.
+[16:46:31]	CT-2894 Lechu ran 'drop' on item 'Plecak ANA 2' (#24846)
+[16:46:31]	CT-2894 Lechu has lost a 'Plecak ANA 2' #24846.
+[16:46:34]	CT-2894 Lechu ran 'take' on item 'Plecak ANA 2' (#24846)
+[16:46:34]	CT-2894 Lechu has gained a 'Plecak ANA 2' #24846.
+[16:46:39]	⭐ lechu2375 ⭐ has taken 69 RU from '' #1685457879 (0 RU left).
+[16:46:39]	CT-2894 Lechu has gained a 'Mundur najemnika' #24845.
+[16:46:39]	CT-2894 Lechu has gained a 'CVC Helmet (Green)' #24751.
+[16:46:42]	CT-2894 Lechu ran 'Equip' on item 'Mundur najemnika' (#24845)
+[16:48:56]	CT-2894 Lechu has gained a 'AK-104' #24849.
+[16:48:58]	CT-2894 Lechu ran 'Equip' on item 'AK-104' (#24849)
+[16:49:05]	CT-2894 Lechu used command '/CharGiveItem lec pka'.
+[16:49:23]	CT-2894 Lechu has gained a 'Aimpoint CompM4' #24850.
+[16:49:42]	CT-2894 Lechu ran 'Detach' on item 'AK-104' (#24849)
+[16:49:42]	CT-2894 Lechu has gained a 'Aimpoint CompM4' #24850.
+[16:49:46]	CT-2894 Lechu ran 'combine' on item 'AK-104' (#24849)
+[16:49:59]	CT-2894 Lechu has gained a 'Suppressor' #24850.
+[16:50:02]	CT-2894 Lechu ran 'combine' on item 'AK-104' (#24849)
+[16:55:22]	CT-2894 Lechu ran 'EquipUn' on item 'AK-104' (#24849)
+[16:56:16]	CT-2894 Lechu ran 'Equip' on item 'AK-104' (#24849)
+[17:02:40]	CT-2894 Lechu used command '/MapRestart 1'.
+[17:03:20]	⭐ lechu2375 ⭐ has connected.
+[17:03:38]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[17:04:03]	CT-2894 Lechu ran 'EquipUn' on item 'Mundur najemnika' (#24845)
+[17:04:04]	CT-2894 Lechu ran 'Equip' on item 'Mundur najemnika' (#24845)
+[17:04:12]	CT-2894 Lechu ran 'drop' on item 'Plecak ANA 2' (#24846)
+[17:04:12]	CT-2894 Lechu has lost a 'Plecak ANA 2' #24846.
+[17:04:12]	CT-2894 Lechu has lost a 'CVC Helmet (Green)' #24751.
+[17:04:13]	CT-2894 Lechu ran 'take' on item 'Plecak ANA 2' (#24846)
+[17:04:13]	CT-2894 Lechu has gained a 'Plecak ANA 2' #24846.
+[17:04:13]	CT-2894 Lechu has gained a 'CVC Helmet (Green)' #24751.
+[17:04:16]	CT-2894 Lechu ran 'EquipUn' on item 'Mundur najemnika' (#24845)
+[17:04:17]	CT-2894 Lechu ran 'Equip' on item 'Mundur najemnika' (#24845)
+[17:05:47]	CT-2894 Lechu ran 'EquipUn' on item 'AK-104' (#24849)
+[17:05:48]	CT-2894 Lechu ran 'Detach' on item 'AK-104' (#24849)
+[17:05:49]	CT-2894 Lechu ran 'Equip' on item 'AK-104' (#24849)
+[17:05:50]	CT-2894 Lechu ran 'Detach' on item 'AK-104' (#24849)
+[17:06:10]	CT-2894 Lechu ran 'EquipUn' on item 'AK-104' (#24849)
+[17:20:25]	CT-2894 Lechu entered observer.
+[17:20:42]	CT-2894 Lechu exited observer at their location.
+[17:21:30]	⭐ lechu2375 ⭐ has connected.
+[17:21:45]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[17:23:22]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:22]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:23]	CT-2894 Lechu has taken 10 damage from nb_mercenary_terrorist.
+[17:23:23]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:23]	CT-2894 Lechu has taken 10 damage from nb_mercenary_terrorist.
+[17:23:23]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:24]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:24]	CT-2894 Lechu has taken 5 damage from nb_mercenary_terrorist.
+[17:23:40]	CT-2894 Lechu entered observer.
+[17:23:41]	CT-2894 Lechu exited observer at their location.
+[17:23:42]	CT-2894 Lechu has taken 34 damage from worldspawn.
+[17:23:43]	CT-2894 Lechu entered observer.
+[17:23:45]	CT-2894 Lechu exited observer at their location.
+[17:23:46]	CT-2894 Lechu has taken 73 damage from worldspawn.
+[17:23:46]	worldspawn has killed CT-2894 Lechu.
+[17:34:03]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:04]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:04]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:04]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:04]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:05]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:05]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:05]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:08]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:08]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:08]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:09]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:10]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:10]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:11]	CT-2894 Lechu has taken 26 damage from worldspawn.
+[17:34:24]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:24]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:30]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:30]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:31]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:48]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:55]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:55]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:55]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:55]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:56]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:56]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:34:56]	nb_type1 has killed CT-2894 Lechu.
+[17:40:59]	CT-2894 Lechu entered observer.
+[17:43:26]	CT-2894 Lechu exited observer at their location.
+[17:44:04]	⭐ lechu2375 ⭐ has connected.
+[17:45:17]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[17:45:23]	CT-2894 Lechu entered observer.
+[17:46:08]	CT-2894 Lechu has gained a 'Latarka' #24845.
+[17:49:37]	CT-2894 Lechu exited observer at their location.
+[17:49:40]	CT-2894 Lechu has taken 5 damage from nb_infected_citizen.
+[17:49:49]	CT-2894 Lechu entered observer.
+[17:55:36]	CT-2894 Lechu exited observer at their location.
+[17:56:32]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:32]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:32]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:32]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:33]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:34]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:35]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:35]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:35]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:35]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:35]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:36]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:36]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:36]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:36]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:37]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:37]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:37]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:37]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:38]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:38]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:38]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:38]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:38]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:39]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:39]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:39]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:39]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:40]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:40]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:40]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:40]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:41]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:41]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:41]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:41]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:42]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:42]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:42]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:42]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:43]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:43]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[17:56:43]	nb_type1 has killed CT-2894 Lechu.
+[17:58:29]	⭐ lechu2375 ⭐ has connected.
+[17:58:57]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[17:59:08]	CT-2894 Lechu entered observer.
+[17:59:14]	CT-2894 Lechu exited observer at their location.
+[18:10:16]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:10:16]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:17]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:17]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:17]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:17]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:18]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:26]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:26]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:26]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:10:27]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:10:27]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:10:27]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:27]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:10:28]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:10:28]	nb_mercenary has killed CT-2894 Lechu.
+[18:13:47]	CT-2894 Lechu has taken 5 damage from nb_rebel.
+[18:14:41]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:14:41]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[18:14:41]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:14:42]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:14:42]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:14:43]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[18:15:00]	⭐ lechu2375 ⭐ has taken 23 RU from '' #1685463698 (0 RU left).
+[18:15:00]	CT-2894 Lechu has gained a 'Chleb' #24845.
+[18:15:03]	⭐ lechu2375 ⭐ has taken 8 RU from '' #1685463699 (0 RU left).
+[18:15:03]	CT-2894 Lechu has gained a 'CVC Helmet (Black)' #24846.
+[18:15:04]	CT-2894 Lechu ran 'Equip' on item 'CVC Helmet (Black)' (#24846)
+[18:15:21]	CT-2894 Lechu has gained a 'Latarka' #24848.
+[18:50:40]	⭐ lechu2375 ⭐ has connected.
+[19:15:34]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[19:16:14]	CT-2894 Lechu has spawned 'models/tankbags/misc/bedrolls01.mdl'.
+[19:16:18]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_backpack_hunter.mdl'.
+[19:16:21]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_headgear_rus_helmet1b.mdl'.
+[19:16:43]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_mask_m50.mdl'.
+[19:16:47]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_ww2.mdl'.
+[19:16:53]	CT-2894 Lechu ran 'EquipUn' on item 'CVC Helmet (Black)' (#24846)
+[19:17:28]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_outfit_sunrise_vest_heavy.mdl'.
+[19:17:34]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_headgear_atlyn_novisor.mdl'.
+[19:17:36]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headwear_ger_ww2.mdl'.
+[19:17:45]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_mask_shemagh.mdl'.
+[19:17:48]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_flamer.mdl'.
+[19:19:15]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headwear_tchanka.mdl'.
+[19:19:20]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_arab3.mdl'.
+[19:19:22]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_arab2.mdl'.
+[19:19:37]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_outfit_hunter.mdl'.
+[19:19:39]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headgear_baseballcap_headset.mdl'.
+[19:20:33]	CT-2894 Lechu has spawned 'models/mosi/fallout4/character/male/malehair44.mdl'.
+[19:21:34]	CT-2894 Lechu has spawned a 'Entity [414][gmod_sent_vehicle_fphysics_base]'.
+[19:21:37]	CT-2894 Lechu has spawned a 'Entity [414][gmod_sent_vehicle_fphysics_base]'.
+[19:22:50]	CT-2894 Lechu entered observer.
+[19:22:50]	CT-2894 Lechu exited observer at their location.
+[19:22:56]	CT-2894 Lechu entered observer.
+[19:22:57]	CT-2894 Lechu exited observer at their location.
+[19:23:27]	CT-2894 Lechu ran 'take' on item 'Filter' (#24849)
+[19:23:27]	CT-2894 Lechu has gained a 'Filter' #24849.
+[19:26:21]	CT-2894 Lechu has spawned 'models/gmodz/characters/ghillie.mdl'.
+[19:26:36]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headwear_combathelmet2.mdl'.
+[19:26:43]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet2.mdl'.
+[19:26:58]	CT-2894 Lechu used command '/CharEditBodygroup'.
+[19:27:14]	⭐ lechu2375 ⭐ has changed ⭐ lechu2375 ⭐'s bodygroups.
+[19:31:27]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_mask_hockeymask.mdl'.
+[19:31:30]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_mask_heat.mdl'.
+[19:31:33]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_headgear_rus_helmet1b.mdl'.
+[19:31:36]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_scarf_standard.mdl'.
+[19:31:39]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/female_outfit_sunrise_vest_heavy.mdl'.
+[19:36:05]	CT-2894 Lechu ran 'Equip' on item 'CVC Helmet (Black)' (#24846)
+[19:36:40]	CT-2894 Lechu has taken 50 damage from nb_mercenary_melee.
+[19:36:45]	CT-2894 Lechu entered observer.
+[19:37:28]	CT-2894 Lechu exited observer at their location.
+[19:38:22]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_atlyn.mdl'.
+[19:38:35]	CT-2894 Lechu ran 'EquipUn' on item 'CVC Helmet (Black)' (#24846)
+[19:40:13]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_scarf_standard.mdl'.
+[19:41:30]	CT-2894 Lechu entered observer.
+[19:41:35]	CT-2894 Lechu exited observer at their location.
+[19:41:46]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_atlyn_novisor.mdl'.
+[19:41:50]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/female_back_pgac.mdl'.
+[19:41:53]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/female_outfit_sunrise_vest_heavy.mdl'.
+[19:42:24]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_boonie_headset.mdl'.
+[19:42:44]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_mask_balaclava2.mdl'.
+[19:42:46]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_mask_arab.mdl'.
+[19:42:50]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_firefighter.mdl'.
+[19:42:53]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_outfit_sunrise_vest_heavy.mdl'.
+[19:42:55]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_backpack_fast.mdl'.
+[19:43:45]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headgear_baseballcap_headset.mdl'.
+[19:44:25]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_eyewear_arab.mdl'.
+[19:49:36]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headgear_baseballcap.mdl'.
+[19:49:58]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_eyewear_tactical_shades.mdl'.
+[19:53:03]	CT-2894 Lechu entered observer.
+[19:53:03]	CT-2894 Lechu exited observer at their location.
+[19:53:07]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headgear_baseballcap.mdl'.
+[19:57:08]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[19:58:03]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_arab4.mdl'.
+[19:58:19]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_arab_bandana1.mdl'.
+[19:58:26]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headgear_baseballcap_headset.mdl'.
+[19:58:35]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_hunter.mdl'.
+[20:00:17]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_headgear_arab4.mdl'.
+[20:01:40]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_arab_helmet.mdl'.
+[20:01:44]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_atlyn.mdl'.
+[20:02:24]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headwear_atlyn.mdl'.
+[20:02:29]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_keparik.mdl'.
+[20:02:33]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/female_headwear_atlyn.mdl'.
+[20:02:35]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_atlyn.mdl'.
+[20:02:46]	CT-2894 Lechu has spawned 'models/shtokerbox/ground_headgear_atlyn.mdl'.
+[20:03:20]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_bandage.mdl'.
+[20:03:28]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_baseballcap1_headset.mdl'.
+[20:03:29]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headgear_baseballcap_headset.mdl'.
+[20:03:43]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_beanie.mdl'.
+[20:03:47]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_ganzahelm.mdl'.
+[20:03:49]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_ger_ww2.mdl'.
+[20:03:55]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_keparik.mdl'.
+[20:04:01]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/female_backpack_fast.mdl'.
+[20:04:16]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_firefighter.mdl'.
+[20:04:18]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_hunter.mdl'.
+[20:04:19]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_pgac.mdl'.
+[20:04:20]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_back_rucksack.mdl'.
+[20:04:21]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_backpack_czech1.mdl'.
+[20:04:22]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_backpack_fast.mdl'.
+[20:04:23]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_belt_heavy.mdl'.
+[20:04:25]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_lower_heavy.mdl'.
+[20:04:26]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_arab1.mdl'.
+[20:04:27]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_arab2.mdl'.
+[20:04:28]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_arab3.mdl'.
+[20:04:29]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_carrier.mdl'.
+[20:04:30]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_jacket_vest_heavy.mdl'.
+[20:04:31]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_outfit_sunrise_shoulders_heavy.mdl'.
+[20:04:33]	CT-2894 Lechu has spawned 'models/shtokerbox/outfits/male_outfit_sunrise_vest_heavy.mdl'.
+[20:07:54]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet2.mdl'.
+[20:09:14]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet1.mdl'.
+[20:09:19]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_boonie_headset.mdl'.
+[20:09:21]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_combathelmet1.mdl'.
+[20:09:27]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet1.mdl'.
+[20:09:30]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet10.mdl'.
+[20:10:43]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet1.mdl'.
+[20:11:03]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[20:11:23]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet1.mdl'.
+[20:14:00]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet10.mdl'.
+[20:14:04]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet2.mdl'.
+[20:14:38]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet3.mdl'.
+[20:14:41]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet4.mdl'.
+[20:14:43]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet5.mdl'.
+[20:14:47]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet7.mdl'.
+[20:14:50]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet8.mdl'.
+[20:14:54]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_operatorhelmet9.mdl'.
+[20:15:27]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_pilot.mdl'.
+[20:15:32]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_riothelmet1.mdl'.
+[20:15:37]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet1.mdl'.
+[20:15:40]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet1b.mdl'.
+[20:17:14]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet1c.mdl'.
+[20:17:16]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet2.mdl'.
+[20:17:19]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet2b.mdl'.
+[20:17:47]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_helmet3.mdl'.
+[20:17:53]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_ww2.mdl'.
+[20:17:56]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_rus_officer.mdl'.
+[20:18:47]	CT-2894 Lechu has spawned 'models/shtokerbox/headgear/male_headwear_tchanka.mdl'.
+[20:19:05]	CT-2894 Lechu entered observer.
+[20:19:05]	CT-2894 Lechu exited observer at their location.
+[20:23:49]	CT-2894 Lechu used command '/MapRestart 1'.
+[20:24:40]	⭐ lechu2375 ⭐ has connected.
+[20:25:02]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[20:30:50]	CT-2894 Lechu used command '/MapRestart 1'.
+[20:31:34]	⭐ lechu2375 ⭐ has connected.
+[20:32:56]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[20:36:20]	CT-2894 Lechu ran 'take' on item 'Czapka baseballowa' (#24846)
+[20:36:20]	CT-2894 Lechu has gained a 'Czapka baseballowa' #24846.
+[20:36:24]	CT-2894 Lechu ran 'Equip' on item 'Czapka baseballowa' (#24846)
+[20:36:30]	CT-2894 Lechu used command '/CharEditBodygroup'.
+[20:36:35]	⭐ lechu2375 ⭐ has changed ⭐ lechu2375 ⭐'s bodygroups.
+[20:36:54]	CT-2894 Lechu ran 'take' on item 'Czapka baseballowa ze słuchawkami' (#24847)
+[20:36:54]	CT-2894 Lechu has gained a 'Czapka baseballowa ze słuchawkami' #24847.
+[20:37:01]	CT-2894 Lechu ran 'EquipUn' on item 'Czapka baseballowa' (#24846)
+[20:37:02]	CT-2894 Lechu ran 'Equip' on item 'Czapka baseballowa ze słuchawkami' (#24847)
+[20:37:06]	CT-2894 Lechu ran 'EquipUn' on item 'Czapka baseballowa ze słuchawkami' (#24847)
+[20:37:24]	CT-2894 Lechu ran 'take' on item 'Szal terrorysty' (#24857)
+[20:37:24]	CT-2894 Lechu has gained a 'Szal terrorysty' #24857.
+[20:37:24]	CT-2894 Lechu ran 'take' on item 'Hełm ALTYN' (#24854)
+[20:37:24]	CT-2894 Lechu has gained a 'Hełm ALTYN' #24854.
+[20:37:25]	CT-2894 Lechu ran 'take' on item 'Hełm ACH' (#24853)
+[20:37:25]	CT-2894 Lechu has gained a 'Hełm ACH' #24853.
+[20:37:25]	CT-2894 Lechu ran 'take' on item 'Hełm ACH' (#24852)
+[20:37:25]	CT-2894 Lechu has gained a 'Hełm ACH' #24852.
+[20:37:27]	CT-2894 Lechu ran 'take' on item 'Okulary pilotki' (#24855)
+[20:37:27]	CT-2894 Lechu has gained a 'Okulary pilotki' #24855.
+[20:37:27]	CT-2894 Lechu ran 'take' on item 'Okulary taktyczne' (#24856)
+[20:37:27]	CT-2894 Lechu has gained a 'Okulary taktyczne' #24856.
+[20:37:28]	CT-2894 Lechu ran 'take' on item 'Hełm ACH' (#24851)
+[20:37:28]	CT-2894 Lechu has gained a 'Hełm ACH' #24851.
+[20:37:29]	CT-2894 Lechu ran 'take' on item 'Hełm 6B47' (#24849)
+[20:37:29]	CT-2894 Lechu has gained a 'Hełm 6B47' #24849.
+[20:37:29]	CT-2894 Lechu ran 'take' on item 'Czapka oficerska' (#24848)
+[20:37:29]	CT-2894 Lechu has gained a 'Czapka oficerska' #24848.
+[20:37:30]	CT-2894 Lechu ran 'take' on item 'Hełm 6B47' (#24850)
+[20:37:30]	CT-2894 Lechu has gained a 'Hełm 6B47' #24850.
+[20:37:34]	CT-2894 Lechu ran 'Equip' on item 'Czapka baseballowa ze słuchawkami' (#24847)
+[20:37:38]	CT-2894 Lechu ran 'EquipUn' on item 'Czapka baseballowa ze słuchawkami' (#24847)
+[20:37:39]	CT-2894 Lechu ran 'Equip' on item 'Szal terrorysty' (#24857)
+[20:38:17]	CT-2894 Lechu ran 'EquipUn' on item 'Szal terrorysty' (#24857)
+[20:38:17]	CT-2894 Lechu ran 'Equip' on item 'Hełm ALTYN' (#24854)
+[20:38:32]	CT-2894 Lechu ran 'EquipUn' on item 'Hełm ALTYN' (#24854)
+[20:38:33]	CT-2894 Lechu ran 'Equip' on item 'Hełm ACH' (#24853)
+[20:38:41]	CT-2894 Lechu ran 'EquipUn' on item 'Hełm ACH' (#24853)
+[20:38:42]	CT-2894 Lechu ran 'Equip' on item 'Hełm ACH' (#24852)
+[20:38:45]	CT-2894 Lechu ran 'Equip' on item 'Okulary pilotki' (#24855)
+[20:38:57]	CT-2894 Lechu ran 'EquipUn' on item 'Okulary pilotki' (#24855)
+[20:38:58]	CT-2894 Lechu ran 'Equip' on item 'Okulary taktyczne' (#24856)
+[20:39:05]	CT-2894 Lechu ran 'EquipUn' on item 'Okulary taktyczne' (#24856)
+[20:39:06]	CT-2894 Lechu ran 'Equip' on item 'Hełm ACH' (#24851)
+[20:39:09]	CT-2894 Lechu ran 'EquipUn' on item 'Hełm ACH' (#24851)
+[20:39:10]	CT-2894 Lechu ran 'Equip' on item 'Hełm 6B47' (#24849)
+[20:39:15]	CT-2894 Lechu ran 'Equip' on item 'Hełm 6B47' (#24850)
+[20:39:18]	CT-2894 Lechu ran 'Equip' on item 'Czapka oficerska' (#24848)
+[20:40:03]	CT-2894 Lechu ran 'EquipUn' on item 'Czapka oficerska' (#24848)
+[20:42:19]	CT-2894 Lechu ran 'take' on item 'Mundur rosyjskich służb specjalnych' (#24858)
+[20:42:19]	CT-2894 Lechu has gained a 'Mundur rosyjskich służb specjalnych' #24858.
+[20:42:21]	CT-2894 Lechu ran 'Equip' on item 'Mundur rosyjskich służb specjalnych' (#24858)
+[20:42:25]	CT-2894 Lechu ran 'Equip' on item 'Hełm ALTYN' (#24854)
+[20:42:54]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:42:54]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[20:42:54]	CT-2894 Lechu has taken 15 damage from nb_mercenary.
+[20:43:05]	CT-2894 Lechu has taken 15 damage from nb_mercenary.
+[20:43:05]	CT-2894 Lechu has lost a 'Hełm ALTYN' #24854.
+[20:43:05]	CT-2894 Lechu has taken 15 damage from nb_mercenary.
+[20:43:12]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:43:12]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:43:13]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:43:13]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:43:13]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[20:43:46]	CT-2894 Lechu has taken 220 damage from nb_mercenary_bomber.
+[20:43:46]	nb_mercenary_bomber has killed CT-2894 Lechu.
+[20:45:53]	CT-2894 Lechu has gained a 'Mundur rosyjskich służb specjalnych' #24859.
+[20:45:54]	CT-2894 Lechu ran 'Equip' on item 'Mundur rosyjskich służb specjalnych' (#24859)
+[20:46:03]	CT-2894 Lechu has gained a 'AS VAL' #24860.
+[20:46:05]	CT-2894 Lechu ran 'Equip' on item 'AS VAL' (#24860)
+[20:46:17]	CT-2894 Lechu has gained a 'Papieros' #24861.
+[20:46:18]	CT-2894 Lechu ran 'Equip' on item 'Papieros' (#24861)
+[20:47:46]	CT-2894 Lechu has gained a 'Mundur rosyjskich służb specjalnych' #24858.
+[20:47:46]	CT-2894 Lechu has gained a 'Hełm 6B47' #24850.
+[20:47:46]	CT-2894 Lechu has gained a 'Hełm ACH' #24851.
+[20:47:46]	CT-2894 Lechu has gained a 'Hełm ACH' #24852.
+[20:47:46]	CT-2894 Lechu has gained a 'Czapka oficerska' #24848.
+[20:47:46]	CT-2894 Lechu has gained a 'Hełm ACH' #24853.
+[20:47:46]	CT-2894 Lechu has gained a 'Okulary taktyczne' #24856.
+[20:47:46]	CT-2894 Lechu has gained a 'Czapka baseballowa' #24846.
+[20:47:46]	CT-2894 Lechu has gained a 'Czapka baseballowa ze słuchawkami' #24847.
+[20:47:46]	CT-2894 Lechu has gained a 'Okulary pilotki' #24855.
+[20:47:46]	CT-2894 Lechu has gained a 'Hełm 6B47' #24849.
+[20:47:46]	CT-2894 Lechu has gained a 'Szal terrorysty' #24857.
+[20:49:52]	CT-2894 Lechu entered observer.
+[20:50:26]	CT-2894 Lechu exited observer at their location.
+[20:50:27]	CT-2894 Lechu has taken 65 damage from nb_mercenary_melee.
+[20:51:28]	CT-2894 Lechu has taken 65 damage from nb_mercenary_melee.
+[20:51:28]	nb_mercenary_melee has killed CT-2894 Lechu.

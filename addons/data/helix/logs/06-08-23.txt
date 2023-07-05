@@ -1,0 +1,118 @@
+[09:38:55]	⭐ lechu2375 ⭐ has connected.
+[09:40:00]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[09:44:11]	⭐ lechu2375 ⭐ has connected.
+[09:45:17]	⭐ lechu2375 ⭐ created the character 'Mike Zastava'
+[09:45:17]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[09:45:33]	Mike Zastava opened the 'Zrzut' #70 container.
+[09:45:39]	Mike Zastava closed the 'Zrzut' #70 container.
+[09:46:28]	Mike Zastava entered observer.
+[09:46:34]	Mike Zastava exited observer at their location.
+[09:46:47]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[17:42:05]	⭐ lechu2375 ⭐ has connected.
+[17:42:25]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[17:42:31]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[18:58:04]	⭐ lechu2375 ⭐ has connected.
+[18:58:29]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[18:58:50]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_arab_bandana1.mdl'.
+[18:59:04]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_eyewear_goggles.mdl'.
+[19:00:00]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_eyewear_goggles.mdl'.
+[19:00:04]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_eyewear_goggles_up.mdl'.
+[19:00:08]	Mike Zastava has spawned 'models/shtokerbox/headgear/female_headwear_ushanka.mdl'.
+[19:00:09]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_eyewear_goggles.mdl'.
+[19:00:10]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_eyewear_goggles_up.mdl'.
+[19:01:16]	Mike Zastava has spawned 'models/shtokerbox/ground_eyewear_arab1.mdl'.
+[19:01:18]	Mike Zastava has spawned 'models/shtokerbox/ground_eyewear_goggles.mdl'.
+[19:01:32]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_arab_bandana1.mdl'.
+[19:03:30]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_arab_beret.mdl'.
+[19:03:33]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_arab_beret.mdl'.
+[19:04:35]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_arab_helmet.mdl'.
+[19:04:58]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_atlyn_novisor.mdl'.
+[19:05:38]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_atlyn_novisor.mdl'.
+[19:05:40]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_atlyn.mdl'.
+[19:06:00]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_bandage.mdl'.
+[19:07:21]	Mike Zastava has gained a 'Hełm ALTYN' #3885.
+[19:07:34]	Mike Zastava has gained a 'Okulary pilotki' #3886.
+[19:07:36]	Mike Zastava ran 'Equip' on item 'Okulary pilotki' (#3886)
+[19:07:44]	Mike Zastava has taken 50 damage from nb_hulk_infested.
+[19:07:46]	Mike Zastava has taken 50 damage from nb_hulk_infested.
+[19:07:46]	nb_hulk_infested has killed Mike Zastava.
+[19:07:54]	Mike Zastava entered observer.
+[19:08:13]	Mike Zastava exited observer at their location.
+[19:09:51]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_beanie.mdl'.
+[19:12:40]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_riothelmet1.mdl'.
+[19:12:44]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_riothelmet2.mdl'.
+[19:13:47]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_riothelmet2.mdl'.
+[19:13:55]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_riothelmet3.mdl'.
+[19:16:09]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_riothelmet3.mdl'.
+[19:18:12]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_rus_beanie1.mdl'.
+[19:19:50]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_rus_beret.mdl'.
+[19:20:05]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_sam1.mdl'.
+[19:37:43]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_tchanka.mdl'.
+[19:44:07]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_trader.mdl'.
+[19:45:27]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_ushanka.mdl'.
+[19:48:31]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_mask_arab.mdl'.
+[19:50:30]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_mask_balaclava.mdl'.
+[19:50:49]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_firefighter.mdl'.
+[19:50:50]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_hunter.mdl'.
+[19:50:53]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_scarf_standard.mdl'.
+[19:51:25]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_flamer.mdl'.
+[19:51:38]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_headwear_pilot.mdl'.
+[19:51:43]	Mike Zastava has spawned 'models/shtokerbox/ground_shoulders_heavy.mdl'.
+[19:51:52]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_hunter.mdl'.
+[19:51:56]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_pgac.mdl'.
+[19:51:59]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_back_rucksack.mdl'.
+[19:52:02]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_backpack_czech1.mdl'.
+[19:52:04]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_backpack_fast.mdl'.
+[19:52:07]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_outfit_sunrise_shoulders_heavy.mdl'.
+[19:52:40]	Mike Zastava has spawned 'models/shtokerbox/outfits/male_back_pgac.mdl'.
+[19:52:42]	Mike Zastava has spawned 'models/shtokerbox/outfits/male_backpack_czech1.mdl'.
+[19:52:45]	Mike Zastava has spawned 'models/shtokerbox/outfits/female_backpack_czech1.mdl'.
+[19:55:56]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_mask_heat.mdl'.
+[19:56:15]	Mike Zastava has spawned 'models/shtokerbox/headgear/male_mask_m50.mdl'.
+[19:59:36]	⭐ lechu2375 ⭐ has killed Mike Zastava.
+[19:59:58]	Mike Zastava ran 'take' on item 'Papier do drukarki' (#3847)
+[19:59:58]	Mike Zastava has gained a 'Papier do drukarki' #3847.
+[20:07:00]	⭐ lechu2375 ⭐ has connected.
+[20:07:21]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[20:07:25]	Mike Zastava entered observer.
+[20:07:26]	Mike Zastava exited observer at their location.
+[20:08:13]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab4.mdl'.
+[20:08:16]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_beanie.mdl'.
+[20:08:18]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_boonie.mdl'.
+[20:08:21]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_rus_beanie.mdl'.
+[20:08:24]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_bandage.mdl'.
+[20:08:25]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_bandana_arab1.mdl'.
+[20:08:27]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab4.mdl'.
+[20:08:30]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab1.mdl'.
+[20:08:34]	Mike Zastava has spawned 'models/shtokerbox/ground_backpack_rucksack.mdl'.
+[20:08:38]	Mike Zastava has spawned 'models/shtokerbox/ground_mask_balaclava1.mdl'.
+[20:08:50]	Mike Zastava has spawned 'models/shtokerbox/ground_eyewear_arab.mdl'.
+[20:08:52]	Mike Zastava has spawned 'models/shtokerbox/ground_eyewear_arab1.mdl'.
+[20:08:58]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab1.mdl'.
+[20:09:21]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_boonie.mdl'.
+[20:09:22]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_boonie.mdl'.
+[20:09:46]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_rus_ww2.mdl'.
+[20:09:52]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_sam.mdl'.
+[20:09:54]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_sam.mdl'.
+[20:10:13]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab_helmet.mdl'.
+[20:10:16]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_atlyn_novisor.mdl'.
+[20:10:25]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab4.mdl'.
+[20:10:27]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_riothelmet3.mdl'.
+[20:10:31]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_arab_helmet.mdl'.
+[20:10:54]	Mike Zastava has gained a 'Maska' #3934.
+[20:10:56]	Mike Zastava ran 'Equip' on item 'Maska' (#3934)
+[20:11:05]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_baseballcap1.mdl'.
+[20:11:22]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_rus_helmet2.mdl'.
+[20:13:05]	Mike Zastava has spawned 'models/shtokerbox/ground_headgear_bandana_arab1.mdl'.
+[20:13:09]	Mike Zastava has spawned 'models/shtokerbox/ground_mask_arab.mdl'.
+[20:13:13]	Mike Zastava has spawned 'models/shtokerbox/ground_mask_shemagh.mdl'.
+[20:14:00]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[20:17:18]	⭐ lechu2375 ⭐ has connected.
+[20:17:41]	⭐ lechu2375 ⭐ loaded the character 'Mike Zastava'
+[20:31:22]	Mike Zastava has taken 20 damage from nb_seeker.
+[20:31:24]	Mike Zastava has taken 20 damage from nb_seeker.
+[20:31:26]	Mike Zastava has taken 20 damage from nb_seeker.
+[20:31:29]	Mike Zastava has taken 20 damage from nb_seeker.
+[20:31:31]	Mike Zastava has taken 20 damage from nb_seeker.
+[20:31:31]	nb_seeker has killed Mike Zastava.
+[20:36:53]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.

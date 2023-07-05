@@ -1,0 +1,132 @@
+[13:25:52]	lechu2375 has connected.
+[13:26:56]	lechu2375 loaded the character 'lechu2375'
+[13:33:18]	lechu2375 used command '/MapRestart 1'.
+[13:33:52]	lechu2375 has connected.
+[13:35:20]	lechu2375 loaded the character 'lechu2375'
+[13:35:29]	lechu2375 entered observer.
+[13:35:30]	lechu2375 exited observer.
+[13:35:35]	lechu2375 entered observer.
+[13:35:36]	lechu2375 exited observer.
+[13:41:33]	lechu2375 has spawned 'models/illusion/eftcontainers/medscase.mdl'.
+[13:41:34]	lechu2375 has spawned 'models/illusion/eftcontainers/medpile.mdl'.
+[13:50:59]	lechu2375 has connected.
+[13:52:48]	lechu2375 loaded the character 'lechu2375'
+[14:03:26]	lechu2375 has spawned a 'Entity [367][gmodz_merchant]'.
+[14:03:42]	lechu2375 has spawned a 'Entity [367][gmodz_merchant]'.
+[14:12:54]	lechu2375 has killed lechu2375.
+[14:17:55]	lechu2375 has gained a 'Kar98K' #24730.
+[14:17:55]	lechu2375 has gained a 'Ghillie suit' #24765.
+[14:17:55]	lechu2375 has gained a 'Amunicja 9x19' #24744.
+[14:17:55]	lechu2375 has gained a 'AKS-74U' #24750.
+[14:18:59]	lechu2375 has connected.
+[14:19:49]	lechu2375 loaded the character 'lechu2375'
+[14:22:45]	lechu2375 has spawned 'models/ninja/mgs4_pieuvre_armament_merc.mdl'.
+[14:22:53]	lechu2375 has spawned 'models/gmodz/characters/ct_gign.mdl'.
+[14:22:55]	lechu2375 has spawned 'models/gmodz/characters/exoskeleton.mdl'.
+[14:23:05]	lechu2375 has spawned 'models/dizcordum/citizens/playermodels/pm_male_01.mdl'.
+[14:23:15]	lechu2375 has spawned 'models/tpamodern2.mdl'.
+[14:23:16]	lechu2375 has spawned 'models/tpamodern.mdl'.
+[14:23:22]	lechu2375 has spawned 'models/easterncrisis/cdf_infantry.mdl'.
+[14:23:28]	lechu2375 has spawned 'models/bloocobalt/infected_citizens/female_01.mdl'.
+[14:23:48]	lechu2375 has spawned 'models/ninja/mgs4_praying_mantis_merc_short_sleeved.mdl'.
+[14:23:56]	lechu2375 has spawned 'models/bloocobalt/rebel_elite.mdl'.
+[14:23:59]	lechu2375 has spawned 'models/bloocobalt/rebel_elite2.mdl'.
+[14:24:02]	lechu2375 has spawned 'models/bloocobalt/rebel_elite2.mdl'.
+[14:24:08]	lechu2375 has spawned 'models/cpassic/cpassic.mdl'.
+[14:29:31]	lechu2375 entered observer.
+[14:29:31]	lechu2375 exited observer.
+[14:40:04]	lechu2375 used command '/MapRestart 1'.
+[14:40:48]	lechu2375 has connected.
+[14:41:47]	lechu2375 loaded the character 'lechu2375'
+[14:41:54]	lechu2375 has spawned a 'Entity [367][lvs_vehicle_spammer]'.
+[14:42:10]	lechu2375 has spawned a 'Entity [367][ix_vendor_adv]'.
+[14:42:18]	lechu2375 used the 'John Doe' vendor.
+[14:43:11]	lechu2375 has spawned a 'Entity [367][ix_vendor_adv]'.
+[14:52:02]	lechu2375 has connected.
+[14:52:17]	lechu2375 loaded the character 'lechu2375'
+[15:00:23]	lechu2375 has connected.
+[15:02:50]	lechu2375 loaded the character 'lechu2375'
+[15:02:57]	lechu2375 has spawned a 'Entity [368][ix_vendor_adv]'.
+[15:12:24]	lechu2375 has spawned 'models/bloocobalt/rebel_elite.mdl'.
+[15:12:28]	lechu2375 has spawned 'models/bloocobalt/rebel_elite.mdl'.
+[15:12:29]	lechu2375 has spawned 'models/bloocobalt/rebel_elite.mdl'.
+[15:12:34]	lechu2375 has spawned 'models/zombie/real_zombie_anims.mdl'.
+[15:12:50]	lechu2375 has spawned 'models/weapons/arccw/atts/stock_fab.mdl'.
+[15:12:58]	lechu2375 has spawned 'models/monk.mdl'.
+[15:20:56]	lechu2375 has spawned a 'Entity [362][ix_vendor_adv]'.
+[15:21:05]	lechu2375 used the 'John Doe' vendor.
+[15:21:34]	lechu2375 used the 'John Doe' vendor.
+[15:21:52]	lechu2375 used the 'Terry' vendor.
+[15:24:23]	lechu2375 ran 'Equip' on item 'Kar98K' (#24730)
+[15:24:26]	lechu2375 ran 'EquipUn' on item 'Kar98K' (#24730)
+[15:25:54]	lechu2375 has killed lechu2375.
+[15:51:48]	lechu2375 has connected.
+[15:59:46]	lechu2375 loaded the character 'lechu2375'
+[16:00:06]	lechu2375 has gained a 'AK-104' #24765.
+[16:00:10]	lechu2375 ran 'Equip' on item 'AK-104' (#24765)
+[16:00:19]	lechu2375 has gained a 'Amunicja 7.62x51' #24766.
+[16:00:20]	lechu2375 has gained a 'Amunicja 7.62x51' #24767.
+[16:00:21]	lechu2375 has gained a 'Amunicja 7.62x51' #24768.
+[16:00:25]	lechu2375 has gained a 'Amunicja 7.62x39' #24769.
+[16:00:26]	lechu2375 has gained a 'Amunicja 7.62x39' #24769.
+[16:00:27]	lechu2375 has gained a 'Amunicja 7.62x39' #24770.
+[16:00:28]	lechu2375 has gained a 'Amunicja 7.62x39' #24771.
+[16:00:30]	lechu2375 ran 'combine' on item 'Amunicja 7.62x39' (#24770)
+[16:04:17]	lechu2375 used command '/MapRestart 1'.
+[16:08:16]	lechu2375 has connected.
+[16:08:36]	lechu2375 loaded the character 'lechu2375'
+[16:09:08]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:09:31]	lechu2375 has spawned a 'NPC [368][npc_headcrab]'.
+[16:11:06]	lechu2375 has spawned a 'NPC [368][npc_headcrab]'.
+[16:11:22]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:12:32]	lechu2375 has enabled the sh_hud plugin for next restart.
+[16:12:37]	lechu2375 used command '/MapRestart 1'.
+[16:16:59]	lechu2375 has connected.
+[16:17:14]	lechu2375 loaded the character 'lechu2375'
+[16:17:41]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:18:42]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:18:46]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:18:48]	lechu2375 has spawned a 'NPC [372][npc_zombie]'.
+[16:19:00]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:19:00]	lechu2375 has spawned a 'NPC [369][npc_zombie]'.
+[16:19:13]	lechu2375 has gained 5 RU.
+[16:19:18]	lechu2375 has taken 17 RU from '' #1680099890 (0 RU left).
+[16:19:18]	lechu2375 has gained a 'Epinephrine' #24770.
+[16:19:18]	lechu2375 has gained a 'Vicasol' #24771.
+[16:19:18]	lechu2375 has gained a 'Zestaw naprawczy hełmów' #24769.
+[16:19:22]	lechu2375 has gained a 'Amunicja 5.45x39' #24772.
+[16:19:22]	lechu2375 has gained a 'Amunicja 9x18' #24773.
+[16:24:03]	lechu2375 has gained a 'Amunicja 7.62x39' #24774.
+[16:24:03]	lechu2375 has gained a 'Amunicja 7.62x39' #24775.
+[16:24:03]	lechu2375 has gained 953 RU.
+[16:24:49]	lechu2375 has spawned a 'Entity [368][arccw_ammo_pistol_large]'.
+[16:24:50]	lechu2375 has spawned a 'Entity [368][arccw_ammo_pistol]'.
+[16:24:53]	lechu2375 has spawned a 'Entity [368][arccw_ammo_357]'.
+[16:24:54]	lechu2375 has spawned a 'Entity [369][arccw_ammo_smg1_large]'.
+[16:24:55]	lechu2375 has spawned a 'Entity [368][arccw_ammo_357_large]'.
+[16:24:56]	lechu2375 has spawned a 'Entity [368][arccw_ammo_357_large]'.
+[16:24:58]	lechu2375 has spawned a 'Entity [369][arccw_ammo_357_large]'.
+[16:24:59]	lechu2375 has spawned a 'Entity [368][arccw_ammo_357_large]'.
+[16:24:59]	lechu2375 has spawned a 'Entity [369][arccw_ammo_357_large]'.
+[16:25:00]	lechu2375 has spawned a 'Entity [368][arccw_ammo_357_large]'.
+[16:25:09]	lechu2375 has spawned a 'Entity [368][arccw_firearms2_ammo_357magnum]'.
+[16:25:09]	lechu2375 has spawned a 'Entity [369][arccw_firearms2_ammo_338lapua]'.
+[16:25:12]	lechu2375 has spawned a 'Entity [368][arccw_firearms2_ammo_357magnum]'.
+[16:25:12]	lechu2375 has spawned a 'Entity [369][arccw_firearms2_ammo_357magnum]'.
+[16:25:49]	lechu2375 has spawned a 'NPC [368][npc_zombie]'.
+[16:25:50]	lechu2375 has spawned a 'NPC [369][npc_zombie]'.
+[16:25:50]	lechu2375 has spawned a 'NPC [370][npc_zombie]'.
+[16:25:51]	lechu2375 has spawned a 'NPC [373][npc_zombie]'.
+[16:25:51]	lechu2375 has spawned a 'NPC [380][npc_zombie]'.
+[16:26:02]	lechu2375 has gained 15 RU.
+[16:26:05]	lechu2375 has taken 10 RU from '' #1680100332 (0 RU left).
+[16:26:05]	lechu2375 has gained a 'Apteczka wojskowa' #24776.
+[16:26:08]	lechu2375 has taken 21 RU from '' #1680100323 (0 RU left).
+[16:26:08]	lechu2375 has gained a 'Antirad' #24779.
+[16:26:08]	lechu2375 has gained a 'Puree z warzyw' #24778.
+[16:26:12]	lechu2375 has gained 5 RU.
+[16:26:19]	lechu2375 has gained 17 RU.
+[16:26:26]	lechu2375 has gained a 'Amunicja 7.62x39' #24780.
+[16:26:26]	lechu2375 has gained a 'Amunicja 9x19' #24781.
+[16:26:26]	lechu2375 has gained 907 RU.
+[16:51:19]	lechu2375 has killed lechu2375.

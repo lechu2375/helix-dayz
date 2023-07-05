@@ -4,13 +4,17 @@ local goodBoys = {}
 goodBoys["nb_swat"] = true
 goodBoys["nb_swat_nade"] = true
 goodBoys["nb_swat_melee"] = true
-
 goodBoys["nb_rebel_melee"] = true
 goodBoys["nb_rebel"] = true
 goodBoys["nb_rebel_citizen"] = true
 goodBoys["nb_rebel_medic"] = true
 goodBoys["nb_rebel_elite"] = true
 goodBoys["nb_citizen"] = true
+
+goodBoys["civilian_armed"] = true
+goodBoys["cdf_guard"] = true
+goodBoys["cdf_recruit"] = true
+goodBoys["cdf_soldier"] = true
 
 local badBoys = {}
 badBoys["nb_mercenary_condottiere"] = true
@@ -24,6 +28,9 @@ badBoys["nb_mercenary_condottiere"] = true
 badBoys["nb_mercenary_condottiere"] = true
 badBoys["nb_mercenary_condottiere"] = true
 badBoys["nb_mercenary_condottiere"] = true
+badBoys["bandit_banditos"] = true
+badBoys["bandit_weak"] = true
+badBoys["zombie_seeker"] = true
 
 -- PlayerExitSafeZone -- realm @server
 -- PlayerEnterSafeZone -- realm @server
@@ -132,13 +139,26 @@ function PLUGIN:PostPlayerLoadout(client)
 	else
 		client.IsBandit = nil
 	end
+	if(DrGBase) then
+
+		if(client.IsBandit) then
+			client:DrG_JoinFaction("FACTION_BANDITS")
+			client:DrG_LeaveFaction("FACTION_CDF")
+			client:DrG_LeaveFaction("FACTION_CIVIL")
+		else
+			client:DrG_LeaveFaction("FACTION_BANDITS")
+			client:DrG_JoinFaction("FACTION_CDF")
+			client:DrG_LeaveFaction("FACTION_CIVIL")
+		end
+
+	end
 end
 
 
 function PLUGIN:OnNPCKilled(npc, attacker, weapon)
 	local config_rep = ix.config.Get("reputationSavior", 10)
 
-	if (attacker:IsPlayer()) then
+	if (attacker:IsPlayer() ) then
 
 
 		net.Start("ixUpdateRep", true)
@@ -154,6 +174,19 @@ function PLUGIN:OnNPCKilled(npc, attacker, weapon)
 			attacker:AddReputation(config_rep)
 		end	
 		
+		if(DrGBase) then
+
+			if(attacker.IsBandit) then
+				attacker:DrG_JoinFaction("FACTION_BANDITS")
+				attacker:DrG_LeaveFaction("FACTION_CDF")
+				attacker:DrG_LeaveFaction("FACTION_CIVIL")
+			else
+				attacker:DrG_LeaveFaction("FACTION_BANDITS")
+				attacker:DrG_JoinFaction("FACTION_CDF")
+				attacker:DrG_LeaveFaction("FACTION_CIVIL")
+			end
+	
+		end
 
 	end
 

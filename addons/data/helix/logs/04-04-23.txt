@@ -1,0 +1,14 @@
+[14:00:07]	⭐ lechu2375 ⭐ has connected.
+[14:00:32]	⭐ lechu2375 ⭐ loaded the character 'lechu2375'
+[14:04:07]	lechu2375 used command '/MapRestart 1'.
+[14:09:34]	⭐ lechu2375 ⭐ has connected.
+[14:10:41]	⭐ lechu2375 ⭐ loaded the character 'lechu2375'
+[14:11:50]	lechu2375 has spawned 'models/drem/cch/male_02.mdl'.
+[14:15:13]	lechu2375 used command '/CharSetModel le models/drem/cch/male_01.mdl'.
+[14:17:44]	lechu2375 used command '/MapRestart 1'.
+[14:23:03]	⭐ lechu2375 ⭐ has connected.
+[14:23:58]	⭐ lechu2375 ⭐ loaded the character 'lechu2375'
+[14:39:47]	⭐ lechu2375 ⭐ has connected.
+[14:40:01]	⭐ lechu2375 ⭐ loaded the character 'lechu2375'
+[14:40:13]	⭐ lechu2375 ⭐ has killed lechu2375.
+[14:43:17]	⭐ lechu2375 ⭐ has killed lechu2375.

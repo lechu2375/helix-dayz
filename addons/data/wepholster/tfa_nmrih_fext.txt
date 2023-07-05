@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[4 -2.5 -5.8]",
+		"{0 180 90}"
+	],
+	"Bone": "ValveBiped.Bip01_Spine2",
+	"Model": "models/weapons/tfa_nmrih/w_tool_extinguisher.mdl"
+}

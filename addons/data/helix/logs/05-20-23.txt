@@ -1,0 +1,135 @@
+[12:36:28]	⭐ lechu2375 ⭐ has connected.
+[12:38:44]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[12:47:08]	⭐ lechu2375 ⭐ has connected.
+[12:50:33]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[13:14:28]	CT-2894 Lechu entered observer.
+[13:14:44]	CT-2894 Lechu exited observer.
+[13:31:46]	CT-2894 Lechu entered observer.
+[13:31:47]	CT-2894 Lechu exited observer at their location.
+[13:31:48]	CT-2894 Lechu entered observer.
+[13:31:51]	CT-2894 Lechu exited observer at their location.
+[13:32:13]	CT-2894 Lechu used command '/SpawnAdd randomspawn1'.
+[13:32:34]	CT-2894 Lechu entered observer.
+[13:32:37]	CT-2894 Lechu exited observer at their location.
+[13:32:41]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[13:32:43]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[13:34:50]	CT-2894 Lechu has gained a 'Energetyk' #24844.
+[13:34:53]	CT-2894 Lechu ran 'use' on item 'Energetyk' (#24844)
+[13:35:01]	CT-2894 Lechu has gained a 'Wojskowa racja żywnościowa' #24844.
+[13:35:03]	CT-2894 Lechu has gained a 'Sok' #24845.
+[13:35:06]	CT-2894 Lechu has gained a 'Apteczka' #24846.
+[13:35:08]	CT-2894 Lechu ran 'use' on item 'Sok' (#24845)
+[13:35:09]	CT-2894 Lechu ran 'use' on item 'Wojskowa racja żywnościowa' (#24844)
+[13:35:12]	CT-2894 Lechu ran 'use' on item 'Apteczka' (#24846)
+[13:35:19]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[13:35:21]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[13:36:32]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[13:36:33]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[14:08:20]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[14:08:22]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[14:08:23]	CT-2894 Lechu opened the 'Wrak' #70 container.
+[14:08:30]	CT-2894 Lechu has gained a 'AN/PEQ-2' #24728.
+[14:08:32]	CT-2894 Lechu closed the 'Wrak' #70 container.
+[14:09:01]	CT-2894 Lechu has spawned 'models/props_c17/fountain_01.mdl'.
+[14:09:35]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:09:39]	CT-2894 Lechu entered observer.
+[14:09:42]	CT-2894 Lechu exited observer at their location.
+[14:09:47]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:09:48]	CT-2894 Lechu entered observer.
+[14:09:56]	CT-2894 Lechu exited observer at their location.
+[14:10:04]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:05]	CT-2894 Lechu entered observer.
+[14:10:08]	CT-2894 Lechu exited observer at their location.
+[14:10:13]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:14]	CT-2894 Lechu entered observer.
+[14:10:20]	CT-2894 Lechu exited observer at their location.
+[14:10:23]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:23]	CT-2894 Lechu entered observer.
+[14:10:25]	CT-2894 Lechu exited observer at their location.
+[14:10:27]	CT-2894 Lechu entered observer.
+[14:10:28]	CT-2894 Lechu exited observer at their location.
+[14:10:39]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:40]	CT-2894 Lechu entered observer.
+[14:10:41]	CT-2894 Lechu exited observer at their location.
+[14:10:44]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:44]	CT-2894 Lechu entered observer.
+[14:10:47]	CT-2894 Lechu exited observer at their location.
+[14:10:50]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:51]	CT-2894 Lechu entered observer.
+[14:10:53]	CT-2894 Lechu exited observer at their location.
+[14:10:54]	CT-2894 Lechu entered observer.
+[14:10:55]	CT-2894 Lechu exited observer at their location.
+[14:10:57]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:10:57]	CT-2894 Lechu entered observer.
+[14:11:09]	CT-2894 Lechu exited observer at their location.
+[14:11:21]	CT-2894 Lechu entered observer.
+[14:11:24]	CT-2894 Lechu exited observer at their location.
+[14:11:35]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:11:36]	CT-2894 Lechu entered observer.
+[14:11:43]	CT-2894 Lechu exited observer at their location.
+[14:11:44]	CT-2894 Lechu entered observer.
+[14:12:04]	CT-2894 Lechu exited observer at their location.
+[14:12:07]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:12:08]	CT-2894 Lechu entered observer.
+[14:12:11]	CT-2894 Lechu exited observer at their location.
+[14:12:14]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:12:14]	CT-2894 Lechu entered observer.
+[14:12:28]	CT-2894 Lechu exited observer at their location.
+[14:12:30]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:12:31]	CT-2894 Lechu entered observer.
+[14:12:32]	CT-2894 Lechu exited observer at their location.
+[14:12:36]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:12:36]	CT-2894 Lechu entered observer.
+[14:12:38]	CT-2894 Lechu exited observer at their location.
+[14:12:46]	CT-2894 Lechu has gained a 'Latarka' #24844.
+[14:12:53]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:12:53]	CT-2894 Lechu entered observer.
+[14:12:58]	CT-2894 Lechu exited observer at their location.
+[14:13:08]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:13:08]	CT-2894 Lechu entered observer.
+[14:13:14]	CT-2894 Lechu exited observer at their location.
+[14:13:18]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:13:19]	CT-2894 Lechu entered observer.
+[14:13:28]	CT-2894 Lechu exited observer at their location.
+[14:13:29]	CT-2894 Lechu entered observer.
+[14:13:30]	CT-2894 Lechu exited observer at their location.
+[14:13:33]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:13:41]	CT-2894 Lechu entered observer.
+[14:13:44]	CT-2894 Lechu exited observer at their location.
+[14:13:47]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:13:48]	CT-2894 Lechu entered observer.
+[14:14:06]	CT-2894 Lechu exited observer at their location.
+[14:14:12]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:14:13]	CT-2894 Lechu entered observer.
+[14:14:21]	CT-2894 Lechu exited observer at their location.
+[14:14:23]	CT-2894 Lechu used command '/SpawnAdd survivor'.
+[14:14:23]	CT-2894 Lechu entered observer.
+[14:14:33]	CT-2894 Lechu exited observer at their location.
+[14:14:43]	CT-2894 Lechu used command '/SpawnAdd czarnorus'.
+[14:14:46]	CT-2894 Lechu used command '/SpawnAdd czarnorus'.
+[14:14:48]	CT-2894 Lechu used command '/SpawnAdd czarnorus'.
+[14:14:50]	CT-2894 Lechu used command '/SpawnAdd czarnorus'.
+[14:14:51]	CT-2894 Lechu entered observer.
+[14:21:20]	CT-2894 Lechu exited observer at their location.
+[14:21:22]	CT-2894 Lechu entered observer.
+[14:21:25]	CT-2894 Lechu exited observer at their location.
+[14:21:38]	CT-2894 Lechu used command '/SpawnAdd russia'.
+[14:21:41]	CT-2894 Lechu used command '/SpawnAdd russia'.
+[14:21:44]	CT-2894 Lechu used command '/SpawnAdd russia'.
+[14:23:43]	CT-2894 Lechu entered observer.
+[14:23:50]	CT-2894 Lechu exited observer at their location.
+[14:23:59]	CT-2894 Lechu entered observer.
+[14:24:01]	CT-2894 Lechu exited observer at their location.
+[14:24:04]	CT-2894 Lechu entered observer.
+[14:24:05]	CT-2894 Lechu exited observer at their location.
+[14:24:07]	CT-2894 Lechu entered observer.
+[14:24:09]	CT-2894 Lechu exited observer at their location.
+[14:26:35]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[14:29:17]	CT-2894 Lechu has taken 20 damage from nb_infested.
+[14:35:21]	CT-2894 Lechu used command '/CharGiveFlag c'.
+[14:35:23]	CT-2894 Lechu used command '/CharGiveFlag CT-2894 Lechu Ccenprt'.
+[15:04:18]	CT-2894 Lechu ran 'take' on item 'Scientific medkit' (#24844)
+[15:04:18]	CT-2894 Lechu has gained a 'Scientific medkit' #24844.
+[15:12:42]	CT-2894 Lechu ran 'take' on item 'Morfina' (#24845)
+[15:12:42]	CT-2894 Lechu has gained a 'Morfina' #24845.
+[15:21:10]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.

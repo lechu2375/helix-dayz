@@ -23,7 +23,7 @@ if (CLIENT) then
 	AccessorFunc(PANEL, "m_ConVar", "ConVar")
 
 	function PANEL:Init()
-		local npcs = list.Get("sean_nextbots")
+		local npcs = list.Get("DrGBaseNextbots")
 
 		local function onNPCSelected(_, _, line)
 			RunConsoleCommand(self:GetConVar(), line.nicename)

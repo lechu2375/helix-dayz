@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[4 5 0]",
+		"{0 0 0}"
+	],
+	"Bone": "ValveBiped.Bip01_R_Clavicle",
+	"Model": "models/weapons/w_hk45c.mdl"
+}

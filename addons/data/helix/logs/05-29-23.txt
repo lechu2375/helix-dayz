@@ -1,0 +1,232 @@
+[09:43:45]	⭐ lechu2375 ⭐ has connected.
+[09:44:09]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[09:44:41]	CT-2894 Lechu ran 'take' on item 'Glock-20' (#24845)
+[09:44:41]	CT-2894 Lechu has gained a 'Glock-20' #24845.
+[09:44:42]	CT-2894 Lechu ran 'Equip' on item 'Glock-20' (#24845)
+[09:45:48]	CT-2894 Lechu ran 'take' on item 'ASH-12' (#24846)
+[09:45:48]	CT-2894 Lechu has gained a 'ASH-12' #24846.
+[09:45:51]	CT-2894 Lechu ran 'Equip' on item 'ASH-12' (#24846)
+[09:45:59]	CT-2894 Lechu ran 'take' on item 'M79' (#24847)
+[09:45:59]	CT-2894 Lechu has gained a 'M79' #24847.
+[09:46:01]	CT-2894 Lechu ran 'Equip' on item 'M79' (#24847)
+[09:46:17]	CT-2894 Lechu has gained a 'RPG-26' #24848.
+[09:46:19]	CT-2894 Lechu ran 'EquipUn' on item 'M79' (#24847)
+[09:46:20]	CT-2894 Lechu ran 'Equip' on item 'RPG-26' (#24848)
+[09:51:50]	CT-2894 Lechu ran 'take' on item 'MC51B Vollmer' (#24849)
+[09:51:50]	CT-2894 Lechu has gained a 'MC51B Vollmer' #24849.
+[09:51:51]	CT-2894 Lechu ran 'Equip' on item 'MC51B Vollmer' (#24849)
+[09:52:00]	CT-2894 Lechu ran 'take' on item 'MP5A5' (#24850)
+[09:52:00]	CT-2894 Lechu has gained a 'MP5A5' #24850.
+[09:52:05]	CT-2894 Lechu ran 'Equip' on item 'MP5A5' (#24850)
+[09:52:19]	CT-2894 Lechu ran 'take' on item 'Saiga-12K' (#24851)
+[09:52:19]	CT-2894 Lechu has gained a 'Saiga-12K' #24851.
+[09:52:22]	CT-2894 Lechu ran 'Equip' on item 'Saiga-12K' (#24851)
+[09:58:15]	CT-2894 Lechu has gained a 'Aimpoint CompM4' #24852.
+[09:58:19]	CT-2894 Lechu ran 'drop' on item 'MP5A5' (#24850)
+[09:58:19]	CT-2894 Lechu has lost a 'MP5A5' #24850.
+[09:58:20]	CT-2894 Lechu ran 'drop' on item 'MC51B Vollmer' (#24849)
+[09:58:20]	CT-2894 Lechu has lost a 'MC51B Vollmer' #24849.
+[09:58:21]	CT-2894 Lechu ran 'drop' on item 'M79' (#24847)
+[09:58:21]	CT-2894 Lechu has lost a 'M79' #24847.
+[09:58:24]	CT-2894 Lechu ran 'combine' on item 'Saiga-12K' (#24851)
+[09:58:35]	CT-2894 Lechu ran 'Detach' on item 'Saiga-12K' (#24851)
+[09:58:35]	CT-2894 Lechu has gained a 'Aimpoint CompM4' #24852.
+[09:59:39]	CT-2894 Lechu ran 'Detach' on item 'Saiga-12K' (#24851)
+[09:59:39]	CT-2894 Lechu has gained a 'Aimpoint CompM4' #24852.
+[10:00:31]	CT-2894 Lechu ran 'EquipUn' on item 'Saiga-12K' (#24851)
+[10:00:33]	CT-2894 Lechu ran 'Equip' on item 'Saiga-12K' (#24851)
+[10:01:24]	CT-2894 Lechu ran 'EquipUn' on item 'Saiga-12K' (#24851)
+[10:01:31]	CT-2894 Lechu has gained a 'Mossberg Maverick 88 Cruiser' #24853.
+[10:01:34]	CT-2894 Lechu ran 'Equip' on item 'Mossberg Maverick 88 Cruiser' (#24853)
+[10:05:28]	CT-2894 Lechu entered observer.
+[10:05:31]	CT-2894 Lechu exited observer at their location.
+[10:07:07]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[10:07:09]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[10:07:11]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[10:07:13]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[10:07:15]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[10:07:15]	nb_seeker has killed CT-2894 Lechu.
+[10:09:04]	[Y] CT-2894 Lechu: Dziwko.
+[10:10:09]	CT-2894 Lechu has taken 2 damage from nb_mercenary.
+[10:10:09]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[10:10:10]	CT-2894 Lechu has taken 5 damage from nb_rebel_elite.
+[10:10:10]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[10:10:20]	CT-2894 Lechu has gained 5 RU.
+[10:10:30]	CT-2894 Lechu has gained a 'ASH-12' #24854.
+[10:10:31]	CT-2894 Lechu ran 'Equip' on item 'ASH-12' (#24854)
+[10:10:37]	CT-2894 Lechu ran 'EquipUn' on item 'ASH-12' (#24854)
+[10:10:41]	CT-2894 Lechu has gained a 'KS-23' #24855.
+[10:10:43]	CT-2894 Lechu ran 'Equip' on item 'KS-23' (#24855)
+[10:10:48]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:48]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:48]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:49]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:49]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:49]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:10:54]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[10:11:23]	CT-2894 Lechu has gained a 'BM-16' #24856.
+[10:11:25]	CT-2894 Lechu ran 'EquipUn' on item 'KS-23' (#24855)
+[10:11:26]	CT-2894 Lechu ran 'Equip' on item 'BM-16' (#24856)
+[10:12:07]	CT-2894 Lechu has gained a 'Amunicja 12' #24857.
+[10:12:10]	CT-2894 Lechu ran 'combine' on item 'BM-16' (#24856)
+[10:12:31]	CT-2894 Lechu has gained a 'Amunicja 12' #24858.
+[10:12:33]	CT-2894 Lechu has gained a 'Amunicja 12' #24859.
+[10:13:11]	CT-2894 Lechu used command '/MapRestart 1'.
+[10:18:09]	⭐ lechu2375 ⭐ has connected.
+[10:18:44]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[10:19:41]	CT-2894 Lechu used command '/MapRestart 1'.
+[10:24:17]	⭐ lechu2375 ⭐ has connected.
+[10:24:42]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[10:50:30]	CT-2894 Lechu used command '/MapRestart 1'.
+[10:54:43]	⭐ lechu2375 ⭐ has connected.
+[10:57:05]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[19:55:11]	⭐ lechu2375 ⭐ has connected.
+[19:56:29]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[19:56:37]	CT-2894 Lechu entered observer.
+[19:56:40]	CT-2894 Lechu exited observer at their location.
+[20:04:38]	CT-2894 Lechu entered observer.
+[20:04:44]	CT-2894 Lechu exited observer at their location.
+[20:04:47]	CT-2894 Lechu entered observer.
+[20:04:50]	CT-2894 Lechu exited observer at their location.
+[20:06:20]	CT-2894 Lechu entered observer.
+[20:06:21]	CT-2894 Lechu exited observer at their location.
+[20:11:19]	CT-2894 Lechu entered observer.
+[20:11:24]	CT-2894 Lechu exited observer at their location.
+[20:13:04]	CT-2894 Lechu entered observer.
+[20:13:21]	CT-2894 Lechu exited observer at their location.
+[20:15:52]	⭐ lechu2375 ⭐ has killed CT-2894 Lechu.
+[20:16:22]	CT-2894 Lechu entered observer.
+[20:16:25]	CT-2894 Lechu exited observer at their location.
+[20:20:57]	CT-2894 Lechu entered observer.
+[20:21:34]	CT-2894 Lechu exited observer at their location.
+[20:21:52]	CT-2894 Lechu has taken 50 damage from nb_mercenary.
+[20:21:53]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[20:21:54]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[20:21:55]	CT-2894 Lechu has taken 10 damage from nb_mercenary.
+[20:21:55]	CT-2894 Lechu has taken 50 damage from nb_mercenary.
+[20:21:55]	nb_mercenary has killed CT-2894 Lechu.
+[20:22:25]	⭐ lechu2375 ⭐ has disabled the npc_spawner plugin for next restart.
+[20:22:29]	CT-2894 Lechu used command '/MapRestart 1'.
+[20:27:06]	⭐ lechu2375 ⭐ has connected.
+[20:27:20]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[20:27:40]	CT-2894 Lechu entered observer.
+[20:27:42]	CT-2894 Lechu exited observer at their location.
+[20:32:45]	CT-2894 Lechu entered observer.
+[20:32:53]	CT-2894 Lechu exited observer at their location.
+[20:34:40]	CT-2894 Lechu entered observer.
+[20:34:42]	CT-2894 Lechu exited observer at their location.
+[20:35:26]	CT-2894 Lechu entered observer.
+[20:35:30]	CT-2894 Lechu exited observer at their location.
+[20:39:28]	CT-2894 Lechu entered observer.
+[20:39:30]	CT-2894 Lechu exited observer at their location.
+[20:39:32]	CT-2894 Lechu entered observer.
+[20:39:33]	CT-2894 Lechu exited observer at their location.
+[20:39:41]	CT-2894 Lechu has taken 25 damage from worldspawn.
+[20:44:00]	CT-2894 Lechu entered observer.
+[20:44:02]	CT-2894 Lechu exited observer at their location.
+[20:44:28]	⭐ lechu2375 ⭐ has enabled the npc_spawner plugin for next restart.
+[20:44:33]	CT-2894 Lechu used command '/MapRestart 1'.
+[20:49:21]	⭐ lechu2375 ⭐ has connected.
+[20:50:39]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[21:11:39]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:12:01]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:12:23]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:12:45]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:12:45]	nb_seeker has killed CT-2894 Lechu.
+[21:22:15]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:22:17]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:22:19]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:22:21]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:33:47]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:33:50]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:33:52]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:33:54]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:33:54]	nb_seeker has killed CT-2894 Lechu.
+[21:36:15]	CT-2894 Lechu entered observer.
+[21:36:16]	CT-2894 Lechu exited observer at their location.
+[21:37:25]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:27]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:29]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:31]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:33]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:35]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[21:37:35]	nb_seeker has killed CT-2894 Lechu.
+[21:55:34]	CT-2894 Lechu entered observer.
+[21:55:44]	CT-2894 Lechu exited observer at their location.
+[21:55:56]	CT-2894 Lechu has taken 5 damage from nb_mercenary.
+[21:55:58]	CT-2894 Lechu has taken 5 damage from nb_rebel.
+[22:04:01]	CT-2894 Lechu has gained 7 RU.
+[22:05:35]	CT-2894 Lechu entered observer.
+[22:05:36]	CT-2894 Lechu exited observer at their location.
+[22:05:38]	CT-2894 Lechu entered observer.
+[22:05:38]	CT-2894 Lechu exited observer at their location.
+[22:05:40]	CT-2894 Lechu entered observer.
+[22:05:40]	CT-2894 Lechu exited observer at their location.
+[22:05:54]	CT-2894 Lechu entered observer.
+[22:05:54]	CT-2894 Lechu exited observer at their location.
+[22:05:55]	CT-2894 Lechu entered observer.
+[22:05:56]	CT-2894 Lechu exited observer at their location.
+[22:05:57]	CT-2894 Lechu entered observer.
+[22:05:57]	CT-2894 Lechu exited observer at their location.
+[22:05:58]	CT-2894 Lechu entered observer.
+[22:05:58]	CT-2894 Lechu exited observer at their location.
+[22:05:59]	CT-2894 Lechu entered observer.
+[22:05:59]	CT-2894 Lechu exited observer at their location.
+[22:06:00]	CT-2894 Lechu entered observer.
+[22:06:00]	CT-2894 Lechu exited observer at their location.
+[22:06:01]	CT-2894 Lechu entered observer.
+[22:06:01]	CT-2894 Lechu exited observer at their location.
+[22:06:01]	CT-2894 Lechu entered observer.
+[22:06:02]	CT-2894 Lechu exited observer at their location.
+[22:06:02]	CT-2894 Lechu entered observer.
+[22:06:03]	CT-2894 Lechu exited observer at their location.
+[22:06:08]	CT-2894 Lechu entered observer.
+[22:06:18]	CT-2894 Lechu exited observer at their location.
+[22:06:24]	CT-2894 Lechu entered observer.
+[22:06:30]	CT-2894 Lechu exited observer at their location.
+[22:06:41]	CT-2894 Lechu has taken 20 damage from nb_seeker.
+[22:06:43]	CT-2894 Lechu entered observer.
+[22:06:43]	CT-2894 Lechu exited observer at their location.
+[22:06:43]	CT-2894 Lechu entered observer.
+[22:06:44]	CT-2894 Lechu exited observer at their location.
+[22:06:49]	CT-2894 Lechu entered observer.
+[22:06:49]	CT-2894 Lechu exited observer at their location.
+[22:06:52]	CT-2894 Lechu entered observer.
+[22:06:53]	CT-2894 Lechu exited observer at their location.
+[22:06:54]	CT-2894 Lechu entered observer.
+[22:07:04]	CT-2894 Lechu exited observer at their location.
+[22:11:10]	CT-2894 Lechu entered observer.
+[22:11:12]	CT-2894 Lechu exited observer at their location.
+[22:11:19]	CT-2894 Lechu entered observer.
+[22:11:23]	CT-2894 Lechu exited observer at their location.
+[22:13:39]	CT-2894 Lechu used command '/MapRestart 1'.
+[22:17:44]	⭐ lechu2375 ⭐ has connected.
+[22:18:13]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[22:19:25]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:26]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:28]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:28]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:28]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:28]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:28]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:29]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:29]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:29]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:29]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:31]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:19:32]	CT-2894 Lechu has taken 2 damage from nb_type1.
+[22:20:31]	CT-2894 Lechu entered observer.
+[22:20:46]	CT-2894 Lechu exited observer at their location.
+[22:20:49]	CT-2894 Lechu entered observer.
+[22:20:50]	CT-2894 Lechu exited observer at their location.
+[22:21:46]	CT-2894 Lechu entered observer.
+[22:27:12]	⭐ lechu2375 ⭐ has connected.
+[22:28:20]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[22:35:08]	⭐ lechu2375 ⭐ has connected.
+[22:35:29]	⭐ lechu2375 ⭐ loaded the character 'CT-2894 Lechu'
+[22:35:42]	CT-2894 Lechu entered observer.
+[22:35:44]	CT-2894 Lechu exited observer at their location.
+[22:36:11]	CT-2894 Lechu entered observer.

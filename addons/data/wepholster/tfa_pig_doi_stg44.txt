@@ -1,0 +1,8 @@
+{
+	"BoneOffset": [
+		"[5.5 2 4]",
+		"{-175 0 0}"
+	],
+	"Bone": "ValveBiped.Bip01_Spine2",
+	"Model": "models/weapons/tfa_pig_doi/w_tfa_pig_stg44.mdl"
+}

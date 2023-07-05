@@ -1,0 +1,3017 @@
+[06:21:56]	⭐ lechu2375 ⭐ has connected.
+[06:22:57]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[06:23:39]	Marek Sewczuk ran 'take' on item 'Amunicja 5.45x39' (#2812)
+[06:23:39]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2812.
+[06:24:32]	Marek Sewczuk ran 'take' on item 'FN FAL' (#2813)
+[06:24:32]	Marek Sewczuk has gained a 'FN FAL' #2813.
+[06:24:35]	Marek Sewczuk ran 'Equip' on item 'FN FAL' (#2813)
+[06:24:50]	Marek Sewczuk ran 'take' on item 'Amunicja 7.62x51' (#2814)
+[06:24:50]	Marek Sewczuk has gained a 'Amunicja 7.62x51' #2814.
+[06:25:05]	Marek Sewczuk ran 'take' on item 'LR-300' (#2815)
+[06:25:05]	Marek Sewczuk has gained a 'LR-300' #2815.
+[06:25:07]	Marek Sewczuk ran 'Equip' on item 'LR-300' (#2815)
+[06:25:10]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[06:25:25]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[06:25:39]	Marek Sewczuk ran 'take' on item 'Aimpoint CompM4' (#2816)
+[06:25:39]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2816.
+[06:26:21]	Marek Sewczuk has gained a 'Muzzlebrake' #2820.
+[06:27:20]	Marek Sewczuk ran 'take' on item 'Amunicja 5.56x45' (#2820)
+[06:27:20]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2820.
+[06:27:47]	Marek Sewczuk ran 'take' on item 'MP5SD6' (#2820)
+[06:27:47]	Marek Sewczuk has gained a 'MP5SD6' #2820.
+[06:27:49]	Marek Sewczuk ran 'Equip' on item 'MP5SD6' (#2820)
+[06:28:12]	Marek Sewczuk ran 'take' on item 'Amunicja 9x19' (#2821)
+[06:28:12]	Marek Sewczuk has gained a 'Amunicja 9x19' #2821.
+[06:28:33]	Marek Sewczuk has gained a 'SG 551' #2821.
+[06:28:35]	Marek Sewczuk ran 'Equip' on item 'SG 551' (#2821)
+[06:29:40]	Marek Sewczuk ran 'take' on item 'Plecak '3V Gear Paratus 3-Day' ' (#2822)
+[06:29:40]	Marek Sewczuk has gained a 'Plecak '3V Gear Paratus 3-Day' ' #2822.
+[06:29:47]	Marek Sewczuk ran 'drop' on item 'Plecak '3V Gear Paratus 3-Day' ' (#2822)
+[06:29:47]	Marek Sewczuk has lost a 'Plecak '3V Gear Paratus 3-Day' ' #2822.
+[06:29:48]	Marek Sewczuk ran 'take' on item 'Plecak zbieracza' (#2823)
+[06:29:48]	Marek Sewczuk has gained a 'Plecak zbieracza' #2823.
+[06:30:30]	Marek Sewczuk ran 'take' on item 'Hełm 6B47' (#2824)
+[06:30:30]	Marek Sewczuk has gained a 'Hełm 6B47' #2824.
+[06:30:32]	Marek Sewczuk ran 'Equip' on item 'Hełm 6B47' (#2824)
+[06:30:39]	Marek Sewczuk ran 'EquipUn' on item 'Hełm 6B47' (#2824)
+[06:35:43]	Marek Sewczuk ran 'take' on item 'FN P90' (#2825)
+[06:35:43]	Marek Sewczuk has gained a 'FN P90' #2825.
+[06:35:45]	Marek Sewczuk ran 'Equip' on item 'FN P90' (#2825)
+[06:35:57]	Marek Sewczuk ran 'Detach' on item 'LR-300' (#2815)
+[06:35:57]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2827.
+[06:35:58]	Marek Sewczuk ran 'Detach' on item 'LR-300' (#2815)
+[06:35:58]	Marek Sewczuk has gained a 'Muzzlebrake' #2828.
+[06:36:15]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2827.
+[06:36:16]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2828.
+[06:36:17]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #2829.
+[06:36:58]	Marek Sewczuk has gained a 'IMI Galil' #2830.
+[06:37:08]	Marek Sewczuk has gained a 'IMI Galil' #2831.
+[06:37:31]	Marek Sewczuk ran 'take' on item 'G36K' (#2832)
+[06:37:31]	Marek Sewczuk has gained a 'G36K' #2832.
+[06:37:36]	Marek Sewczuk ran 'Equip' on item 'G36K' (#2832)
+[06:37:41]	Marek Sewczuk ran 'empty_clip' on item 'LR-300' (#2815)
+[06:37:44]	Marek Sewczuk ran 'empty_clip' on item 'LR-300' (#2815)
+[06:37:49]	Marek Sewczuk ran 'empty_clip' on item 'LR-300' (#2815)
+[06:37:51]	Marek Sewczuk ran 'Equip' on item 'LR-300' (#2815)
+[06:37:52]	Marek Sewczuk ran 'empty_clip' on item 'LR-300' (#2815)
+[06:37:52]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2833.
+[06:37:54]	Marek Sewczuk ran 'EquipUn' on item 'LR-300' (#2815)
+[06:38:02]	Marek Sewczuk ran 'Equip' on item 'G36K' (#2832)
+[06:47:58]	Marek Sewczuk used command '/MapRestart 1'.
+[06:49:40]	⭐ lechu2375 ⭐ has connected.
+[06:50:00]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[06:50:03]	Marek Sewczuk entered observer.
+[06:50:05]	Marek Sewczuk exited observer at their location.
+[06:50:11]	Marek Sewczuk has spawned a 'Entity [504][ix_talker]'.
+[06:52:58]	Marek Sewczuk ran 'drop' on item 'Plecak zbieracza' (#2823)
+[06:52:58]	Marek Sewczuk has lost a 'Plecak zbieracza' #2823.
+[06:52:58]	Marek Sewczuk has lost a 'Amunicja 5.7x28' #2827.
+[06:52:58]	Marek Sewczuk has lost a 'MP5SD6' #2820.
+[06:52:58]	Marek Sewczuk has lost a 'Amunicja 5.7x28' #2828.
+[06:52:58]	Marek Sewczuk has lost a 'Amunicja 7.62x51' #2814.
+[06:52:58]	Marek Sewczuk has lost a 'FN FAL' #2813.
+[06:52:58]	Marek Sewczuk has lost a 'Hełm 6B47' #2824.
+[06:52:58]	Marek Sewczuk has lost a 'LR-300' #2815.
+[06:52:58]	Marek Sewczuk has lost a 'IMI Galil' #2830.
+[06:52:58]	Marek Sewczuk has lost a 'SG 551' #2821.
+[06:52:58]	Marek Sewczuk has lost a 'IMI Galil' #2831.
+[06:52:58]	Marek Sewczuk has lost a 'FN P90' #2825.
+[06:52:58]	Marek Sewczuk has lost a 'Amunicja 5.45x39' #2812.
+[06:54:15]	Marek Sewczuk used command '/MapRestart 1'.
+[06:55:55]	⭐ lechu2375 ⭐ has connected.
+[06:56:28]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[06:57:06]	Marek Sewczuk has spawned a 'Entity [500][ix_talker]'.
+[06:57:20]	Marek Sewczuk has spawned a 'Entity [428][ix_vendor_adv]'.
+[06:57:33]	Marek Sewczuk used the 'John Doe' vendor.
+[07:15:43]	⭐ lechu2375 ⭐ has killed Marek Sewczuk.
+[07:19:01]	Marek Sewczuk entered observer.
+[07:19:02]	Marek Sewczuk exited observer at their location.
+[07:19:05]	Marek Sewczuk entered observer.
+[07:19:10]	Marek Sewczuk exited observer at their location.
+[07:19:34]	Marek Sewczuk has spawned a 'Entity [428][ix_talker]'.
+[07:19:43]	Marek Sewczuk has spawned a 'Entity [428][ix_vendor_adv]'.
+[07:27:03]	Marek Sewczuk used command '/MapRestart 1'.
+[07:28:46]	⭐ lechu2375 ⭐ has connected.
+[07:29:29]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[07:29:38]	Marek Sewczuk has spawned a 'Entity [507][ix_talker]'.
+[07:30:14]	Marek Sewczuk used the '' vendor.
+[07:30:28]	Marek Sewczuk has gained a 'Amunicja 7.62x51' #2909.
+[07:30:28]	Marek Sewczuk has gained a 'FN FAL' #2910.
+[07:30:28]	Marek Sewczuk has gained a 'FN FAL' #2911.
+[07:30:28]	Marek Sewczuk has gained a 'FN FAL' #2912.
+[07:30:28]	Marek Sewczuk has gained a 'FN FAL' #2913.
+[07:30:28]	Marek Sewczuk has gained a 'FN FAL' #2914.
+[07:30:28]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2915.
+[07:30:28]	Marek Sewczuk has gained a 'Muzzlebrake' #2916.
+[07:30:28]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #2917.
+[07:30:28]	Marek Sewczuk has gained a 'Bandaż' #2918.
+[07:30:28]	Marek Sewczuk has gained a 'Hełm 6B47' #2919.
+[07:30:49]	Marek Sewczuk ran 'combine' on item 'FN FAL' (#2912)
+[07:32:42]	Marek Sewczuk has gained 94000 RU.
+[07:32:43]	Marek Sewczuk has gained 94000 RU.
+[07:32:44]	Marek Sewczuk has gained 94000 RU.
+[07:32:45]	Marek Sewczuk has gained 94000 RU.
+[07:32:47]	Marek Sewczuk has gained 15000 RU.
+[07:32:49]	Marek Sewczuk has gained 94000 RU.
+[07:32:54]	Marek Sewczuk has gained 80000 RU.
+[07:32:55]	Marek Sewczuk has gained 4167 RU.
+[07:32:57]	Marek Sewczuk has gained 41019 RU.
+[07:32:59]	Marek Sewczuk has gained 15000 RU.
+[07:36:14]	Marek Sewczuk has gained a 'SVD' #2923.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2924.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2925.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2926.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2927.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2928.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2929.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2930.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2931.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2932.
+[07:36:14]	Marek Sewczuk has gained a 'Amunicja 7.62x54' #2933.
+[07:36:14]	Marek Sewczuk has gained a 'Plecak zbieracza' #2934.
+[07:36:14]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2935.
+[07:36:14]	Marek Sewczuk has gained a 'Muzzlebrake' #2936.
+[07:36:14]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #2937.
+[07:36:14]	Marek Sewczuk has gained a 'Hełm 6B47' #2938.
+[07:36:26]	Marek Sewczuk ran 'Equip' on item 'Hełm 6B47' (#2938)
+[07:36:26]	Marek Sewczuk ran 'Equip' on item 'Kamizelka klasy 3' (#2937)
+[07:36:30]	Marek Sewczuk ran 'Equip' on item 'SVD' (#2923)
+[07:37:32]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2927)
+[07:37:33]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2926)
+[07:37:34]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2926)
+[07:37:35]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2931)
+[07:37:36]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2925)
+[07:37:38]	Marek Sewczuk ran 'combine' on item 'SVD' (#2923)
+[07:37:41]	Marek Sewczuk ran 'combine' on item 'Amunicja 7.62x54' (#2930)
+[07:38:58]	Marek Sewczuk has gained a 'IMI Galil' #2939.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2940.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2941.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2942.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2943.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2944.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2945.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2946.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2947.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2948.
+[07:38:58]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2949.
+[07:38:58]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2950.
+[07:38:58]	Marek Sewczuk has gained a 'Muzzlebrake' #2951.
+[07:38:58]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #2952.
+[07:38:58]	Marek Sewczuk has gained a 'Hełm 6B47' #2953.
+[07:39:30]	Marek Sewczuk has gained a 'AN-94' #2954.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2955.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2956.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2957.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2958.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2959.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2960.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2961.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2962.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2963.
+[07:39:30]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #2964.
+[07:39:30]	Marek Sewczuk has gained a 'Aimpoint CompM4' #2965.
+[08:38:30]	⭐ lechu2375 ⭐ has connected.
+[08:38:52]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[08:42:47]	Marek Sewczuk used command '/MapRestart 1'.
+[08:49:58]	⭐ lechu2375 ⭐ has connected.
+[08:50:17]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[08:51:23]	Marek Sewczuk entered observer.
+[08:51:24]	Marek Sewczuk exited observer at their location.
+[08:53:09]	Marek Sewczuk entered observer.
+[08:53:14]	Marek Sewczuk exited observer at their location.
+[08:53:53]	Marek Sewczuk used command '/MapRestart 1'.
+[08:55:39]	⭐ lechu2375 ⭐ has connected.
+[08:56:00]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[08:57:28]	Marek Sewczuk used command '/MapRestart 1'.
+[08:59:12]	⭐ lechu2375 ⭐ has connected.
+[09:01:22]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[09:06:44]	Marek Sewczuk used command '/MapRestart 1'.
+[09:08:26]	⭐ lechu2375 ⭐ has connected.
+[09:08:43]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[09:09:41]	Marek Sewczuk entered observer.
+[09:09:43]	Marek Sewczuk exited observer at their location.
+[09:09:44]	Marek Sewczuk entered observer.
+[09:09:45]	Marek Sewczuk exited observer at their location.
+[09:12:52]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[09:24:18]	⭐ lechu2375 ⭐ has connected.
+[09:24:39]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[09:25:03]	Marek Sewczuk opened the 'Zrzut' #56 container.
+[09:25:15]	Marek Sewczuk has gained a 'TOZ-34' #2177.
+[09:25:18]	Marek Sewczuk has gained a 'SG 551' #2197.
+[09:25:39]	Marek Sewczuk closed the 'Zrzut' #56 container.
+[09:26:14]	Marek Sewczuk entered observer.
+[09:26:16]	Marek Sewczuk exited observer at their location.
+[09:29:17]	Marek Sewczuk opened the 'Zrzut' #56 container.
+[09:29:20]	Marek Sewczuk ran 'use' on item 'Sok' (#2178)
+[09:29:21]	Marek Sewczuk ran 'use' on item 'Puree z warzyw' (#2195)
+[09:29:22]	Marek Sewczuk closed the 'Zrzut' #56 container.
+[09:29:23]	Marek Sewczuk opened the 'Zrzut' #56 container.
+[09:29:25]	Marek Sewczuk ran 'use' on item 'Tuńczyk w puszce' (#2185)
+[09:29:26]	Marek Sewczuk ran 'use' on item 'Slickers' (#2173)
+[09:29:27]	Marek Sewczuk ran 'use' on item 'Slickers' (#2173)
+[09:29:30]	Marek Sewczuk closed the 'Zrzut' #56 container.
+[09:29:30]	Marek Sewczuk opened the 'Zrzut' #56 container.
+[09:29:35]	Marek Sewczuk has gained a 'Owsianka' #2192.
+[09:29:43]	Marek Sewczuk closed the 'Zrzut' #56 container.
+[09:29:58]	Marek Sewczuk opened the 'Zrzut' #57 container.
+[09:30:10]	Marek Sewczuk has gained a 'Wódka' #2211.
+[09:30:11]	Marek Sewczuk ran 'use' on item 'Wódka' (#2211)
+[09:30:13]	Marek Sewczuk closed the 'Zrzut' #57 container.
+[09:30:14]	Marek Sewczuk opened the 'Zrzut' #57 container.
+[09:30:34]	Marek Sewczuk has gained a 'Cheek Pad' #2224.
+[09:30:38]	Marek Sewczuk has gained a 'AN/PEQ-15' #2220.
+[09:30:42]	Marek Sewczuk has gained a 'Morfina' #2215.
+[09:30:43]	Marek Sewczuk has gained a 'Epinephrine' #2206.
+[09:30:45]	Marek Sewczuk closed the 'Zrzut' #57 container.
+[09:30:54]	Marek Sewczuk opened the 'Zrzut' #58 container.
+[09:31:15]	Marek Sewczuk has gained a 'Groszek' #2253.
+[09:31:16]	Marek Sewczuk ran 'use' on item 'Groszek' (#2253)
+[09:31:19]	Marek Sewczuk has gained a 'Vicasol' #2243.
+[09:31:22]	Marek Sewczuk ran 'combine' on item 'Plecak zbieracza' (#2934)
+[09:31:22]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #2240.
+[09:31:32]	Marek Sewczuk closed the 'Zrzut' #58 container.
+[09:31:40]	Marek Sewczuk opened the 'Zrzut' #59 container.
+[09:31:48]	Marek Sewczuk ran 'use' on item 'Woda' (#2274)
+[09:31:49]	Marek Sewczuk ran 'use' on item 'Sok' (#2266)
+[09:31:52]	Marek Sewczuk has gained a 'Apteczka' #2263.
+[09:31:53]	Marek Sewczuk ran 'drop' on item 'Apteczka' (#2263)
+[09:31:53]	Marek Sewczuk has lost a 'Apteczka' #2263.
+[09:31:55]	Marek Sewczuk closed the 'Zrzut' #59 container.
+[09:32:34]	Marek Sewczuk ran 'take' on item 'Slickers' (#2948)
+[09:32:34]	Marek Sewczuk has gained a 'Slickers' #2948.
+[09:32:40]	Marek Sewczuk entered observer.
+[09:32:42]	Marek Sewczuk exited observer at their location.
+[09:35:48]	Marek Sewczuk opened the 'Zrzut' #48 container.
+[09:35:51]	Marek Sewczuk closed the 'Zrzut' #48 container.
+[09:41:56]	⭐ lechu2375 ⭐ has taken 15 RU from '' #1686045024 (0 RU left).
+[09:41:56]	Marek Sewczuk has gained a 'Czapka oficerska' #3020.
+[09:41:56]	Marek Sewczuk has gained a 'Amunicja .50 AE' #3019.
+[09:47:32]	Marek Sewczuk has gained 48 RU.
+[09:47:56]	Marek Sewczuk opened the 'Zrzut' #58 container.
+[09:48:03]	Marek Sewczuk closed the 'Zrzut' #58 container.
+[09:48:20]	Marek Sewczuk entered observer.
+[09:48:23]	Marek Sewczuk exited observer at their location.
+[09:48:24]	Marek Sewczuk entered observer.
+[09:48:24]	Marek Sewczuk exited observer at their location.
+[09:48:30]	Marek Sewczuk entered observer.
+[09:48:32]	Marek Sewczuk exited observer at their location.
+[09:49:40]	Marek Sewczuk has gained a 'M110' #3032.
+[09:50:15]	Marek Sewczuk ran 'take' on item 'Gasmask' (#2946)
+[09:50:15]	Marek Sewczuk has gained a 'Gasmask' #2946.
+[09:50:19]	Marek Sewczuk ran 'Equip' on item 'Gasmask' (#2946)
+[09:50:44]	Marek Sewczuk opened the 'Zrzut' #59 container.
+[09:50:47]	Marek Sewczuk has gained a 'Herkules' #2270.
+[09:50:51]	Marek Sewczuk ran 'combine' on item 'Plecak zbieracza' (#2934)
+[09:50:51]	Marek Sewczuk has gained a 'Cheek Pad' #2267.
+[09:50:53]	Marek Sewczuk closed the 'Zrzut' #59 container.
+[09:51:36]	Marek Sewczuk ran 'combine' on item 'Plecak zbieracza' (#2934)
+[09:51:36]	Marek Sewczuk has gained a 'AUG A3' #3037.
+[09:52:09]	Marek Sewczuk entered observer.
+[09:52:11]	Marek Sewczuk exited observer at their location.
+[09:52:19]	Marek Sewczuk entered observer.
+[09:52:21]	Marek Sewczuk exited observer at their location.
+[09:52:34]	Marek Sewczuk entered observer.
+[09:52:38]	Marek Sewczuk exited observer at their location.
+[09:52:48]	Marek Sewczuk ran 'EquipUn' on item 'Gasmask' (#2946)
+[09:53:14]	Marek Sewczuk entered observer.
+[09:53:15]	Marek Sewczuk exited observer at their location.
+[09:53:16]	Marek Sewczuk entered observer.
+[09:53:16]	Marek Sewczuk exited observer at their location.
+[09:54:04]	Marek Sewczuk entered observer.
+[09:54:05]	Marek Sewczuk exited observer at their location.
+[09:54:10]	Marek Sewczuk entered observer.
+[09:54:12]	Marek Sewczuk exited observer at their location.
+[09:54:16]	Marek Sewczuk entered observer.
+[09:54:17]	Marek Sewczuk exited observer at their location.
+[09:54:43]	Marek Sewczuk has gained 10 RU.
+[09:54:44]	Marek Sewczuk entered observer.
+[09:54:57]	Marek Sewczuk exited observer at their location.
+[09:55:04]	Marek Sewczuk ran 'take' on item 'Herkules' (#2956)
+[09:55:19]	Marek Sewczuk entered observer.
+[09:55:27]	Marek Sewczuk exited observer at their location.
+[09:55:29]	Marek Sewczuk entered observer.
+[09:55:40]	Marek Sewczuk exited observer at their location.
+[09:55:53]	Marek Sewczuk has spawned a 'NextBot [523][nb_type1]'.
+[09:55:55]	Marek Sewczuk has spawned a 'NextBot [525][nb_type1]'.
+[09:55:58]	Marek Sewczuk has spawned a 'NextBot [531][nb_type1]'.
+[09:56:00]	Marek Sewczuk has spawned a 'NextBot [536][nb_infected_citizen_slow]'.
+[09:56:01]	Marek Sewczuk has spawned a 'NextBot [537][nb_infected_citizen_slow]'.
+[09:56:02]	Marek Sewczuk has spawned a 'NextBot [539][nb_infected_citizen_slow]'.
+[09:56:03]	Marek Sewczuk entered observer.
+[09:56:04]	Marek Sewczuk has spawned a 'NextBot [539][nb_infected_citizen_slow]'.
+[09:56:04]	Marek Sewczuk has spawned a 'NextBot [540][nb_infected_citizen_slow]'.
+[09:56:06]	Marek Sewczuk has spawned a 'NextBot [541][nb_infected_citizen_slow]'.
+[09:56:08]	Marek Sewczuk exited observer at their location.
+[09:56:16]	Marek Sewczuk has taken 4 damage from nb_swat_nade.
+[09:56:17]	Marek Sewczuk has taken 4 damage from nb_swat_nade.
+[09:56:17]	Marek Sewczuk entered observer.
+[09:56:35]	Marek Sewczuk exited observer at their location.
+[09:56:47]	Marek Sewczuk entered observer.
+[09:57:45]	Marek Sewczuk has spawned a 'NextBot [537][nb_seeker]'.
+[09:57:46]	Marek Sewczuk has spawned a 'NextBot [548][nb_seeker]'.
+[09:57:46]	Marek Sewczuk has spawned a 'NextBot [549][nb_seeker]'.
+[09:57:47]	Marek Sewczuk has spawned a 'NextBot [551][nb_seeker]'.
+[09:57:48]	Marek Sewczuk has spawned a 'NextBot [552][nb_seeker]'.
+[09:57:48]	Marek Sewczuk has spawned a 'NextBot [553][nb_seeker]'.
+[09:59:16]	Marek Sewczuk exited observer at their location.
+[10:01:16]	Marek Sewczuk entered observer.
+[10:01:31]	Marek Sewczuk exited observer at their location.
+[10:01:44]	Marek Sewczuk entered observer.
+[10:03:13]	Marek Sewczuk has spawned a 'NextBot [506][nb_mercenary]'.
+[10:03:14]	Marek Sewczuk has spawned a 'NextBot [525][nb_mercenary]'.
+[10:03:15]	Marek Sewczuk has spawned a 'NextBot [537][nb_mercenary]'.
+[10:03:15]	Marek Sewczuk has spawned a 'NextBot [542][nb_mercenary]'.
+[10:03:16]	Marek Sewczuk has spawned a 'NextBot [546][nb_mercenary]'.
+[10:03:23]	Marek Sewczuk has spawned a 'NextBot [548][nb_swat]'.
+[10:03:24]	Marek Sewczuk has spawned a 'NextBot [550][nb_swat]'.
+[10:03:24]	Marek Sewczuk has spawned a 'NextBot [552][nb_swat]'.
+[10:03:25]	Marek Sewczuk has spawned a 'NextBot [554][nb_swat]'.
+[10:05:13]	Marek Sewczuk exited observer at their location.
+[10:05:14]	Marek Sewczuk opened the 'Zrzut' #34 container.
+[10:05:16]	Marek Sewczuk closed the 'Zrzut' #34 container.
+[10:05:17]	Marek Sewczuk opened the 'Zrzut' #34 container.
+[10:05:19]	Marek Sewczuk ran 'combine' on item 'Plecak zbieracza' (#2934)
+[10:05:19]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #960.
+[10:05:20]	Marek Sewczuk closed the 'Zrzut' #34 container.
+[10:05:32]	Marek Sewczuk entered observer.
+[10:05:33]	Marek Sewczuk exited observer at their location.
+[10:05:50]	Marek Sewczuk entered observer.
+[10:07:10]	Marek Sewczuk exited observer at their location.
+[10:07:43]	Marek Sewczuk entered observer.
+[10:07:47]	Marek Sewczuk exited observer at their location.
+[10:07:49]	Marek Sewczuk entered observer.
+[10:07:51]	Marek Sewczuk exited observer at their location.
+[10:08:06]	Marek Sewczuk entered observer.
+[10:08:07]	Marek Sewczuk exited observer at their location.
+[10:08:09]	Marek Sewczuk entered observer.
+[10:08:12]	Marek Sewczuk exited observer at their location.
+[10:08:14]	Marek Sewczuk entered observer.
+[10:08:15]	Marek Sewczuk exited observer at their location.
+[10:10:20]	Marek Sewczuk entered observer.
+[10:10:40]	Marek Sewczuk exited observer at their location.
+[10:11:56]	Marek Sewczuk ran 'use' on item 'Herkules' (#2270)
+[10:12:13]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[10:12:14]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[10:12:15]	Marek Sewczuk has taken 2 damage from nb_mercenary.
+[10:12:41]	Marek Sewczuk ran 'use' on item 'Woda' (#3069)
+[10:12:44]	Marek Sewczuk ran 'take' on item 'Apteczka wojskowa' (#2944)
+[10:12:44]	Marek Sewczuk has gained a 'Apteczka wojskowa' #2944.
+[10:12:47]	Marek Sewczuk ran 'use' on item 'Apteczka wojskowa' (#2944)
+[10:15:04]	Marek Sewczuk entered observer.
+[10:15:07]	Marek Sewczuk exited observer at their location.
+[10:15:12]	Marek Sewczuk entered observer.
+[10:15:15]	Marek Sewczuk exited observer at their location.
+[10:15:42]	⭐ lechu2375 ⭐ has taken 23 RU from '' #1686047073 (0 RU left).
+[10:15:42]	Marek Sewczuk has gained a 'Wódka' #3074.
+[10:15:42]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #3073.
+[10:16:02]	Marek Sewczuk entered observer.
+[10:16:06]	Marek Sewczuk exited observer at their location.
+[10:16:07]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[14:03:38]	⭐ lechu2375 ⭐ has connected.
+[14:04:00]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[14:04:04]	Marek Sewczuk entered observer.
+[14:04:11]	Marek Sewczuk exited observer at their location.
+[14:04:16]	Marek Sewczuk entered observer.
+[14:07:52]	Marek Sewczuk exited observer at their location.
+[14:08:52]	Marek Sewczuk entered observer.
+[14:08:53]	Marek Sewczuk exited observer at their location.
+[14:10:03]	Marek Sewczuk entered observer.
+[14:10:09]	Marek Sewczuk ran 'take' on item 'Lina' (#3088)
+[14:10:09]	Marek Sewczuk has gained a 'Lina' #3088.
+[14:10:18]	Marek Sewczuk exited observer at their location.
+[14:10:23]	Marek Sewczuk ran 'take' on item 'Proch strzelniczy LATAWIEC' (#3082)
+[14:10:23]	Marek Sewczuk has gained a 'Proch strzelniczy LATAWIEC' #3082.
+[14:10:29]	Marek Sewczuk entered observer.
+[14:10:31]	Marek Sewczuk exited observer at their location.
+[14:10:36]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[17:56:17]	Burdegg has connected.
+[17:59:55]	(Norex) has connected.
+[18:01:07]	Burdegg loaded the character 'Bradley Dickhead'
+[18:02:16]	Bradley Dickhead ran 'take' on item 'Sightmark SM13003B-DT' (#3175)
+[18:02:16]	Bradley Dickhead has gained a 'Sightmark SM13003B-DT' #3175.
+[18:02:27]	Bradley Dickhead ran 'take' on item 'Czarnoruski mundur wojskowy' (#3176)
+[18:02:27]	Bradley Dickhead has gained a 'Czarnoruski mundur wojskowy' #3176.
+[18:02:30]	Bradley Dickhead ran 'take' on item 'Kamizelka klasy 4' (#3178)
+[18:02:30]	Bradley Dickhead has gained a 'Kamizelka klasy 4' #3178.
+[18:02:37]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3179)
+[18:02:37]	Bradley Dickhead has gained a 'Apteczka wojskowa' #3179.
+[18:02:43]	Bradley Dickhead ran 'take' on item 'Hełm ALTYN' (#3180)
+[18:02:43]	Bradley Dickhead has gained a 'Hełm ALTYN' #3180.
+[18:02:50]	Bradley Dickhead ran 'take' on item 'AK-104' (#3181)
+[18:02:50]	Bradley Dickhead has gained a 'AK-104' #3181.
+[18:02:56]	Bradley Dickhead ran 'take' on item 'Glock-20' (#3182)
+[18:02:56]	Bradley Dickhead has gained a 'Glock-20' #3182.
+[18:03:00]	Bradley Dickhead ran 'Equip' on item 'Czarnoruski mundur wojskowy' (#3176)
+[18:03:02]	Bradley Dickhead ran 'Equip' on item 'Glock-20' (#3182)
+[18:03:03]	Bradley Dickhead ran 'Equip' on item 'AK-104' (#3181)
+[18:03:04]	Bradley Dickhead ran 'Equip' on item 'Kamizelka klasy 4' (#3178)
+[18:03:04]	Bradley Dickhead ran 'Equip' on item 'Hełm ALTYN' (#3180)
+[18:04:22]	Bradley Dickhead ran 'EquipUn' on item 'AK-104' (#3181)
+[18:04:23]	Bradley Dickhead ran 'Equip' on item 'AK-104' (#3181)
+[18:04:25]	Bradley Dickhead ran 'Equip' on item 'Glock-20' (#3182)
+[18:04:44]	Bradley Dickhead ran 'Equip' on item 'AK-104' (#3181)
+[18:04:59]	Bradley Dickhead ran 'take' on item 'Zestaw rusznikarza' (#3183)
+[18:04:59]	Bradley Dickhead has gained a 'Zestaw rusznikarza' #3183.
+[18:05:11]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x39' (#3185)
+[18:05:11]	Bradley Dickhead has gained a 'Amunicja 7.62x39' #3185.
+[18:05:12]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x39' (#3188)
+[18:05:12]	Bradley Dickhead has gained a 'Amunicja 7.62x39' #3188.
+[18:05:12]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x39' (#3186)
+[18:05:12]	Bradley Dickhead has gained a 'Amunicja 7.62x39' #3186.
+[18:05:13]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x39' (#3187)
+[18:05:13]	Bradley Dickhead has gained a 'Amunicja 7.62x39' #3187.
+[18:05:15]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x39' (#3184)
+[18:05:15]	Bradley Dickhead has gained a 'Amunicja 7.62x39' #3184.
+[18:05:46]	Bradley Dickhead has gained a 'Sightmark SM13003B-DT' #3189.
+[18:06:49]	Bradley Dickhead opened the 'Zrzut' #59 container.
+[18:07:00]	Bradley Dickhead closed the 'Zrzut' #59 container.
+[18:07:02]	Bradley Dickhead opened the 'Zrzut' #59 container.
+[18:07:05]	Bradley Dickhead has gained a 'FN Minimi' #2259.
+[18:07:07]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #2258.
+[18:07:09]	Bradley Dickhead has gained a 'Raging Bull' #2278.
+[18:07:12]	Bradley Dickhead closed the 'Zrzut' #59 container.
+[18:07:35]	Bradley Dickhead has gained a 'Części do broni' #3191.
+[18:07:43]	Bradley Dickhead has taken 3 damage from nb_mercenary.
+[18:07:45]	Bradley Dickhead has taken 3 damage from nb_mercenary.
+[18:07:45]	Bradley Dickhead has taken 3 damage from nb_mercenary.
+[18:07:45]	Bradley Dickhead has taken 3 damage from nb_mercenary.
+[18:07:46]	Bradley Dickhead has taken 3 damage from nb_mercenary.
+[18:07:53]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3179)
+[18:08:05]	Bradley Dickhead ran 'Repair' on item 'AK-104' (#3181)
+[18:08:11]	Bradley Dickhead has gained a 'Naprawka do zbroi/pancerza' #3192.
+[18:08:56]	Bradley Dickhead opened the 'Zrzut' #60 container.
+[18:09:05]	Bradley Dickhead ran 'combine' on item 'Kar98K' (#2295)
+[18:09:06]	Bradley Dickhead has gained a 'Groszek' #2298.
+[18:09:07]	Bradley Dickhead closed the 'Zrzut' #60 container.
+[18:09:10]	Bradley Dickhead ran 'use' on item 'Groszek' (#2298)
+[18:09:25]	Bradley Dickhead ran 'take' on item 'Płytka drukowana' (#3165)
+[18:09:25]	Bradley Dickhead has gained a 'Płytka drukowana' #3165.
+[18:18:07]	Bradley Dickhead opened the 'Zrzut' #73 container.
+[18:22:31]	Bradley Dickhead closed the 'Zrzut' #73 container.
+[18:22:46]	⭐ lechu2375 ⭐ has connected.
+[18:23:42]	⭐ lechu2375 ⭐ loaded the character 'Marek Sewczuk'
+[18:23:46]	Marek Sewczuk ran 'take' on item 'Łachy łobuza' (#3169)
+[18:23:51]	[OOC] Marek Sewczuk: elo
+[18:24:02]	Marek Sewczuk entered observer.
+[18:24:05]	Marek Sewczuk exited observer at their location.
+[18:24:06]	ttomi has connected.
+[18:24:06]	[OOC] Bradley Dickhead: elo
+[18:24:24]	ttomi loaded the character 'Vezeniel'
+[18:24:30]	Marek Sewczuk entered observer.
+[18:24:31]	Marek Sewczuk exited observer at their location.
+[18:24:38]	[OOC] Marek Sewczuk: do talkera idzcie on itemy ma co 1 dzien
+[18:25:09]	Vezeniel opened the 'Zrzut' #54 container.
+[18:25:25]	Vezeniel has gained a 'AK-74' #2138.
+[18:25:26]	Vezeniel ran 'EquipUn' on item 'AK-47' (#884)
+[18:25:28]	(Norex) loaded the character 'Joradan Mikel'
+[18:25:30]	Vezeniel has gained a 'MP5A5' #2137.
+[18:25:39]	Vezeniel has gained a 'Amunicja 9x19' #2118.
+[18:25:41]	Bradley Dickhead has taken 72 damage from worldspawn.
+[18:25:43]	Vezeniel has gained a 'AN/PEQ-15' #2119.
+[18:25:45]	Bradley Dickhead has taken 76 damage from worldspawn.
+[18:25:45]	worldspawn has killed Bradley Dickhead.
+[18:25:57]	Vezeniel has gained a 'Sok' #2123.
+[18:25:58]	[OOC] Bradley Dickhead: airdrop utknal w niebie w ogole
+[18:26:02]	Joradan Mikel has gained a 'Czarnoruski mundur wojskowy' #3176.
+[18:26:05]	Joradan Mikel ran 'EquipUn' on item 'Kamizelka klasy 3' (#766)
+[18:26:07]	Joradan Mikel ran 'drop' on item 'Kamizelka klasy 3' (#766)
+[18:26:07]	Joradan Mikel has lost a 'Kamizelka klasy 3' #766.
+[18:26:09]	Joradan Mikel has gained a 'Hełm ALTYN' #3180.
+[18:26:10]	Joradan Mikel has gained a 'Naprawka do zbroi/pancerza' #3192.
+[18:26:11]	Joradan Mikel has gained a 'Amunicja 7.62x39' #3188.
+[18:26:11]	Joradan Mikel has gained a 'Płytka drukowana' #3165.
+[18:26:11]	Joradan Mikel has gained a 'Amunicja 7.62x39' #3187.
+[18:26:12]	Joradan Mikel has gained a 'AK-104' #3181.
+[18:26:13]	Joradan Mikel has gained a 'FN Minimi' #2259.
+[18:26:13]	Joradan Mikel has gained a 'Raging Bull' #2278.
+[18:26:14]	Joradan Mikel has gained a 'Części do broni' #3191.
+[18:26:14]	Joradan Mikel has gained a 'Amunicja 7.62x39' #3184.
+[18:26:14]	Joradan Mikel has gained a 'Glock-20' #3182.
+[18:26:15]	Joradan Mikel has gained a 'Amunicja 5.56x45' #2258.
+[18:26:15]	Bradley Dickhead ran 'take' on item 'Dezodorant' (#3089)
+[18:26:15]	Bradley Dickhead has gained a 'Dezodorant' #3089.
+[18:26:15]	Joradan Mikel has gained a 'Kamizelka klasy 4' #3178.
+[18:26:21]	Joradan Mikel ran 'Equip' on item 'Czarnoruski mundur wojskowy' (#3176)
+[18:26:22]	Joradan Mikel ran 'Equip' on item 'Hełm ALTYN' (#3180)
+[18:26:23]	Joradan Mikel ran 'Equip' on item 'FN Minimi' (#2259)
+[18:26:30]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:26:30]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:30]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:30]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:26:30]	Joradan Mikel ran 'Equip' on item 'AK-104' (#3181)
+[18:26:30]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:30]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Vezeniel closed the 'Zrzut' #54 container.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:26:31]	nb_mercenary has killed Bradley Dickhead.
+[18:26:34]	Vezeniel ran 'Equip' on item 'MP5A5' (#2137)
+[18:26:37]	Vezeniel opened the 'Zrzut' #54 container.
+[18:26:40]	Joradan Mikel opened the 'Zrzut' #73 container.
+[18:26:42]	Bradley Dickhead opened the 'Zrzut' #54 container.
+[18:26:42]	Marek Sewczuk ran 'take' on item 'Amunicja 5.7x28' (#3160)
+[18:26:42]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #3160.
+[18:26:44]	Bradley Dickhead opened the 'Zrzut' #54 container.
+[18:26:47]	Joradan Mikel closed the 'Zrzut' #73 container.
+[18:26:47]	Vezeniel has taken 7 damage from Burdegg.
+[18:26:48]	Vezeniel has taken 6 damage from Burdegg.
+[18:26:49]	Vezeniel closed the 'Zrzut' #54 container.
+[18:26:49]	Vezeniel has taken 7 damage from Burdegg.
+[18:26:50]	Bradley Dickhead has taken 23 damage from ttomi.
+[18:26:50]	Bradley Dickhead has taken 23 damage from ttomi.
+[18:26:50]	Vezeniel has taken 6 damage from Burdegg.
+[18:26:50]	Bradley Dickhead has taken 46 damage from ttomi.
+[18:26:50]	Bradley Dickhead has taken 46 damage from ttomi.
+[18:26:50]	ttomi has killed Bradley Dickhead with arccw_firearms2_mp5a5.
+[18:26:52]	Marek Sewczuk ran 'take' on item 'Lina' (#3093)
+[18:26:52]	Marek Sewczuk has gained a 'Lina' #3093.
+[18:26:57]	Vezeniel opened the 'Zrzut' #54 container.
+[18:26:59]	Vezeniel has gained a 'Apteczka' #2120.
+[18:27:01]	Vezeniel closed the 'Zrzut' #54 container.
+[18:27:03]	Vezeniel ran 'use' on item 'Apteczka' (#2120)
+[18:27:04]	Vezeniel opened the 'Zrzut' #54 container.
+[18:27:13]	Vezeniel closed the 'Zrzut' #54 container.
+[18:27:17]	Vezeniel opened the 'Zrzut' #70 container.
+[18:27:26]	Vezeniel has gained a 'Gasmask' #2575.
+[18:27:27]	Vezeniel has gained a 'Hełm 6B47' #2576.
+[18:27:44]	Vezeniel has gained a 'Karabinek AK-101' #2595.
+[18:27:47]	Vezeniel has gained a 'Amunicja 5.56x45' #2571.
+[18:27:49]	Marek Sewczuk has gained 21 RU.
+[18:27:50]	Burdegg has taken 10 RU from '' #1686076621 (0 RU left).
+[18:27:50]	Bradley Dickhead has gained a 'Hełm ACH' #3207.
+[18:27:50]	Bradley Dickhead has gained a 'Slickers' #3206.
+[18:27:50]	Bradley Dickhead has gained a 'Butelka wody' #3208.
+[18:27:53]	Bradley Dickhead ran 'Equip' on item 'Hełm ACH' (#3207)
+[18:27:54]	Vezeniel closed the 'Zrzut' #70 container.
+[18:28:00]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:28:01]	Marek Sewczuk ran 'take' on item 'Papier do drukarki' (#3205)
+[18:28:03]	Joradan Mikel closed the 'Zrzut' #70 container.
+[18:28:05]	Vezeniel ran 'EquipUn' on item 'MP5A5' (#2137)
+[18:28:07]	Vezeniel ran 'Equip' on item 'Karabinek AK-101' (#2595)
+[18:28:08]	Vezeniel ran 'Equip' on item 'Gasmask' (#2575)
+[18:28:09]	Marek Sewczuk has taken 15 damage from nb_seeker.
+[18:28:10]	Vezeniel ran 'Equip' on item 'Hełm 6B47' (#2576)
+[18:28:12]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:28:12]	Marek Sewczuk has gained 11 RU.
+[18:28:18]	Joradan Mikel ran 'drop' on item 'Naprawka do zbroi/pancerza' (#3192)
+[18:28:18]	Joradan Mikel has lost a 'Naprawka do zbroi/pancerza' #3192.
+[18:28:22]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[18:28:24]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[18:28:24]	Joradan Mikel closed the 'Zrzut' #70 container.
+[18:28:26]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[18:28:26]	Vezeniel ran 'take' on item 'Zapałki' (#3105)
+[18:28:26]	Vezeniel has gained a 'Zapałki' #3105.
+[18:28:28]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[18:28:30]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[18:28:30]	nb_seeker has killed Bradley Dickhead.
+[18:28:36]	Joradan Mikel ran 'Equip' on item 'FN Minimi' (#2259)
+[18:28:39]	Marek Sewczuk ran 'take' on item 'Chleb' (#3155)
+[18:28:39]	Marek Sewczuk has gained a 'Chleb' #3155.
+[18:28:41]	Joradan Mikel ran 'Detach' on item 'AK-104' (#3181)
+[18:28:41]	Marek Sewczuk ran 'use' on item 'Chleb' (#3155)
+[18:28:45]	Joradan Mikel ran 'Equip' on item 'AK-104' (#3181)
+[18:28:51]	Joradan Mikel ran 'Equip' on item 'FN Minimi' (#2259)
+[18:28:53]	Joradan Mikel opened the 'Zrzut' #54 container.
+[18:28:56]	Joradan Mikel has gained a 'Amunicja 5.56x45' #2132.
+[18:28:57]	Vezeniel ran 'drop' on item 'AN/PEQ-15' (#2119)
+[18:28:57]	Vezeniel has lost a 'AN/PEQ-15' #2119.
+[18:29:00]	Vezeniel ran 'drop' on item 'MP5A5' (#2137)
+[18:29:00]	Vezeniel has lost a 'MP5A5' #2137.
+[18:29:02]	Joradan Mikel has gained a 'RAD-X' #2112.
+[18:29:04]	Joradan Mikel closed the 'Zrzut' #54 container.
+[18:29:04]	Vezeniel ran 'drop' on item 'Amunicja .50 AE' (#934)
+[18:29:04]	Vezeniel has lost a 'Amunicja .50 AE' #934.
+[18:29:05]	Marek Sewczuk ran 'take' on item 'Slickers' (#3158)
+[18:29:09]	Vezeniel opened the 'Zrzut' #70 container.
+[18:29:09]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:11]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:22]	Vezeniel closed the 'Zrzut' #70 container.
+[18:29:24]	Vezeniel opened the 'Zrzut' #70 container.
+[18:29:25]	Marek Sewczuk ran 'take' on item 'Pendrak' (#3097)
+[18:29:25]	Marek Sewczuk has gained a 'Pendrak' #3097.
+[18:29:34]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:35]	Vezeniel closed the 'Zrzut' #70 container.
+[18:29:37]	Vezeniel opened the 'Zrzut' #70 container.
+[18:29:37]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:43]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:45]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:48]	Marek Sewczuk ran 'take' on item 'Butelka wody' (#3098)
+[18:29:48]	Joradan Mikel ran 'Detach' on item 'AK-104' (#3181)
+[18:29:49]	Vezeniel has gained a 'Adrenalina' #2587.
+[18:29:50]	Joradan Mikel ran 'Equip' on item 'AK-104' (#3181)
+[18:29:52]	Vezeniel has gained a 'Scientific medkit' #2594.
+[18:29:52]	Joradan Mikel opened the 'Zrzut' #70 container.
+[18:29:52]	Marek Sewczuk ran 'drop' on item 'Lina' (#3093)
+[18:29:52]	Marek Sewczuk has lost a 'Lina' #3093.
+[18:29:54]	Marek Sewczuk ran 'take' on item 'Butelka wody' (#3098)
+[18:29:54]	Marek Sewczuk has gained a 'Butelka wody' #3098.
+[18:29:55]	Joradan Mikel opened the 'Zrzut' #54 container.
+[18:29:56]	Vezeniel closed the 'Zrzut' #70 container.
+[18:30:04]	Joradan Mikel ran 'combine' on item 'Amunicja 7.62x39' (#3187)
+[18:30:05]	Joradan Mikel ran 'combine' on item 'Amunicja 7.62x39' (#3187)
+[18:30:06]	Joradan Mikel ran 'combine' on item 'Amunicja 7.62x39' (#3188)
+[18:30:11]	Joradan Mikel ran 'combine' on item 'Amunicja 7.62x39' (#3188)
+[18:30:18]	Joradan Mikel has gained a 'Epinephrine' #2136.
+[18:30:25]	Joradan Mikel has gained a 'AN/PEQ-15' #2130.
+[18:30:27]	Joradan Mikel closed the 'Zrzut' #54 container.
+[18:30:27]	Marek Sewczuk ran 'use' on item 'Herkules' (#2270)
+[18:30:28]	Vezeniel opened the 'Zrzut' #71 container.
+[18:30:36]	Marek Sewczuk opened the 'Zrzut' #69 container.
+[18:30:39]	Vezeniel ran 'EquipUn' on item 'Mundur rosyjskich służb specjalnych wer. Niebieska' (#880)
+[18:30:41]	Vezeniel ran 'drop' on item 'Mundur rosyjskich służb specjalnych wer. Niebieska' (#880)
+[18:30:41]	Vezeniel has lost a 'Mundur rosyjskich służb specjalnych wer. Niebieska' #880.
+[18:30:43]	Vezeniel has gained a 'Czarny mundur najemnika' #2610.
+[18:30:44]	Vezeniel ran 'Equip' on item 'Czarny mundur najemnika' (#2610)
+[18:30:47]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #2556.
+[18:30:52]	Vezeniel ran 'EquipUn' on item 'Hełm 6B47' (#2576)
+[18:30:54]	Vezeniel has gained a 'Hełm ACH' #2617.
+[18:30:55]	Vezeniel ran 'Equip' on item 'Hełm ACH' (#2617)
+[18:30:59]	Marek Sewczuk has gained a 'Scientific medkit' #2544.
+[18:31:05]	Marek Sewczuk has gained a 'Apteczka' #2541.
+[18:31:10]	Marek Sewczuk has gained a 'Amunicja 7.62x51' #2549.
+[18:31:11]	Vezeniel ran 'combine' on item 'Puree z warzyw' (#844)
+[18:31:17]	Vezeniel ran 'combine' on item 'Sok' (#2123)
+[18:31:17]	Marek Sewczuk has gained a 'Desert Eagle .357' #2561.
+[18:31:19]	Vezeniel closed the 'Zrzut' #71 container.
+[18:31:24]	Vezeniel opened the 'Zrzut' #72 container.
+[18:31:26]	Marek Sewczuk has gained a 'Amunicja .357 Magnum' #2542.
+[18:31:38]	Bradley Dickhead ran 'take' on item 'Lina' (#3127)
+[18:31:38]	Bradley Dickhead has gained a 'Lina' #3127.
+[18:31:41]	Marek Sewczuk has gained a 'AN/PEQ-15' #2564.
+[18:31:43]	Marek Sewczuk closed the 'Zrzut' #69 container.
+[18:31:47]	Vezeniel has gained a 'Zestaw rusznikarza' #2640.
+[18:31:48]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:48]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:48]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:48]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has lost a 'Hełm ALTYN' #3180.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:49]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	Joradan Mikel has taken 5 damage from nb_mercenary.
+[18:31:50]	nb_mercenary has killed Joradan Mikel.
+[18:31:55]	Marek Sewczuk ran 'take' on item 'Proch strzelniczy JASTRZĄB' (#3095)
+[18:31:56]	(Norex) (STEAM_0:0:165922085) has disconnected.
+[18:31:59]	Vezeniel closed the 'Zrzut' #72 container.
+[18:32:03]	Vezeniel opened the 'Zrzut' #73 container.
+[18:32:16]	Vezeniel has gained a 'Amunicja 5.56x45' #2664.
+[18:32:20]	Vezeniel ran 'combine' on item 'Chleb' (#1010)
+[18:32:29]	Vezeniel closed the 'Zrzut' #73 container.
+[18:32:32]	Vezeniel opened the 'Zrzut' #74 container.
+[18:32:34]	Marek Sewczuk ran 'Equip' on item 'Desert Eagle .357' (#2561)
+[18:32:37]	Marek Sewczuk opened the 'Zrzut' #33 container.
+[18:32:40]	Marek Sewczuk closed the 'Zrzut' #33 container.
+[18:32:45]	Vezeniel closed the 'Zrzut' #74 container.
+[18:32:51]	Marek Sewczuk ran 'Equip' on item 'SVD' (#2923)
+[18:32:53]	Marek Sewczuk ran 'Equip' on item 'Desert Eagle .357' (#2561)
+[18:33:04]	Marek Sewczuk ran 'combine' on item 'M110' (#3032)
+[18:33:05]	Marek Sewczuk ran 'combine' on item 'AUG A3' (#3037)
+[18:33:19]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:33:22]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:33:52]	Bradley Dickhead opened the 'Zrzut' #68 container.
+[18:33:57]	Vezeniel opened the 'Zrzut' #70 container.
+[18:34:01]	Bradley Dickhead has gained a 'Uzi' #2522.
+[18:34:02]	Bradley Dickhead has gained a 'Amunicja 9x18' #2520.
+[18:34:03]	Bradley Dickhead closed the 'Zrzut' #68 container.
+[18:34:03]	Vezeniel has gained a 'PMM' #2578.
+[18:34:05]	Bradley Dickhead ran 'Equip' on item 'Uzi' (#2522)
+[18:34:07]	Vezeniel has gained a 'Amunicja 9x18' #2579.
+[18:34:08]	Bradley Dickhead has gained a 'Amunicja 9x18' #3222.
+[18:34:09]	Vezeniel ran 'Equip' on item 'PMM' (#2578)
+[18:34:10]	Vezeniel closed the 'Zrzut' #70 container.
+[18:34:10]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:12]	Bradley Dickhead ran 'drop' on item 'Amunicja 9x18' (#3222)
+[18:34:12]	Bradley Dickhead has lost a 'Amunicja 9x18' #3222.
+[18:34:12]	Bradley Dickhead opened the 'Zrzut' #68 container.
+[18:34:12]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:12]	Bradley Dickhead closed the 'Zrzut' #68 container.
+[18:34:12]	Bradley Dickhead ran 'take' on item 'Amunicja 9x18' (#3222)
+[18:34:12]	Bradley Dickhead has gained a 'Amunicja 9x18' #3222.
+[18:34:13]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:13]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:13]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:13]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:34:14]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:14]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:34:14]	Vezeniel opened the 'Zrzut' #54 container.
+[18:34:23]	Bradley Dickhead ran 'take' on item 'Karta graficzna' (#3168)
+[18:34:23]	Bradley Dickhead has gained a 'Karta graficzna' #3168.
+[18:34:27]	Bradley Dickhead ran 'take' on item 'Licznik geigera' (#3170)
+[18:34:27]	Bradley Dickhead has gained a 'Licznik geigera' #3170.
+[18:34:29]	Vezeniel ran 'EquipUn' on item 'PMM' (#2578)
+[18:34:35]	Vezeniel has gained a 'HK USP' #2114.
+[18:34:37]	Vezeniel ran 'Equip' on item 'HK USP' (#2114)
+[18:34:38]	Vezeniel closed the 'Zrzut' #54 container.
+[18:34:40]	Vezeniel opened the 'Zrzut' #54 container.
+[18:34:42]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:44]	Vezeniel ran 'EquipUn' on item 'HK USP' (#2114)
+[18:34:45]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:46]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:46]	Bradley Dickhead opened the 'Zrzut' #68 container.
+[18:34:47]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:47]	Vezeniel ran 'drop' on item 'P226' (#2121)
+[18:34:48]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:48]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:34:49]	Vezeniel closed the 'Zrzut' #54 container.
+[18:34:49]	Bradley Dickhead has taken 8 damage from nb_mercenary.
+[18:34:49]	nb_mercenary has killed Bradley Dickhead.
+[18:34:51]	Bradley Dickhead closed the 'Zrzut' #68 container.
+[18:34:52]	Vezeniel ran 'take' on item 'P226' (#2121)
+[18:34:52]	Vezeniel has gained a 'P226' #2121.
+[18:34:53]	Fzldk has connected.
+[18:34:54]	Vezeniel ran 'Equip' on item 'P226' (#2121)
+[18:34:59]	Vezeniel opened the 'Zrzut' #54 container.
+[18:35:04]	Marek Sewczuk ran 'take' on item 'Amunicja 5.7x28' (#3151)
+[18:35:04]	Marek Sewczuk has gained a 'Amunicja 5.7x28' #3151.
+[18:35:07]	Marek Sewczuk ran 'take' on item 'Amunicja 5.45x39' (#3152)
+[18:35:07]	Marek Sewczuk has gained a 'Amunicja 5.45x39' #3152.
+[18:35:11]	Vezeniel ran 'EquipUn' on item 'P226' (#2121)
+[18:35:12]	Vezeniel has gained a 'PMM' #2578.
+[18:35:13]	Vezeniel ran 'Equip' on item 'PMM' (#2578)
+[18:35:14]	Vezeniel closed the 'Zrzut' #54 container.
+[18:35:19]	Marek Sewczuk ran 'use' on item 'Apteczka' (#2541)
+[18:35:27]	Vezeniel ran 'Equip' on item 'Karabinek AK-101' (#2595)
+[18:35:29]	Marek Sewczuk ran 'use' on item 'Apteczka' (#2541)
+[18:35:34]	Marek Sewczuk ran 'take' on item 'Herkules' (#3153)
+[18:35:35]	Pozytyw has connected.
+[18:35:35]	Marek Sewczuk opened the 'Zrzut' #62 container.
+[18:35:37]	Bradley Dickhead opened the 'Zrzut' #65 container.
+[18:35:42]	Marek Sewczuk ran 'use' on item 'Groszek' (#2351)
+[18:35:44]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #2439.
+[18:35:45]	Bradley Dickhead has gained a 'G3A3' #2435.
+[18:35:46]	Bradley Dickhead ran 'Equip' on item 'G3A3' (#2435)
+[18:35:47]	Bradley Dickhead closed the 'Zrzut' #65 container.
+[18:35:54]	Marek Sewczuk ran 'combine' on item 'Amunicja .357 Magnum' (#2542)
+[18:35:56]	Pozytyw loaded the character 'Bonaventura Flamenco'
+[18:35:59]	Bradley Dickhead opened the 'Zrzut' #65 container.
+[18:36:02]	Bradley Dickhead has gained a 'Amunicja 9x39' #2434.
+[18:36:03]	Marek Sewczuk closed the 'Zrzut' #62 container.
+[18:36:04]	Bradley Dickhead has gained a 'Amunicja 5.7x28' #2427.
+[18:36:04]	Vezeniel ran 'take' on item 'Vicasol' (#3103)
+[18:36:08]	Marek Sewczuk opened the 'Zrzut' #63 container.
+[18:36:09]	Bradley Dickhead has gained a 'M4A1' #2436.
+[18:36:11]	Bradley Dickhead ran 'EquipUn' on item 'G3A3' (#2435)
+[18:36:13]	Bradley Dickhead has gained a 'Slickers' #2429.
+[18:36:14]	Bradley Dickhead has gained a 'Puree z warzyw' #2432.
+[18:36:14]	Bradley Dickhead closed the 'Zrzut' #65 container.
+[18:36:16]	Bradley Dickhead ran 'Equip' on item 'M4A1' (#2436)
+[18:36:17]	Bonaventura Flamenco has taken 50 damage from nb_mercenary.
+[18:36:18]	Marek Sewczuk ran 'use' on item 'Apteczka' (#2378)
+[18:36:20]	Marek Sewczuk ran 'combine' on item 'Morfina' (#2215)
+[18:36:25]	Marek Sewczuk ran 'use' on item 'Woda' (#2381)
+[18:36:31]	Marek Sewczuk ran 'use' on item 'Adrenalina' (#2372)
+[18:36:32]	Marek Sewczuk closed the 'Zrzut' #63 container.
+[18:36:32]	Vezeniel ran 'take' on item 'Lina' (#3100)
+[18:36:32]	Pozytyw has killed Bonaventura Flamenco.
+[18:36:34]	Bradley Dickhead opened the 'Zrzut' #65 container.
+[18:36:40]	Bradley Dickhead has gained a 'Canted Ironsights ''Tiss''' #2443.
+[18:36:44]	Bradley Dickhead has gained a 'Woda' #2449.
+[18:36:47]	Bradley Dickhead has gained a 'P226' #2450.
+[18:36:49]	Bradley Dickhead has gained a 'M3S90' #2447.
+[18:36:51]	Vezeniel ran 'EquipUn' on item 'Gasmask' (#2575)
+[18:36:53]	Bradley Dickhead has gained a 'SVD' #2446.
+[18:36:54]	Bradley Dickhead closed the 'Zrzut' #65 container.
+[18:36:55]	Vezeniel ran 'take' on item 'Posąg konia' (#3099)
+[18:37:10]	Bonaventura Flamenco ran 'take' on item 'Chleb' (#3116)
+[18:37:10]	Bonaventura Flamenco has gained a 'Chleb' #3116.
+[18:37:21]	Bonaventura Flamenco has taken 65 damage from nb_mercenary_melee.
+[18:37:23]	Pozytyw has killed Bonaventura Flamenco.
+[18:37:45]	Bonaventura Flamenco opened the 'Wrak' #53 container.
+[18:37:49]	Bonaventura Flamenco has gained a 'Scout suit' #1941.
+[18:37:49]	Vezeniel has taken 6 damage from nb_mercenary.
+[18:37:50]	Bonaventura Flamenco ran 'Equip' on item 'Scout suit' (#1941)
+[18:37:51]	Bonaventura Flamenco ran 'EquipUn' on item 'Scout suit' (#1941)
+[18:37:52]	Bonaventura Flamenco has gained a 'Łachy łobuza' #1940.
+[18:37:52]	Bonaventura Flamenco ran 'Equip' on item 'Łachy łobuza' (#1940)
+[18:37:53]	Bonaventura Flamenco ran 'Equip' on item 'Scout suit' (#1941)
+[18:37:54]	Bonaventura Flamenco has gained a 'Filter' #1942.
+[18:37:56]	Bonaventura Flamenco has gained a 'Hełm ACH' #1945.
+[18:37:56]	Vezeniel has gained 7 RU.
+[18:37:57]	Bonaventura Flamenco has gained a 'Amunicja 9x19' #1962.
+[18:37:57]	Bonaventura Flamenco has gained a 'Amunicja 12' #1963.
+[18:37:57]	Bonaventura Flamenco has gained a 'Amunicja 23x75MMR' #1964.
+[18:37:57]	Bonaventura Flamenco has gained a 'Amunicja 5.56x45' #1961.
+[18:37:58]	Bonaventura Flamenco has gained a 'Amunicja .50 AE' #1960.
+[18:37:58]	Bonaventura Flamenco has gained a 'Vicasol' #1954.
+[18:37:58]	Bonaventura Flamenco has gained a 'Amunicja .338 Lapua' #1947.
+[18:37:58]	Bonaventura Flamenco has gained a 'Amunicja .454 Casull' #1943.
+[18:37:59]	Bonaventura Flamenco has gained a 'Amunicja 12.7x55' #1937.
+[18:37:59]	Bonaventura Flamenco has gained a 'Apteczka' #1939.
+[18:37:59]	Bonaventura Flamenco has gained a 'Puree z warzyw' #1946.
+[18:37:59]	Bonaventura Flamenco has gained a 'Slickers' #1957.
+[18:38:00]	Bonaventura Flamenco has gained a 'Bandaż' #1952.
+[18:38:00]	Bonaventura Flamenco has gained a 'Amunicja 23x75MMR' #1935.
+[18:38:01]	Bonaventura Flamenco closed the 'Wrak' #53 container.
+[18:38:03]	Bonaventura Flamenco ran 'Equip' on item 'Łachy łobuza' (#1940)
+[18:38:04]	Bradley Dickhead has gained a 'Probówka' #3232.
+[18:38:06]	Bonaventura Flamenco ran 'Equip' on item 'Scout suit' (#1941)
+[18:38:10]	Bonaventura Flamenco ran 'drop' on item 'Łachy łobuza' (#1940)
+[18:38:10]	Bonaventura Flamenco has lost a 'Łachy łobuza' #1940.
+[18:38:14]	Bradley Dickhead ran 'take' on item 'Bateria AA' (#3141)
+[18:38:14]	Bradley Dickhead has gained a 'Bateria AA' #3141.
+[18:38:15]	Bonaventura Flamenco ran 'Equip' on item 'Hełm ACH' (#1945)
+[18:38:27]	Burdegg has taken 28 RU from '' #1686077179 (0 RU left).
+[18:38:27]	Bradley Dickhead has gained a 'Amunicja 12' #3236.
+[18:38:27]	Bradley Dickhead has gained a 'Vicasol' #3237.
+[18:38:27]	Bonaventura Flamenco opened the 'Zrzut' #61 container.
+[18:38:31]	Bonaventura Flamenco ran 'drop' on item 'Puree z warzyw' (#1946)
+[18:38:31]	Bonaventura Flamenco has lost a 'Puree z warzyw' #1946.
+[18:38:32]	Bonaventura Flamenco ran 'drop' on item 'Slickers' (#1957)
+[18:38:32]	Bonaventura Flamenco has lost a 'Slickers' #1957.
+[18:38:34]	Vezeniel ran 'combine' on item 'Amunicja 9x18' (#2579)
+[18:38:35]	Bonaventura Flamenco has gained a 'Remington 870 Tactical' #2322.
+[18:38:36]	Vezeniel ran 'combine' on item 'Amunicja 9x18' (#2579)
+[18:38:36]	Bradley Dickhead ran 'take' on item 'Czekolada' (#3143)
+[18:38:36]	Bradley Dickhead has gained a 'Czekolada' #3143.
+[18:38:36]	Bonaventura Flamenco has gained a 'AK-400' #2320.
+[18:38:37]	Bonaventura Flamenco has gained a 'Amunicja 5.56x45' #2333.
+[18:38:39]	Bonaventura Flamenco ran 'drop' on item 'Scout suit' (#1941)
+[18:38:39]	Bonaventura Flamenco has lost a 'Scout suit' #1941.
+[18:38:39]	Bradley Dickhead ran 'use' on item 'Woda' (#2449)
+[18:38:40]	Bonaventura Flamenco has gained a 'Mundur rosyjskich służb specjalnych wer. Niebieska' #2332.
+[18:38:42]	Bonaventura Flamenco ran 'combine' on item 'Hełm ACH' (#1945)
+[18:38:42]	Bonaventura Flamenco ran 'drop' on item 'Hełm ACH' (#1945)
+[18:38:42]	Bonaventura Flamenco has lost a 'Hełm ACH' #1945.
+[18:38:43]	Bonaventura Flamenco has gained a 'Hełm 6B47' #2326.
+[18:38:43]	Vezeniel opened the 'Zrzut' #68 container.
+[18:38:44]	Bonaventura Flamenco ran 'Equip' on item 'Hełm 6B47' (#2326)
+[18:38:45]	Bonaventura Flamenco has gained a 'Herkules' #2331.
+[18:38:49]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 9x19' (#1962)
+[18:38:49]	Bonaventura Flamenco has lost a 'Amunicja 9x19' #1962.
+[18:38:51]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 12' (#1963)
+[18:38:51]	Bonaventura Flamenco has lost a 'Amunicja 12' #1963.
+[18:38:52]	Bonaventura Flamenco has gained a 'Kamizelka klasy 3' #2329.
+[18:38:52]	Bonaventura Flamenco ran 'Equip' on item 'Kamizelka klasy 3' (#2329)
+[18:38:54]	Bonaventura Flamenco closed the 'Zrzut' #61 container.
+[18:38:54]	Marek Sewczuk ran 'use' on item 'Adrenalina' (#3244)
+[18:38:55]	Bonaventura Flamenco ran 'Equip' on item 'AK-400' (#2320)
+[18:38:55]	Vezeniel ran 'EquipUn' on item 'Karabinek AK-101' (#2595)
+[18:38:58]	Vezeniel has gained a 'Sten MK2' #2538.
+[18:39:01]	Bonaventura Flamenco opened the 'Zrzut' #61 container.
+[18:39:04]	Vezeniel has lost a 'Wódka' #869.
+[18:39:06]	Bradley Dickhead ran 'use' on item 'Vicasol' (#3237)
+[18:39:07]	Bonaventura Flamenco has gained a 'Sok' #2318.
+[18:39:08]	Vezeniel has gained a 'Amunicja 9x19' #2521.
+[18:39:11]	Bonaventura Flamenco has gained a 'Wojskowa racja żywnościowa' #2324.
+[18:39:11]	Fzldk created the character 'Benjamin Black'
+[18:39:12]	Fzldk loaded the character 'Benjamin Black'
+[18:39:12]	Bonaventura Flamenco has gained a 'Desert Eagle .357' #2336.
+[18:39:15]	Bradley Dickhead ran 'use' on item 'Slickers' (#2429)
+[18:39:16]	Bradley Dickhead ran 'use' on item 'Vicasol' (#3237)
+[18:39:19]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:20]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:20]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:20]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:20]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:20]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:21]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:21]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:21]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:21]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:22]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:22]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:22]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:22]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:23]	Vezeniel has gained a 'Wódka' #2511.
+[18:39:23]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:23]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:23]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:23]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:23]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:24]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:24]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:24]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:24]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:25]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:25]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:25]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:25]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:26]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:26]	Bonaventura Flamenco ran 'EquipUn' on item 'AK-400' (#2320)
+[18:39:26]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:26]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:26]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:27]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:27]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:27]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:27]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:28]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:28]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:28]	Bonaventura Flamenco has gained a 'SG 550' #2315.
+[18:39:28]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:28]	Vezeniel ran 'combine' on item 'Amunicja 9x18' (#2579)
+[18:39:28]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:28]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:29]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:29]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:29]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:29]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:30]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:30]	Vezeniel has gained a 'Amunicja 9x18' #2523.
+[18:39:30]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:30]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:30]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:30]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:31]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:31]	Benjamin Black has taken 2 damage from nb_type1.
+[18:39:31]	nb_type1 has killed Benjamin Black.
+[18:39:32]	Bonaventura Flamenco ran 'combine' on item 'Machete' (#2335)
+[18:39:35]	Vezeniel ran 'Equip' on item 'Sten MK2' (#2538)
+[18:39:36]	Vezeniel closed the 'Zrzut' #68 container.
+[18:39:37]	Bonaventura Flamenco has gained a 'Amunicja 5.56x45' #1961.
+[18:39:38]	Bonaventura Flamenco ran 'Equip' on item 'SG 550' (#2315)
+[18:39:39]	Bonaventura Flamenco closed the 'Zrzut' #61 container.
+[18:39:43]	Bonaventura Flamenco opened the 'Zrzut' #61 container.
+[18:39:54]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:54]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:55]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:55]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:55]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:57]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:57]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:57]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:57]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:57]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:57]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:57]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:58]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:58]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:58]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:58]	Bonaventura Flamenco closed the 'Zrzut' #61 container.
+[18:39:58]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:59]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:59]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:59]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:59]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:59]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:59]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:39:59]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:59]	Vezeniel has taken 1 damage from nb_type1.
+[18:39:59]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:40:00]	Vezeniel ran 'EquipUn' on item 'Sten MK2' (#2538)
+[18:40:00]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:40:00]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:00]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:00]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:40:00]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[18:40:00]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:00]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:00]	Vezeniel ran 'Equip' on item 'PMM' (#2578)
+[18:40:01]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:01]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:01]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:04]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:05]	Vezeniel has taken 1 damage from nb_type1.
+[18:40:07]	Bonaventura Flamenco ran 'use' on item 'Apteczka' (#1939)
+[18:40:08]	Bonaventura Flamenco opened the 'Zrzut' #61 container.
+[18:40:08]	Bradley Dickhead ran 'use' on item 'Woda' (#2449)
+[18:40:09]	Marek Sewczuk ran 'Detach' on item 'SVD' (#2923)
+[18:40:09]	Marek Sewczuk has gained a 'Aimpoint CompM4' #3246.
+[18:40:10]	Vezeniel ran 'use' on item 'Apteczka wojskowa' (#891)
+[18:40:11]	Bonaventura Flamenco has gained a 'Antirad' #2330.
+[18:40:14]	Benjamin Black ran 'take' on item 'Dolar' (#3171)
+[18:40:14]	Benjamin Black has gained a 'Dolar' #3171.
+[18:40:15]	Bonaventura Flamenco has gained a 'Slickers' #2323.
+[18:40:19]	Benjamin Black ran 'take' on item 'Posąg lwa' (#3173)
+[18:40:19]	Benjamin Black has gained a 'Posąg lwa' #3173.
+[18:40:24]	Benjamin Black ran 'take' on item 'Scout suit' (#3245)
+[18:40:24]	Benjamin Black has gained a 'Scout suit' #3245.
+[18:40:28]	Burdegg has killed Bradley Dickhead.
+[18:40:29]	Bonaventura Flamenco closed the 'Zrzut' #61 container.
+[18:40:29]	Benjamin Black ran 'Equip' on item 'Scout suit' (#3245)
+[18:40:40]	Vezeniel opened the 'Zrzut' #67 container.
+[18:40:46]	Vezeniel ran 'combine' on item 'Amunicja 9x18' (#2579)
+[18:41:02]	Bonaventura Flamenco opened the 'Zrzut' #62 container.
+[18:41:08]	Bonaventura Flamenco ran 'combine' on item 'Herkules' (#2331)
+[18:41:09]	Bonaventura Flamenco ran 'EquipUn' on item 'SG 550' (#2315)
+[18:41:10]	Vezeniel ran 'drop' on item 'Sten MK2' (#2538)
+[18:41:10]	Vezeniel has lost a 'Sten MK2' #2538.
+[18:41:13]	Bonaventura Flamenco has gained a 'G36C' #2364.
+[18:41:13]	Vezeniel has gained a 'Kar98K' #2482.
+[18:41:15]	Vezeniel has gained a 'Amunicja 7.62x54' #2503.
+[18:41:18]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:18]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:18]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Vezeniel ran 'Equip' on item 'Kar98K' (#2482)
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:19]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:20]	Vezeniel closed the 'Zrzut' #67 container.
+[18:41:20]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:20]	Bonaventura Flamenco ran 'Equip' on item 'G36C' (#2364)
+[18:41:20]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:20]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:21]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:22]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:22]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:22]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:22]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:25]	Vezeniel opened the 'Zrzut' #42 container.
+[18:41:25]	Bonaventura Flamenco has gained a 'Wódka' #2339.
+[18:41:26]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:26]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:26]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:27]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:27]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:28]	[OOC] Marek Sewczuk: kurwa co jest
+[18:41:29]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:29]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:29]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:29]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:30]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:30]	Bonaventura Flamenco has lost a 'Antirad' #2330.
+[18:41:30]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:30]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:30]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:30]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:31]	Bonaventura Flamenco has gained a 'SVD' #2358.
+[18:41:31]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:31]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:31]	[OOC] Marek Sewczuk: bialy ekran mam
+[18:41:31]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:31]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:32]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:32]	Bradley Dickhead opened the 'Zrzut' #68 container.
+[18:41:32]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:32]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:32]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:32]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:33]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:33]	Vezeniel closed the 'Zrzut' #42 container.
+[18:41:33]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:33]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:33]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:33]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:34]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:34]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:34]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:34]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:35]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:35]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:35]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:35]	Bonaventura Flamenco has gained a 'Amunicja 9x19' #2366.
+[18:41:35]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:35]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:36]	Bradley Dickhead closed the 'Zrzut' #68 container.
+[18:41:37]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:37]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:37]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:37]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:38]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:38]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:38]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:38]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:39]	Benjamin Black has taken 1 damage from nb_type1.
+[18:41:39]	Fzldk (STEAM_0:1:82527272) has disconnected.
+[18:41:41]	Bonaventura Flamenco closed the 'Zrzut' #62 container.
+[18:41:41]	Bradley Dickhead opened the 'Zrzut' #68 container.
+[18:41:46]	Bradley Dickhead has gained a 'Apteczka wojskowa' #2517.
+[18:41:47]	Bradley Dickhead has gained a 'CVC Helmet (Desert)' #2531.
+[18:41:47]	Bradley Dickhead ran 'Equip' on item 'CVC Helmet (Desert)' (#2531)
+[18:41:49]	Marek Sewczuk ran 'Equip' on item 'Gasmask' (#2946)
+[18:41:51]	⭐ lechu2375 ⭐ has killed Marek Sewczuk.
+[18:41:54]	Bradley Dickhead has gained a 'BM-16 Short' #2524.
+[18:41:58]	Bradley Dickhead has gained a 'Herkules' #2515.
+[18:41:58]	Bonaventura Flamenco ran 'Equip' on item 'Desert Eagle .357' (#2336)
+[18:42:01]	Bradley Dickhead has gained a 'Morfina' #2530.
+[18:42:03]	Bonaventura Flamenco ran 'Equip' on item 'G36C' (#2364)
+[18:42:05]	Marek Sewczuk entered observer.
+[18:42:06]	Marek Sewczuk exited observer at their location.
+[18:42:07]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[18:42:07]	Bonaventura Flamenco ran 'take' on item 'Dolar' (#3149)
+[18:42:07]	Bonaventura Flamenco ran 'take' on item 'Dolar' (#3149)
+[18:42:08]	Bonaventura Flamenco ran 'take' on item 'Dolar' (#3149)
+[18:42:09]	Bradley Dickhead closed the 'Zrzut' #68 container.
+[18:42:13]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #2672.
+[18:42:14]	Bonaventura Flamenco ran 'drop' on item 'Desert Eagle .357' (#2336)
+[18:42:14]	Bonaventura Flamenco has lost a 'Desert Eagle .357' #2336.
+[18:42:14]	Bradley Dickhead ran 'Equip' on item 'BM-16 Short' (#2524)
+[18:42:21]	Marek Sewczuk has gained a 'AK-104' #2679.
+[18:42:22]	Bonaventura Flamenco opened the 'Zrzut' #63 container.
+[18:42:25]	Marek Sewczuk has gained a 'Amunicja 7.62x39' #2660.
+[18:42:26]	Marek Sewczuk has gained a 'Amunicja 7.62x39' #994.
+[18:42:27]	Marek Sewczuk has gained a 'Gasmask' #2675.
+[18:42:28]	Bonaventura Flamenco has gained a 'Amunicja 5.56x45' #2393.
+[18:42:29]	Marek Sewczuk has gained a 'Morfina' #2680.
+[18:42:29]	Bradley Dickhead ran 'drop' on item 'Amunicja 12' (#3236)
+[18:42:30]	Marek Sewczuk has gained a 'Energetyk' #2656.
+[18:42:31]	Bonaventura Flamenco closed the 'Zrzut' #63 container.
+[18:42:31]	Bradley Dickhead ran 'drop' on item 'Amunicja 12' (#3236)
+[18:42:31]	Marek Sewczuk has gained a 'Bandaż' #2657.
+[18:42:33]	Vezeniel has taken 33 damage from Pozytyw.
+[18:42:33]	Vezeniel has taken 33 damage from Pozytyw.
+[18:42:33]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[18:42:35]	Bradley Dickhead ran 'drop' on item 'Amunicja 12' (#3236)
+[18:42:36]	Bradley Dickhead ran 'EquipUn' on item 'BM-16 Short' (#2524)
+[18:42:37]	Bradley Dickhead ran 'drop' on item 'BM-16 Short' (#2524)
+[18:42:37]	Marek Sewczuk ran 'Equip' on item 'Kamizelka klasy 3' (#2672)
+[18:42:38]	Marek Sewczuk ran 'Equip' on item 'AK-104' (#2679)
+[18:42:38]	Vezeniel has taken 56 damage from Pozytyw.
+[18:42:38]	Pozytyw has killed Vezeniel with arccw_firearms2_g36c.
+[18:42:45]	Bradley Dickhead ran 'Detach' on item 'M4A1' (#2436)
+[18:42:47]	Bonaventura Flamenco opened the 'Zrzut' #63 container.
+[18:42:48]	Vezeniel ran 'take' on item 'Kamera' (#3221)
+[18:42:48]	Vezeniel has gained a 'Kamera' #3221.
+[18:42:51]	Vezeniel ran 'drop' on item 'Kamera' (#3221)
+[18:42:51]	Vezeniel has lost a 'Kamera' #3221.
+[18:42:54]	Bradley Dickhead ran 'drop' on item 'M4A1' (#2436)
+[18:42:55]	Bradley Dickhead opened the 'Zrzut' #69 container.
+[18:42:58]	Bonaventura Flamenco closed the 'Zrzut' #63 container.
+[18:43:09]	Marek Sewczuk has gained a 'Muzzlebrake' #3249.
+[18:43:10]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 12.7x55' (#1937)
+[18:43:10]	Bonaventura Flamenco has lost a 'Amunicja 12.7x55' #1937.
+[18:43:11]	Bonaventura Flamenco has gained a 'Gasmask' #2575.
+[18:43:14]	Marek Sewczuk has gained a 'Aimpoint CompM4' #3253.
+[18:43:15]	Bradley Dickhead has gained a 'AS VAL' #2559.
+[18:43:15]	Bonaventura Flamenco ran 'drop' on item 'Kamizelka klasy 3' (#2329)
+[18:43:15]	Bonaventura Flamenco has lost a 'Kamizelka klasy 3' #2329.
+[18:43:15]	Marek Sewczuk ran 'combine' on item 'AK-104' (#2679)
+[18:43:16]	Bonaventura Flamenco has gained a 'Kamizelka klasy 4' #883.
+[18:43:17]	Bonaventura Flamenco ran 'Equip' on item 'Kamizelka klasy 4' (#883)
+[18:43:20]	Marek Sewczuk has gained a 'Hełm 6B47' #3253.
+[18:43:20]	Bradley Dickhead has gained a '.45 ACP Ammo' #2540.
+[18:43:23]	Marek Sewczuk ran 'Equip' on item 'Hełm 6B47' (#3253)
+[18:43:24]	Bradley Dickhead ran 'drop' on item 'M4A1' (#2436)
+[18:43:29]	Bonaventura Flamenco ran 'take' on item 'Herkules' (#3153)
+[18:43:32]	Bonaventura Flamenco opened the 'Zrzut' #63 container.
+[18:43:34]	Bradley Dickhead ran 'Equip' on item 'AS VAL' (#2559)
+[18:43:35]	Marek Sewczuk opened the 'Zrzut' #72 container.
+[18:43:36]	Bradley Dickhead closed the 'Zrzut' #69 container.
+[18:43:39]	Bonaventura Flamenco ran 'combine' on item 'Glock-20' (#2392)
+[18:43:39]	Bonaventura Flamenco ran 'combine' on item 'Vicasol' (#1954)
+[18:43:41]	Bonaventura Flamenco has gained a 'Glock-20' #2392.
+[18:43:42]	Bonaventura Flamenco closed the 'Zrzut' #63 container.
+[18:43:44]	Bonaventura Flamenco ran 'Equip' on item 'Glock-20' (#2392)
+[18:43:52]	Bonaventura Flamenco ran 'Equip' on item 'SVD' (#2358)
+[18:43:54]	Marek Sewczuk has gained a 'Apteczka wojskowa' #2627.
+[18:43:55]	Bonaventura Flamenco ran 'Equip' on item 'G36C' (#2364)
+[18:43:56]	Bonaventura Flamenco opened the 'Zrzut' #63 container.
+[18:43:57]	Marek Sewczuk has gained a 'Vicasol' #2654.
+[18:43:59]	Marek Sewczuk closed the 'Zrzut' #72 container.
+[18:44:03]	Vezeniel has taken 15 damage from nb_mercenary.
+[18:44:03]	Vezeniel has taken 15 damage from nb_mercenary.
+[18:44:04]	Vezeniel has taken 15 damage from nb_mercenary.
+[18:44:05]	Bradley Dickhead ran 'use' on item 'Woda' (#2449)
+[18:44:06]	Marek Sewczuk ran 'take' on item 'Mundur rosyjskich służb specjalnych wer. Niebieska' (#880)
+[18:44:06]	Marek Sewczuk has gained a 'Mundur rosyjskich służb specjalnych wer. Niebieska' #880.
+[18:44:08]	Marek Sewczuk ran 'Equip' on item 'Mundur rosyjskich służb specjalnych wer. Niebieska' (#880)
+[18:44:08]	Bradley Dickhead ran 'drop' on item 'Bateria AA' (#3141)
+[18:44:08]	Bradley Dickhead has lost a 'Bateria AA' #3141.
+[18:44:14]	Bonaventura Flamenco closed the 'Zrzut' #63 container.
+[18:44:17]	Bradley Dickhead opened the 'Zrzut' #33 container.
+[18:44:17]	Bonaventura Flamenco opened the 'Zrzut' #62 container.
+[18:44:18]	Bradley Dickhead closed the 'Zrzut' #33 container.
+[18:44:25]	Marek Sewczuk opened the 'Zrzut' #71 container.
+[18:44:28]	Bradley Dickhead opened the 'Zrzut' #69 container.
+[18:44:31]	Bonaventura Flamenco ran 'use' on item 'Wojskowa racja żywnościowa' (#2324)
+[18:44:33]	Bradley Dickhead closed the 'Zrzut' #69 container.
+[18:44:33]	Bonaventura Flamenco ran 'drop' on item 'Amunicja .50 AE' (#1960)
+[18:44:33]	Bonaventura Flamenco has lost a 'Amunicja .50 AE' #1960.
+[18:44:36]	Bonaventura Flamenco has gained a 'Amunicja 9x19' #2341.
+[18:44:45]	Marek Sewczuk has gained a 'Woda' #2609.
+[18:44:45]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 23x75MMR' (#1935)
+[18:44:45]	Bonaventura Flamenco has lost a 'Amunicja 23x75MMR' #1935.
+[18:44:47]	Marek Sewczuk closed the 'Zrzut' #71 container.
+[18:44:47]	Bonaventura Flamenco ran 'drop' on item 'Amunicja .338 Lapua' (#1947)
+[18:44:47]	Bonaventura Flamenco has lost a 'Amunicja .338 Lapua' #1947.
+[18:44:50]	Bonaventura Flamenco has gained a 'Machete' #2359.
+[18:44:51]	Bonaventura Flamenco closed the 'Zrzut' #62 container.
+[18:44:59]	Bonaventura Flamenco opened the 'Zrzut' #62 container.
+[18:45:07]	Bradley Dickhead opened the 'Zrzut' #34 container.
+[18:45:10]	Bradley Dickhead closed the 'Zrzut' #34 container.
+[18:45:13]	Bonaventura Flamenco closed the 'Zrzut' #62 container.
+[18:45:32]	Bonaventura Flamenco ran 'take' on item 'Części do broni' (#3229)
+[18:45:32]	Bonaventura Flamenco has gained a 'Części do broni' #3229.
+[18:45:35]	Bonaventura Flamenco ran 'drop' on item 'Części do broni' (#3229)
+[18:45:35]	Bonaventura Flamenco has lost a 'Części do broni' #3229.
+[18:45:40]	Bonaventura Flamenco ran 'take' on item 'Zapałki' (#3150)
+[18:45:40]	Bonaventura Flamenco has gained a 'Zapałki' #3150.
+[18:45:47]	Marek Sewczuk entered observer.
+[18:45:47]	Bonaventura Flamenco ran 'take' on item 'Lina' (#3148)
+[18:45:51]	Bradley Dickhead ran 'use' on item 'Herkules' (#2515)
+[18:46:19]	Bradley Dickhead has gained 24 RU.
+[18:46:31]	Vezeniel has taken 10 damage from nb_mercenary.
+[18:46:32]	Vezeniel has taken 10 damage from nb_mercenary.
+[18:46:32]	Vezeniel has taken 5 damage from nb_mercenary.
+[18:46:32]	Vezeniel has taken 10 damage from nb_mercenary.
+[18:46:32]	Vezeniel has taken 10 damage from nb_mercenary.
+[18:46:32]	Vezeniel has taken 5 damage from nb_mercenary.
+[18:46:33]	Vezeniel has taken 5 damage from nb_mercenary.
+[18:46:33]	Vezeniel has taken 5 damage from nb_mercenary.
+[18:46:33]	Vezeniel has taken 5 damage from nb_mercenary.
+[18:46:33]	nb_mercenary has killed Vezeniel.
+[18:46:43]	Bradley Dickhead ran 'take' on item 'Energetyk' (#3119)
+[18:46:43]	Bradley Dickhead has gained a 'Energetyk' #3119.
+[18:46:53]	Bradley Dickhead has taken 24 damage from nb_soldier.
+[18:46:53]	Bradley Dickhead has taken 24 damage from nb_soldier.
+[18:46:57]	Bradley Dickhead ran 'use' on item 'Energetyk' (#3119)
+[18:46:58]	Bradley Dickhead ran 'use' on item 'Vicasol' (#3237)
+[18:46:59]	Bradley Dickhead ran 'use' on item 'Slickers' (#2429)
+[18:46:59]	Bradley Dickhead has taken 24 damage from nb_soldier.
+[18:46:59]	Bradley Dickhead has lost a 'CVC Helmet (Desert)' #2531.
+[18:46:59]	Bradley Dickhead has taken 24 damage from nb_soldier.
+[18:47:00]	Bradley Dickhead has taken 12 damage from nb_soldier.
+[18:47:00]	nb_soldier has killed Bradley Dickhead.
+[18:47:01]	Bonaventura Flamenco opened the 'Zrzut' #65 container.
+[18:47:04]	Vezeniel opened the 'Zrzut' #74 container.
+[18:47:07]	Bonaventura Flamenco closed the 'Zrzut' #65 container.
+[18:47:08]	Vezeniel has gained a 'Mundur rosyjskich służb specjalnych' #2709.
+[18:47:09]	Vezeniel has gained a 'Kamizelka klasy 2' #2712.
+[18:47:11]	Bonaventura Flamenco opened the 'Zrzut' #64 container.
+[18:47:16]	Vezeniel has gained a 'Sterling MK7A4' #2686.
+[18:47:17]	Marek Sewczuk exited observer at their location.
+[18:47:18]	Vezeniel has gained a 'Amunicja 9x19' #2711.
+[18:47:18]	Bonaventura Flamenco closed the 'Zrzut' #64 container.
+[18:47:19]	Vezeniel has gained a 'Epinephrine' #2710.
+[18:47:20]	Vezeniel has gained a 'Chleb' #2696.
+[18:47:21]	Vezeniel ran 'combine' on item 'Epinephrine' (#2710)
+[18:47:23]	Vezeniel has gained a 'Morfina' #2690.
+[18:47:25]	Vezeniel has gained a 'Bandaż' #2713.
+[18:47:26]	Vezeniel has gained a 'Tuńczyk w puszce' #2704.
+[18:47:26]	[OOC] Bradley Dickhead: jak umrzesz od promieniowania
+[18:47:31]	[OOC] Bradley Dickhead: to nie tracisz eq
+[18:47:34]	Vezeniel ran 'Equip' on item 'Mundur rosyjskich służb specjalnych' (#2709)
+[18:47:35]	Vezeniel ran 'Equip' on item 'Kamizelka klasy 2' (#2712)
+[18:47:38]	Vezeniel closed the 'Zrzut' #74 container.
+[18:47:40]	Vezeniel opened the 'Zrzut' #73 container.
+[18:47:43]	Vezeniel ran 'combine' on item 'Tuńczyk w puszce' (#2704)
+[18:47:44]	Vezeniel has gained a 'Slickers' #2678.
+[18:47:47]	Burdegg has taken 52 RU from '' #1686077221 (0 RU left).
+[18:47:47]	Bradley Dickhead has gained a 'Probówka' #3232.
+[18:47:47]	Bradley Dickhead has gained a 'P226' #2450.
+[18:47:47]	Bradley Dickhead has gained a 'SVD' #2446.
+[18:47:47]	Bradley Dickhead has gained a 'M4A1' #2436.
+[18:47:47]	Bradley Dickhead has gained a 'AS VAL' #2559.
+[18:47:47]	Bradley Dickhead has gained a 'Amunicja 5.7x28' #2427.
+[18:47:47]	Bradley Dickhead has gained a '.45 ACP Ammo' #2540.
+[18:47:47]	Bradley Dickhead has gained a 'Morfina' #2530.
+[18:47:47]	Bradley Dickhead has gained a 'BM-16 Short' #2524.
+[18:47:47]	Bradley Dickhead has gained a 'Apteczka wojskowa' #2517.
+[18:47:47]	Bradley Dickhead has gained a 'Amunicja 12' #3236.
+[18:47:47]	Bradley Dickhead has gained a 'M3S90' #2447.
+[18:47:49]	Marek Sewczuk has taken 21 damage from Pozytyw.
+[18:47:49]	Marek Sewczuk has taken 21 damage from Pozytyw.
+[18:47:49]	Marek Sewczuk has taken 21 damage from Pozytyw.
+[18:47:49]	Marek Sewczuk has lost a 'Hełm 6B47' #3253.
+[18:47:49]	Marek Sewczuk has taken 21 damage from Pozytyw.
+[18:47:50]	Bonaventura Flamenco has taken 43 damage from ⭐ lechu2375 ⭐.
+[18:47:50]	Bonaventura Flamenco has lost a 'Hełm 6B47' #2326.
+[18:47:50]	Bonaventura Flamenco has taken 43 damage from ⭐ lechu2375 ⭐.
+[18:47:50]	Bonaventura Flamenco has taken 35 damage from ⭐ lechu2375 ⭐.
+[18:47:50]	⭐ lechu2375 ⭐ has killed Bonaventura Flamenco with arccw_firearms2_ak104.
+[18:47:50]	Vezeniel has gained a 'OTs-33 Pernach' #2685.
+[18:47:51]	Bradley Dickhead ran 'Equip' on item 'AS VAL' (#2559)
+[18:47:59]	Marek Sewczuk ran 'use' on item 'Bandaż' (#2657)
+[18:47:59]	Vezeniel closed the 'Zrzut' #73 container.
+[18:48:01]	Vezeniel opened the 'Zrzut' #72 container.
+[18:48:02]	Marek Sewczuk ran 'use' on item 'Apteczka wojskowa' (#2627)
+[18:48:02]	Marek Sewczuk has taken 4 damage from nb_mercenary.
+[18:48:02]	Marek Sewczuk has taken 4 damage from nb_mercenary.
+[18:48:02]	Marek Sewczuk has taken 4 damage from nb_mercenary.
+[18:48:02]	Marek Sewczuk has taken 4 damage from nb_mercenary.
+[18:48:13]	Vezeniel has gained a 'M82' #2636.
+[18:48:13]	Bradley Dickhead ran 'EquipUn' on item 'AS VAL' (#2559)
+[18:48:14]	Vezeniel ran 'combine' on item 'Tuńczyk w puszce' (#2704)
+[18:48:15]	Bradley Dickhead ran 'Equip' on item 'M4A1' (#2436)
+[18:48:16]	Bonaventura Flamenco has taken 51 damage from ⭐ lechu2375 ⭐.
+[18:48:17]	Bonaventura Flamenco has taken 69 damage from ⭐ lechu2375 ⭐.
+[18:48:17]	⭐ lechu2375 ⭐ has killed Bonaventura Flamenco with arccw_firearms2_ak104.
+[18:48:19]	Vezeniel has gained a 'Machete' #2646.
+[18:48:22]	Vezeniel ran 'Equip' on item 'Machete' (#2646)
+[18:48:25]	[OOC] Bonaventura Flamenco: lechu ty chuju
+[18:48:26]	Vezeniel has gained a 'Okulary taktyczne' #2634.
+[18:48:27]	Bradley Dickhead has gained a 'Sok' #3262.
+[18:48:27]	Vezeniel ran 'Equip' on item 'Okulary taktyczne' (#2634)
+[18:48:30]	Bonaventura Flamenco ran 'take' on item 'Kamera' (#3221)
+[18:48:30]	Bonaventura Flamenco has gained a 'Kamera' #3221.
+[18:48:31]	Vezeniel closed the 'Zrzut' #72 container.
+[18:48:32]	Vezeniel opened the 'Zrzut' #72 container.
+[18:48:33]	Bonaventura Flamenco ran 'take' on item 'Mundur najemnika' (#3254)
+[18:48:33]	Bonaventura Flamenco has gained a 'Mundur najemnika' #3254.
+[18:48:35]	Vezeniel ran 'combine' on item 'Slickers' (#2678)
+[18:48:38]	Vezeniel closed the 'Zrzut' #72 container.
+[18:48:38]	[OOC] Marek Sewczuk: akurat jak miałem mało hp xdd
+[18:48:41]	Vezeniel opened the 'Zrzut' #71 container.
+[18:48:42]	Bonaventura Flamenco ran 'take' on item 'Posąg konia' (#3128)
+[18:48:42]	Bonaventura Flamenco has gained a 'Posąg konia' #3128.
+[18:48:45]	[OOC] Marek Sewczuk: z 20
+[18:48:46]	Vezeniel has gained a 'Hełm 6B47' #2576.
+[18:48:49]	Vezeniel ran 'combine' on item 'Slickers' (#2678)
+[18:48:51]	Bonaventura Flamenco ran 'Equip' on item 'Mundur najemnika' (#3254)
+[18:48:57]	Vezeniel has gained a 'Filter' #2621.
+[18:48:58]	Vezeniel ran 'Equip' on item 'Hełm 6B47' (#2576)
+[18:49:06]	Bradley Dickhead ran 'take' on item 'Cao Sao Vang' (#3137)
+[18:49:06]	Bradley Dickhead has gained a 'Cao Sao Vang' #3137.
+[18:49:12]	Vezeniel ran 'Equip' on item 'Sterling MK7A4' (#2686)
+[18:49:13]	Vezeniel closed the 'Zrzut' #71 container.
+[18:49:19]	Bradley Dickhead has gained 350 RU.
+[18:49:20]	Marek Sewczuk has gained a 'Oftalmoskop' #3259.
+[18:49:22]	Marek Sewczuk has gained a 'Amunicja .357 Magnum' #3258.
+[18:49:26]	Bradley Dickhead has gained 60000 RU.
+[18:49:31]	Bradley Dickhead has gained 2000 RU.
+[18:49:35]	Bradley Dickhead has gained 45000 RU.
+[18:49:41]	Vezeniel opened the 'Zrzut' #70 container.
+[18:49:45]	Bradley Dickhead has gained 20000 RU.
+[18:49:48]	Vezeniel has gained a 'Vicasol' #2592.
+[18:50:00]	Vezeniel closed the 'Zrzut' #70 container.
+[18:50:05]	Vezeniel opened the 'Zrzut' #54 container.
+[18:50:16]	[OOC] Bradley Dickhead: lechu patrz of top
+[18:50:17]	Marek Sewczuk has gained a 'Kamizelka klasy 4' #883.
+[18:50:17]	Marek Sewczuk has gained a 'SVD' #2358.
+[18:50:17]	Marek Sewczuk has gained a 'Amunicja 9x19' #2341.
+[18:50:17]	Marek Sewczuk has gained a 'Wojskowa racja żywnościowa' #2324.
+[18:50:17]	Marek Sewczuk has gained a 'Sok' #2318.
+[18:50:17]	Marek Sewczuk has gained a 'Wódka' #2339.
+[18:50:17]	Marek Sewczuk has gained a 'Amunicja 9x19' #2366.
+[18:50:17]	Marek Sewczuk has gained a 'Herkules' #2331.
+[18:50:20]	Vezeniel closed the 'Zrzut' #54 container.
+[18:50:25]	Bradley Dickhead ran 'Detach' on item 'M4A1' (#2436)
+[18:50:26]	Bradley Dickhead ran 'EquipUn' on item 'M4A1' (#2436)
+[18:50:29]	Bradley Dickhead ran 'Equip' on item 'M4A1' (#2436)
+[18:50:31]	Bradley Dickhead ran 'EquipUn' on item 'M4A1' (#2436)
+[18:50:32]	Bradley Dickhead ran 'Equip' on item 'AS VAL' (#2559)
+[18:50:46]	Marek Sewczuk ran 'empty_clip' on item 'G36C' (#2364)
+[18:51:00]	Marek Sewczuk has gained a 'G36C' #2364.
+[18:51:01]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3267.
+[18:51:02]	Marek Sewczuk ran 'combine' on item 'G36C' (#2364)
+[18:51:03]	Bradley Dickhead has gained 40000 RU.
+[18:51:06]	Marek Sewczuk ran 'Equip' on item 'Kamizelka klasy 4' (#883)
+[18:51:09]	Vezeniel opened the 'Zrzut' #55 container.
+[18:51:10]	Bonaventura Flamenco has gained 8000 RU.
+[18:51:16]	Marek Sewczuk ran 'Equip' on item 'G36C' (#2364)
+[18:51:20]	Bradley Dickhead has gained a 'Amunicja 9x39' #3269.
+[18:51:20]	Bradley Dickhead has lost 14582 RU.
+[18:51:21]	Bonaventura Flamenco has gained 80000 RU.
+[18:51:22]	Vezeniel ran 'EquipUn' on item 'Sterling MK7A4' (#2686)
+[18:51:23]	Vezeniel ran 'drop' on item 'Sterling MK7A4' (#2686)
+[18:51:23]	Vezeniel has lost a 'Sterling MK7A4' #2686.
+[18:51:24]	Marek Sewczuk opened the 'Zrzut' #64 container.
+[18:51:24]	Bonaventura Flamenco ran 'drop' on item 'Mundur najemnika' (#3254)
+[18:51:24]	Bonaventura Flamenco has lost a 'Mundur najemnika' #3254.
+[18:51:24]	Vezeniel has gained a 'L85A2' #2149.
+[18:51:27]	Marek Sewczuk closed the 'Zrzut' #64 container.
+[18:51:28]	Vezeniel has gained a 'Amunicja 5.56x45' #2167.
+[18:51:30]	Marek Sewczuk opened the 'Zrzut' #65 container.
+[18:51:31]	Bonaventura Flamenco ran 'take' on item 'Mundur najemnika' (#3254)
+[18:51:31]	Bonaventura Flamenco has gained a 'Mundur najemnika' #3254.
+[18:51:32]	Vezeniel ran 'combine' on item 'Slickers' (#2678)
+[18:51:34]	Bonaventura Flamenco ran 'Equip' on item 'Mundur najemnika' (#3254)
+[18:51:36]	Bradley Dickhead has gained 4167 RU.
+[18:51:36]	Vezeniel ran 'combine' on item 'Chleb' (#2696)
+[18:51:39]	Bradley Dickhead has gained 85000 RU.
+[18:51:39]	Vezeniel has gained a 'Wódka' #2160.
+[18:51:39]	Marek Sewczuk closed the 'Zrzut' #65 container.
+[18:51:42]	Vezeniel ran 'drop' on item 'M82' (#2636)
+[18:51:42]	Vezeniel has lost a 'M82' #2636.
+[18:51:51]	Bradley Dickhead ran 'take' on item 'Euro' (#3268)
+[18:51:51]	Bradley Dickhead has gained a 'Euro' #3268.
+[18:51:52]	Vezeniel closed the 'Zrzut' #55 container.
+[18:51:55]	Vezeniel ran 'Equip' on item 'L85A2' (#2149)
+[18:51:56]	Bradley Dickhead has gained 250 RU.
+[18:52:09]	Bradley Dickhead has gained 24 RU.
+[18:52:15]	Bradley Dickhead has gained a 'Naprawka do zbroi/pancerza' #3263.
+[18:52:17]	Bradley Dickhead has gained a 'Jedzenie dla psa' #3265.
+[18:52:18]	Bradley Dickhead has gained a 'Probówka' #3264.
+[18:52:18]	Vezeniel has taken 30 damage from nb_type3.
+[18:52:20]	Vezeniel has taken 30 damage from nb_type3.
+[18:52:25]	Marek Sewczuk ran 'take' on item 'Amunicja 5.56x45' (#3250)
+[18:52:25]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3250.
+[18:52:25]	Vezeniel ran 'use' on item 'Bandaż' (#2713)
+[18:52:28]	Vezeniel ran 'EquipUn' on item 'L85A2' (#2149)
+[18:52:29]	Vezeniel ran 'Equip' on item 'OTs-33 Pernach' (#2685)
+[18:52:43]	Bradley Dickhead has gained 87000 RU.
+[18:52:45]	Bradley Dickhead has gained 20000 RU.
+[18:52:48]	Bradley Dickhead has gained 10000 RU.
+[18:52:55]	Vezeniel ran 'use' on item 'Chleb' (#2696)
+[18:52:57]	Marek Sewczuk ran 'use' on item 'Tuńczyk w puszce' (#3272)
+[18:53:04]	Bonaventura Flamenco has gained a 'UMP-45' #3274.
+[18:53:04]	Bonaventura Flamenco has lost 27334 RU.
+[18:53:06]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3275.
+[18:53:06]	Bonaventura Flamenco has lost 4901 RU.
+[18:53:13]	Bonaventura Flamenco ran 'Equip' on item 'UMP-45' (#3274)
+[18:53:19]	Bradley Dickhead has spawned a 'Entity [596][ix_safebox]'.
+[18:53:20]	Vezeniel has taken 30 damage from nb_type3.
+[18:53:24]	Marek Sewczuk ran 'take' on item 'Pendrak' (#3140)
+[18:53:31]	Vezeniel ran 'use' on item 'Epinephrine' (#2710)
+[18:53:34]	Vezeniel ran 'use' on item 'Slickers' (#2678)
+[18:53:36]	Vezeniel has taken 35 damage from nb_type3.
+[18:53:36]	nb_type3 has killed Vezeniel.
+[18:53:38]	Bradley Dickhead has spawned a 'Entity [550][gmodz_stash]'.
+[18:53:46]	Bradley Dickhead has lost 359261 RU.
+[18:53:48]	Marek Sewczuk ran 'Equip' on item 'Gasmask' (#2675)
+[18:53:48]	Vezeniel ran 'take' on item 'Karton' (#3102)
+[18:53:48]	Vezeniel has gained a 'Karton' #3102.
+[18:53:53]	Bradley Dickhead has spawned a 'Entity [442][gmodz_merchant]'.
+[18:54:28]	Vezeniel ran 'drop' on item 'Karton' (#3102)
+[18:54:28]	Vezeniel has lost a 'Karton' #3102.
+[18:54:30]	Marek Sewczuk ran 'EquipUn' on item 'Gasmask' (#2675)
+[18:54:38]	Vezeniel has taken 35 damage from nb_type3.
+[18:54:40]	Vezeniel has taken 35 damage from nb_type3.
+[18:54:46]	Bonaventura Flamenco ran 'take' on item 'Łańcuch' (#3242)
+[18:54:46]	Bonaventura Flamenco has gained a 'Łańcuch' #3242.
+[18:54:48]	Vezeniel ran 'take' on item 'AN/PEQ-15' (#2119)
+[18:54:48]	Vezeniel has gained a 'AN/PEQ-15' #2119.
+[18:54:55]	Vezeniel ran 'take' on item 'Owsianka' (#3215)
+[18:54:55]	Vezeniel has gained a 'Owsianka' #3215.
+[18:54:58]	Vezeniel ran 'use' on item 'Owsianka' (#3215)
+[18:54:59]	Bonaventura Flamenco has taken 50 damage from nb_mercenary_melee.
+[18:55:02]	Bonaventura Flamenco has taken 50 damage from nb_mercenary_melee.
+[18:55:02]	nb_mercenary_melee has killed Bonaventura Flamenco.
+[18:55:04]	ttomi has killed Vezeniel.
+[18:55:10]	Marek Sewczuk ran 'use' on item 'Energetyk' (#2656)
+[18:55:13]	Bradley Dickhead has gained a 'Woda' #3279.
+[18:55:16]	⭐ lechu2375 ⭐ has killed Marek Sewczuk.
+[18:55:16]	Burdegg has taken 55765 RU from '' #1686077704 (0 RU left).
+[18:55:16]	Bradley Dickhead has gained a 'Mundur najemnika' #3254.
+[18:55:16]	Bradley Dickhead has gained a 'Łańcuch' #3242.
+[18:55:38]	Bonaventura Flamenco opened the 'Zrzut' #74 container.
+[18:55:40]	Vezeniel ran 'take' on item 'Kamizelka klasy 2' (#3276)
+[18:55:40]	Vezeniel has gained a 'Kamizelka klasy 2' #3276.
+[18:55:41]	Marek Sewczuk ran 'take' on item 'Filter' (#3101)
+[18:55:41]	Marek Sewczuk has gained a 'Filter' #3101.
+[18:55:41]	Bonaventura Flamenco has gained a 'Remington 870 Tactical' #2702.
+[18:55:43]	Bonaventura Flamenco has gained a 'AN-94' #2705.
+[18:55:46]	Marek Sewczuk entered observer.
+[18:55:47]	Vezeniel ran 'Equip' on item 'Kamizelka klasy 2' (#3276)
+[18:55:47]	Bradley Dickhead has taken 2 damage from nb_type1.
+[18:55:47]	Bradley Dickhead has taken 2 damage from nb_type1.
+[18:55:48]	Bonaventura Flamenco has gained a 'Czapka baseballowa ze słuchawkami' #2693.
+[18:55:49]	Bonaventura Flamenco ran 'Equip' on item 'Czapka baseballowa ze słuchawkami' (#2693)
+[18:55:51]	Bonaventura Flamenco has gained a 'Amunicja 5.45x39' #2691.
+[18:55:52]	Bonaventura Flamenco has gained a 'Zestaw szwalniczy' #2700.
+[18:55:53]	Bonaventura Flamenco has gained a 'M1911' #2699.
+[18:55:57]	Bradley Dickhead has gained 1650 RU.
+[18:55:58]	Bradley Dickhead has gained 4000 RU.
+[18:55:58]	Vezeniel has gained 8 RU.
+[18:56:00]	Bradley Dickhead has gained 250 RU.
+[18:56:00]	Bonaventura Flamenco ran 'Equip' on item 'AN-94' (#2705)
+[18:56:01]	Bradley Dickhead has gained 18000 RU.
+[18:56:03]	Bonaventura Flamenco has gained a 'AN/PEQ-2' #2715.
+[18:56:03]	Bradley Dickhead has gained 10000 RU.
+[18:56:07]	Bonaventura Flamenco has gained a 'Czapka baseballowa ze słuchawkami' #2689.
+[18:56:09]	Bonaventura Flamenco has gained a 'Kriss Vector' #2687.
+[18:56:09]	Bradley Dickhead ran 'EquipUn' on item 'AS VAL' (#2559)
+[18:56:10]	Bonaventura Flamenco has gained a 'UMP-45' #2695.
+[18:56:12]	Bonaventura Flamenco has gained a 'Remington 870 Tactical' #2706.
+[18:56:14]	Bonaventura Flamenco has gained a 'PMM' #2701.
+[18:56:15]	Bonaventura Flamenco has gained a 'Desert Eagle .357' #2697.
+[18:56:16]	Bonaventura Flamenco closed the 'Zrzut' #74 container.
+[18:56:17]	Bradley Dickhead has lost 89665 RU.
+[18:56:21]	Bonaventura Flamenco has gained 65000 RU.
+[18:56:22]	Bonaventura Flamenco has gained 60000 RU.
+[18:56:24]	Bonaventura Flamenco has gained 64000 RU.
+[18:56:25]	Bonaventura Flamenco has gained 65000 RU.
+[18:56:27]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:28]	Bonaventura Flamenco has gained 45000 RU.
+[18:56:33]	Bonaventura Flamenco opened the 'Zrzut' #73 container.
+[18:56:33]	Bonaventura Flamenco closed the 'Zrzut' #73 container.
+[18:56:34]	Bonaventura Flamenco opened the 'Zrzut' #73 container.
+[18:56:35]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:56:36]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:56:36]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:37]	Bradley Dickhead has taken 10 damage from nb_rebel_medic.
+[18:56:37]	Bonaventura Flamenco has gained a 'Łachy łobuza' #2663.
+[18:56:37]	Bradley Dickhead has taken 5 damage from nb_rebel_medic.
+[18:56:38]	Bradley Dickhead has taken 5 damage from nb_rebel_medic.
+[18:56:38]	Bradley Dickhead has taken 10 damage from nb_rebel_medic.
+[18:56:38]	Bradley Dickhead has taken 10 damage from nb_mercenary.
+[18:56:38]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:38]	Bradley Dickhead has taken 10 damage from nb_rebel_medic.
+[18:56:38]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:39]	Bonaventura Flamenco has gained a 'Steyr Scout' #2659.
+[18:56:39]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:39]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:39]	Bradley Dickhead has taken 5 damage from nb_mercenary.
+[18:56:39]	nb_mercenary has killed Bradley Dickhead.
+[18:56:41]	Bonaventura Flamenco has gained a 'Mossberg Maverick 88 Cruiser' #2677.
+[18:56:43]	Bonaventura Flamenco has gained a 'HK USP' #2670.
+[18:56:43]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:44]	Bonaventura Flamenco ran 'combine' on item 'Mossberg Maverick 88 Cruiser' (#2677)
+[18:56:44]	Vezeniel ran 'take' on item 'Rurka' (#3136)
+[18:56:44]	Vezeniel has gained a 'Rurka' #3136.
+[18:56:46]	Bonaventura Flamenco has gained a 'L85A2' #2682.
+[18:56:48]	Bonaventura Flamenco has gained a 'Desert Eagle .357' #2669.
+[18:56:49]	Bonaventura Flamenco closed the 'Zrzut' #73 container.
+[18:56:52]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:52]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:52]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:52]	Vezeniel has taken 8 damage from nb_mercenary.
+[18:56:52]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:54]	Bonaventura Flamenco has gained 65000 RU.
+[18:56:55]	Vezeniel has taken 8 damage from nb_mercenary.
+[18:56:56]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:56]	Vezeniel has taken 4 damage from nb_mercenary.
+[18:56:56]	Bonaventura Flamenco has gained 95000 RU.
+[18:56:58]	Bonaventura Flamenco has gained 60000 RU.
+[18:57:00]	Bonaventura Flamenco has gained 59000 RU.
+[18:57:00]	Bradley Dickhead opened the 'Zrzut' #74 container.
+[18:57:02]	Bradley Dickhead has gained a 'BM-16 Sawed-Off' #2707.
+[18:57:02]	Bradley Dickhead has gained a 'BM-16 Short' #2688.
+[18:57:02]	Bradley Dickhead has gained a 'Amunicja 12' #2694.
+[18:57:02]	Bradley Dickhead has gained a 'BM-16' #2708.
+[18:57:02]	Bradley Dickhead has gained a 'Super-Shorty' #2714.
+[18:57:02]	Bradley Dickhead has gained a 'Kriss Vector' #2692.
+[18:57:02]	Bradley Dickhead has gained a 'DV2' #2703.
+[18:57:02]	Bradley Dickhead has gained a 'UMP-45' #2698.
+[18:57:02]	Bonaventura Flamenco has gained 83000 RU.
+[18:57:03]	Bradley Dickhead closed the 'Zrzut' #74 container.
+[18:57:07]	Bonaventura Flamenco ran 'Equip' on item 'Łachy łobuza' (#2663)
+[18:57:13]	Bonaventura Flamenco opened the 'Zrzut' #72 container.
+[18:57:16]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #2639.
+[18:57:16]	Vezeniel ran 'take' on item 'Zapałki' (#3131)
+[18:57:16]	Vezeniel has gained a 'Zapałki' #3131.
+[18:57:16]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #2638.
+[18:57:16]	Bonaventura Flamenco has gained a 'Amunicja .454 Casull' #2626.
+[18:57:17]	Bonaventura Flamenco has gained a 'Amunicja 12' #2628.
+[18:57:17]	Bonaventura Flamenco has gained a 'Bandaż' #2642.
+[18:57:18]	Bonaventura Flamenco has gained a 'Amunicja 12' #2647.
+[18:57:18]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #2653.
+[18:57:18]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #2652.
+[18:57:19]	Bonaventura Flamenco has gained a 'Amunicja .454 Casull' #2633.
+[18:57:19]	Bonaventura Flamenco has gained a 'BM-16 Sawed-Off' #2645.
+[18:57:20]	Bradley Dickhead has gained 40000 RU.
+[18:57:21]	Bradley Dickhead has gained 2000 RU.
+[18:57:21]	Bonaventura Flamenco closed the 'Zrzut' #72 container.
+[18:57:24]	Bradley Dickhead has gained 46000 RU.
+[18:57:27]	Bradley Dickhead has gained 54000 RU.
+[18:57:28]	Bonaventura Flamenco opened the 'Zrzut' #71 container.
+[18:57:29]	Bradley Dickhead has gained 70000 RU.
+[18:57:30]	Bonaventura Flamenco has gained a 'Okulary taktyczne' #2634.
+[18:57:33]	Bradley Dickhead has gained 59000 RU.
+[18:57:38]	Bradley Dickhead has gained 65000 RU.
+[18:57:40]	Marek Sewczuk exited observer at their location.
+[18:57:40]	Bonaventura Flamenco ran 'Equip' on item 'HK USP' (#2670)
+[18:57:42]	Bonaventura Flamenco closed the 'Zrzut' #71 container.
+[18:57:55]	Marek Sewczuk has gained a 'IMI Galil' #3292.
+[18:57:57]	Marek Sewczuk has gained a 'Aimpoint CompM4' #3293.
+[18:57:59]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3294.
+[18:58:01]	Bradley Dickhead has gained a 'Steyr Scout' #3296.
+[18:58:01]	Bradley Dickhead has lost 127473 RU.
+[18:58:01]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3297.
+[18:58:03]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3298.
+[18:58:04]	Marek Sewczuk has gained a 'Amunicja 5.56x45' #3299.
+[18:58:06]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3300.
+[18:58:06]	Bradley Dickhead has lost 40255 RU.
+[18:58:08]	Marek Sewczuk has gained a 'Kamizelka klasy 3' #3301.
+[18:58:11]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3302.
+[18:58:11]	Bradley Dickhead has lost 40255 RU.
+[18:58:14]	Bonaventura Flamenco ran 'drop' on item 'Czapka baseballowa ze słuchawkami' (#2689)
+[18:58:14]	Bonaventura Flamenco has lost a 'Czapka baseballowa ze słuchawkami' #2689.
+[18:58:15]	Marek Sewczuk ran 'Equip' on item 'IMI Galil' (#3292)
+[18:58:16]	Marek Sewczuk ran 'combine' on item 'IMI Galil' (#3292)
+[18:58:16]	Bradley Dickhead has gained a 'Kamizelka klasy 3' #3303.
+[18:58:16]	Bradley Dickhead has lost 107346 RU.
+[18:58:17]	Marek Sewczuk ran 'Equip' on item 'Kamizelka klasy 3' (#3301)
+[18:58:20]	Bradley Dickhead ran 'take' on item 'Czapka baseballowa ze słuchawkami' (#2689)
+[18:58:20]	Bradley Dickhead has gained a 'Czapka baseballowa ze słuchawkami' #2689.
+[18:58:22]	Marek Sewczuk ran 'combine' on item 'IMI Galil' (#3292)
+[18:58:22]	Bradley Dickhead ran 'Equip' on item 'Czapka baseballowa ze słuchawkami' (#2689)
+[18:58:24]	Bradley Dickhead ran 'Equip' on item 'Kamizelka klasy 3' (#3303)
+[18:58:24]	Bradley Dickhead ran 'Equip' on item 'Steyr Scout' (#3296)
+[18:58:50]	Bradley Dickhead has gained 64000 RU.
+[18:58:59]	Marek Sewczuk opened the 'Zrzut' #74 container.
+[18:59:01]	Marek Sewczuk closed the 'Zrzut' #74 container.
+[18:59:07]	Bradley Dickhead has gained a 'Amunicja .454 Casull' #3305.
+[18:59:13]	Bradley Dickhead has gained a 'Mundur najemnika' #3306.
+[18:59:14]	Marek Sewczuk opened the 'Zrzut' #73 container.
+[18:59:16]	Bonaventura Flamenco opened the 'Zrzut' #73 container.
+[18:59:16]	Marek Sewczuk closed the 'Zrzut' #73 container.
+[18:59:21]	Bradley Dickhead has gained 13320 RU.
+[18:59:23]	Bradley Dickhead has gained 11500 RU.
+[18:59:27]	Bradley Dickhead has gained a 'G36K' #3305.
+[18:59:27]	Bradley Dickhead has lost 108688 RU.
+[18:59:30]	Vezeniel has taken 30 damage from nb_type3.
+[18:59:32]	Vezeniel has taken 30 damage from nb_type3.
+[18:59:34]	Vezeniel has taken 35 damage from nb_type3.
+[18:59:34]	nb_type3 has killed Vezeniel.
+[18:59:39]	Bonaventura Flamenco opened the 'Zrzut' #71 container.
+[18:59:42]	Bonaventura Flamenco closed the 'Zrzut' #71 container.
+[18:59:46]	Bonaventura Flamenco opened the 'Zrzut' #71 container.
+[18:59:46]	Marek Sewczuk opened the 'Zrzut' #71 container.
+[18:59:48]	Bradley Dickhead has gained 22000 RU.
+[18:59:51]	Bonaventura Flamenco closed the 'Zrzut' #71 container.
+[18:59:59]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3306.
+[18:59:59]	Bradley Dickhead has lost 22140 RU.
+[19:00:02]	Bradley Dickhead ran 'Equip' on item 'G36K' (#3305)
+[19:00:04]	Vezeniel opened the 'Zrzut' #74 container.
+[19:00:05]	Bonaventura Flamenco ran 'Equip' on item 'AN-94' (#2705)
+[19:00:06]	Vezeniel closed the 'Zrzut' #74 container.
+[19:00:09]	Vezeniel opened the 'Zrzut' #73 container.
+[19:00:12]	Bradley Dickhead opened the 'Zrzut' #73 container.
+[19:00:13]	Vezeniel has gained a 'Desert Eagle .357' #2666.
+[19:00:15]	Vezeniel has gained a 'M9 Bayonet' #2676.
+[19:00:17]	Vezeniel closed the 'Zrzut' #73 container.
+[19:00:17]	Bradley Dickhead opened the 'Zrzut' #72 container.
+[19:00:19]	Vezeniel opened the 'Zrzut' #72 container.
+[19:00:19]	Bradley Dickhead has gained a 'BM-16 Sawed-Off' #2650.
+[19:00:19]	Bradley Dickhead has gained a 'OTs-33 Pernach' #2632.
+[19:00:19]	Bradley Dickhead has gained a 'Saiga-12K' #2643.
+[19:00:19]	Bradley Dickhead has gained a 'Sterling MK7A4' #2637.
+[19:00:19]	Bradley Dickhead has gained a 'BM-16 Short' #2648.
+[19:00:19]	Bradley Dickhead has gained a 'Machete' #2651.
+[19:00:19]	Bradley Dickhead has gained a 'PP-19 Bizon' #2630.
+[19:00:19]	Bradley Dickhead has gained a 'M9 Bayonet' #2644.
+[19:00:19]	Bradley Dickhead has gained a 'MAC-11' #2649.
+[19:00:19]	Bradley Dickhead has gained a 'PM' #2631.
+[19:00:19]	Bradley Dickhead has gained a 'PM' #2635.
+[19:00:20]	Bradley Dickhead closed the 'Zrzut' #72 container.
+[19:00:22]	Vezeniel opened the 'Zrzut' #72 container.
+[19:00:23]	Bonaventura Flamenco ran 'take' on item 'Czekolada' (#3104)
+[19:00:23]	Bonaventura Flamenco has gained a 'Czekolada' #3104.
+[19:00:24]	Marek Sewczuk ran 'take' on item 'Silnik' (#3277)
+[19:00:24]	Marek Sewczuk has gained a 'Silnik' #3277.
+[19:00:24]	Vezeniel has gained a 'IMI Galil' #2655.
+[19:00:25]	Vezeniel closed the 'Zrzut' #72 container.
+[19:00:28]	Marek Sewczuk ran 'drop' on item 'Silnik' (#3277)
+[19:00:28]	Marek Sewczuk has lost a 'Silnik' #3277.
+[19:00:28]	Bonaventura Flamenco opened the 'Zrzut' #70 container.
+[19:00:29]	Vezeniel opened the 'Zrzut' #71 container.
+[19:00:30]	Marek Sewczuk opened the 'Zrzut' #70 container.
+[19:00:31]	Bonaventura Flamenco has gained a 'Cheek Pad' #2573.
+[19:00:31]	Bonaventura Flamenco has gained a 'Amunicja 9x39' #2567.
+[19:00:32]	Vezeniel has gained a 'Hełm ACH' #2608.
+[19:00:32]	Marek Sewczuk ran 'take' on item 'Amunicja .50 AE' (#934)
+[19:00:32]	Marek Sewczuk has gained a 'Amunicja .50 AE' #934.
+[19:00:34]	Bradley Dickhead has gained 60000 RU.
+[19:00:34]	Bonaventura Flamenco closed the 'Zrzut' #70 container.
+[19:00:35]	Marek Sewczuk opened the 'Zrzut' #54 container.
+[19:00:35]	Bradley Dickhead has gained 61000 RU.
+[19:00:36]	Bradley Dickhead has gained 60000 RU.
+[19:00:38]	Bradley Dickhead has gained 44000 RU.
+[19:00:38]	Bonaventura Flamenco opened the 'Zrzut' #54 container.
+[19:00:41]	Bradley Dickhead has gained 70000 RU.
+[19:00:42]	Bradley Dickhead has gained 60000 RU.
+[19:00:44]	Bradley Dickhead has gained 70000 RU.
+[19:00:44]	Bonaventura Flamenco ran 'Attach' on item 'AN/PEQ-2' (#2715)
+[19:00:45]	Marek Sewczuk has gained a 'Mundur łajdaka' #2116.
+[19:00:45]	Vezeniel ran 'Equip' on item 'Hełm ACH' (#2608)
+[19:00:45]	Bradley Dickhead has gained 40000 RU.
+[19:00:46]	Marek Sewczuk closed the 'Zrzut' #54 container.
+[19:00:47]	Bradley Dickhead has gained 44000 RU.
+[19:00:48]	Bonaventura Flamenco opened the 'Zrzut' #54 container.
+[19:00:48]	Bradley Dickhead has gained 46000 RU.
+[19:00:49]	Bradley Dickhead has gained 45000 RU.
+[19:00:49]	Vezeniel has gained a 'Machete' #2600.
+[19:00:50]	Marek Sewczuk ran 'Equip' on item 'Mundur łajdaka' (#2116)
+[19:00:54]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3308.
+[19:00:54]	Bradley Dickhead has lost 22140 RU.
+[19:00:56]	Vezeniel has gained a 'MP9' #2614.
+[19:00:56]	Bonaventura Flamenco closed the 'Zrzut' #54 container.
+[19:00:57]	Vezeniel has gained a 'AK-12' #2619.
+[19:00:57]	Vezeniel has gained a 'KS-23M' #2620.
+[19:00:58]	Vezeniel has gained a 'Canted Ironsights' #2625.
+[19:01:00]	Vezeniel has gained a 'TOZ-34' #2618.
+[19:01:00]	Vezeniel closed the 'Zrzut' #71 container.
+[19:01:13]	Vezeniel has gained 60000 RU.
+[19:01:15]	Vezeniel has gained 72000 RU.
+[19:01:18]	Vezeniel has gained 58000 RU.
+[19:01:20]	Bradley Dickhead opened the 'Zrzut' #71 container.
+[19:01:21]	Vezeniel has gained 71000 RU.
+[19:01:22]	Vezeniel has gained 8000 RU.
+[19:01:23]	Bradley Dickhead has gained a 'Amunicja 23x75MMR' #2616.
+[19:01:23]	Bradley Dickhead has gained a 'OTs-14' #2597.
+[19:01:23]	Bradley Dickhead has gained a 'BM-16' #2606.
+[19:01:23]	Bradley Dickhead has gained a 'Glock-20' #2602.
+[19:01:23]	Bradley Dickhead has gained a 'BM-16 Short' #2611.
+[19:01:23]	Bradley Dickhead has gained a 'Okulary pilotki' #2615.
+[19:01:23]	Bradley Dickhead has gained a 'Amunicja 23x75MMR' #2605.
+[19:01:23]	Bradley Dickhead has gained a 'M4A1' #2599.
+[19:01:23]	Bradley Dickhead has gained a 'Amunicja 9x39' #2623.
+[19:01:30]	Bonaventura Flamenco opened the 'Zrzut' #55 container.
+[19:01:30]	Bradley Dickhead has gained a 'G36C' #2622.
+[19:01:31]	Bradley Dickhead closed the 'Zrzut' #71 container.
+[19:01:34]	Marek Sewczuk opened the 'Zrzut' #55 container.
+[19:01:34]	Vezeniel opened the 'Zrzut' #71 container.
+[19:01:36]	Marek Sewczuk ran 'take' on item 'M82' (#2636)
+[19:01:36]	Marek Sewczuk has gained a 'M82' #2636.
+[19:01:37]	Vezeniel has gained a 'AUG A3' #2603.
+[19:01:38]	Vezeniel has gained a 'Kriss Vector' #2613.
+[19:01:38]	Vezeniel has gained a 'AKS-74U' #2612.
+[19:01:39]	Vezeniel has gained a 'AN-94' #2598.
+[19:01:40]	Vezeniel has gained a 'KS-23' #2601.
+[19:01:42]	Vezeniel has gained a 'Amunicja 9x39' #2623.
+[19:01:42]	Vezeniel closed the 'Zrzut' #71 container.
+[19:01:43]	Bradley Dickhead has gained 12000 RU.
+[19:01:44]	Bonaventura Flamenco has gained a 'Amunicja 5.45x39' #2141.
+[19:01:45]	Bradley Dickhead has gained 45000 RU.
+[19:01:47]	Bonaventura Flamenco closed the 'Zrzut' #55 container.
+[19:01:47]	Bradley Dickhead has gained 54000 RU.
+[19:01:50]	Bradley Dickhead has gained 40000 RU.
+[19:01:52]	Marek Sewczuk opened the 'Zrzut' #55 container.
+[19:01:52]	Vezeniel has gained 69000 RU.
+[19:01:53]	Bradley Dickhead has gained 80000 RU.
+[19:01:54]	Vezeniel has gained 82000 RU.
+[19:01:54]	Bradley Dickhead has gained 81000 RU.
+[19:01:55]	Vezeniel has gained 64000 RU.
+[19:01:56]	Bradley Dickhead has gained 12000 RU.
+[19:01:57]	Vezeniel has gained 2592 RU.
+[19:01:57]	Marek Sewczuk closed the 'Zrzut' #55 container.
+[19:01:58]	Vezeniel has gained 80000 RU.
+[19:01:59]	Bradley Dickhead has gained 2000 RU.
+[19:02:00]	Vezeniel has gained 58000 RU.
+[19:02:02]	Bradley Dickhead has gained 87000 RU.
+[19:02:04]	Vezeniel has gained 70000 RU.
+[19:02:16]	Vezeniel has lost 694592 RU.
+[19:02:19]	Bradley Dickhead ran 'take' on item 'Acog' (#3310)
+[19:02:19]	Bradley Dickhead has gained a 'Acog' #3310.
+[19:02:19]	Marek Sewczuk has taken 75 damage from nb_mercenary.
+[19:02:21]	⭐ lechu2375 ⭐ has killed Marek Sewczuk.
+[19:02:27]	Bradley Dickhead has lost 991523 RU.
+[19:02:29]	Bonaventura Flamenco ran 'drop' on item 'Łachy łobuza' (#2663)
+[19:02:29]	Bonaventura Flamenco has lost a 'Łachy łobuza' #2663.
+[19:02:30]	Bonaventura Flamenco has gained a 'Mundur łajdaka' #2116.
+[19:02:30]	Bonaventura Flamenco ran 'Equip' on item 'Mundur łajdaka' (#2116)
+[19:02:31]	Vezeniel ran 'Equip' on item 'IMI Galil' (#2655)
+[19:02:34]	Vezeniel ran 'Equip' on item 'M9 Bayonet' (#2676)
+[19:02:34]	Bonaventura Flamenco has gained a 'Kamizelka klasy 3' #3301.
+[19:02:36]	Bonaventura Flamenco ran 'Equip' on item 'Kamizelka klasy 3' (#3301)
+[19:02:42]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:02:42]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:02:43]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:02:43]	Bonaventura Flamenco has taken 8 damage from nb_mercenary.
+[19:02:47]	Marek Sewczuk entered observer.
+[19:03:12]	[OOC] Marek Sewczuk: ej na kompasie itemy pokazuje
+[19:03:13]	Vezeniel opened the 'Zrzut' #70 container.
+[19:03:15]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3307)
+[19:03:15]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3307.
+[19:03:19]	Bradley Dickhead ran 'take' on item 'CVC Helmet (Green)' (#3309)
+[19:03:19]	Bradley Dickhead has gained a 'CVC Helmet (Green)' #3309.
+[19:03:20]	Vezeniel closed the 'Zrzut' #70 container.
+[19:03:23]	Bradley Dickhead opened the 'Zrzut' #70 container.
+[19:03:26]	Vezeniel opened the 'Zrzut' #54 container.
+[19:03:31]	Bradley Dickhead closed the 'Zrzut' #70 container.
+[19:03:33]	Vezeniel closed the 'Zrzut' #54 container.
+[19:03:35]	Bradley Dickhead opened the 'Zrzut' #54 container.
+[19:03:41]	Bradley Dickhead has gained a 'AN/PEQ-2' #2133.
+[19:03:44]	Bradley Dickhead closed the 'Zrzut' #54 container.
+[19:03:48]	Bradley Dickhead ran 'Equip' on item 'Steyr Scout' (#3296)
+[19:03:54]	Bonaventura Flamenco ran 'take' on item 'Posąg konia' (#3092)
+[19:04:21]	Bradley Dickhead has gained a 'AN/PEQ-2' #3313.
+[19:04:35]	Vezeniel opened the 'Zrzut' #55 container.
+[19:04:40]	Vezeniel has gained a 'RAD-X' #2159.
+[19:04:44]	Vezeniel closed the 'Zrzut' #55 container.
+[19:04:50]	Vezeniel has taken 35 damage from nb_type3.
+[19:04:53]	Bonaventura Flamenco opened the 'Zrzut' #56 container.
+[19:04:56]	Bonaventura Flamenco ran 'drop' on item 'Mundur łajdaka' (#2116)
+[19:04:56]	Bonaventura Flamenco has lost a 'Mundur łajdaka' #2116.
+[19:04:57]	Bonaventura Flamenco has gained a 'Mundur rosyjskich służb specjalnych' #2171.
+[19:04:57]	Bonaventura Flamenco ran 'Equip' on item 'Mundur rosyjskich służb specjalnych' (#2171)
+[19:05:22]	Bonaventura Flamenco has gained a 'Amunicja .454 Casull' #2626.
+[19:05:22]	Bonaventura Flamenco closed the 'Zrzut' #56 container.
+[19:05:24]	ttomi has killed Vezeniel.
+[19:05:34]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:34]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:34]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:35]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:35]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:35]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:35]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:35]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:36]	Bonaventura Flamenco has taken 4 damage from nb_mercenary.
+[19:05:39]	Bonaventura Flamenco ran 'use' on item 'Bandaż' (#2642)
+[19:05:40]	Bonaventura Flamenco ran 'use' on item 'Bandaż' (#2642)
+[19:05:41]	Bradley Dickhead opened the 'Zrzut' #55 container.
+[19:05:42]	Bonaventura Flamenco has gained 44 RU.
+[19:05:46]	Bradley Dickhead has gained a 'Canted Ironsights ''Tiss''' #2161.
+[19:05:47]	Bonaventura Flamenco ran 'Equip' on item 'HK USP' (#2670)
+[19:05:56]	Bradley Dickhead has gained a 'AN/PEQ-15' #2146.
+[19:05:57]	Vezeniel opened the 'Wrak' #53 container.
+[19:05:59]	Vezeniel has gained a 'Scout suit' #1949.
+[19:06:00]	Vezeniel has gained a 'CVC Helmet (Desert)' #1955.
+[19:06:02]	Vezeniel has gained a 'Owsianka' #1938.
+[19:06:02]	Vezeniel closed the 'Wrak' #53 container.
+[19:06:04]	Vezeniel ran 'Equip' on item 'Scout suit' (#1949)
+[19:06:04]	Bradley Dickhead has gained a 'M14 SOPMOD' #2147.
+[19:06:04]	Vezeniel ran 'Equip' on item 'CVC Helmet (Desert)' (#1955)
+[19:06:05]	Bradley Dickhead has gained a 'SKS' #2142.
+[19:06:06]	Bradley Dickhead closed the 'Zrzut' #55 container.
+[19:06:15]	Bradley Dickhead has gained a 'AN/PEQ-15' #3316.
+[19:06:24]	Bradley Dickhead has gained a 'RAD-X' #2159.
+[19:06:36]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:36]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:37]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:37]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:37]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:37]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:38]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:39]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:39]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:39]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:39]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:41]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:41]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:42]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:42]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:42]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:42]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:43]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:43]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:44]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:44]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:44]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:46]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:46]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:46]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:46]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:46]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:47]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:47]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:48]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:48]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:48]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:49]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:49]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:49]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:50]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:50]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:50]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:51]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:51]	Vezeniel has lost a 'CVC Helmet (Desert)' #1955.
+[19:06:51]	Vezeniel has taken 2 damage from nb_type1.
+[19:06:52]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:52]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:53]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:53]	Vezeniel ran 'take' on item 'Desert Eagle .357' (#2336)
+[19:06:53]	Vezeniel has gained a 'Desert Eagle .357' #2336.
+[19:06:53]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:53]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:54]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:54]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:54]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:54]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:54]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:55]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:55]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:55]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:55]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:56]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:56]	Vezeniel ran 'Equip' on item 'Desert Eagle .357' (#2336)
+[19:06:56]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:56]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:56]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:56]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:57]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:57]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:58]	Vezeniel has taken 1 damage from nb_type1.
+[19:06:59]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:00]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:00]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:00]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:00]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:01]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:01]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:01]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:01]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:01]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:02]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:02]	Vezeniel has taken 1 damage from nb_type1.
+[19:07:02]	Vezeniel has taken 2 damage from nb_type1.
+[19:07:02]	nb_type1 has killed Vezeniel.
+[19:07:11]	Marek Sewczuk used command '/Event CZY CHECIE EVENT OBRONA MIASTA?'.
+[19:07:13]	Vezeniel opened the 'Zrzut' #54 container.
+[19:07:13]	Vezeniel closed the 'Zrzut' #54 container.
+[19:07:15]	Vezeniel opened the 'Zrzut' #54 container.
+[19:07:15]	Bradley Dickhead opened the 'Zrzut' #56 container.
+[19:07:20]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #2175.
+[19:07:21]	Vezeniel has gained a 'Chleb' #2140.
+[19:07:25]	Vezeniel closed the 'Zrzut' #54 container.
+[19:07:28]	Bradley Dickhead has gained a 'Cheek Pad' #2187.
+[19:07:28]	Vezeniel ran 'take' on item 'MP5A5' (#2137)
+[19:07:28]	Vezeniel has gained a 'MP5A5' #2137.
+[19:07:29]	Bonaventura Flamenco ran 'Equip' on item 'Okulary taktyczne' (#2634)
+[19:07:30]	Vezeniel ran 'Equip' on item 'MP5A5' (#2137)
+[19:07:33]	Vezeniel ran 'take' on item 'Silnik' (#3277)
+[19:07:33]	Vezeniel has gained a 'Silnik' #3277.
+[19:07:34]	Vezeniel ran 'take' on item 'Puree z warzyw' (#3315)
+[19:07:34]	Vezeniel has gained a 'Puree z warzyw' #3315.
+[19:07:36]	Bradley Dickhead has gained a 'PP-19 Bizon' #2184.
+[19:07:39]	Bradley Dickhead has gained a 'Amunicja 9x18' #2193.
+[19:07:42]	Bradley Dickhead closed the 'Zrzut' #56 container.
+[19:07:52]	Bonaventura Flamenco ran 'Attach' on item 'Cheek Pad' (#2573)
+[19:07:54]	Bonaventura Flamenco ran 'Attach' on item 'Cheek Pad' (#2573)
+[19:07:56]	[OOC] Marek Sewczuk: Za 5 minut mogę was tepnąć?
+[19:08:05]	Vezeniel opened the 'Zrzut' #71 container.
+[19:08:07]	Vezeniel closed the 'Zrzut' #71 container.
+[19:08:11]	Vezeniel opened the 'Zrzut' #72 container.
+[19:08:13]	Vezeniel closed the 'Zrzut' #72 container.
+[19:08:15]	Vezeniel opened the 'Zrzut' #73 container.
+[19:08:16]	Vezeniel closed the 'Zrzut' #73 container.
+[19:08:17]	Bradley Dickhead has gained 5 RU.
+[19:08:22]	Bonaventura Flamenco ran 'drop' on item 'AN-94' (#2705)
+[19:08:22]	Bonaventura Flamenco has lost a 'AN-94' #2705.
+[19:08:23]	Bradley Dickhead ran 'drop' on item 'PP-19 Bizon' (#2184)
+[19:08:23]	Bradley Dickhead has lost a 'PP-19 Bizon' #2184.
+[19:08:24]	Vezeniel has gained 57000 RU.
+[19:08:25]	Bradley Dickhead ran 'drop' on item 'Amunicja 9x18' (#2193)
+[19:08:25]	Bradley Dickhead has lost a 'Amunicja 9x18' #2193.
+[19:08:25]	Bonaventura Flamenco ran 'take' on item 'PP-19 Bizon' (#2184)
+[19:08:25]	Bonaventura Flamenco has gained a 'PP-19 Bizon' #2184.
+[19:08:25]	Bonaventura Flamenco ran 'take' on item 'Amunicja 9x18' (#2193)
+[19:08:25]	Bonaventura Flamenco has gained a 'Amunicja 9x18' #2193.
+[19:08:27]	Vezeniel has gained 82834 RU.
+[19:08:27]	Bonaventura Flamenco ran 'Equip' on item 'PP-19 Bizon' (#2184)
+[19:08:33]	Bradley Dickhead ran 'take' on item 'Papier do drukarki' (#3205)
+[19:08:33]	Bradley Dickhead has gained a 'Papier do drukarki' #3205.
+[19:08:35]	Bradley Dickhead ran 'drop' on item 'Papier do drukarki' (#3205)
+[19:08:35]	Bradley Dickhead has lost a 'Papier do drukarki' #3205.
+[19:08:49]	Vezeniel has gained a 'AKS-74U' #3318.
+[19:08:49]	Vezeniel has lost 98905 RU.
+[19:08:53]	Bradley Dickhead ran 'take' on item 'Łachy łobuza' (#3169)
+[19:08:54]	Bradley Dickhead ran 'take' on item 'Puszka kawy' (#3164)
+[19:08:54]	Vezeniel has gained a 'Amunicja 5.45x39' #3319.
+[19:08:54]	Vezeniel has lost 19351 RU.
+[19:08:55]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:08:57]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x51' (#2653)
+[19:08:57]	Bonaventura Flamenco has lost a 'Amunicja 7.62x51' #2653.
+[19:08:57]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:08:57]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:08:59]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:09:00]	Bradley Dickhead ran 'take' on item 'Łachy łobuza' (#3169)
+[19:09:00]	Bradley Dickhead has gained a 'Łachy łobuza' #3169.
+[19:09:00]	Bonaventura Flamenco ran 'drop' on item 'Okulary taktyczne' (#2634)
+[19:09:00]	Bonaventura Flamenco has lost a 'Okulary taktyczne' #2634.
+[19:09:00]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:09:01]	Bradley Dickhead ran 'Equip' on item 'Łachy łobuza' (#3169)
+[19:09:02]	Bonaventura Flamenco ran 'drop' on item 'HK USP' (#2670)
+[19:09:02]	Bonaventura Flamenco has lost a 'HK USP' #2670.
+[19:09:02]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:09:02]	Bonaventura Flamenco has gained a 'Puszka kawy' #3164.
+[19:09:06]	Vezeniel has gained 69000 RU.
+[19:09:07]	Bonaventura Flamenco ran 'drop' on item 'Puszka kawy' (#3164)
+[19:09:07]	Bonaventura Flamenco has lost a 'Puszka kawy' #3164.
+[19:09:08]	Bonaventura Flamenco ran 'take' on item 'HK USP' (#2670)
+[19:09:08]	Bonaventura Flamenco has gained a 'HK USP' #2670.
+[19:09:09]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#2653)
+[19:09:09]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #2653.
+[19:09:10]	Bonaventura Flamenco ran 'take' on item 'Puszka kawy' (#3164)
+[19:09:10]	Bonaventura Flamenco has gained a 'Puszka kawy' #3164.
+[19:09:10]	Bonaventura Flamenco ran 'take' on item 'Okulary taktyczne' (#2634)
+[19:09:10]	Bonaventura Flamenco has gained a 'Okulary taktyczne' #2634.
+[19:09:25]	Vezeniel has lost 90578 RU.
+[19:09:36]	Vezeniel has gained 300000 RU.
+[19:09:37]	Bonaventura Flamenco ran 'take' on item 'Butelka wody' (#3320)
+[19:09:37]	Bonaventura Flamenco ran 'take' on item 'Butelka wody' (#3320)
+[19:09:38]	Bonaventura Flamenco ran 'drop' on item 'Puszka kawy' (#3164)
+[19:09:38]	Bonaventura Flamenco has lost a 'Puszka kawy' #3164.
+[19:09:39]	Bonaventura Flamenco ran 'take' on item 'Butelka wody' (#3320)
+[19:09:39]	Bonaventura Flamenco has gained a 'Butelka wody' #3320.
+[19:09:42]	Bonaventura Flamenco ran 'drop' on item 'Butelka wody' (#3320)
+[19:09:42]	Bonaventura Flamenco has lost a 'Butelka wody' #3320.
+[19:09:45]	Vezeniel has gained a 'AKS-74U' #3322.
+[19:09:45]	Vezeniel has lost 98905 RU.
+[19:09:49]	Vezeniel has gained a 'P226' #3323.
+[19:09:49]	Vezeniel has lost 53729 RU.
+[19:09:52]	Vezeniel has gained a 'Amunicja 9x19' #3324.
+[19:09:52]	Vezeniel has lost 3440 RU.
+[19:09:55]	Vezeniel ran 'Equip' on item 'AKS-74U' (#3322)
+[19:10:04]	Vezeniel has gained a 'Czapka oficerska' #3328.
+[19:10:04]	Vezeniel has lost 13761 RU.
+[19:10:06]	Bonaventura Flamenco ran 'Equip' on item 'HK USP' (#2670)
+[19:10:08]	Vezeniel ran 'Equip' on item 'Czapka oficerska' (#3328)
+[19:10:13]	Vezeniel ran 'Equip' on item 'P226' (#3323)
+[19:10:21]	Vezeniel opened the 'Zrzut' #71 container.
+[19:10:23]	Vezeniel closed the 'Zrzut' #71 container.
+[19:10:33]	Bonaventura Flamenco ran 'drop' on item 'Apteczka (torba)' (#3330)
+[19:10:37]	Bonaventura Flamenco ran 'combine' on item 'BM-16 Sawed-Off' (#2645)
+[19:10:39]	Bonaventura Flamenco ran 'drop' on item 'Mundur rosyjskich służb specjalnych' (#2171)
+[19:10:39]	Bonaventura Flamenco has lost a 'Mundur rosyjskich służb specjalnych' #2171.
+[19:10:39]	Vezeniel ran 'Equip' on item 'AKS-74U' (#3322)
+[19:10:40]	Bonaventura Flamenco ran 'take' on item 'Apteczka (torba)' (#3330)
+[19:10:40]	Bonaventura Flamenco has gained a 'Apteczka (torba)' #3330.
+[19:10:42]	Bonaventura Flamenco ran 'drop' on item 'Apteczka (torba)' (#3330)
+[19:10:42]	Bonaventura Flamenco has lost a 'Apteczka (torba)' #3330.
+[19:10:43]	Bonaventura Flamenco ran 'take' on item 'Mundur rosyjskich służb specjalnych' (#2171)
+[19:10:43]	Bonaventura Flamenco has gained a 'Mundur rosyjskich służb specjalnych' #2171.
+[19:10:45]	Bonaventura Flamenco ran 'Equip' on item 'Mundur rosyjskich służb specjalnych' (#2171)
+[19:10:56]	Bradley Dickhead ran 'take' on item 'Posąg konia' (#3099)
+[19:10:57]	Bradley Dickhead ran 'take' on item 'Posąg konia' (#3099)
+[19:10:57]	Bradley Dickhead ran 'take' on item 'Posąg konia' (#3099)
+[19:11:05]	Vezeniel ran 'take' on item 'Apteczka samochodowa' (#3314)
+[19:11:05]	Vezeniel has gained a 'Apteczka samochodowa' #3314.
+[19:11:10]	Bonaventura Flamenco opened the 'Zrzut' #69 container.
+[19:11:12]	Vezeniel ran 'drop' on item 'Apteczka samochodowa' (#3314)
+[19:11:12]	Vezeniel has lost a 'Apteczka samochodowa' #3314.
+[19:11:14]	Vezeniel ran 'take' on item 'Bandaż wojskowy' (#3321)
+[19:11:14]	Vezeniel has gained a 'Bandaż wojskowy' #3321.
+[19:11:14]	Bonaventura Flamenco ran 'use' on item 'Owsianka' (#2192)
+[19:11:18]	Vezeniel ran 'drop' on item 'Bandaż wojskowy' (#3321)
+[19:11:18]	Vezeniel has lost a 'Bandaż wojskowy' #3321.
+[19:11:18]	Bonaventura Flamenco ran 'use' on item 'Slickers' (#2565)
+[19:11:20]	Vezeniel opened the 'Zrzut' #70 container.
+[19:11:24]	Bradley Dickhead opened the 'Zrzut' #69 container.
+[19:11:26]	Bonaventura Flamenco ran 'drop' on item 'Czapka baseballowa ze słuchawkami' (#2539)
+[19:11:28]	Vezeniel closed the 'Zrzut' #70 container.
+[19:11:28]	Bonaventura Flamenco closed the 'Zrzut' #69 container.
+[19:11:29]	Bonaventura Flamenco ran 'take' on item 'Czapka baseballowa ze słuchawkami' (#2539)
+[19:11:29]	Bonaventura Flamenco has gained a 'Czapka baseballowa ze słuchawkami' #2539.
+[19:11:31]	Bonaventura Flamenco ran 'Equip' on item 'Czapka baseballowa ze słuchawkami' (#2539)
+[19:11:32]	Vezeniel opened the 'Zrzut' #54 container.
+[19:11:35]	[OOC] Bradley Dickhead: ok
+[19:11:38]	Marek Sewczuk exited observer at their location.
+[19:11:40]	Vezeniel closed the 'Zrzut' #54 container.
+[19:11:40]	Bradley Dickhead opened the 'Zrzut' #34 container.
+[19:11:40]	Bonaventura Flamenco opened the 'Zrzut' #34 container.
+[19:11:43]	Bradley Dickhead closed the 'Zrzut' #34 container.
+[19:12:03]	Bonaventura Flamenco ran 'Equip' on item 'M1911' (#2699)
+[19:12:08]	Bonaventura Flamenco ran 'Equip' on item 'HK USP' (#2670)
+[19:12:25]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3331)
+[19:12:25]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3331.
+[19:12:52]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3333)
+[19:12:52]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3333.
+[19:12:52]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3334)
+[19:12:52]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3334.
+[19:12:53]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3335)
+[19:12:53]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3335.
+[19:12:55]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:12:55]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:12:55]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:12:57]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 9x39' (#2567)
+[19:12:57]	Bonaventura Flamenco has lost a 'Amunicja 9x39' #2567.
+[19:12:58]	Bonaventura Flamenco ran 'take' on item 'Amunicja 9x39' (#2567)
+[19:12:58]	Bonaventura Flamenco has gained a 'Amunicja 9x39' #2567.
+[19:12:59]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:12:59]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3339)
+[19:12:59]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3339)
+[19:13:03]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3341)
+[19:13:03]	Bradley Dickhead has gained a 'Apteczka wojskowa' #3341.
+[19:13:04]	Vezeniel ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:13:04]	Vezeniel has gained a '.45 ACP Ammo' #3336.
+[19:13:04]	Bonaventura Flamenco ran 'drop' on item 'Amunicja .454 Casull' (#2626)
+[19:13:04]	Bonaventura Flamenco has lost a 'Amunicja .454 Casull' #2626.
+[19:13:04]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3340)
+[19:13:04]	Vezeniel has gained a 'Apteczka wojskowa' #3340.
+[19:13:04]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3342)
+[19:13:04]	Vezeniel ran 'take' on item '.45 ACP Ammo' (#3339)
+[19:13:04]	Vezeniel has gained a '.45 ACP Ammo' #3339.
+[19:13:05]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3331)
+[19:13:05]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3331.
+[19:13:06]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3331)
+[19:13:06]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3331.
+[19:13:07]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3343)
+[19:13:07]	Bonaventura Flamenco has gained a 'Apteczka wojskowa' #3343.
+[19:13:08]	Vezeniel ran 'take' on item 'Amunicja .454 Casull' (#2626)
+[19:13:08]	Vezeniel has gained a 'Amunicja .454 Casull' #2626.
+[19:13:10]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3343)
+[19:13:10]	Vezeniel ran 'drop' on item 'Amunicja .454 Casull' (#2626)
+[19:13:10]	Vezeniel has lost a 'Amunicja .454 Casull' #2626.
+[19:13:12]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3337)
+[19:13:12]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3337.
+[19:13:12]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:12]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:13]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:13]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:14]	Vezeniel ran 'drop' on item '.45 ACP Ammo' (#3336)
+[19:13:14]	Vezeniel has lost a '.45 ACP Ammo' #3336.
+[19:13:15]	Vezeniel ran 'drop' on item '.45 ACP Ammo' (#3339)
+[19:13:15]	Vezeniel has lost a '.45 ACP Ammo' #3339.
+[19:13:21]	Bonaventura Flamenco ran 'Equip' on item 'BM-16 Sawed-Off' (#2645)
+[19:13:24]	Bonaventura Flamenco ran 'drop' on item 'BM-16 Sawed-Off' (#2645)
+[19:13:24]	Bonaventura Flamenco has lost a 'BM-16 Sawed-Off' #2645.
+[19:13:25]	Bonaventura Flamenco ran 'take' on item 'Amunicja .454 Casull' (#2626)
+[19:13:25]	Bonaventura Flamenco has gained a 'Amunicja .454 Casull' #2626.
+[19:13:26]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:27]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:29]	Bonaventura Flamenco ran 'drop' on item 'Zestaw szwalniczy' (#2700)
+[19:13:29]	Bonaventura Flamenco has lost a 'Zestaw szwalniczy' #2700.
+[19:13:30]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:13:30]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3336.
+[19:13:30]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3339)
+[19:13:30]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3339.
+[19:13:32]	Bonaventura Flamenco ran 'Equip' on item 'M1911' (#2699)
+[19:13:32]	Vezeniel ran 'take' on item 'Zestaw szwalniczy' (#2700)
+[19:13:32]	Vezeniel has gained a 'Zestaw szwalniczy' #2700.
+[19:13:36]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3346)
+[19:13:36]	Vezeniel has gained a 'Amunicja 5.45x39' #3346.
+[19:13:36]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3345)
+[19:13:36]	Vezeniel has gained a 'Amunicja 5.45x39' #3345.
+[19:13:36]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3344)
+[19:13:36]	Vezeniel has gained a 'Amunicja 5.45x39' #3344.
+[19:13:36]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3347)
+[19:13:36]	Vezeniel has gained a 'Amunicja 5.45x39' #3347.
+[19:13:37]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3343)
+[19:13:37]	Vezeniel has gained a 'Amunicja 5.45x39' #3343.
+[19:13:37]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3349)
+[19:13:37]	Vezeniel has gained a 'Amunicja 5.45x39' #3349.
+[19:13:37]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3350)
+[19:13:37]	Vezeniel has gained a 'Amunicja 5.45x39' #3350.
+[19:13:37]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3348)
+[19:13:37]	Vezeniel has gained a 'Amunicja 5.45x39' #3348.
+[19:13:39]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:42]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x51' (#2653)
+[19:13:42]	Bonaventura Flamenco has lost a 'Amunicja 7.62x51' #2653.
+[19:13:42]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#2653)
+[19:13:42]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #2653.
+[19:13:43]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:45]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x51' (#2653)
+[19:13:45]	Bonaventura Flamenco has lost a 'Amunicja 7.62x51' #2653.
+[19:13:45]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:13:45]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3338.
+[19:13:52]	Bonaventura Flamenco ran 'take' on item 'Plecak zbieracza' (#3355)
+[19:13:53]	Bradley Dickhead ran 'EquipUn' on item 'Łachy łobuza' (#3169)
+[19:13:54]	Vezeniel ran 'take' on item 'Plecak zbieracza' (#3356)
+[19:13:54]	Bradley Dickhead ran 'drop' on item 'Łachy łobuza' (#3169)
+[19:13:54]	Bradley Dickhead has lost a 'Łachy łobuza' #3169.
+[19:13:55]	Bradley Dickhead ran 'take' on item 'Plecak zbieracza' (#3357)
+[19:13:55]	Bradley Dickhead has gained a 'Plecak zbieracza' #3357.
+[19:13:56]	Bonaventura Flamenco ran 'drop' on item 'Okulary taktyczne' (#2634)
+[19:13:56]	Bonaventura Flamenco has lost a 'Okulary taktyczne' #2634.
+[19:13:57]	Bonaventura Flamenco ran 'drop' on item '.45 ACP Ammo' (#3338)
+[19:13:57]	Bonaventura Flamenco has lost a '.45 ACP Ammo' #3338.
+[19:13:58]	Bonaventura Flamenco ran 'drop' on item '.45 ACP Ammo' (#3336)
+[19:13:58]	Bonaventura Flamenco has lost a '.45 ACP Ammo' #3336.
+[19:13:58]	Bonaventura Flamenco ran 'drop' on item '.45 ACP Ammo' (#3339)
+[19:13:58]	Bonaventura Flamenco has lost a '.45 ACP Ammo' #3339.
+[19:13:59]	Vezeniel ran 'take' on item 'Plecak zbieracza' (#3356)
+[19:13:59]	Vezeniel has gained a 'Plecak zbieracza' #3356.
+[19:13:59]	Bonaventura Flamenco ran 'take' on item 'Plecak zbieracza' (#3355)
+[19:13:59]	Bonaventura Flamenco has gained a 'Plecak zbieracza' #3355.
+[19:13:59]	Bonaventura Flamenco ran 'take' on item 'BM-16 Sawed-Off' (#2645)
+[19:13:59]	Bonaventura Flamenco has gained a 'BM-16 Sawed-Off' #2645.
+[19:14:00]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3336)
+[19:14:00]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3336.
+[19:14:02]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3338)
+[19:14:02]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3338.
+[19:14:02]	Bonaventura Flamenco ran 'take' on item '.45 ACP Ammo' (#3339)
+[19:14:02]	Bonaventura Flamenco has gained a '.45 ACP Ammo' #3339.
+[19:14:02]	Bonaventura Flamenco ran 'take' on item 'Okulary taktyczne' (#2634)
+[19:14:02]	Bonaventura Flamenco has gained a 'Okulary taktyczne' #2634.
+[19:14:14]	Bradley Dickhead ran 'drop' on item 'CVC Helmet (Green)' (#3309)
+[19:14:14]	Bradley Dickhead has lost a 'CVC Helmet (Green)' #3309.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3366)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3366.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3365)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3365.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3367)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3367.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3364)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3364.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3368)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3368.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3363)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3363.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3362)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3362.
+[19:14:16]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3361)
+[19:14:16]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3361.
+[19:14:17]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3359)
+[19:14:17]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3359.
+[19:14:17]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3360)
+[19:14:17]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3360.
+[19:14:17]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#3358)
+[19:14:17]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3358.
+[19:14:23]	Bonaventura Flamenco ran 'take' on item 'CVC Helmet (Green)' (#3309)
+[19:14:23]	Bonaventura Flamenco has gained a 'CVC Helmet (Green)' #3309.
+[19:14:24]	Bonaventura Flamenco ran 'drop' on item 'CVC Helmet (Green)' (#3309)
+[19:14:24]	Bonaventura Flamenco has lost a 'CVC Helmet (Green)' #3309.
+[19:14:28]	Vezeniel ran 'take' on item 'Łachy łobuza' (#3169)
+[19:14:28]	Vezeniel has gained a 'Łachy łobuza' #3169.
+[19:14:30]	Vezeniel ran 'Equip' on item 'Łachy łobuza' (#3169)
+[19:14:34]	Vezeniel ran 'drop' on item 'Łachy łobuza' (#3169)
+[19:14:34]	Vezeniel has lost a 'Łachy łobuza' #3169.
+[19:14:39]	Bradley Dickhead ran 'take' on item 'Łachy łobuza' (#3169)
+[19:14:39]	Bradley Dickhead has gained a 'Łachy łobuza' #3169.
+[19:14:41]	Bradley Dickhead ran 'Equip' on item 'Łachy łobuza' (#3169)
+[19:14:52]	Bonaventura Flamenco ran 'take' on item 'Hełm ALTYN' (#3369)
+[19:14:52]	Bonaventura Flamenco has gained a 'Hełm ALTYN' #3369.
+[19:14:52]	Bradley Dickhead ran 'take' on item 'Energetyk' (#3370)
+[19:14:52]	Bradley Dickhead has gained a 'Energetyk' #3370.
+[19:14:53]	Bonaventura Flamenco ran 'Equip' on item 'Hełm ALTYN' (#3369)
+[19:14:58]	Bradley Dickhead ran 'use' on item 'Energetyk' (#3370)
+[19:15:03]	Bradley Dickhead ran 'take' on item 'Groszek' (#3370)
+[19:15:03]	Bradley Dickhead has gained a 'Groszek' #3370.
+[19:15:05]	Bradley Dickhead ran 'use' on item 'Groszek' (#3370)
+[19:15:19]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3352)
+[19:15:19]	Vezeniel has gained a 'Amunicja 5.45x39' #3352.
+[19:15:19]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3354)
+[19:15:19]	Vezeniel has gained a 'Amunicja 5.45x39' #3354.
+[19:15:19]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3353)
+[19:15:19]	Vezeniel has gained a 'Amunicja 5.45x39' #3353.
+[19:15:20]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3351)
+[19:15:20]	Vezeniel has gained a 'Amunicja 5.45x39' #3351.
+[19:15:30]	Bradley Dickhead ran 'take' on item 'M18A1 Claymore' (#3372)
+[19:15:30]	Bradley Dickhead has gained a 'M18A1 Claymore' #3372.
+[19:15:34]	Marek Sewczuk entered observer.
+[19:15:34]	Bradley Dickhead ran 'Equip' on item 'M18A1 Claymore' (#3372)
+[19:15:43]	Marek Sewczuk used command '/cityinvasion1 20 3'.
+[19:16:57]	Bradley Dickhead ran 'take' on item 'Amunicja 7.62x51' (#2653)
+[19:16:57]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #2653.
+[19:17:01]	Bradley Dickhead ran 'Equip' on item 'G36K' (#3305)
+[19:17:19]	Vezeniel has gained 7 RU.
+[19:17:19]	Vezeniel ran 'take' on item 'Lina' (#3093)
+[19:17:19]	Vezeniel has gained a 'Lina' #3093.
+[19:17:26]	Bradley Dickhead ran 'Equip' on item 'Steyr Scout' (#3296)
+[19:17:28]	Vezeniel has gained a 'Bateria AA' #3370.
+[19:17:29]	Vezeniel has gained a 'Zapałki' #3371.
+[19:18:00]	Bradley Dickhead ran 'Equip' on item 'G36K' (#3305)
+[19:18:29]	Bradley Dickhead has gained 4 RU.
+[19:18:35]	nb_zombine destroyed a 'CVC Helmet (Green)' #3309.
+[19:18:47]	Vezeniel has taken 5 damage from nb_infected_citizen.
+[19:18:47]	Vezeniel has taken 5 damage from nb_infected_citizen.
+[19:18:48]	Bradley Dickhead ran 'Detach' on item 'Steyr Scout' (#3296)
+[19:18:50]	Bradley Dickhead ran 'Equip' on item 'Steyr Scout' (#3296)
+[19:18:50]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:55]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:55]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:56]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:57]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:57]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:57]	Vezeniel has taken 2 damage from nb_type1.
+[19:18:57]	Vezeniel has taken 2 damage from nb_type1.
+[19:19:30]	Bradley Dickhead has taken 25 damage from Pozytyw.
+[19:19:30]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:19:34]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:19:35]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3341)
+[19:19:39]	Bonaventura Flamenco ran 'use' on item 'Owsianka' (#3413)
+[19:19:42]	Bonaventura Flamenco has gained a 'Wiertarka elektryczna' #3414.
+[19:19:52]	Vezeniel ran 'take' on item 'Proch strzelniczy JASTRZĄB' (#3095)
+[19:19:52]	Vezeniel has gained a 'Proch strzelniczy JASTRZĄB' #3095.
+[19:20:04]	Bradley Dickhead has taken 13 damage from Pozytyw.
+[19:20:12]	Bonaventura Flamenco has gained 7 RU.
+[19:20:13]	[OOC] Marek Sewczuk: ale odjebaliscie lipoe
+[19:20:32]	Marek Sewczuk exited observer at their location.
+[19:20:40]	Vezeniel opened the 'Zrzut' #69 container.
+[19:20:44]	Vezeniel has gained a 'RAD-X' #2557.
+[19:20:45]	Vezeniel has gained a 'Butelka wody' #3098.
+[19:20:46]	Vezeniel has gained a 'Wódka' #3074.
+[19:20:47]	Vezeniel has gained a 'Czapka oficerska' #3020.
+[19:20:49]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:20:51]	Vezeniel has gained a 'M9 Bayonet' #2566.
+[19:20:51]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:20:53]	Vezeniel has gained a 'Raging Bull' #2548.
+[19:20:55]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3341)
+[19:20:59]	Vezeniel closed the 'Zrzut' #69 container.
+[19:21:00]	Bonaventura Flamenco has gained 14 RU.
+[19:21:02]	Vezeniel ran 'EquipUn' on item 'Czapka oficerska' (#3328)
+[19:21:05]	Vezeniel ran 'Equip' on item 'Czapka oficerska' (#3020)
+[19:21:07]	Vezeniel ran 'Equip' on item 'Raging Bull' (#2548)
+[19:21:09]	Bonaventura Flamenco opened the 'Zrzut' #69 container.
+[19:21:11]	Bonaventura Flamenco closed the 'Zrzut' #69 container.
+[19:21:25]	Bradley Dickhead opened the 'Zrzut' #69 container.
+[19:21:30]	Bradley Dickhead has gained a 'M249' #2554.
+[19:21:31]	Bradley Dickhead closed the 'Zrzut' #69 container.
+[19:21:35]	Bradley Dickhead ran 'drop' on item 'SKS' (#2142)
+[19:21:35]	Bradley Dickhead has lost a 'SKS' #2142.
+[19:21:36]	Bradley Dickhead ran 'Equip' on item 'M249' (#2554)
+[19:21:38]	Bradley Dickhead ran 'drop' on item 'G36K' (#3305)
+[19:21:38]	Bradley Dickhead has lost a 'G36K' #3305.
+[19:21:40]	Bradley Dickhead ran 'take' on item 'G36K' (#3305)
+[19:21:40]	Bradley Dickhead has gained a 'G36K' #3305.
+[19:21:44]	Bradley Dickhead ran 'drop' on item 'G36K' (#3305)
+[19:21:44]	Bradley Dickhead has lost a 'G36K' #3305.
+[19:21:47]	Vezeniel ran 'take' on item 'M60E3' (#3421)
+[19:21:47]	Vezeniel has gained a 'M60E3' #3421.
+[19:21:55]	Bonaventura Flamenco ran 'take' on item 'SKS' (#2142)
+[19:21:55]	Bonaventura Flamenco has gained a 'SKS' #2142.
+[19:21:57]	Bonaventura Flamenco ran 'Equip' on item 'SKS' (#2142)
+[19:22:02]	Vezeniel ran 'Equip' on item 'M60E3' (#3421)
+[19:22:02]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3433)
+[19:22:02]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3433.
+[19:22:02]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3435)
+[19:22:02]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3435.
+[19:22:02]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3434)
+[19:22:02]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3434.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3429)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3429.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3427)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3427.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3431)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3431.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3428)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3428.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3424)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3424.
+[19:22:03]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3432)
+[19:22:03]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3432.
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3430)
+[19:22:04]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3430.
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3426)
+[19:22:04]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3426.
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3425)
+[19:22:04]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3425.
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3423)
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3423)
+[19:22:04]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3423)
+[19:22:10]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3456)
+[19:22:10]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3456.
+[19:22:10]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3457)
+[19:22:10]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3457.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3470)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3470.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3462)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3462.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3468)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3468.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3464)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3464.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3466)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3466.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3458)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3458.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3459)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3459.
+[19:22:11]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3467)
+[19:22:11]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3467.
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3469)
+[19:22:12]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3469.
+[19:22:12]	Bonaventura Flamenco ran 'drop' on item 'SKS' (#2142)
+[19:22:12]	Bonaventura Flamenco has lost a 'SKS' #2142.
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3463)
+[19:22:12]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3463.
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3461)
+[19:22:12]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3461.
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3460)
+[19:22:12]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3460.
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:12]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:12]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x54' (#3435)
+[19:22:12]	Bonaventura Flamenco has lost a 'Amunicja 7.62x54' #3435.
+[19:22:13]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:13]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3343)
+[19:22:13]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x54' (#3434)
+[19:22:13]	Bonaventura Flamenco has lost a 'Amunicja 7.62x54' #3434.
+[19:22:14]	Bonaventura Flamenco ran 'take' on item 'MC51B Vollmer' (#3420)
+[19:22:14]	Bonaventura Flamenco has gained a 'MC51B Vollmer' #3420.
+[19:22:15]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3467)
+[19:22:15]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3467.
+[19:22:15]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3458)
+[19:22:15]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3458.
+[19:22:15]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3471)
+[19:22:15]	Vezeniel has gained a 'Amunicja 5.45x39' #3471.
+[19:22:16]	Vezeniel ran 'take' on item 'M249' (#3422)
+[19:22:16]	Vezeniel has gained a 'M249' #3422.
+[19:22:16]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3472)
+[19:22:16]	Vezeniel has gained a 'Amunicja 5.45x39' #3472.
+[19:22:16]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3480)
+[19:22:16]	Vezeniel has gained a 'Amunicja 5.45x39' #3480.
+[19:22:16]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:16]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3465.
+[19:22:16]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3483)
+[19:22:16]	Vezeniel has gained a 'Amunicja 5.45x39' #3483.
+[19:22:16]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3467)
+[19:22:16]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3467.
+[19:22:16]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3473)
+[19:22:16]	Vezeniel has gained a 'Amunicja 5.45x39' #3473.
+[19:22:17]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3458)
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3475)
+[19:22:17]	Vezeniel has gained a 'Amunicja 5.45x39' #3475.
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3478)
+[19:22:17]	Vezeniel has gained a 'Amunicja 5.45x39' #3478.
+[19:22:17]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3458)
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3479)
+[19:22:17]	Vezeniel has gained a 'Amunicja 5.45x39' #3479.
+[19:22:17]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3458)
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3476)
+[19:22:17]	Vezeniel has gained a 'Amunicja 5.45x39' #3476.
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3482)
+[19:22:17]	Vezeniel has gained a 'Amunicja 5.45x39' #3482.
+[19:22:17]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:22:18]	Bonaventura Flamenco ran 'Equip' on item 'MC51B Vollmer' (#3420)
+[19:22:18]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:22:18]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:22:18]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:22:18]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:22:19]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3467)
+[19:22:19]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3467.
+[19:22:19]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3465)
+[19:22:19]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3465.
+[19:22:20]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3466)
+[19:22:20]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3466.
+[19:22:21]	Bradley Dickhead ran 'drop' on item 'Amunicja 5.56x45' (#3459)
+[19:22:21]	Bradley Dickhead has lost a 'Amunicja 5.56x45' #3459.
+[19:22:22]	Bonaventura Flamenco ran 'drop' on item 'MC51B Vollmer' (#3420)
+[19:22:22]	Bonaventura Flamenco has lost a 'MC51B Vollmer' #3420.
+[19:22:22]	Bonaventura Flamenco ran 'take' on item 'MC51B Vollmer' (#3420)
+[19:22:22]	Bonaventura Flamenco has gained a 'MC51B Vollmer' #3420.
+[19:22:23]	Bradley Dickhead ran 'drop' on item 'Łachy łobuza' (#3169)
+[19:22:23]	Bradley Dickhead has lost a 'Łachy łobuza' #3169.
+[19:22:24]	Bonaventura Flamenco ran 'drop' on item 'MC51B Vollmer' (#3420)
+[19:22:24]	Bonaventura Flamenco has lost a 'MC51B Vollmer' #3420.
+[19:22:25]	Bonaventura Flamenco ran 'take' on item 'SKS' (#2142)
+[19:22:25]	Bonaventura Flamenco has gained a 'SKS' #2142.
+[19:22:25]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3343)
+[19:22:25]	Burdegg destroyed a 'Łachy łobuza' #3169.
+[19:22:26]	Bonaventura Flamenco ran 'Equip' on item 'SKS' (#2142)
+[19:22:26]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3465)
+[19:22:26]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3465.
+[19:22:26]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3459)
+[19:22:26]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3459.
+[19:22:27]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3466)
+[19:22:27]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3466.
+[19:22:27]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3353)
+[19:22:27]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3467)
+[19:22:27]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3467.
+[19:22:27]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x54' (#3423)
+[19:22:27]	Bonaventura Flamenco has gained a 'Amunicja 7.62x54' #3423.
+[19:22:28]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3343)
+[19:22:29]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3438)
+[19:22:29]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3438.
+[19:22:29]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3455)
+[19:22:29]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3455)
+[19:22:30]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3350)
+[19:22:30]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3455)
+[19:22:30]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3455)
+[19:22:31]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3350)
+[19:22:32]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3475)
+[19:22:38]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3455)
+[19:22:38]	Vezeniel has gained a 'Amunicja 7.62x51' #3455.
+[19:22:38]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3450)
+[19:22:38]	Vezeniel has gained a 'Amunicja 7.62x51' #3450.
+[19:22:38]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3446)
+[19:22:38]	Vezeniel has gained a 'Amunicja 7.62x51' #3446.
+[19:22:39]	Bradley Dickhead ran 'drop' on item 'AN/PEQ-2' (#3313)
+[19:22:39]	Bradley Dickhead has lost a 'AN/PEQ-2' #3313.
+[19:22:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3441)
+[19:22:39]	Vezeniel has gained a 'Amunicja 7.62x51' #3441.
+[19:22:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3451)
+[19:22:39]	Vezeniel has gained a 'Amunicja 7.62x51' #3451.
+[19:22:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3439)
+[19:22:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3447)
+[19:22:40]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3436)
+[19:22:42]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3446)
+[19:22:43]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3446)
+[19:22:44]	Bonaventura Flamenco ran 'drop' on item 'SKS' (#2142)
+[19:22:44]	Bonaventura Flamenco has lost a 'SKS' #2142.
+[19:22:44]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3448)
+[19:22:44]	Vezeniel has gained a 'Amunicja 7.62x51' #3448.
+[19:22:44]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:44]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:45]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:45]	Bonaventura Flamenco ran 'take' on item 'G36K' (#3305)
+[19:22:45]	Bonaventura Flamenco has gained a 'G36K' #3305.
+[19:22:45]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:45]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:45]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:45]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:47]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3448)
+[19:22:47]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3449)
+[19:22:47]	Vezeniel has gained a 'Amunicja 7.62x51' #3449.
+[19:22:47]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:22:47]	Bonaventura Flamenco ran 'Equip' on item 'G36K' (#3305)
+[19:22:48]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:22:48]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3493)
+[19:22:48]	Bradley Dickhead has gained a 'Apteczka wojskowa' #3493.
+[19:22:48]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:48]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3492)
+[19:22:48]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3490)
+[19:22:48]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:48]	Bradley Dickhead ran 'take' on item 'Apteczka wojskowa' (#3488)
+[19:22:48]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:49]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x54' (#3423)
+[19:22:49]	Bonaventura Flamenco has lost a 'Amunicja 7.62x54' #3423.
+[19:22:49]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3450)
+[19:22:50]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3437)
+[19:22:50]	Vezeniel has gained a 'Amunicja 7.62x51' #3437.
+[19:22:52]	Bonaventura Flamenco ran 'drop' on item 'G36K' (#3305)
+[19:22:52]	Bonaventura Flamenco has lost a 'G36K' #3305.
+[19:22:53]	Bonaventura Flamenco ran 'take' on item 'SKS' (#2142)
+[19:22:53]	Bonaventura Flamenco has gained a 'SKS' #2142.
+[19:22:53]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3478)
+[19:22:54]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3482)
+[19:22:55]	Bonaventura Flamenco ran 'Equip' on item 'SKS' (#2142)
+[19:22:55]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3473)
+[19:22:56]	Bradley Dickhead ran 'take' on item 'Mundur łajdaka' (#3507)
+[19:22:56]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3436)
+[19:22:56]	Vezeniel has gained a 'Amunicja 7.62x51' #3436.
+[19:22:57]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3444)
+[19:22:57]	Vezeniel has gained a 'Amunicja 7.62x51' #3444.
+[19:22:57]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:22:57]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:22:57]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:22:59]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3436)
+[19:22:59]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3447)
+[19:22:59]	Vezeniel has gained a 'Amunicja 7.62x51' #3447.
+[19:23:01]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3444)
+[19:23:02]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3445)
+[19:23:02]	Vezeniel has gained a 'Amunicja 7.62x51' #3445.
+[19:23:02]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3439)
+[19:23:03]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3439)
+[19:23:07]	Bonaventura Flamenco ran 'drop' on item 'SKS' (#2142)
+[19:23:07]	Bonaventura Flamenco has lost a 'SKS' #2142.
+[19:23:08]	Bonaventura Flamenco ran 'take' on item 'MC51B Vollmer' (#3420)
+[19:23:08]	Bonaventura Flamenco has gained a 'MC51B Vollmer' #3420.
+[19:23:09]	Bradley Dickhead ran 'take' on item 'Mundur łajdaka' (#3507)
+[19:23:09]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3439)
+[19:23:10]	Bonaventura Flamenco ran 'drop' on item 'MC51B Vollmer' (#3420)
+[19:23:10]	Bonaventura Flamenco has lost a 'MC51B Vollmer' #3420.
+[19:23:11]	Bradley Dickhead ran 'take' on item 'Mundur łajdaka' (#3507)
+[19:23:11]	Bradley Dickhead has gained a 'Mundur łajdaka' #3507.
+[19:23:13]	Bradley Dickhead ran 'Equip' on item 'Mundur łajdaka' (#3507)
+[19:23:13]	Bonaventura Flamenco ran 'take' on item 'MC51B Vollmer' (#3420)
+[19:23:13]	Bonaventura Flamenco has gained a 'MC51B Vollmer' #3420.
+[19:23:14]	Bonaventura Flamenco ran 'Equip' on item 'MC51B Vollmer' (#3420)
+[19:23:15]	Vezeniel ran 'drop' on item 'M249' (#3422)
+[19:23:15]	Vezeniel has lost a 'M249' #3422.
+[19:23:16]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3439)
+[19:23:16]	Vezeniel has gained a 'Amunicja 7.62x51' #3439.
+[19:23:16]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3440)
+[19:23:16]	Vezeniel has gained a 'Amunicja 7.62x51' #3440.
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:23:17]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:23:18]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3508)
+[19:23:18]	Bonaventura Flamenco has gained a 'Apteczka wojskowa' #3508.
+[19:23:20]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3439)
+[19:23:20]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3508)
+[19:23:20]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3454)
+[19:23:20]	Vezeniel has gained a 'Amunicja 7.62x51' #3454.
+[19:23:20]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:23:22]	Vezeniel ran 'combine' on item 'Amunicja 7.62x51' (#3445)
+[19:23:22]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3509)
+[19:23:22]	Bonaventura Flamenco has gained a 'Apteczka wojskowa' #3509.
+[19:23:22]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3442)
+[19:23:22]	Vezeniel has gained a 'Amunicja 7.62x51' #3442.
+[19:23:23]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3443)
+[19:23:24]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3509)
+[19:23:29]	Vezeniel ran 'drop' on item 'Amunicja 5.45x39' (#3473)
+[19:23:29]	Vezeniel has lost a 'Amunicja 5.45x39' #3473.
+[19:23:29]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3443)
+[19:23:29]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3443.
+[19:23:29]	Bonaventura Flamenco ran 'take' on item 'Amunicja 5.45x39' (#3473)
+[19:23:29]	Bonaventura Flamenco has gained a 'Amunicja 5.45x39' #3473.
+[19:23:30]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3452)
+[19:23:30]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3452.
+[19:23:30]	Vezeniel ran 'take' on item 'Amunicja 7.62x51' (#3453)
+[19:23:30]	Vezeniel has gained a 'Amunicja 7.62x51' #3453.
+[19:23:39]	Vezeniel ran 'Repair' on item 'Czapka oficerska' (#3328)
+[19:23:42]	Vezeniel ran 'drop' on item 'Zestaw szwalniczy' (#2700)
+[19:23:42]	Vezeniel has lost a 'Zestaw szwalniczy' #2700.
+[19:23:43]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3510)
+[19:23:47]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3512)
+[19:23:47]	Vezeniel has gained a 'Apteczka wojskowa' #3512.
+[19:23:47]	Vezeniel ran 'take' on item 'Zestaw szwalniczy' (#2700)
+[19:23:48]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3513)
+[19:23:48]	Vezeniel ran 'take' on item 'Zestaw szwalniczy' (#2700)
+[19:23:49]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3510)
+[19:23:49]	Vezeniel ran 'take' on item 'Zestaw szwalniczy' (#2700)
+[19:23:50]	Vezeniel ran 'take' on item 'Apteczka wojskowa' (#3511)
+[19:24:11]	Bradley Dickhead ran 'take' on item 'M249 200RND Box' (#3516)
+[19:24:17]	Bradley Dickhead ran 'drop' on item 'Amunicja 7.62x51' (#3358)
+[19:24:17]	Bradley Dickhead has lost a 'Amunicja 7.62x51' #3358.
+[19:24:18]	Bradley Dickhead ran 'drop' on item 'Amunicja 7.62x51' (#3360)
+[19:24:18]	Bradley Dickhead has lost a 'Amunicja 7.62x51' #3360.
+[19:24:19]	Bradley Dickhead ran 'take' on item 'M249 200RND Box' (#3515)
+[19:24:19]	Bradley Dickhead has gained a 'M249 200RND Box' #3515.
+[19:24:21]	Vezeniel ran 'take' on item 'M249 200RND Box' (#3514)
+[19:24:21]	Vezeniel has gained a 'M249 200RND Box' #3514.
+[19:24:24]	Vezeniel ran 'drop' on item 'M249 200RND Box' (#3514)
+[19:24:24]	Vezeniel has lost a 'M249 200RND Box' #3514.
+[19:24:31]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3458)
+[19:24:31]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3458.
+[19:24:33]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3485)
+[19:24:33]	Bonaventura Flamenco has gained a 'Apteczka wojskowa' #3485.
+[19:24:33]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3484)
+[19:24:34]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:24:36]	Vezeniel ran 'combine' on item 'Apteczka wojskowa' (#3512)
+[19:24:39]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3527)
+[19:24:39]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3527.
+[19:24:39]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3528)
+[19:24:39]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3521)
+[19:24:40]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3521)
+[19:24:41]	Vezeniel ran 'drop' on item 'Butelka wody' (#3098)
+[19:24:41]	Vezeniel has lost a 'Butelka wody' #3098.
+[19:24:41]	Bonaventura Flamenco ran 'drop' on item 'Wiertarka elektryczna' (#3414)
+[19:24:41]	Bonaventura Flamenco has lost a 'Wiertarka elektryczna' #3414.
+[19:24:44]	Vezeniel ran 'drop' on item 'Wódka' (#3074)
+[19:24:44]	Vezeniel has lost a 'Wódka' #3074.
+[19:24:46]	Bonaventura Flamenco ran 'take' on item 'Butelka wody' (#3098)
+[19:24:46]	Bonaventura Flamenco has gained a 'Butelka wody' #3098.
+[19:24:49]	Bonaventura Flamenco ran 'drop' on item 'Butelka wody' (#3098)
+[19:24:49]	Bonaventura Flamenco has lost a 'Butelka wody' #3098.
+[19:24:51]	Bradley Dickhead ran 'take' on item 'Sightmark SM13003B-DT' (#3538)
+[19:24:51]	Bradley Dickhead has gained a 'Sightmark SM13003B-DT' #3538.
+[19:24:54]	Bonaventura Flamenco ran 'take' on item 'Groszek' (#3534)
+[19:24:54]	Bonaventura Flamenco has gained a 'Groszek' #3534.
+[19:24:56]	Bonaventura Flamenco ran 'use' on item 'Groszek' (#3534)
+[19:24:57]	Bonaventura Flamenco ran 'take' on item 'Groszek' (#3533)
+[19:24:57]	Bonaventura Flamenco has gained a 'Groszek' #3533.
+[19:24:58]	Bonaventura Flamenco ran 'use' on item 'Groszek' (#3533)
+[19:24:59]	Bonaventura Flamenco ran 'take' on item 'Groszek' (#3537)
+[19:24:59]	Bonaventura Flamenco has gained a 'Groszek' #3537.
+[19:24:59]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3477)
+[19:24:59]	Vezeniel has gained a 'Amunicja 5.45x39' #3477.
+[19:25:00]	Bonaventura Flamenco ran 'take' on item 'Groszek' (#3536)
+[19:25:01]	Bonaventura Flamenco ran 'use' on item 'Groszek' (#3537)
+[19:25:01]	Bonaventura Flamenco ran 'use' on item 'Groszek' (#3537)
+[19:25:04]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3474)
+[19:25:04]	Vezeniel has gained a 'Amunicja 5.45x39' #3474.
+[19:25:04]	Vezeniel ran 'take' on item 'Amunicja 5.45x39' (#3481)
+[19:25:04]	Vezeniel has gained a 'Amunicja 5.45x39' #3481.
+[19:25:08]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3528)
+[19:25:08]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3528.
+[19:25:08]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3521)
+[19:25:08]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3521.
+[19:25:08]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3520)
+[19:25:08]	Vezeniel ran 'combine' on item 'Amunicja 5.45x39' (#3477)
+[19:25:08]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3520)
+[19:25:09]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3520)
+[19:25:09]	Bonaventura Flamenco ran 'take' on item 'Wiertarka elektryczna' (#3414)
+[19:25:12]	Bonaventura Flamenco ran 'drop' on item '.45 ACP Ammo' (#3334)
+[19:25:12]	Bonaventura Flamenco has lost a '.45 ACP Ammo' #3334.
+[19:25:13]	Bonaventura Flamenco ran 'combine' on item '.45 ACP Ammo' (#3335)
+[19:25:13]	Bonaventura Flamenco ran 'drop' on item '.45 ACP Ammo' (#3337)
+[19:25:13]	Bonaventura Flamenco has lost a '.45 ACP Ammo' #3337.
+[19:25:14]	Bonaventura Flamenco ran 'drop' on item 'Cheek Pad' (#2573)
+[19:25:14]	Bonaventura Flamenco has lost a 'Cheek Pad' #2573.
+[19:25:15]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 9x39' (#2567)
+[19:25:15]	Bonaventura Flamenco has lost a 'Amunicja 9x39' #2567.
+[19:25:16]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x54' (#3426)
+[19:25:16]	Bonaventura Flamenco has lost a 'Amunicja 7.62x54' #3426.
+[19:25:17]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x54' (#3425)
+[19:25:17]	Bonaventura Flamenco has lost a 'Amunicja 7.62x54' #3425.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3499)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3499.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3500)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3500.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3491)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3491.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3487)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3487.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3498)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3498.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3486)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3486.
+[19:25:19]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3483)
+[19:25:19]	Bonaventura Flamenco has gained a 'Amunicja 7.62x39' #3483.
+[19:25:20]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x39' (#3489)
+[19:25:21]	Bonaventura Flamenco ran 'take' on item 'Cheek Pad' (#2573)
+[19:25:22]	Vezeniel ran 'drop' on item 'Lina' (#3093)
+[19:25:22]	Vezeniel has lost a 'Lina' #3093.
+[19:25:24]	Vezeniel ran 'drop' on item 'Bateria AA' (#3370)
+[19:25:24]	Vezeniel has lost a 'Bateria AA' #3370.
+[19:25:24]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3487)
+[19:25:24]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3487.
+[19:25:24]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3331)
+[19:25:24]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3331.
+[19:25:25]	Vezeniel ran 'drop' on item 'Proch strzelniczy JASTRZĄB' (#3095)
+[19:25:25]	Vezeniel has lost a 'Proch strzelniczy JASTRZĄB' #3095.
+[19:25:25]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3498)
+[19:25:25]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3498.
+[19:25:25]	Bonaventura Flamenco ran 'take' on item 'Cheek Pad' (#2573)
+[19:25:25]	Bonaventura Flamenco has gained a 'Cheek Pad' #2573.
+[19:25:27]	Bonaventura Flamenco ran 'take' on item 'Wiertarka elektryczna' (#3414)
+[19:25:27]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3519)
+[19:25:27]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3519.
+[19:25:27]	Vezeniel ran 'drop' on item 'Zapałki' (#3371)
+[19:25:27]	Vezeniel has lost a 'Zapałki' #3371.
+[19:25:27]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3520)
+[19:25:27]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3520.
+[19:25:28]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3522)
+[19:25:28]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3522)
+[19:25:28]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3522)
+[19:25:28]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3522)
+[19:25:29]	Bonaventura Flamenco ran 'drop' on item 'Cheek Pad' (#2573)
+[19:25:29]	Bonaventura Flamenco has lost a 'Cheek Pad' #2573.
+[19:25:30]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3491)
+[19:25:30]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3491.
+[19:25:31]	Bonaventura Flamenco ran 'take' on item 'Cheek Pad' (#2573)
+[19:25:31]	Bonaventura Flamenco has gained a 'Cheek Pad' #2573.
+[19:25:32]	Bonaventura Flamenco ran 'drop' on item 'Cheek Pad' (#2573)
+[19:25:32]	Bonaventura Flamenco has lost a 'Cheek Pad' #2573.
+[19:25:33]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 12' (#2647)
+[19:25:33]	Bonaventura Flamenco has lost a 'Amunicja 12' #2647.
+[19:25:34]	Bonaventura Flamenco ran 'drop' on item 'Amunicja .454 Casull' (#2626)
+[19:25:34]	Bonaventura Flamenco has lost a 'Amunicja .454 Casull' #2626.
+[19:25:36]	Vezeniel ran 'combine' on item 'Czapka oficerska' (#3020)
+[19:25:36]	Bonaventura Flamenco ran 'take' on item 'Wiertarka elektryczna' (#3414)
+[19:25:36]	Bonaventura Flamenco has gained a 'Wiertarka elektryczna' #3414.
+[19:25:36]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3529)
+[19:25:36]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3529.
+[19:25:37]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3526)
+[19:25:37]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3526.
+[19:25:37]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3525)
+[19:25:37]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3525)
+[19:25:37]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3525)
+[19:25:37]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3525)
+[19:25:39]	Vezeniel ran 'take' on item 'Amunicja 7.62x54' (#3423)
+[19:25:39]	Vezeniel has gained a 'Amunicja 7.62x54' #3423.
+[19:25:40]	Bonaventura Flamenco ran 'drop' on item 'Wiertarka elektryczna' (#3414)
+[19:25:40]	Bonaventura Flamenco has lost a 'Wiertarka elektryczna' #3414.
+[19:25:41]	Bonaventura Flamenco ran 'drop' on item 'PP-19 Bizon' (#2184)
+[19:25:41]	Bonaventura Flamenco has lost a 'PP-19 Bizon' #2184.
+[19:25:42]	Vezeniel ran 'drop' on item 'Amunicja 7.62x54' (#3423)
+[19:25:42]	Vezeniel has lost a 'Amunicja 7.62x54' #3423.
+[19:25:42]	Bonaventura Flamenco ran 'take' on item 'Amunicja 9x39' (#2567)
+[19:25:42]	Bonaventura Flamenco has gained a 'Amunicja 9x39' #2567.
+[19:25:42]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3525)
+[19:25:42]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3525.
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3523)
+[19:25:43]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3523.
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3524)
+[19:25:43]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3524.
+[19:25:43]	Vezeniel ran 'take' on item 'SKS' (#2142)
+[19:25:43]	Vezeniel has gained a 'SKS' #2142.
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:43]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:44]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:44]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:47]	Vezeniel ran 'Equip' on item 'SKS' (#2142)
+[19:25:48]	Vezeniel ran 'Equip' on item 'M60E3' (#3421)
+[19:25:48]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3486)
+[19:25:48]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3486.
+[19:25:49]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3483)
+[19:25:49]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3483.
+[19:25:50]	Vezeniel ran 'drop' on item 'SKS' (#2142)
+[19:25:50]	Vezeniel has lost a 'SKS' #2142.
+[19:25:50]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3531)
+[19:25:50]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3531.
+[19:25:51]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3532)
+[19:25:51]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3532.
+[19:25:51]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:51]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:51]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:51]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:52]	Vezeniel ran 'take' on item 'Amunicja 7.62x39' (#3483)
+[19:25:52]	Vezeniel has gained a 'Amunicja 7.62x39' #3483.
+[19:25:53]	Bonaventura Flamenco ran 'drop' on item 'Amunicja .454 Casull' (#2633)
+[19:25:53]	Bonaventura Flamenco has lost a 'Amunicja .454 Casull' #2633.
+[19:25:54]	Vezeniel ran 'drop' on item 'Amunicja 7.62x39' (#3483)
+[19:25:54]	Vezeniel has lost a 'Amunicja 7.62x39' #3483.
+[19:25:54]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3522)
+[19:25:54]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3522.
+[19:25:55]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:57]	Bonaventura Flamenco ran 'drop' on item 'Amunicja 7.62x39' (#3500)
+[19:25:57]	Bonaventura Flamenco has lost a 'Amunicja 7.62x39' #3500.
+[19:25:59]	Bonaventura Flamenco ran 'take' on item 'Amunicja 7.62x51' (#3530)
+[19:25:59]	Bonaventura Flamenco has gained a 'Amunicja 7.62x51' #3530.
+[19:26:12]	Vezeniel ran 'take' on item 'Cheek Pad' (#2573)
+[19:26:12]	Vezeniel has gained a 'Cheek Pad' #2573.
+[19:26:14]	Vezeniel ran 'Attach' on item 'Cheek Pad' (#2573)
+[19:26:15]	Vezeniel ran 'drop' on item 'Cheek Pad' (#2573)
+[19:26:15]	Vezeniel has lost a 'Cheek Pad' #2573.
+[19:26:16]	Bonaventura Flamenco ran 'drop' on item 'Hełm ALTYN' (#3369)
+[19:26:16]	Bonaventura Flamenco has lost a 'Hełm ALTYN' #3369.
+[19:26:17]	Bonaventura Flamenco ran 'take' on item 'Hełm ALTYN' (#3369)
+[19:26:17]	Bonaventura Flamenco has gained a 'Hełm ALTYN' #3369.
+[19:26:18]	Vezeniel ran 'take' on item 'Wódka' (#3074)
+[19:26:18]	Vezeniel has gained a 'Wódka' #3074.
+[19:26:19]	Bonaventura Flamenco ran 'Equip' on item 'Hełm ALTYN' (#3369)
+[19:26:20]	Bonaventura Flamenco ran 'drop' on item 'Czapka baseballowa ze słuchawkami' (#2539)
+[19:26:20]	Bonaventura Flamenco has lost a 'Czapka baseballowa ze słuchawkami' #2539.
+[19:26:28]	Marek Sewczuk used command '/cityinvasion1 20 3'.
+[19:26:33]	Marek Sewczuk entered observer.
+[19:26:49]	Bonaventura Flamenco ran 'take' on item 'Morfina' (#3219)
+[19:26:49]	Bonaventura Flamenco has gained a 'Morfina' #3219.
+[19:27:20]	Vezeniel ran 'EquipUn' on item 'M60E3' (#3421)
+[19:27:20]	Vezeniel ran 'Equip' on item 'AKS-74U' (#3322)
+[19:27:30]	Bradley Dickhead has taken 9 damage from nb_swat.
+[19:27:54]	Bradley Dickhead has gained 7 RU.
+[19:28:17]	Bradley Dickhead has gained a 'Butelka wody' #3548.
+[19:28:20]	Vezeniel ran 'drop' on item 'Apteczka wojskowa' (#3512)
+[19:28:20]	Vezeniel has lost a 'Apteczka wojskowa' #3512.
+[19:28:21]	Bonaventura Flamenco ran 'take' on item 'Apteczka wojskowa' (#3512)
+[19:28:28]	Bonaventura Flamenco ran 'drop' on item 'Okulary taktyczne' (#2634)
+[19:28:28]	Bonaventura Flamenco has lost a 'Okulary taktyczne' #2634.
+[19:28:32]	Bonaventura Flamenco ran 'drop' on item 'Morfina' (#3219)
+[19:28:32]	Bonaventura Flamenco has lost a 'Morfina' #3219.
+[19:28:33]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:28:39]	Bradley Dickhead ran 'drop' on item 'Butelka wody' (#3548)
+[19:28:39]	Bradley Dickhead has lost a 'Butelka wody' #3548.
+[19:29:04]	Vezeniel has taken 35 damage from nb_type3.
+[19:29:05]	Vezeniel has taken 44 damage from Burdegg.
+[19:29:05]	Burdegg has killed Vezeniel with arccw_firearms2_m249.
+[19:29:14]	[OOC] Marek Sewczuk: xD
+[19:29:21]	[OOC] Vezeniel: nieźle 
+[19:29:23]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:29:24]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:29:25]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:29:26]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:29:28]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:29:34]	Bonaventura Flamenco has lost a 'Hełm ALTYN' #3369.
+[19:29:34]	Bonaventura Flamenco has taken 5 damage from nb_infected_citizen.
+[19:29:36]	Bradley Dickhead has taken 4 damage from nb_infected_citizen.
+[19:29:51]	Vezeniel opened the 'Zrzut' #35 container.
+[19:29:53]	Vezeniel closed the 'Zrzut' #35 container.
+[19:29:53]	Bradley Dickhead has taken 22 damage from nb_zombine.
+[19:29:54]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:30:00]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3493)
+[19:30:00]	Bonaventura Flamenco has taken 15 damage from nb_seeker.
+[19:30:03]	Bradley Dickhead has taken 4 damage from nb_infected_citizen.
+[19:30:03]	Bradley Dickhead has taken 4 damage from nb_infected_citizen.
+[19:30:06]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:30:09]	Bonaventura Flamenco has taken 15 damage from nb_seeker.
+[19:30:16]	Bradley Dickhead has taken 34 damage from nb_zombine.
+[19:30:23]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3493)
+[19:30:38]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3439.
+[19:30:39]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3442.
+[19:30:40]	Bradley Dickhead has gained a 'Amunicja 7.62x51' #3450.
+[19:31:13]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3589)
+[19:31:13]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3589.
+[19:31:14]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3588)
+[19:31:14]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3588.
+[19:31:14]	Bradley Dickhead ran 'take' on item 'Amunicja 5.56x45' (#3587)
+[19:31:14]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3587.
+[19:31:14]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:14]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:15]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:16]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:16]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:16]	Bradley Dickhead has taken 26 damage from nb_type3.
+[19:31:16]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:16]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:17]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:18]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:20]	Bradley Dickhead ran 'use' on item 'Apteczka wojskowa' (#3493)
+[19:31:22]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:22]	Bonaventura Flamenco has taken 26 damage from nb_type3.
+[19:31:22]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:23]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:24]	Bradley Dickhead has taken 26 damage from nb_type3.
+[19:31:25]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:25]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:25]	Bradley Dickhead has taken 4 damage from nb_infected_citizen.
+[19:31:25]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:25]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:26]	Bradley Dickhead has taken 4 damage from nb_infected_citizen.
+[19:31:26]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:26]	Bradley Dickhead has taken 33 damage from Pozytyw.
+[19:31:26]	Bradley Dickhead has taken 2 damage from nb_type1.
+[19:31:26]	Bradley Dickhead has taken 45 damage from Pozytyw.
+[19:31:26]	Pozytyw has killed Bradley Dickhead with arccw_firearms2_vollmer.
+[19:31:29]	Vezeniel opened the 'Zrzut' #67 container.
+[19:31:33]	Vezeniel has gained a 'Czarny mundur najemnika' #2498.
+[19:31:35]	Vezeniel has gained a 'Morfina' #2497.
+[19:31:38]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[19:31:38]	Bonaventura Flamenco has taken 2 damage from nb_type1.
+[19:31:38]	Bonaventura Flamenco has taken 4 damage from nb_infected_citizen.
+[19:31:40]	Vezeniel has gained a 'Epinephrine' #2495.
+[19:31:42]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:31:46]	Vezeniel closed the 'Zrzut' #67 container.
+[19:31:51]	Vezeniel opened the 'Zrzut' #42 container.
+[19:31:55]	Vezeniel closed the 'Zrzut' #42 container.
+[19:31:59]	Vezeniel ran 'Equip' on item 'Czarny mundur najemnika' (#2498)
+[19:32:04]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[19:32:05]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[19:32:05]	Bradley Dickhead has taken 20 damage from nb_seeker.
+[19:32:10]	Vezeniel opened the 'Zrzut' #66 container.
+[19:32:12]	Bonaventura Flamenco has taken 15 damage from nb_seeker.
+[19:32:13]	Bonaventura Flamenco ran 'Equip' on item 'M1911' (#2699)
+[19:32:16]	Vezeniel has gained a 'CVC Helmet (Desert)' #2471.
+[19:32:20]	Bonaventura Flamenco has taken 15 damage from nb_seeker.
+[19:32:20]	Bradley Dickhead has taken 35 damage from nb_type3.
+[19:32:23]	Burdegg has killed Bradley Dickhead.
+[19:32:24]	Vezeniel has gained a 'Apteczka wojskowa' #2481.
+[19:32:24]	Bonaventura Flamenco has taken 15 damage from nb_seeker.
+[19:32:26]	Vezeniel has gained a 'Apteczka' #2474.
+[19:32:27]	Bonaventura Flamenco ran 'use' on item 'Apteczka wojskowa' (#3485)
+[19:32:32]	Vezeniel has gained a 'Woda' #2467.
+[19:32:35]	Vezeniel has gained a 'Puree z warzyw' #2456.
+[19:32:37]	Vezeniel has gained a 'RAD-X' #2455.
+[19:32:38]	Bradley Dickhead opened the 'Zrzut' #85 container.
+[19:32:38]	Bonaventura Flamenco ran 'Equip' on item 'MC51B Vollmer' (#3420)
+[19:32:40]	Bradley Dickhead has gained a 'Telefon gphone' #3596.
+[19:32:40]	Bradley Dickhead has gained a 'Chleb' #3625.
+[19:32:40]	Bradley Dickhead has gained a 'Szczypce' #3616.
+[19:32:40]	Bradley Dickhead has gained a 'Płytka drukowana' #3626.
+[19:32:40]	Bradley Dickhead has gained a 'Zestaw narzędzi' #3620.
+[19:32:40]	Bradley Dickhead has gained a 'Cao Sao Vang' #3613.
+[19:32:40]	Bradley Dickhead has gained a 'Proch strzelniczy JASTRZĄB' #3602.
+[19:32:40]	Bradley Dickhead has gained a 'Kondensatory' #3612.
+[19:32:40]	Bradley Dickhead has gained a 'Amunicja 5.56x45' #3607.
+[19:32:40]	Bradley Dickhead has gained a 'Zasilacz' #3619.
+[19:32:40]	Bradley Dickhead has gained a 'Wódka' #3611.
+[19:32:40]	Bradley Dickhead has gained a 'Szczypce' #3606.
+[19:32:40]	Bradley Dickhead has gained a 'Dysk HDD' #3601.
+[19:32:40]	Bradley Dickhead has gained a 'Proch strzelniczy JASTRZĄB' #3618.
+[19:32:40]	Bradley Dickhead has gained a 'Morfina' #3610.
+[19:32:40]	Bradley Dickhead has gained a 'Bateria AA' #3605.
+[19:32:40]	Bradley Dickhead has gained a 'Szczypce' #3600.
+[19:32:40]	Bradley Dickhead has gained a 'Części do broni' #3624.
+[19:32:41]	Bradley Dickhead closed the 'Zrzut' #85 container.
+[19:32:41]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:32:42]	Vezeniel ran 'Equip' on item 'CVC Helmet (Desert)' (#2471)
+[19:32:46]	Vezeniel closed the 'Zrzut' #66 container.
+[19:32:49]	Bonaventura Flamenco ran 'Equip' on item 'M1911' (#2699)
+[19:32:49]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:32:51]	Bradley Dickhead has taken 17 damage from Pozytyw.
+[19:32:51]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:51]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:32:52]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:52]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:52]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:52]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:53]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:54]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:32:54]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:32:56]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:32:56]	nb_freshdead has killed Bradley Dickhead.
+[19:32:57]	Vezeniel opened the 'Zrzut' #66 container.
+[19:32:58]	Bonaventura Flamenco has taken 15 damage from nb_freshdead.
+[19:33:09]	Vezeniel has gained a 'Szal terrorysty' #2480.
+[19:33:09]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3629)
+[19:33:09]	Bradley Dickhead has gained a 'Scientific medkit' #3629.
+[19:33:09]	Vezeniel ran 'Equip' on item 'Szal terrorysty' (#2480)
+[19:33:14]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3635)
+[19:33:14]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3634)
+[19:33:14]	Bradley Dickhead ran 'take' on item 'Scientific medkit' (#3633)
+[19:33:17]	Bradley Dickhead opened the 'Zrzut' #85 container.
+[19:33:17]	Bonaventura Flamenco ran 'take' on item 'Scientific medkit' (#3594)
+[19:33:17]	Bonaventura Flamenco has gained a 'Scientific medkit' #3594.
+[19:33:19]	Bonaventura Flamenco ran 'use' on item 'Scientific medkit' (#3594)
+[19:33:20]	Vezeniel has gained a 'AS VAL' #2475.
+[19:33:21]	Vezeniel has gained a 'Amunicja 9x39' #2473.
+[19:33:21]	Vezeniel ran 'Equip' on item 'AS VAL' (#2475)
+[19:33:22]	Bonaventura Flamenco opened the 'Zrzut' #85 container.
+[19:33:22]	Bradley Dickhead closed the 'Zrzut' #85 container.
+[19:33:23]	Bradley Dickhead has gained 12 RU.
+[19:33:25]	Vezeniel closed the 'Zrzut' #66 container.
+[19:33:29]	Bradley Dickhead has taken 20 damage from nb_freshdead.
+[19:33:33]	Bonaventura Flamenco has gained a 'Czapka baseballowa' #3638.
+[19:33:33]	Bradley Dickhead ran 'use' on item 'Scientific medkit' (#3629)
+[19:33:35]	Bonaventura Flamenco has gained a 'Łańcuch' #3636.
+[19:33:38]	Vezeniel opened the 'Zrzut' #65 container.
+[19:33:41]	Vezeniel has gained a 'Wódka' #2451.
+[19:33:43]	Vezeniel ran 'combine' on item 'Morfina' (#2497)
+[19:33:45]	Vezeniel has gained a 'Energetyk' #2444.
+[19:33:52]	Vezeniel closed the 'Zrzut' #65 container.
+[19:33:54]	Bradley Dickhead ran 'take' on item 'Amunicja 12' (#3641)
+[19:33:54]	Bradley Dickhead has gained a 'Amunicja 12' #3641.
+[19:33:54]	Bradley Dickhead ran 'take' on item 'Amunicja 12' (#3642)
+[19:33:54]	Bradley Dickhead has gained a 'Amunicja 12' #3642.
+[19:33:54]	Bradley Dickhead ran 'take' on item 'Amunicja 12' (#3640)
+[19:33:54]	Bradley Dickhead has gained a 'Amunicja 12' #3640.
+[19:33:55]	Vezeniel opened the 'Zrzut' #64 container.
+[19:34:00]	Marek Sewczuk opened the 'Zrzut' #69 container.
+[19:34:01]	Vezeniel has gained a 'Kamizelka klasy 4' #2426.
+[19:34:02]	Vezeniel ran 'Equip' on item 'Kamizelka klasy 4' (#2426)
+[19:34:04]	Marek Sewczuk closed the 'Zrzut' #69 container.
+[19:34:06]	Bonaventura Flamenco ran 'Equip' on item 'MC51B Vollmer' (#3420)
+[19:34:08]	Vezeniel has gained a 'Groszek' #2412.
+[19:34:10]	Vezeniel ran 'combine' on item 'Woda' (#2467)
+[19:34:11]	Bonaventura Flamenco ran 'Equip' on item 'M1911' (#2699)
+[19:34:11]	Bradley Dickhead opened the 'Zrzut' #85 container.
+[19:34:11]	Bradley Dickhead closed the 'Zrzut' #85 container.
+[19:34:11]	Bradley Dickhead has gained 11 RU.
+[19:34:12]	Vezeniel has gained a 'Sok' #2411.
+[19:34:14]	Vezeniel has gained a 'Slickers' #2425.
+[19:34:14]	Burdegg destroyed a 'Butelka wody' #3548.
+[19:34:22]	Pozytyw (STEAM_0:0:84397718) has disconnected.
+[19:34:22]	Pozytyw has killed Bonaventura Flamenco.
+[19:34:29]	Vezeniel has gained a 'Tuńczyk w puszce' #2420.
+[19:34:30]	Vezeniel closed the 'Zrzut' #64 container.
+[19:34:52]	Marek Sewczuk exited observer at their location.
+[19:34:55]	⭐ lechu2375 ⭐ (STEAM_0:1:64107678) has disconnected.
+[19:35:24]	Bradley Dickhead has taken 45 damage from nb_zombine.
+[19:35:26]	Vezeniel has taken 12 damage from nb_seeker.
+[19:35:32]	Vezeniel has gained a 'Probówka' #3643.
+[19:35:32]	Bradley Dickhead ran 'use' on item 'Scientific medkit' (#3629)
+[19:35:41]	Vezeniel ran 'take' on item 'Dolar' (#3247)
+[19:35:41]	Vezeniel has gained a 'Dolar' #3247.
+[19:35:56]	Vezeniel ran 'take' on item 'Mundur najemnika' (#3144)
+[19:36:03]	Vezeniel has taken 1 damage from nb_type1.
+[19:36:04]	Vezeniel has taken 1 damage from nb_type1.
+[19:36:23]	Vezeniel has taken 48 damage from nb_boss_corpse.
+[19:36:26]	Vezeniel has taken 80 damage from nb_boss_corpse.
+[19:36:26]	nb_boss_corpse has killed Vezeniel.
+[19:36:30]	Bradley Dickhead has taken 80 damage from nb_boss_corpse.
+[19:36:32]	Burdegg has killed Bradley Dickhead.
+[19:36:51]	Burdegg (STEAM_0:0:67593389) has disconnected.
+[19:37:08]	ttomi (STEAM_0:1:96004322) has disconnected.
