@@ -15,3 +15,14 @@ function ITEM:OnCanUse()
 		return false
 	end
 end
+
+if (SERVER) then
+	function ITEM:OnUse()
+		self.player:HealBleeding()
+	end
+else
+	function ITEM:ExtendDesc(text)
+		text[#text+1] = "Zatrzymuje krwawienie"
+		return text
+	end
+end

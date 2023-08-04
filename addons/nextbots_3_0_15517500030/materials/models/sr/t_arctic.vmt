@@ -1,8 +1,0 @@
-VertexLitGeneric
-{
-	"$basetexture"			"models/sr/t_arctic"
-
-	"$model" 1
-	"$surfaceprop" "flesh"
-	"$halflambert" 1
-}

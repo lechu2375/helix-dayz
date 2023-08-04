@@ -1,8 +1,0 @@
-{
-	"BoneOffset": [
-		"[-16 5 0]",
-		"{90 90 90}"
-	],
-	"Bone": "ValveBiped.Bip01_L_Clavicle",
-	"Model": "models/weapons/w_rocket_launcher.mdl"
-}

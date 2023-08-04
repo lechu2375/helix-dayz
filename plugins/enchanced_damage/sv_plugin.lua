@@ -47,7 +47,7 @@ function PLUGIN:PostPlayerTakeDamage(client, damageInfo)
 
 	if (IsValid(attacker) and (attacker:IsPlayer() or attacker:IsNPC() or attacker:IsNextBot())) then
 		local hit_group = client:LastHitGroup()
-
+		//print(hit_group)
 		if (hit_group != 0 or damageInfo:IsExplosionDamage()) then
 			local damage = damageInfo:GetDamage()
 

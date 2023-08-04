@@ -27,7 +27,7 @@ ENT.OnDeathSounds = {"gmodz/npc/military/death_1.ogg","gmodz/npc/military/death_
 
 ENT.OnDamageSounds = {"gmodz/npc/military/hit_1.ogg","gmodz/npc/military/hit_2.ogg","gmodz/npc/military/hit_3.ogg","gmodz/npc/military/hit_4.ogg","gmodz/npc/military/hit_5.ogg","gmodz/npc/military/hit_6.ogg"}
 ENT.DamageSoundDelay = 0.25
-
+ENT.WeaponAccuracyBase = 0.14
 ENT.WeaponAccuracy = 0.14
 
 if SERVER then

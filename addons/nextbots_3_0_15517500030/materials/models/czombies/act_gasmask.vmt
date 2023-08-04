@@ -1,7 +1,0 @@
-"VertexlitGeneric"
-{
-	"$basetexture" "models/czombies/act_gasmask"
-	"$bumpmap" "models\czombies\act_gasmask_n"
-	"$model" "1"
-	"$halflambert" "1"
-}

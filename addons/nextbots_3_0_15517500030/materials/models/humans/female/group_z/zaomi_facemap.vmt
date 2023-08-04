@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	// Original shader: VertexLitTexture
-	"$basetexture" "models/Humans/female/Group_Z/zaomi_facemap"
-	"$halflambert" 1
-}

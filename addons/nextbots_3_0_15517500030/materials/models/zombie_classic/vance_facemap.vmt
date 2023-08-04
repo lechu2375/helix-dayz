@@ -1,8 +1,0 @@
-"VertexLitGeneric"
-{
-	// Original shader: VertexLitTexture
-	"$basetexture"	"models\Zombie_Classic/vance_facemap"
-	"$Bumpmap"	"models\Zombie_Classic/vance_facemap_normal"
-	"$envmapsphere" 1
-	"$halflambert" 1
-}

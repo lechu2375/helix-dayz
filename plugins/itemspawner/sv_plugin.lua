@@ -82,11 +82,11 @@ function PLUGIN:LoadData()
 				end
 
 				if (table.IsEmpty(v.items)) then
-					v.chance_type = 3
+					v.chance_type = 1
 					v.items = nil
 				end
 			else
-				v.chance_type = 3
+				v.chance_type = 1
 				v.items = nil
 			end
 		end
@@ -323,7 +323,7 @@ net.Receive("ixItemSpawnerChanges", function(_, client)
 				v.chance_type = PLUGIN.chance_type[changes[4]]
 				v.items = changes[5]
 			else
-				v.chance_type = 3
+				v.chance_type = 1
 			end
 
 			if (v.items and table.IsEmpty(v.items)) then

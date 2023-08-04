@@ -1,6 +1,0 @@
-"vertexlitgeneric"
-{
-	"$basetexture" "models/weapons/w_models/sledgehammer/sledgeHammer"
-	"$surfaceprop" "solidmetal"
-	"$model" 1
-}

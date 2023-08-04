@@ -1,1 +1,0 @@
-[{"survivor":{"default":[]},"russia":{"default":[]},"czarnorus":{"default":[]}}]

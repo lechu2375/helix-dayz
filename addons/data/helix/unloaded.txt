@@ -1,1 +1,0 @@
-[{"wepselect":true,"thirdperson":true,"doors":true,"permakill":true,"ammosave":true,"saveitems":true,"recognition":true,"stamina":true,"spawnsaver":true}]

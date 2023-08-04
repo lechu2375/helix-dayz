@@ -1,6 +1,0 @@
-"VertexLitGeneric"
-{
-	// Original shader: VertexLitTexture
-	"$basetexture" "models/Humans/Male/Group_Z/erdim_cylmap"
-	"$halflambert" 1
-}

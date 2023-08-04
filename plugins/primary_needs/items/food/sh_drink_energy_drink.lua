@@ -4,7 +4,7 @@ ITEM.description = "Puszka energetyku Hot-Rod, popularna alternatywa dla energet
 
 ITEM.thirstAmount = 0.35
 ITEM.staminaAmount = 0.45
-ITEM.staminaRegenTime = 30
+ITEM.staminaRegenTime = 120
 ITEM.price = 1500
 ITEM.useSound = "gmodz/items/can.wav"
 

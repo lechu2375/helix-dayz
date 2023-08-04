@@ -1,9 +1,0 @@
-"VertexLitGeneric"
-{
-	"$basetexture" "models/CZombies/ted_facemap30"
-	"$bumpmap" "models/CZombies/ted_facemap30_normal"
-	"$surfaceprop" "Flesh"
-	"$halflambert" 1
-	"$model" "1"
-	"$nodecal" 0
-}
