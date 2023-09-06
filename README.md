@@ -1,9 +1,12 @@
-# GM-DayZ
+# HELIX-DAYZ
 
-Project done is 70%.
+Project is completed in 98%
+The most important bug is to fix nextbots, when new player conntents they are broken. I dont have time to complete project.
 
 Maybe someday I will complete this project.
 
+
+https://github.com/Heyter/GM-DayZ <- Fork of this
 # Content
 hook.Run("OnNextbotDeath",self,dmginfo)
 https://steamcommunity.com/sharedfiles/filedetails/?id=2274508982
