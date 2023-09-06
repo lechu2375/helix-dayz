@@ -8,6 +8,7 @@ Maybe someday I will complete this project.
 
 https://github.com/Heyter/GM-DayZ <- Fork of this
 # Content
+collection https://steamcommunity.com/sharedfiles/filedetails/?id=2934352353
 hook.Run("OnNextbotDeath",self,dmginfo)
 https://steamcommunity.com/sharedfiles/filedetails/?id=2274508982
 
