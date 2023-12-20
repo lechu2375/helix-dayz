@@ -1,0 +1,37 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy_cc/headgear/sunglasses_d_col"
+	"$bumpmap"    "models\blackwatcharmy_cc/other_materials/sunglasses_b_nml"
+      "$color2" "[0.8 0.8 0.83]"
+      //"$blendTintByBaseAlpha"	"1"
+      //"$additive" "1"
+	$translucent 1
+      //"$ambientocclusion" "0"
+      //"$no_draw" "0"
+      //"$selfillum" "1"
+      //"$selfillummaskscale" "15"
+      //"$selfillummask" "/chr_ying_main_emi"
+
+	"$nocull" "1"
+	"$normalmapalphaenvmapmask" "1"	
+
+      //"$envmap" "/metal_generic_002"					
+	"$envmaptint" "[0.04 0.04 0.04]"				
+
+      //"ReflectionsDir
+
+	"$phong" "1"						
+	"$phongboost"	"0.8" 		
+                "$phongexponent" "5"	
+	"$phongexponenttexture" "models\blackwatcharmy_cc/other_materials/sunglasses_b_mask"
+		
+      //"$phongwarptexture" "models\blackwatcharmy_cc/other_materials/phongwarp2"		
+	"$lightwarptexture" "models\blackwatcharmy_cc/other_materials/lightwarp_soft"
+	
+	"$phongfresnelranges"	"[1 1.05 3.25]"			
+	//"$phongtint" 			"[1 1 1.1]"			
+	"$PhongAlbedoTint" "1"
+	"$rimlight" "1"
+	"$rimmask" "1"
+	"$rimlightboost" "1"
+}

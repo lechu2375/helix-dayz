@@ -1,0 +1,24 @@
+"VertexLitGeneric"
+{
+	$basetexture			"viper/mw/vehicles/blima/veh8_mil_air_blima_body2_c"
+	$bumpmap				"viper/mw/vehicles/blima/veh8_mil_air_blima_body2_n"
+	$phongexponenttexture	"viper/mw/vehicles/blima/veh8_mil_air_blima_body2_m"
+
+	"$color2"	"[.6 .6 .6]"
+	"$blendtintbybasealpha" "0"
+	//"$phongexponent"	"60"
+
+	"$bumpmapalphaphongmask" 1
+
+	"$phong" "1"
+	"$phongboost"	"2"
+
+	"$phongalbedotint"	"1"
+
+	"$phongfresnelranges"	"[2 4 6]"
+
+	"$halflambert" "1"
+	"$ambientocclusion" "1"
+	"$nocull" "0"
+
+}

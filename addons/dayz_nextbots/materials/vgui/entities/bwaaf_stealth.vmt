@@ -1,0 +1,5 @@
+"UnlitGeneric"
+{
+	"$basetexture" "vgui/entities/bwaaf_stealth"
+	"$translucent" 1
+}

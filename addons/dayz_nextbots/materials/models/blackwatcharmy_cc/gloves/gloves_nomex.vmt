@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy_cc/gloves/gloves_nomex"
+        "$bumpmap"    "models\blackwatcharmy_cc/other_materials/gloves_nomex_nml"
+$phong "1"
+$phongexponent "3"
+$phongboost "0"
+$phongfresnelranges  "[1 1 30]"
+$phongalbedotint "1"
+}
+
+

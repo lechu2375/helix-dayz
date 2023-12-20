@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/Custom_CSheet2"
+	"$surfaceprop" "BloodyFlesh"
+	"$halflambert" "1"
+}

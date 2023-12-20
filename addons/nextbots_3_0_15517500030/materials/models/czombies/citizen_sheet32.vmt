@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models\czombies/citizen_sheet32"
+	"$halflambert" 1
+
+}

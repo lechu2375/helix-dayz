@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	$basetexture			"models/flare/misc_vm_flarestick_c"
+	$bumpmap				"models/flare/misc_vm_flarestick_n"
+	$phongexponenttexture	"models/flare/misc_vm_flarestick_m"
+	$ambientocclusion		"models/flare/misc_vm_flarestick_o"
+}

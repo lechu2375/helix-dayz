@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\CZombies\van_facemap"
+		"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+	"$model" "1"
+}

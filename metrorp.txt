@@ -1,0 +1,7 @@
+"gmodz"
+{
+	"base" 			"helix"
+	"title" 		"MetroRP"
+	"author" 		"Hikka and Lechu2375"
+	"menusystem"	"1"
+}

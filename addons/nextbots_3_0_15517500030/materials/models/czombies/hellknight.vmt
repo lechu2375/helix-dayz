@@ -1,0 +1,5 @@
+VertexLitGeneric
+{
+	"$basetexture"	"models\czombies\hellknight"
+	 "$bumpmap" "models/czombies\hellknight_Normal"
+}

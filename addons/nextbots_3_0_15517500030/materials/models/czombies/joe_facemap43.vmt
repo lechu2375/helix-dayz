@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	// Original shader: VertexLitTexture
+	"$basetexture" "models/czombies/joe_facemap43"
+	"$halflambert" 1
+}

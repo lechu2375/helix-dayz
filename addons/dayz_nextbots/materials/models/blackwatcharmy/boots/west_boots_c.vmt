@@ -1,0 +1,14 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy/boots/west_boots_c"
+	"$bumpmap" "models\blackwatcharmy/other_materials/west_boots_normal"
+$phong "0"
+$phongexponent "1"
+$phongboost "0.15"
+$phongfresnelranges  "[1 1 30]"
+$phongalbedotint "1"
+
+$rimlight "1"
+$rimlightexponent "7"
+$rimlightboost "1"
+}

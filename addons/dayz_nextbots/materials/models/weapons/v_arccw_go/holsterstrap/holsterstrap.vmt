@@ -1,0 +1,7 @@
+vertexlitgeneric
+{
+	$basetexture models\weapons\v_arccw_go\holsterstrap\holsterstrap
+	$phong 1
+	$phongexponent 60
+	$basemapalphaphongmask 1
+}

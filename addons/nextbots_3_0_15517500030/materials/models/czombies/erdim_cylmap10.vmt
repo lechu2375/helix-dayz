@@ -1,0 +1,8 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/erdim_cylmap10"
+	"$bumpmap" "models/CZombies/erdim_cylmap10_normal"
+	"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+	"$model"  "1"
+}

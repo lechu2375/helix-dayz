@@ -1,0 +1,10 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/art_facemap10"
+	"$bumpmap" "models/CZombies/art_facemap10_normal"
+	"$surfaceprop" "Flesh"
+	"$halflambert" "1"
+	"$nodecal" "0"
+
+}
+

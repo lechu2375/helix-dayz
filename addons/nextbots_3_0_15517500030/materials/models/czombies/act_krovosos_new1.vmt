@@ -1,0 +1,7 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "models/czombies/act_krovosos_new1"
+	"$halflambert" 1
+	"$bumpmap"	"models/czombies/act_krovosos_new1_normal"
+	"$model" "1"
+}

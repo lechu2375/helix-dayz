@@ -1,0 +1,6 @@
+VertexLitGeneric
+{
+$baseTexture "models\blackwatcharmy_cc/gear/SWAT_Black"
+$bumpmap "models\blackwatcharmy_cc/other_materials/SWAT_Black_n"
+$nocull 1
+}

@@ -1,0 +1,19 @@
+VertexlitGeneric
+{
+	$basetexture 			"models\ma85_mw3\pecheneg\textures\weapon_mg_bullet_col"
+	$bumpmap 			"models\ma85_mw3\pecheneg\textures\weapon_mg_bullet_nml"
+	$phongexponenttexture               "models\ma85_mw3\pecheneg\textures\weapon_mg_bullet_phong"
+
+	$phong                      		1
+	$phongexponent                      "7.5"
+	$phongboost                         "1"
+	$phongfresnelranges         "[1 5 10]"
+	$phongalbedotint             "1"
+	$phongtint "[1 .65 .2]"
+	$normalmapalphaphongmask    	1
+
+	$envmap                    		 env_cubemap
+	$envmaptint                 		"[1 .75 .25]"
+	$normalmapalphaenvmapmask   	1
+
+}

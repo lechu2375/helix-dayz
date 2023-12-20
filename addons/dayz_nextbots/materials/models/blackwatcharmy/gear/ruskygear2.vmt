@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy/gear/ruskygear2"
+	"$bumpmap" "models\blackwatcharmy/other_materials/ruskygear2_nml"
+	"$phong" "1"
+	"$phongexponent" "4"
+//	"$phongalbedotint" "1"
+	"$phongboost" ".05"
+	"$phongfresnelranges"	"[.3 .3 .3]"
+	$halflambert 1
+}
+

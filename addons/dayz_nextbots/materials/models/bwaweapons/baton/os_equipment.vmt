@@ -1,0 +1,17 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models\bwaweapons\baton\OS_Equipment"
+	"$bumpmap" "models\bwaweapons\baton\OS_Equipment_NM"
+	"$selfillum" 1
+	"$surfaceprop" "metal"
+	"$model" 1
+	"$nocull" 1
+	"$phong"				"1"
+	"$phongboost"			"1.5"
+	"$phongexponent"			"32"
+	"$phongtint"			"[0.3 0.3 0.3]"
+	"$phongfresnelranges"		"[0.4 0.4 0.4]"
+	"$rimlight" 				"9"	
+	"$rimlightexponent" 			"40"
+	"$rimlightboost"			"0.1"
+}

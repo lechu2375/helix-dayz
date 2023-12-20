@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy_cc/vest/ballisticvest_co"
+	"$bumpmap" "models\blackwatcharmy_cc/other_materials/ballisticvest_nohq"
+ 	"$blendtintbybasealpha" 1
+$phong "1"
+$phongexponent "3"
+$phongboost "0"
+$phongfresnelranges  "[1 1 30]"
+$phongalbedotint "1"
+}

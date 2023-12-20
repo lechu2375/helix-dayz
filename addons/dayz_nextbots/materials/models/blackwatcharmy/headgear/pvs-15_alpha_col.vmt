@@ -1,0 +1,30 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models/blackwatcharmy/headgear/pvs-15_alpha_col"
+	"$bumpmap"    "models/blackwatcharmy/other_materials/pvs-15_alpha_nml"
+	"$phongexponenttexture" "models/blackwatcharmy/other_materials/upperbody_a_mask"
+
+	"$phong" "1"
+	"$phongboost" "1.0"
+//	"$phongexponent" "50"
+	"$phongfresnelranges" "[0.3 1 4]"
+	"$phongalbedotint" "0"
+	"$phongdisablehalflambert" "1"
+	"$normalmapalphaphongmask" "1"
+
+	"$rimlight" "0"
+
+	"$additive" "1"
+
+	"$model" "1"
+	"$halflambert" "0"
+	"$nodecal" "0"
+	"$ambientocclusion" "0"
+	"$nocull" "1"
+	"$surfaceprop" "flesh"
+//	"$blendtintbybasealpha" "1"
+	"$color2" "{ 32 32 32 }"
+	"$cloakpassenabled" "1"
+//	"$cloakcolortint" "[0.4 0.5 1]"
+//	"$cloakcolortint" "[1 0.5 0.4]"
+}

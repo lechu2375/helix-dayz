@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	$basetexture			"viper/mw/vehicles/blima/veh8_mil_air_blima_blurred_rotors_c"
+	$translucent	"1"
+
+}

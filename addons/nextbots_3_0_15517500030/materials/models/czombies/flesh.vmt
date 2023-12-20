@@ -1,0 +1,7 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "Models/CZombies/flesh"
+  "$bumpmap" "models/CZombies/flesh_nrm"
+	"$nodecal" "0"
+	"$halflambert" "1"
+}

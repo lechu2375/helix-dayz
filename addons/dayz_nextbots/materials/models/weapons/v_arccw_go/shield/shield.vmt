@@ -1,0 +1,14 @@
+vertexlitgeneric
+{
+	"$basetexture"               "models/weapons/v_arccw_go/shield/shield"
+	"$bumpmap"                   "dev/flat_normal"
+	"$basemapluminancephongmask" "1"
+	"$phong"                     "1"
+	"$phongboost"                "5"
+	"$phongexponent"             "12"
+	"$phongdisablehalflambert"   "1"
+	"$envmap"                    "env_cubemap"
+	"$envmaptint"                "0.008"
+	"$basealphaenvmapmask"       "1"
+	"$disablecsmlookup"          "1"
+}

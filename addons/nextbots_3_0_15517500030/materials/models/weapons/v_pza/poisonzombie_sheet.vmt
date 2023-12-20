@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "Models/Weapons/v_pza/PoisonZombie_sheet"
+	"$bumpmap" "Models/Weapons/v_pza/PoisonZombie_sheet_normal"
+}

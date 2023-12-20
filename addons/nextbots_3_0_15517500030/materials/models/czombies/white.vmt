@@ -1,0 +1,6 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/CZombies/white"
+	"$selfillum" "1"
+	"model"1
+}

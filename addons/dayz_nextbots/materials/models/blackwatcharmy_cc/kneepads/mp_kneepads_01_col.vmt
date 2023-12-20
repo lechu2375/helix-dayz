@@ -1,0 +1,15 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy_cc/kneepads/mp_kneepads_01_col"
+	"$bumpmap"    "models\blackwatcharmy_cc/other_materials/mp_kneepads_01_nml"
+	
+	"$phong"	"0"
+	"$phongexponent"	"6"
+	"$phongalbedotint"	"1"
+	"$phongboost"	"0.35"
+	"$phongfresnelranges"	"[5 7 8]"
+    "$lightwarptexture" 	"models\blackwatcharmy_cc/other_materials/Clothes_wrp"
+	"$phongexponenttexture" "models\blackwatcharmy_cc/other_materials/mp_kneepads_01_spc"
+}
+
+

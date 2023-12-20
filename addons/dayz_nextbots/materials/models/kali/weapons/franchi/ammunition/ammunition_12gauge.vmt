@@ -1,0 +1,25 @@
+"VertexlitGeneric"
+{
+
+	"$basetexture" "models\Kali\Weapons\Franchi\Ammunition\Ammunition_12Gauge_C"
+	"$bumpmap" "models\Kali\Weapons\Franchi\Ammunition\Ammunition_12Gauge_N"
+	"$halflambert" "1"				
+	"$nocull" 1		
+
+	"$normalmapalphaenvmapmask" 1				
+	"$envmap" "env_cubemap"					
+	"$envmaptint" "[ .3 .3 .3 ]"					
+ 	"$envmapFresnel" "0.5"					
+
+	"$phong" "1"						
+	"$phongexponenttexture" "models\Kali\Weapons\Franchi\Ammunition\Ammunition_12Gauge_Exp"
+	"$phongboost" "2.5"						
+	"$phongfresnelranges"	"[ .2 1.2 8]"	
+
+	"$PhongAlbedoTint" "1"		
+
+}
+
+
+
+

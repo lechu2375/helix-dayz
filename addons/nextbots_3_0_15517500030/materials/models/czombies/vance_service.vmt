@@ -1,0 +1,5 @@
+"VertexLitGeneric"
+{
+	"$basetexture" "models/czombies/vance_service"
+	"$halflambert" 1
+}

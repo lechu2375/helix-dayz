@@ -1,0 +1,16 @@
+VertexLitGeneric
+{
+$basetexture "models\teh_herper\CSGO_M4A4\CSGO_M4A4_D"
+$phongexponenttexture "models\teh_herper\CSGO_M4A4\CSGO_M4A4_E"
+$nocull 1
+$phong 1
+$phongboost ".5"
+$phongalbedoboost 25
+$phongfresnelranges "[.83 .83 1]"
+$basemapalphaphongmask 1
+$phongalbedotint 1
+$phongdisablehalflambert 1
+$envmap env_cubemap
+$envmapfresnel 1
+$envmaptint "[.02 .02 .02]"
+}

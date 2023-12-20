@@ -1,0 +1,14 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "munch/warthog/veh8_mil_air_alfa10_glass"
+                "$bumpmap" "munch/warthog/veh8_mil_air_alfa10_glassn"
+
+	"$Phong"				    "1"
+	"$PhongBoost"               "35"
+	"$PhongExponent"            "1500" 
+	"$PhongFresnelRanges"	    "[0.3 1 4]"
+	"$PhongAlbedoTint"          "0"
+	"$PhongDisableHalfLambert"  "1"
+	"$NormalmapAlphaPhongMask"  "1"
+}
+

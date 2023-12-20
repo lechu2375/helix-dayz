@@ -13,11 +13,7 @@ function SWEP:MyEmitSound(fsound, level, pitch, vol, chan, useWorld)
         if useWorld then
             sound.Play(fsound, self:GetOwner():GetShootPos(), level, pitch, vol)
         else
-            if(self:GetOwner():IsNextBot()) then 
-                sound.Play(fsound, self:GetOwner():GetShootPos(), level, pitch, vol)
-            else
-                self:EmitSound(fsound, level, pitch, vol, chan or CHAN_AUTO)
-            end
+            self:EmitSound(fsound, level, pitch, vol, chan or CHAN_AUTO)
         end
     end
 end

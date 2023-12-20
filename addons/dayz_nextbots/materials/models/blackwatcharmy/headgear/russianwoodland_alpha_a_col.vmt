@@ -1,0 +1,11 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy/headgear/russianwoodland_alpha_a_col"
+	"$bumpmap" "models\blackwatcharmy/other_materials/russianwoodland_alpha_a_nml"
+$translucent 1
+$phong "1"
+$phongexponent "3"
+$phongboost ".2"
+$phongfresnelranges  "[1 1 30]"
+$phongalbedotint "1"
+}

@@ -1,0 +1,12 @@
+"VertexLitGeneric"
+{
+	"$baseTexture" "models\blackwatcharmy_cc/headgear/fed_army_headgear_e_col"
+                "$bumpmap"    "models\blackwatcharmy_cc/other_materials/fed_army_headgear_e_nml"
+$halflambert 1
+$phong 1
+$phongboost "0.1"
+$phongexponent 9
+$phongtint "[.85 .85 1]"
+$phongfresnelranges "[.3 4 30]"
+$ambientocclusion 1
+}
